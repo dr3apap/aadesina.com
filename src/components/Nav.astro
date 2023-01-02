@@ -1,0 +1,20 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+---
+<div class="nav">
+		 <nav class="nav__logo">
+                    <HeaderLink href="/"><img slot="site-logo" src="./asset/dr3-logo.png"
+                            alt="Adebola Adesina logo"></HeaderLink>
+                    <div class="box" aria-controls="nav-toggle">
+                        <div class="bar" style="--fade:0" aria-expanded="false">
+							<span class="nav-toggle-label">Display nav</span>
+                        </div>
+                    </div>
+		<ul id="nav-toggle" aria-expanded="false" role-label="nav-list">
+		<HeaderLink href="/">Home</HeaderLink>
+		<HeaderLink href="/blog">Blog</HeaderLink>
+		<HeaderLink href="/about">About</HeaderLink>
+		<HeaderLink href="/contact">Contact</HeaderLink>
+		</ul>
+	</nav>
+</div>

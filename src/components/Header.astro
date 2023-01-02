@@ -1,28 +1,14 @@
 ---
-import HeaderLink from './HeaderLink.astro';
 import ThemeToggle from "./ThemeToggle.astro";
-import { SITE_TITLE } from '../config';
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import  Nav  from "./Nav.astro";
+import BaseHead from "./BaseHead.astro";
 ---
 
 <header>
-	<div class="nav">
-		 <nav class="nav__logo">
-                    <HeaderLink href="/"><img slot="site-logo" src="./asset/dr3-logo.png"
-                            alt="Adebola Adesina logo"></HeaderLink>
-                    <div class="box" aria-controls="nav-toggle">
-                        <div class="bar" style="--fade:0" aria-expanded="false">
-							<span class="nav-toggle-label">Display nav</span>
-                        </div>
-                    </div>
-		<ul id="nav-toggle" aria-expanded="false" role-label="nav-list">
-		<HeaderLink href="/">Home</HeaderLink>
-		<HeaderLink href="/blog">Blog</HeaderLink>
-		<HeaderLink href="/about">About</HeaderLink>
-		<HeaderLink href="/contact">Contact</HeaderLink>
-		</ul>
-	</nav>
+	<BaseHead title={ SITE_TITLE }  description={ SITE_DESCRIPTION }/>
+	<Nav/>	
    <ThemeToggle/>
-	</div>
 	<div class="hero-area">
                 <div class="hero-area__inner">
                     <!-- <p><span class="salutation">Hi, my name is</span></p>  -->
@@ -104,11 +90,4 @@ import { SITE_TITLE } from '../config';
 
             </div>
 </header>
-<style>
-	header {
-		margin: 0em 0 2em;
-	}
-	h2 {
-		margin: 0.5em 0;
-	}
-</style>
+
