@@ -1,0 +1,114 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import ThemeToggle from "./ThemeToggle.astro";
+import { SITE_TITLE } from '../config';
+---
+
+<header>
+	<div class="nav">
+		 <nav class="nav__logo">
+                    <HeaderLink href="/"><img slot="site-logo" src="./asset/dr3-logo.png"
+                            alt="Adebola Adesina logo"></HeaderLink>
+                    <div class="box" aria-controls="nav-toggle">
+                        <div class="bar" style="--fade:0" aria-expanded="false">
+							<span class="nav-toggle-label">Display nav</span>
+                        </div>
+                    </div>
+		<ul id="nav-toggle" aria-expanded="false" role-label="nav-list">
+		<HeaderLink href="/">Home</HeaderLink>
+		<HeaderLink href="/blog">Blog</HeaderLink>
+		<HeaderLink href="/about">About</HeaderLink>
+		<HeaderLink href="/contact">Contact</HeaderLink>
+		</ul>
+	</nav>
+   <ThemeToggle/>
+	</div>
+	<div class="hero-area">
+                <div class="hero-area__inner">
+                    <!-- <p><span class="salutation">Hi, my name is</span></p>  -->
+                    <div class="title">
+                        <h1>
+                            <!-- <span>Adebola</span> 
+                <span>Adesina</span> -->
+                            Adebola
+                        </h1>
+                        <h2>Adesina</h2>
+                    </div>
+                    <div class="typewriter">
+                        <h2 class="header-tagline-1"><span
+                                class="hero-text"></span></h2>
+                        <div class="typewriter__media">
+                            <svg width="32" height="32" viewBox="0 0 64 64"
+                                fill="none" preserveAspectRatio="xMidYMid slice">
+                                <image x="0" y="0" width="32" height="32"
+                                    href="./asset/media/emojione-v1_laptop-computer.svg"
+                                    style="--i:0" />
+                            </svg>
+                            <svg width="32" height="32" viewBox="0 0 64 64"
+                                fill="none" preserveAspectRatio="xMidYMid slice">
+                                <image x="0" y="0" width="32" height="32"
+                                    href="./asset/media/flat-color-icons_tablet-android.svg"
+                                    style="--i:1" />
+                            </svg>
+                            <svg width="32" height="32" viewBox="0 0 64 64"
+                                fill="none" preserveAspectRatio="xMidYMid slice">
+                                <image x="0" y="0" width="32" heieght="32"
+                                    href="./asset/media/noto-v1_mobile-phone.svg"
+                                    style="--i:2" />
+                            </svg>
+
+                            <svg width="32" height="32" viewBox="0 0 64 64"
+                                fill="none" preserveAspectRatio="xMidYMid slice">
+                                <image x="0" y="0" width="32" height="32"
+                                    href="./asset/media/noto_laptop.svg"
+                                    style="--i:3" />
+                            </svg>
+
+                        </div>
+                    </div>
+                </div>
+
+                <svg width="48" height="85" fill="none" class="scroll" viewBox="0 0 48 85">
+                    <g filter="url(#a)">
+                        <circle cx="23.5" cy="19.5" r="10.5" fill="#E85D04" id="scroll"/>
+                        <animateTransform xlink:href="#scroll"
+                            attributeName="transform" attributeType="XML"
+                            type="translate" from="0 0" to="0 30"
+                            values="0,0;0,30;0,0" dur="1s"
+                            repeatCount="indefinite" fill="freeze" />
+                        <rect width="34" height="71" x="7" y="3"
+                            stroke="#1693E0" stroke-width="6" rx="17"
+                            shape-rendering="crispEdges" />
+                    </g>
+                    <defs>
+                        <filter id="a" width="48" height="85" x="0" y="0"
+                            color-interpolation-filters="sRGB"
+                            filterUnits="userSpaceOnUse">
+                            <feFlood flood-opacity="0"
+                                result="BackgroundImageFix" />
+                            <feColorMatrix in="SourceAlpha" result="hardAlpha"
+                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                            <feOffset dy="4" />
+                            <feGaussianBlur stdDeviation="2" />
+                            <feComposite in2="hardAlpha" operator="out" />
+                            <feColorMatrix
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                            <feBlend in2="BackgroundImageFix"
+                                result="effect1_dropShadow_137_1213" />
+                            <feBlend in="SourceGraphic"
+                                in2="effect1_dropShadow_137_1213"
+                                result="shape" />
+                        </filter>
+                    </defs>
+                </svg>
+
+            </div>
+</header>
+<style>
+	header {
+		margin: 0em 0 2em;
+	}
+	h2 {
+		margin: 0.5em 0;
+	}
+</style>
