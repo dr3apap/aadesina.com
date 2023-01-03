@@ -1,20 +1,22 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 ---
-<div class="nav">
-		 <nav class="nav__logo">
-                    <HeaderLink href="/"><img slot="site-logo" src="./asset/dr3-logo.png"
-                            alt="Adebola Adesina logo"></HeaderLink>
-                    <div class="box" aria-controls="nav-toggle">
+<div class="grid grid-cols-[2fr_minmax(3rem,_1fr)]">
+		 <nav class="grid grid-cols-2 pt-4">
+                    <HeaderLink href="/" class=""><img class="w-12 h-8" src="./asset/dr3-logo.png"
+                            alt="Adebola Adesina logo"/></HeaderLink>
+                    <div class="box col-start-3 col-end-4 row-start-1 row-end-2 col-span-2" aria-controls="nav-toggle">
                         <div class="bar" style="--fade:0" aria-expanded="false">
-							<span class="nav-toggle-label">Display nav</span>
+							<span class="nav-toggle-label sr-only">Display nav</span>
                         </div>
                     </div>
-		<ul id="nav-toggle" aria-expanded="false" role-label="nav-list">
-		<HeaderLink href="/">Home</HeaderLink>
-		<HeaderLink href="/blog">Blog</HeaderLink>
-		<HeaderLink href="/about">About</HeaderLink>
-		<HeaderLink href="/contact">Contact</HeaderLink>
+		<ul id="nav-toggle" aria-expanded="false" role-label="nav-list" class="row-start-2 row-end-3 col-start-3 col-end-4 justify-self-end pl-6">
+		<li><HeaderLink href="/">Home</HeaderLink></li>
+		<li><HeaderLink href="/blog">Blog</HeaderLink></li>
+		<li><HeaderLink href="/about">About</HeaderLink></li>
+		<li><HeaderLink href="/contact">Contact</HeaderLink></li>
 		</ul>
 	</nav>
+<ThemeToggle/>
 </div>

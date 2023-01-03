@@ -1,67 +1,179 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
-body {
-	font-family: Verdana, sans-serif;
-	margin: auto;
-	padding: 20px;
-	max-width: 65ch;
-	text-align: left;
-	background-color: #fff;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	line-height: 1.5;
-	color: #444;
+@import url("../../node_modules/open-props/colors.min.css");
+@import url("../../node_modules/open-props/colors-hsl.min.css");
+@import url("../../node_modules/open-props/gradients.min.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+
+/* @link https://utopia.fyi/type/calculator?c=220,16,1.2,768,20,1.25,9,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  --step--2: clamp(0.69rem, calc(0.65rem + 0.31vw), 0.80rem);
+  --step--1: clamp(0.83rem, calc(0.77rem + 0.49vw), 1.00rem);
+  --step-0: clamp(1.00rem, calc(0.90rem + 0.73vw), 1.25rem);
+  --step-1: clamp(1.20rem, calc(1.05rem + 1.06vw), 1.56rem);
+  --step-2: clamp(1.44rem, calc(1.23rem + 1.50vw), 1.95rem);
+  --step-3: clamp(1.73rem, calc(1.44rem + 2.08vw), 2.44rem);
+  --step-4: clamp(2.07rem, calc(1.68rem + 2.86vw), 3.05rem);
+  --step-5: clamp(2.49rem, calc(1.96rem + 3.87vw), 3.82rem);
+  --step-6: clamp(2.99rem, calc(2.27rem + 5.20vw), 4.77rem);
+  --step-7: clamp(3.58rem, calc(2.63rem + 6.94vw), 5.96rem);
+  --step-8: clamp(4.30rem, calc(3.04rem + 9.20vw), 7.45rem);
+  --step-9: clamp(5.16rem, calc(3.49rem + 12.13vw), 9.31rem);
+  --bradn-gradient-from: 203deg 93% 32%;
+  --brand-gradient-to:24deg 92% 29%;
+  --gradient-from:194deg 74% 86%;
+  --gradient-to:195deg 39% 51%;
+  font-size:62.5%;
 }
+
+html{
+	scroll-snap-type: y proximity;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: Inter, 'Nunito Sans', -apple-system, \.SFNSText-Regular, 'San Francisco', BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: var(--paragraph-small);
+  font-weight: 700;
+  font-style: normal;
+  text-transform: none;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background: var(--gray-2);
+  color: var(--gray-8);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+/* body .content-area {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 8rem;
+}
+@media (min-width: 1000px) {
+  body .content-area {
+    display: grid;
+    grid-template-columns: 1fr 70% 1fr;
+    grid-template-areas: ". header .  " ". about ." ". featured ." ". demos .";
+  }
+}
+@media (min-width: 1280px) {
+  body .content-area {
+    grid-template-columns: 1fr 60% 1fr;
+  }
+} */
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-strong,
-b {
-	color: #222;
-}
-a {
-	color: #3273dc;
-}
-nav a {
-	margin-right: 10px;
-}
-textarea {
-	width: 100%;
-	font-size: 16px;
-}
-input {
-	font-size: 16px;
-}
-content {
-	line-height: 1.6;
-}
-table {
-	width: 100%;
+/* h6 {
+  font-family: 'Dosis', sans-serif;
+} */
+section {
+  padding: 4% 2rem;
 }
 img {
-	max-width: 100%;
-	height: auto;
+  max-width: 100%;
+  height: auto;
 }
-code {
-	padding: 2px 5px;
-	background-color: #f2f2f2;
+::selection {
+  background-color: hsl(60, 50%, 50%);
+  color: hsl(0, 50%, 50%);
 }
-pre {
-	padding: 1rem;
+.box {
+    grid-area: control;
+    justify-self: center;
+    width: 6rem;
+    height: 6rem;
+    padding: 0;
+    /* right:4rem; */
+    position: relative;
+    background-color: transparent;
+    cursor: pointer;
+
+} 
+
+    .bar {
+        width: 3rem;
+        height: .4rem;
+        position: absolute;
+        top: .9rem;
+        right: 0;
+        line-height: 0;
+        /* border:.3rem solid var(--color-grayscale-100); */
+        background-color: var(--cyan-8);
+        border-radius: 1px;
+        transition: opacity calc(var(--duration) - 0.5s) linear;
+	}
+        .bar::before,
+        .bar::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 3rem;
+            left: 0;
+            border: .2rem solid var(--cyan-8);
+            border-radius: 1px;
+            transition: transform calc(var(--duration) - 0.5s);
+        }
+
+
+        .bar::before {
+            transform-origin: left top;
+            top: 0;
+            /* bottom:1rem; */
+            transform: rotate(0deg) translate(0, -.8rem);
+
+        }
+
+        .bar::after {
+            transform-origin: right top;
+            bottom: 0; 
+            transform: rotate(0deg) translate(0, .8rem);
+
+        }
+
+        [aria-expanded="true"] {
+        background-color: transparent;
+		}
+
+            /* .bar::before {
+                transform: translate(.6rem, -1rem)rotate(45deg);
+                border-radius: .7rem;
+
+            }
+
+            .bar::after {
+                transform: translate(-.6rem, -1rem)rotate(-45deg);
+                border-radius: .7rem;
+
+            } */
+
+        
 }
-pre > code {
-	all: unset;
-}
-blockquote {
-	border: 1px solid #999;
-	color: #222;
-	padding: 2px 0px 2px 20px;
-	margin: 0px;
-	font-style: italic;
-}
+
+
+
+
+
