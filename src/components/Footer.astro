@@ -2,8 +2,8 @@
 const today = new Date();
 ---
 	<footer>
-        <div class="footer__items">
-            <ul>
+        <div class="flex flex-col gap-4 items-center"> <!-- Footer items wrapper  -->
+            <ul class="flex gap-4 text-brand-fill-light">
                 <li><a href="/">Home</a></li>
                 <li><a href="#about-me">About</a></li>
                 <li><a href="#demos">Demos</a></li>
@@ -29,15 +29,10 @@ const today = new Date();
 
             </div>
             <a href="/contact.html" class="cta-btn">Contact</a>
-        </div>
-        <div class="copyright">
+        </div> <!-- Footer items end -->
+        <div class="text-center mt-4">
             <p>Designed and Developed by Adebola Adesina.</p>
-            <p>&COPY;{ today.getFullYear() } All rights reserved.</p>
+            <p class="text-sm">&COPY;{ today.getFullYear() } All rights reserved.</p>
         </div>
-    </footer>
-<style>
-	footer {
-		padding: 25px;
-		text-align: center;
-	}
-</style>
+    </footer> 
+

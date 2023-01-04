@@ -34,27 +34,40 @@ module.exports = {
                 "gradient":{
                 to:"hsl(var(--gradient-to))",
                 from:"hsl(var(--gradient-from))",
-                "from-gradient":"hsl(var(--gradient-from))",
-                "to-gradient":"hsl(var(--gradient-to))",
+                
                 },
 
-        },
-        "screens":{
-            "xsm":"220px",
-            "sm1":"320px",
-        },
-        spacing,
-        minHeight,
-        fontSize,
+             },
+            "screens":{
+                "xsm":"220px",
+                "sm1":"320px",
+            },
+            spacing,
+            minHeight,
+            fontSize,
         
+    
+            gradientColorStops:{
+               "gradient-from":"var(--gradient-from)",
+               "gradient-to":"var(--gradient-to)",
+            },
+            // fontFamily:{
+            //     sans:["Inter", "var(--font-sans)", ...defaultTheme.FontFamily.sans],
+            // }
+      },
     },
-        gradientColorStops:{
-            "brand-gradient-stops":"var(--brand-gradient-from),var(--brand-gradient-to)",
-            "gradient-stops":"var(--gradient-from), var(--gradient-to)",
-        },
-        // fontFamily:{
-        //     sans:["Inter", "var(--font-sans)", ...defaultTheme.FontFamily.sans],
-        // }
+    plugins:[
+        plugin(function({addComponents, addUtilities, theme}){
+           addComponents({
+            ".circle-shape":{
+                shapeOutside:"circle()"
+            },
+            }),
+            addUtilities({
+                ".from-gradient":theme("colors.gradient-to"),
+                ".to-gradient":theme("colors.gradient-from")
+            })
 
-    }
+        }),
+    ]
 }
