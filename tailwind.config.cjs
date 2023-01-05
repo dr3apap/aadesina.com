@@ -17,19 +17,25 @@ module.exports = {
         extend:{
             colors:{
                 "brand-fill":{
-                light:"var(--orange-4)",
-                DEFAULT:"var(--orange-7)",
+                medium:"hsl(var(--brand-400))",
+                light:"hsl(var(--brand-300))",
+                DEFAULT:"hsl(var(--brand-500))",
                 dark:"var(--orange-12)"
                 },
+                "brand-secondary":{
+                    DEFAULT:"hsl(var(--brand-secondary-500))",
+                    medium:"hsl(var(--brand-secondary-400))",
+                    light:"hsl(var(--brand-secondary-300))"
+                },
                 "mode":{
-                    light:"var(--gray-1)",
-                    dark:"var(--cyan-12)",
+                    light:"hsl(var(--bg-light))",
+                    dark:"hsl(var(--bg-dark))",
                 },
                 "fg":{
-                    light1:"var(--gray-7)",
+                    light:"var(--gray-7)",
                     light2:"var(--gray-8)",
-                    dark1:"var(--gray-1)",
-                    dark2:"var(--gray-2)",
+                    dark:"hsl(var(--fg-light))",
+                    dark1:"hsl(var(--fg-light1))",
                 },
                 "gradient":{
                 to:"hsl(var(--gradient-to))",

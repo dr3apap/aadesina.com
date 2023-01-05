@@ -27,6 +27,17 @@
   --brand-gradient-to:24deg 92% 29%;
   --gradient-from:194deg 74% 86%;
   --gradient-to:195deg 39% 51%;
+  --brand-300: 23deg 77% 61%;
+	--brand-400: 23deg 80% 55%;
+	--brand-500: 23deg 97% 46%;
+  --brand-secondary-300: 203deg 68% 62%;
+	--brand-secondary-400: 203deg 82% 48%;
+  --brand-secondary-500:203deg 84% 29%;
+  --bg-dark:203deg 58% 14%;
+  --bg-light:200deg 22% 87%;
+  --fg-light:0deg 0% 95%;
+  --fg-light1:0deg 0% 80%; 
+
   font-size:62.5%;
 }
 
@@ -60,7 +71,7 @@ body {
   text-transform: none;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  background: var(--gray-2);
+  /* background: var(--gray-2); */
   color: var(--gray-8);
   min-height: 100vh;
   overflow-x: hidden;
@@ -101,6 +112,9 @@ img {
   background-color: hsl(60, 50%, 50%);
   color: hsl(0, 50%, 50%);
 }
+header, section{
+  background-color:hsl(0, 0%, 95%);
+}
 .box {
     grid-area: control;
     justify-self: center;
@@ -122,7 +136,7 @@ img {
         right: 0;
         line-height: 0;
         /* border:.3rem solid var(--color-grayscale-100); */
-        background-color: var(--cyan-8);
+        background-color: hsl(0, 0%, 80%);
         border-radius: 1px;
         transition: opacity calc(var(--duration) - 0.5s) linear;
 	}
@@ -133,7 +147,7 @@ img {
             display: block;
             width: 3rem;
             left: 0;
-            border: .2rem solid var(--cyan-8);
+            border: .2rem solid hsl(0, 0%, 80%);
             border-radius: 1px;
             transition: transform calc(var(--duration) - 0.5s);
         }
