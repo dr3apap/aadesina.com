@@ -25,6 +25,7 @@
   --step-7: clamp(3.58rem, calc(2.63rem + 6.94vw), 5.96rem);
   --step-8: clamp(4.30rem, calc(3.04rem + 9.20vw), 7.45rem);
   --step-9: clamp(5.16rem, calc(3.49rem + 12.13vw), 9.31rem);
+  --step-10: clamp(6.19rem, calc(4.00rem + 15.91vw), 11.64rem);
   /** color theme*/
   --brand-gradient-from: 203deg 93% 32%;
   --brand-gradient-to:24deg 92% 29%;
@@ -145,7 +146,7 @@ p{
 }
 
 section {
-  padding:4%;
+  padding-top:4%;
 }
 img {
   max-width: 100%;

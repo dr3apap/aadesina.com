@@ -8,7 +8,7 @@ const fontSize = {};
 spacing.avatar = `var(--step-${AVATAR_SPACING})`;
 minHeight['half-avatar'] = `calc(var(--step-${AVATAR_SPACING}) * 0.5)`;
 // Typography scales
-for (let i = -2; i < 10; i++){
+for (let i = -2; i < 11; i++){
    fontSize[`fluid-${i}`] =  `var(--step-${i})`;
 }
 module.exports = {
@@ -32,9 +32,9 @@ module.exports = {
                     dark:"hsl(var(--bg-dark))",
                 },
                 "fg":{
-                    light:"hsl(var(--light))",
-                    light1:"hsl(var(--light1))",
-                    dark:"hsl(var(--fg-light))",
+                    light:"hsl(var(--fg-light))",
+                    light1:"hsl(var(--fg-light1))",
+                    dark:"hsl(var(--fg-dark))",
                 },
                 "gradient":{
                 to:"hsl(var(--gradient-to))",
