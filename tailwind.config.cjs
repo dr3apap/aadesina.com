@@ -32,10 +32,9 @@ module.exports = {
                     dark:"hsl(var(--bg-dark))",
                 },
                 "fg":{
-                    light:"var(--gray-7)",
-                    light2:"var(--gray-8)",
+                    light:"hsl(var(--light))",
+                    light1:"hsl(var(--light1))",
                     dark:"hsl(var(--fg-light))",
-                    dark1:"hsl(var(--fg-light1))",
                 },
                 "gradient":{
                 to:"hsl(var(--gradient-to))",

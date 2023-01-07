@@ -13,11 +13,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
 ---
-
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<!-- <link rel="preload" as="style" href="$CSS&display=swap"> -->
+<!-- <link rel="stylesheet" href="$CSS&display=swap" media="print" onload="this.media='all'"> -->
+<!-- <noscript><link rel="styesheet" href="$CSS&display=swap"></noscript> -->
+<link rel="icon" type="image/svg+xml" href="/asset/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200..900&display=swap" rel="stylesheet">
 <meta name="generator" content={Astro.generator} />
 
 <!-- Canonical URL -->
