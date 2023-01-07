@@ -17,15 +17,15 @@ module.exports = {
         extend:{
             colors:{
                 "brand-fill":{
-                medium:"hsl(var(--brand-400))",
-                light:"hsl(var(--brand-300))",
+                400:"hsl(var(--brand-400))",
+                300:"hsl(var(--brand-300))",
                 DEFAULT:"hsl(var(--brand-500))",
                 dark:"var(--orange-12)"
                 },
                 "brand-secondary":{
                     DEFAULT:"hsl(var(--brand-secondary-500))",
-                    medium:"hsl(var(--brand-secondary-400))",
-                    light:"hsl(var(--brand-secondary-300))"
+                    400:"hsl(var(--brand-secondary-400))",
+                    300:"hsl(var(--brand-secondary-300))"
                 },
                 "mode":{
                     light:"hsl(var(--bg-light))",
