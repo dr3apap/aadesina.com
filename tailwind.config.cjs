@@ -44,8 +44,8 @@ module.exports = {
 
              },
             "screens":{
-                "xsm":"220px",
-                "sm1":"320px",
+                "sm1":"500px",
+                "la":"620px",
             },
             spacing,
             minHeight,
