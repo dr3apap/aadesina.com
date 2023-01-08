@@ -156,9 +156,9 @@ img {
   background-color: hsl(60, 50%, 50%);
   color: hsl(0, 50%, 50%);
 }
-header, section{
+/* header, section{
   background-color:hsl(0, 0%, 95%);
-}
+} */
 .box {
     grid-area: control;
     justify-self: center;
