@@ -16,35 +16,40 @@ module.exports = {
     theme:{
         extend:{
             colors:{
-                "brand-fill":{
-                400:"hsl(var(--brand-400))",
-                300:"hsl(var(--brand-300))",
-                DEFAULT:"hsl(var(--brand-500))",
-                dark:"var(--orange-12)"
+                "brand-light":{
+                DEFAULT:"hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness))",
+                "text1":"hsl(var(--brand-hue) var(--brand-saturation) 20%)",
+                "text2":"hsl(var(--brand-hue) 30% 30%)",
+                "surface1":"hsl(var(--brand-hue) 25% 90%)",
+                "surface2":"hsl(var(--brand-hue) 20% 99%)",
+                "surface3":"hsl(var(--brand-hue) 20% 92%)",
+                "surface4":"hsl(var(--brand-hue) 20% 85%)",
+                "surface-alpha":"hsl(var(--brand-hue) 20% 99% / 65%))",
                 },
-                "brand-secondary":{
-                    DEFAULT:"hsl(var(--brand-secondary-500))",
-                    400:"hsl(var(--brand-secondary-400))",
-                    300:"hsl(var(--brand-secondary-300))"
+                "brand-secondary-light":{
+                    DEFAULT:"hsl(var(--brand-secondary-hue) var(--brand-secondary-saturation) var(--brand-secondary-lightness))",
+                    "text1":"hsl(var(--brand-secondary-hue) var(--brand-secondary-saturation) 20%)",
+                    "text2":"hsl(var(--brand-secondary-hue) 30% 30%)",
+                    "surface1":"hsl(var(--brand-secondary-hue) 25% 90%)",
+                    "surface2":"hsl(var(--brand-secondary-hue) 20% 99%)",
+                    "surface3":"hsl(var(--brand-secondary-hue) 20% 92%)",
+                    "surface4":"hsl(var(--brand-secondary-hue) 20% 85%)",
+                    "surface-alpha":"hsl(var(--brand-secondary-hue) 20% 99% / 65%))",
                 },
-                "mode":{
-                    light:"hsl(var(--bg-light))",
-                    dark:"hsl(var(--bg-dark))",
-                },
-                "fg":{
-                    light:"hsl(var(--fg-light))",
-                    light1:"hsl(var(--fg-light1))",
-                    dark:"hsl(var(--fg-dark))",
-                },
-                "gradient":{
-                to:"hsl(var(--gradient-to))",
-                from:"hsl(var(--gradient-from))",
-                
-                },
+                "brand-dark":{
+                    DEFAULT:"hsl(var(--brand-hue) calc(var(--brand-saturation)/2) calc(var(--brand-lightness)/1.5))",
+                    surface1:"hsl(var(--brand-hue) 10% 10%)",
+                    surface2:"hsl(var(--brand-hue) 10% 15%)",
+                    surface3:"hsl(var(--brand-hue) 5% 20%)",
+                    surface4:"hsl(var(--brand-hue) 5% 25%)",
+                    text1:"hsl(var(--brand-hue) 15% 85%)",
+                    text2:"hsl(var(--brand-hue) 5% 65%)",
+                    "surface-alpha":"hsl(var(--brand-hue) 10% 10% / 65%))",
 
+                },
+                
              },
             "screens":{
-                "sm1":"500px",
                 "la":"620px",
             },
             spacing,
@@ -67,10 +72,14 @@ module.exports = {
             ".circle-shape":{
                 shapeOutside:"circle()"
             },
+            ".rad-shadow":{
+                    boxShadow:"0 2.8px 2.2px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + .03)), 0 6.7px 5.3px hsl(var(--surface-shadow-light) / calc(var(--surface-strength-light) + .01)), 0 12.5px 10px hsl(var(--surface-shadow-light) / calc(var(--surface-strength-light) +.02)), 0 22.3px 17.9px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) +.02)), 0 41.8px 33.4px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + .03)), 0 100px 80px hsl(var(--surface-shadow-light) / var(--shadow-strength-light))"
+                }
             }),
             addUtilities({
-                ".from-gradient":theme("colors.gradient-to"),
-                ".to-gradient":theme("colors.gradient-from")
+                // ".rad-shadow":{
+                //     boxShadow:"0 2.8px 2.2px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + .03)), 0 6.7px 5.3px hsl(var(--surface-shadow-light) / calc(var(--surface-strength-light) + .01)), 0 12.5px 10px hsl(var(--surface-shadow-light) / calc(var(--surface-strength-light) +.02)), 0 22.3px 17.9px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) +.02)), 0 41.8px 33.4px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + .03)), 0 100px 80px hsl(var(--surface-shadow-light) / var(--shadow-strength-light))"
+                // }
             })
 
         }),

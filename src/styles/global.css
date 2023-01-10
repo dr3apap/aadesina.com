@@ -27,16 +27,12 @@
   --step-9: clamp(5.16rem, calc(3.49rem + 12.13vw), 9.31rem);
   --step-10: clamp(6.19rem, calc(4.00rem + 15.91vw), 11.64rem);
   /** color theme*/
-  --brand-gradient-from: 203deg 93% 32%;
-  --brand-gradient-to:24deg 92% 29%;
-  --gradient-from:194deg 74% 86%;
-  --gradient-to:195deg 39% 51%;
   --brand-300: 23deg 77% 61%;
 	--brand-400: 23deg 80% 55%;
-	--brand-500: 23deg 97% 46%;
+	--brand: hsl(23 97% 46%);
   --brand-secondary-300: 203deg 68% 62%;
 	--brand-secondary-400: 203deg 82% 48%;
-  --brand-secondary-500:203deg 84% 29%;
+  --brand-secondary:hsl(203 84%  29%);
   --bg-dark:203deg 58% 14%;
   --bg-light:200deg 22% 87%;
   --fg-light:0deg 0% 95%;
@@ -62,6 +58,51 @@
 --sups:1;
 --subs:1;
 --ss01:1;
+
+}
+
+
+*{
+/** Light brand theme*/
+  /** brand hue and component decomposition*/
+  --brand: hsl(23 100% 46%);
+  --brand-hue:23;
+  --brand-saturation:97%;
+  --brand-lightness:46%;
+  --brand-light:hsl(var(--brand-hue) 
+  var(--brand-saturation) 
+  var(--brand-lightness));
+  /** brand secondary hue and decompostion*/
+  --brand-secondary:hsl(203 100%  29%);
+  --brand-secondary-hue:203;
+  --brand-secondary-saturation:84%;
+  --brand-secondary-lightness:29%;
+  --brand-secondary-light:hsl(var(--brand-seondary-hue) 
+  var(--brand-secondary-saturation) 
+  var(--brand-secondary-lightness));
+  /** brand text shceme*/
+  --text1-light:hsl(var(--brand-hue) var(--brand-satruation) 10%);
+  --text2-light:hsl(var(--brand-hue) 30% 30%);
+  /** brand secondary text scheme*/
+  --text1-light-secondary:hsl(var(--brand-secondary-hue) var(--brand-secondary-saturation) 10%);
+  --text2-light-secondary:hsl(var(--brand-secondary-hue) 30% 30%);
+  /* brand surface scheme**/
+  --surface1-light:hsl(var(--brand-hue) 25% 90%);
+  --surface2-light:hsl(var(--brand-hue) 20% 90);
+  --surface3-light:hsl(var(--brand-hue) 20% 92%);
+  --surface4-light:hsl(var(--brand-hue) 20% 85%);
+  /** brand secondary surface scheme*/
+  --secondary-surface1-light:hsl(var(--brand-secondary-hue) 25% 90%);
+  --secondary-surface2-light:hsl(var(--brand-secondary-hue) 20% 90);
+  --secondary-surface3-light:hsl(var(--brand-secondary-hue) 20% 92%);
+  --secondary-surface4-light:hsl(var(--brand-secondary-hue) 20% 85%);
+  --surface-shadow-light:var(--brand-hue) 10% 20%;
+  --shadow-strength-light:.02;
+/** Dark brand Theme*/
+  /** brand dark scheme*/
+  --brand-dark:hsl(var(--brand-hue) 
+  calc(var(--brand-saturation) / 2) 
+  calc(var(--brand-light) / 1.5));
 
 }
 
@@ -97,9 +138,9 @@ b,strong{
 body {
   
   line-height:var(--step-2);
-  color: hsl(0, 0%, 30%);
+  color: hsl(var(--brand-hue) 30% 30%);
   min-height: 100vh;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 p,
 div,
