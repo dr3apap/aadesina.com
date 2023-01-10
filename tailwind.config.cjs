@@ -18,6 +18,8 @@ module.exports = {
             colors:{
                 "brand-light":{
                 DEFAULT:"hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness))",
+                "1":"var(--brand-1)",
+                "2":"var(--brand-2)",
                 "text1":"hsl(var(--brand-hue) var(--brand-saturation) 20%)",
                 "text2":"hsl(var(--brand-hue) 30% 30%)",
                 "surface1":"hsl(var(--brand-hue) 25% 90%)",

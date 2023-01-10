@@ -66,6 +66,8 @@
 /** Light brand theme*/
   /** brand hue and component decomposition*/
   --brand: hsl(23 100% 46%);
+  --brand-1:hsl(23 77% 61%);
+  --brand-2:hsl(23 80% 55%);
   --brand-hue:23;
   --brand-saturation:97%;
   --brand-lightness:46%;
