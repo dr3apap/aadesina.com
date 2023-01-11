@@ -142,7 +142,7 @@ body {
   line-height:var(--step-2);
   color: hsl(var(--brand-hue) 30% 30%);
   min-height: 100vh;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 p,
 div,
@@ -270,6 +270,26 @@ img {
                 border-radius: .7rem;
 
             } */
+
+ label{
+  position:relative;
+ }
+ input[type="checkbox"]{
+    position:absolute;
+    left:0;
+    top:0;
+    transform:translateX(-50px);
+ }
+ input:checked{
+  transition:all 2s;
+ }
+ input + div{
+    display:none;
+ }
+ input:checked + div{
+  display:block;
+
+ }
 
         
 }
