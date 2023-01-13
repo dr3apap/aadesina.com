@@ -8,15 +8,27 @@ import ThemeToggle from "./ThemeToggle.astro";
                             alt="Adebola Adesina logo"/></HeaderLink>
                     <div class="box [grid-area:menu-control] justify-self-end la:hidden" aria-controls="nav-toggle">
                         <div class="bar" style="--fade:0" aria-expanded="false">
-							<span class="nav-toggle-label sr-only">Display nav</span>
-                        </div>
+							<span class="nav-toggle-label sr-only">Menu Control</span>
+						</div>
                     </div>
-		<ul id="nav-toggle" aria-expanded="false" role-label="nav-list" class="[grid-area:menu-list] justify-self-end text-brand-light-1 hidden la:justify-self-center la:flex gap-4">
-		<li class="text-fluid-0"><HeaderLink href="/">Home</HeaderLink></li>
-		<li class="text-fluid-0"><HeaderLink href="/blog">Blog</HeaderLink></li>
-		<li class="text-fluid-0"><HeaderLink href="/about">About</HeaderLink></li>
-		<li class="text-fluid-0"><HeaderLink href="/contact">Contact</HeaderLink></li>
+		<ul id="nav-toggle" aria-expanded="false" role-label="nav-list" class="[grid-area:menu-list] justify-self-end text-brand-light-1 la:justify-self-center la:flex gap-4">
+		<li class="text-fluid-0 bg-gradient-to-b from-brand-secondary-light to-brand-light text-center p-1"><HeaderLink href="/">Home</HeaderLink></li>
+		<li class="text-fluid-0 bg-gradient-to-b from-brand-secondary-light to-brand-light text-center p-1"><HeaderLink href="/blog">Blog</HeaderLink></li>
+		<li class="text-fluid-0 bg-gradient-to-b from-brand-secondary-light to-brand-light text-center p-1"><HeaderLink href="/about">About</HeaderLink></li>
+		<li class="text-fluid-0 bg-gradient-to-b from-brand-secondary-light to-brand-light text-center p-1"><HeaderLink href="/contact">Contact</HeaderLink></li>
 		</ul>
 	</nav>
 <ThemeToggle/>
 </div>
+<script is:inline>
+	const navToggle = document.querySelector("div [aria-controls]");
+	const navMenu = document.querySelector("nav ul");
+	const bar = document.querySelector(".bar")
+function toggleNav(e) {
+        let barState = e.currentTarget.firstElementChild.getAttribute("aria-expanded") == "true" || false;
+        bar.setAttribute("aria-expanded", !barState);
+        navMenu.classList.toggle("show");
+
+    }
+    navToggle.addEventListener("click", toggleNav);
+</script>

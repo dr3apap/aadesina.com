@@ -6,203 +6,199 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
+@layer base {
 
-/* @link https://utopia.fyi/type/calculator?c=220,16,1.2,768,20,1.25,9,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+  /* @link https://utopia.fyi/type/calculator?c=220,16,1.2,768,20,1.25,9,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
-:root {
-  font-size:62.5%;
-  /** Text and general purpose metric range*/
-  --step--2: clamp(0.69rem, calc(0.65rem + 0.31vw), 0.80rem);
-  --step--1: clamp(0.83rem, calc(0.77rem + 0.49vw), 1.00rem);
-  --step-0: clamp(1.00rem, calc(0.90rem + 0.73vw), 1.25rem);
-  --step-1: clamp(1.20rem, calc(1.05rem + 1.06vw), 1.56rem);
-  --step-2: clamp(1.44rem, calc(1.23rem + 1.50vw), 1.95rem);
-  --step-3: clamp(1.73rem, calc(1.44rem + 2.08vw), 2.44rem);
-  --step-4: clamp(2.07rem, calc(1.68rem + 2.86vw), 3.05rem);
-  --step-5: clamp(2.49rem, calc(1.96rem + 3.87vw), 3.82rem);
-  --step-6: clamp(2.99rem, calc(2.27rem + 5.20vw), 4.77rem);
-  --step-7: clamp(3.58rem, calc(2.63rem + 6.94vw), 5.96rem);
-  --step-8: clamp(4.30rem, calc(3.04rem + 9.20vw), 7.45rem);
-  --step-9: clamp(5.16rem, calc(3.49rem + 12.13vw), 9.31rem);
-  --step-10: clamp(6.19rem, calc(4.00rem + 15.91vw), 11.64rem);
-  /** color theme*/
-  --brand-300: 23deg 77% 61%;
-	--brand-400: 23deg 80% 55%;
-	--brand: hsl(23 97% 46%);
-  --brand-secondary-300: 203deg 68% 62%;
-	--brand-secondary-400: 203deg 82% 48%;
-  --brand-secondary:hsl(203 84%  29%);
-  --bg-dark:203deg 58% 14%;
-  --bg-light:200deg 22% 87%;
-  --fg-light:0deg 0% 95%;
-  --fg-light1:0deg 0% 80%; 
-  --fg-dark:0deg 0% 30%;
-  /** paragraph Line height range*/
-  --p-line-height-min:1.15;
-  --p-line-height-max:1.5;
-  /* Container width range**/
-  --bp-small:20;
-  --bp-medium:24.15;
-  --bp-large:43.75;
-  --bp-xlarge:48;
-  /** Variable font axis*/
-  --text-slnt:0;
-  --text-wght:600;
-/** Variable font feature*/
---frac:1;
---denom:1;
---pnum:1;
---numr:1;
---ordn:1;
---sups:1;
---subs:1;
---ss01:1;
+  :root {
+    font-size: 62.5%;
+    /** Text and general purpose metric range*/
+    --step--2: clamp(0.69rem, calc(0.65rem + 0.31vw), 0.80rem);
+    --step--1: clamp(0.83rem, calc(0.77rem + 0.49vw), 1.00rem);
+    --step-0: clamp(1.00rem, calc(0.90rem + 0.73vw), 1.25rem);
+    --step-1: clamp(1.20rem, calc(1.05rem + 1.06vw), 1.56rem);
+    --step-2: clamp(1.44rem, calc(1.23rem + 1.50vw), 1.95rem);
+    --step-3: clamp(1.73rem, calc(1.44rem + 2.08vw), 2.44rem);
+    --step-4: clamp(2.07rem, calc(1.68rem + 2.86vw), 3.05rem);
+    --step-5: clamp(2.49rem, calc(1.96rem + 3.87vw), 3.82rem);
+    --step-6: clamp(2.99rem, calc(2.27rem + 5.20vw), 4.77rem);
+    --step-7: clamp(3.58rem, calc(2.63rem + 6.94vw), 5.96rem);
+    --step-8: clamp(4.30rem, calc(3.04rem + 9.20vw), 7.45rem);
+    --step-9: clamp(5.16rem, calc(3.49rem + 12.13vw), 9.31rem);
+    --step-10: clamp(6.19rem, calc(4.00rem + 15.91vw), 11.64rem);
+    /** color theme*/
+    --brand-gradient: linear-gradient(to bottom, hsl(203, 93%, 32%) 50%, hsl(24, 92%, 29%) 100%);
+    /** paragraph Line height range*/
+    --p-line-height-min: 1.15;
+    --p-line-height-max: 1.5;
+    /* Container width range**/
+    --bp-small: 20;
+    --bp-medium: 24.15;
+    --bp-large: 43.75;
+    --bp-xlarge: 48;
+    /** Variable font axis*/
+    --text-slnt: 0;
+    --text-wght: 600;
+    /** Variable font feature*/
+    --frac: 1;
+    --denom: 1;
+    --pnum: 1;
+    --numr: 1;
+    --ordn: 1;
+    --sups: 1;
+    --subs: 1;
+    --ss01: 1;
 
-}
-
-
-*{
-/** Light brand theme*/
-  /** brand hue and component decomposition*/
-  --brand: hsl(23 100% 46%);
-  --brand-1:hsl(23 77% 61%);
-  --brand-2:hsl(23 80% 55%);
-  --brand-hue:23;
-  --brand-saturation:97%;
-  --brand-lightness:46%;
-  --brand-light:hsl(var(--brand-hue) 
-  var(--brand-saturation) 
-  var(--brand-lightness));
-  /** brand secondary hue and decompostion*/
-  --brand-secondary:hsl(203 100%  29%);
-  --brand-secondary-hue:203;
-  --brand-secondary-saturation:84%;
-  --brand-secondary-lightness:29%;
-  --brand-secondary-light:hsl(var(--brand-seondary-hue) 
-  var(--brand-secondary-saturation) 
-  var(--brand-secondary-lightness));
-  /** brand text shceme*/
-  --text1-light:hsl(var(--brand-hue) var(--brand-satruation) 10%);
-  --text2-light:hsl(var(--brand-hue) 30% 30%);
-  /** brand secondary text scheme*/
-  --text1-light-secondary:hsl(var(--brand-secondary-hue) var(--brand-secondary-saturation) 10%);
-  --text2-light-secondary:hsl(var(--brand-secondary-hue) 30% 30%);
-  /* brand surface scheme**/
-  --surface1-light:hsl(var(--brand-hue) 25% 90%);
-  --surface2-light:hsl(var(--brand-hue) 20% 90);
-  --surface3-light:hsl(var(--brand-hue) 20% 92%);
-  --surface4-light:hsl(var(--brand-hue) 20% 85%);
-  /** brand secondary surface scheme*/
-  --secondary-surface1-light:hsl(var(--brand-secondary-hue) 25% 90%);
-  --secondary-surface2-light:hsl(var(--brand-secondary-hue) 20% 90);
-  --secondary-surface3-light:hsl(var(--brand-secondary-hue) 20% 92%);
-  --secondary-surface4-light:hsl(var(--brand-secondary-hue) 20% 85%);
-  --surface-shadow-light:var(--brand-hue) 10% 20%;
-  --shadow-strength-light:.02;
-/** Dark brand Theme*/
-  /** brand dark scheme*/
-  --brand-dark:hsl(var(--brand-hue) 
-  calc(var(--brand-saturation) / 2) 
-  calc(var(--brand-light) / 1.5));
-
-}
-
-html{
-	scroll-snap-type: y proximity;
-  box-sizing: border-box;
-}
-
-html:focus-within {
-  scroll-behavior: smooth;
-}
-@media (prefers-reduced-motion) {
-  html:focus-within {
-    scroll-behavior: auto;
   }
-}
-*,
-*::after,
-*::before {
-  box-sizing:inherit;
-  list-style-type: none;
-  text-decoration: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-}
-i, em{
-  --text-slnt:1;
-}
-b,strong{
-  --text-wght:475;
-}
-body {
-  
-  line-height:var(--step-2);
-  color: hsl(var(--brand-hue) 30% 30%);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-p,
-div,
-section,
-button,
-b,
-i,
-em,
-cite,
-figcaption,
-blockquote,
-strong,
-ul,
-th,
-td,
-li,
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6
-p:first-line, p::first-letter{
-  font-family: 'Inter', 'Nunito Sans', -apple-system, \.SFNSText-Regular, 'San Francisco', BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: var(--step-0);
-  font-weight:normal;
-  font-variation-settings: "wght" var(--text-wght);
-  font-style: normal;
-  text-transform: none;
-  text-rendering: optimizeSpeed;
-}
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6{
-  --text-wght:700;
-}
-p{
-  hyphens: auto;
-}
 
-section {
-  padding-top:4%;
-}
-img {
-  max-width: 100%;
-  height: auto;
-}
-::selection {
-  background-color: hsl(60, 50%, 50%);
-  color: hsl(0, 50%, 50%);
-}
-/* header, section{
+  * {
+    /** Light brand theme*/
+    /** brand hue and component decomposition*/
+    --brand: hsl(23 100% 46%);
+    --brand-1: hsl(23 77% 61%);
+    --brand-2: hsl(23 80% 55%);
+    --brand-hue: 23;
+    --brand-saturation: 97%;
+    --brand-lightness: 46%;
+    --brand-light: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
+    /** brand secondary hue and decompostion*/
+    --brand-secondary: hsl(203 100% 32%);
+    --brand-secondary-hue: 203;
+    --brand-secondary-saturation: 84%;
+    --brand-secondary-lightness: 29%;
+    --brand-secondary-light: hsl(var(--brand-seondary-hue) var(--brand-secondary-saturation) var(--brand-secondary-lightness));
+    /** brand text shceme*/
+    --text1-light: hsl(var(--brand-hue) var(--brand-satruation) 10%);
+    --text2-light: hsl(var(--brand-hue) 30% 30%);
+    /** brand secondary text scheme*/
+    --text1-light-secondary: hsl(var(--brand-secondary-hue) var(--brand-secondary-saturation) 10%);
+    --text2-light-secondary: hsl(var(--brand-secondary-hue) 30% 30%);
+    /* brand surface scheme**/
+    --surface1-light: hsl(var(--brand-hue) 25% 90%);
+    --surface2-light: hsl(var(--brand-hue) 20% 90);
+    --surface3-light: hsl(var(--brand-hue) 20% 92%);
+    --surface4-light: hsl(var(--brand-hue) 20% 85%);
+    /** brand secondary surface scheme*/
+    --secondary-surface1-light: hsl(var(--brand-secondary-hue) 25% 90%);
+    --secondary-surface2-light: hsl(var(--brand-secondary-hue) 20% 90);
+    --secondary-surface3-light: hsl(var(--brand-secondary-hue) 20% 92%);
+    --secondary-surface4-light: hsl(var(--brand-secondary-hue) 20% 85%);
+    --surface-shadow-light: var(--brand-hue) 10% 20%;
+    --shadow-strength-light: .02;
+    /** Dark brand Theme*/
+    /** brand dark scheme*/
+    --brand-dark: hsl(var(--brand-hue) calc(var(--brand-saturation) / 2) calc(var(--brand-light) / 1.5));
+
+  }
+
+  html {
+    scroll-snap-type: y proximity;
+    box-sizing: border-box;
+  }
+
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion) {
+    html:focus-within {
+      scroll-behavior: auto;
+    }
+  }
+
+  *,
+  *::after,
+  *::before {
+    box-sizing: inherit;
+    list-style-type: none;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  i,
+  em {
+    --text-slnt: 1;
+  }
+
+  b,
+  strong {
+    --text-wght: 475;
+  }
+
+  body {
+
+    line-height: var(--step-2);
+    color: hsl(var(--brand-hue) 30% 30%);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  p,
+  div,
+  section,
+  button,
+  b,
+  i,
+  em,
+  cite,
+  figcaption,
+  blockquote,
+  strong,
+  ul,
+  th,
+  td,
+  li,
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 p:first-line,
+  p::first-letter {
+    font-family: 'Inter', 'Nunito Sans', -apple-system, \.SFNSText-Regular, 'San Francisco', BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: var(--step-0);
+    font-weight: normal;
+    font-variation-settings: "wght" var(--text-wght);
+    font-style: normal;
+    text-transform: none;
+    text-rendering: optimizeSpeed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    --text-wght: 700;
+  }
+
+  p {
+    hyphens: auto;
+  }
+
+  section {
+    padding-top: 4%;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  ::selection {
+    background-color: hsl(60, 50%, 50%);
+    color: hsl(0, 50%, 50%);
+  }
+
+  /* header, section{
   background-color:hsl(0, 0%, 95%);
 } */
-.box {
+  .box {
     grid-area: control;
     justify-self: center;
     width: 6rem;
@@ -213,88 +209,112 @@ img {
     background-color: transparent;
     cursor: pointer;
 
-} 
+  }
 
-    .bar {
-        width: 3rem;
-        height: .4rem;
-        position: absolute;
-        top: .9rem;
-        right: 0;
-        line-height: 0;
-        /* border:.3rem solid var(--color-grayscale-100); */
-        background-color: hsl(0, 0%, 80%);
-        border-radius: 1px;
-        transition: opacity calc(var(--duration) - 0.5s) linear;
-	}
-        .bar::before,
-        .bar::after {
-            content: "";
-            position: absolute;
-            display: block;
-            width: 3rem;
-            left: 0;
-            border: .2rem solid hsl(0, 0%, 80%);
-            border-radius: 1px;
-            transition: transform calc(var(--duration) - 0.5s);
-        }
+  .bar {
+    width: 3rem;
+    height: .4rem;
+    position: absolute;
+    top: .9rem;
+    right: 0;
+    line-height: 0;
+    /* border:.3rem solid var(--color-grayscale-100); */
+    background-color: hsl(0, 0%, 80%);
+    border-radius: 1px;
+    transition: opacity calc(var(--duration) - 0.5s) linear;
+  }
+
+  .bar::before,
+  .bar::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 3rem;
+    left: 0;
+    border: .2rem solid hsl(0, 0%, 80%);
+    border-radius: 1px;
+    transition: transform 0.5s;
+  }
 
 
-        .bar::before {
-            transform-origin: left top;
-            top: 0;
-            /* bottom:1rem; */
-            transform: rotate(0deg) translate(0, -.8rem);
+  .bar::before {
+    transform-origin: left top;
+    top: 0;
+    /* bottom:1rem; */
+    transform: rotate(0deg) translate(0, -.8rem);
 
-        }
+  }
 
-        .bar::after {
-            transform-origin: right top;
-            bottom: 0; 
-            transform: rotate(0deg) translate(0, .8rem);
+  .bar::after {
+    transform-origin: right top;
+    bottom: 0;
+    transform: rotate(0deg) translate(0, .8rem);
 
-        }
+  }
 
-        [aria-expanded="true"] {
-        background-color: transparent;
-		}
+  [aria-expanded="true"] {
+    background-color: transparent;
+  }
 
-            /* .bar::before {
-                transform: translate(.6rem, -1rem)rotate(45deg);
-                border-radius: .7rem;
+  .bar[aria-expanded="true"]::before {
+    transform: translate(.6rem, -1rem) rotate(45deg);
+    border-radius: .7rem;
 
-            }
+  }
 
-            .bar::after {
-                transform: translate(-.6rem, -1rem)rotate(-45deg);
-                border-radius: .7rem;
+  .bar[aria-expanded="true"]::after {
+    transform: translate(-.6rem, -1rem) rotate(-45deg);
+    border-radius: .7rem;
 
-            } */
+  }
 
- label{
-  position:relative;
- }
- input[type="checkbox"]{
-    position:absolute;
-    left:0;
+  nav {
+    perspective-origin: 80rem;
+  }
+
+  nav ul {
+    max-height: 0;
+    overflow: hidden;
+    transform: rotateX(90deg);
+    transition: all .5s;
+  }
+
+
+  label::after {
+    content: "\276F";
+    width: 1.5rem;
+    height: 1rem;
+    text-align: center;
+    transition: all .3s;
+  }
+
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+    /* left:0;
     top:0;
-    transform:translateX(-50px);
- }
- input:checked{
-  transition:all 2s;
- }
- input + div{
-    display:none;
- }
- input:checked + div{
-  display:block;
+    transform:translateX(-50px); */
+  }
 
- }
+  input:checked+label::after {
+    transform: rotate(90deg);
+  }
 
-        
+  input~.accordion {
+    display: none;
+    transition: all .3s;
+  }
+
+  input:checked~.accordion {
+    display: block;
+    transition: all .3s;
+
+  }
+
+  .show {
+    transform: rotateX(0);
+    max-height: 50rem;
+  }
+
 }
-
-
-
-
-

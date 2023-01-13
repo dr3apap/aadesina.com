@@ -60,8 +60,7 @@ module.exports = {
         
     
             gradientColorStops:{
-               "gradient-from":"var(--gradient-from)",
-               "gradient-to":"var(--gradient-to)",
+               gradient:"var(--bradn-gradient)"
             },
             // fontFamily:{
             //     sans:["Inter", "var(--font-sans)", ...defaultTheme.FontFamily.sans],
