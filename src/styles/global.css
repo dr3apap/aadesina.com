@@ -278,9 +278,16 @@
     transform: rotateX(90deg);
     transition: all .5s;
   }
+@media(min-width:620px){
+ nav ul{
+    transform: rotateX(0);
+    max-height: 50rem;
+  }
+}
+ 
 
 
-  label::after {
+  .accordion-ctrl::after {
     content: "\276F";
     width: 1.5rem;
     height: 1rem;
@@ -288,14 +295,6 @@
     transition: all .3s;
   }
 
-  input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-    z-index: -1;
-    /* left:0;
-    top:0;
-    transform:translateX(-50px); */
-  }
 
   input:checked+label::after {
     transform: rotate(90deg);

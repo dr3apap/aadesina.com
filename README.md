@@ -17,6 +17,8 @@ thought about the dev commnunity
 - Sanity
 - Netlify Serverless functions
 
+## Usage
+
 1 cd to src and **npm install**
 2 cd to studio and **npm install**
 3 run npm run dev in src to spin [astro](astro.org) Dev server

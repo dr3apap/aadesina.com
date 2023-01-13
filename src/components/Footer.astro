@@ -1,37 +1,40 @@
 ---
+import HeaderLink from "./HeaderLink.astro";
 const today = new Date();
 ---
 	<footer class="mt-44 mx-auto my-0 max-w-screen-md bg-fg-light">
         <div class="flex flex-col gap-4 items-center la:flex-row justify-between"> <!-- Footer items wrapper  -->
             <ul class="flex gap-4 text-brand-light-1 order-2">
-                <li><a href="/">Home</a></li>
-                <li><a href="#about-me">About</a></li>
-                <li><a href="#demos">Demos</a></li>
-                <li class="nav-menu"><a href="/blog">Blog</a></li>
-            </ul>
-            <div class=""><a href="https://www.twitter.com/Dr3_147" class="text-fluid-2 text-fg-dark"
+                <li><HeaderLink href="/">Home</HeaderLink></li>
+                <li><HeaderLink href="/#about-me">About</HeaderLink></li>
+                <li><HeaderLink href="/#demos">Demos</HeaderLink></li>
+                <li><HeaderLink href="/contact">Contact</HeaderLink></li>
+                <li><HeaderLink href="/blog">Blog</HeaderLink></li>
+		</ul>
+            <div class=""><HeaderLink href="https://www.twitter.com/Dr3_147" class="text-fluid-2 text-fg-dark"
                     target="_blank">
                     <iconify-icon icon="pajamas:twitter" width="2em"
                         height="1em" class="social"></iconify-icon>
-                </a>
+                </HeaderLink>
 
-                <a href="https://www.github.com/dr3apap" class="text-fluid-2 text-fg-dark"
+                <HeaderLink href="https://www.github.com/dr3apap" class="text-fluid-2 text-fg-dark"
                     target="_blank">
                     <iconify-icon icon="fe:github" width="2em" height="1em"
                         class="social"></iconify-icon>
-                </a>
-                <a href="https://www.linkedin.com/in/adebola-adesina-8881a4195/"
+                </HeaderLink>
+                <HeaderLink href="https://www.linkedin.com/in/adebola-adesina-8881a4195/"
                     class="text-fluid-2 text-fg-dark" target="_blank">
                     <iconify-icon icon="mdi:linkedin" width="2em" height="1em"
                         class="social"></iconify-icon>
-                </a>
+                </HeaderLink>
 
             </div>
-            <a href="/contact.html" class="p-2 bg-brand-secondary-light rounded-3xl text-brand-secondary-light-surface2 px-4 order-3">Contact</a>
+            <HeaderLink href="/contact.html" class="p-2 bg-brand-secondary-light rounded-3xl text-brand-secondary-light-surface2 px-4 order-3">Contact</HeaderLink>
         </div> <!-- Footer items end -->
-        <div class="text-center py-2">
+        <div class="text-center py-2 la:flex gap-4 justify-center">
             <!-- <p class="text-fluid--1">Designed and Developed by Adebola Adesina.</p> -->
-            <p class="text-fluid--1">Designed and Developed by Adebola Adesina &COPY;{ today.getFullYear() } <span class="text-sm">All rights reserved</span>.</p>
+            <p class="text-fluid--1">Designed and Developed by Adebola Adesina </p>
+            <p class="text-[.9rem] la:items-center">&COPY;{ today.getFullYear() } All rights reserved</p>
         </div>
     </footer> 
 
