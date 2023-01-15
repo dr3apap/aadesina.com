@@ -1,0 +1,40 @@
+---
+import Nav from "./Nav.astro";
+// type HeroProps = {
+//     heroMotivationalQuote:string,
+//     author:string,
+// }
+// const { heroMotivationalQuote, author, heroImageSrc } = Astro.props;
+// const dataObj = {} as HeroProps; 
+
+
+
+const heroQuote  = (await (await fetch(`https://api.api-ninjas.com/v1/quotes?category=inspirational`, {
+    headers:{
+        'X-Api-Key':import.meta.env.INSPIRATIONAL_QUOTE,
+    },})).json());
+    const heroMotivationalQuote = heroQuote[0]["quote"];
+    const author = heroQuote[0]["author"];
+---
+
+<header class="h-[30vh] w-full relative bg-no-repeat bg-cover object-fill aspect-[9/16]">
+    <Nav/>
+    <!-- <img src={heroImageSrc}> -->
+    <figure class="absolute left-8 bottom-4 bg-brand-light-surface1 opacity-40 p-4 whitespace-nowrap max-w-[50%]">
+    <blockquote cite="" ><p class="quote text-sm">{heroMotivationalQuote}</p></blockquote>
+        <figcaption class="text-fluid--1"> -{author}<cite> Motivation</cite></figcaption>
+</figure>
+    
+</header>
+
+<script>
+const date = new Date();
+const year = date.getFullYear();
+const today = date.getDate();
+const month = date.getMonth()+1;
+const todayDate = `${year}-${month}-${today}`;
+const header = document.querySelector("header");
+const heroImageSrc = async () => {
+    header? header.style.backgroundImage = `url(${(await (await fetch(`https://api.nasa.gov/planetary/apod?api_key=${import.meta.env.PUBLIC_NASA_API_KEY}&start_date=${todayDate}&end_date=${todayDate}`)).json())[0].url})`: ""};
+    heroImageSrc();
+</script>

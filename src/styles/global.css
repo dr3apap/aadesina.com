@@ -315,5 +315,11 @@
     transform: rotateX(0);
     max-height: 50rem;
   }
+  .quote::before {
+    content:'\201C';
+  }
+  .quote::after{
+    content:'\201D';
+  }
 
 }
