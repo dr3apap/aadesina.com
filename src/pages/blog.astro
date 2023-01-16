@@ -3,7 +3,8 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/BlogHeader.astro';
 import Footer from '../components/Footer.astro';
 import BlogHeading from '../components/BlogHeading.astro';
-import Categories from '../components/BlogFeatured.astro';
+import Featured from '../components/BlogFeatured.astro';
+import BlogLink from "../components/BlogLink.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
@@ -16,49 +17,23 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			ul {
-				list-style-type: none;
-				padding: unset;
-			}
-			ul li {
-				display: flex;
-			}
-			ul li time {
-				flex: 0 0 130px;
-				font-style: italic;
-				color: #595959;
-			}
-			ul li a:visited {
-				color: #8e32dc;
-			}
-		</style>
 	</head>
 	<body>
 		<Header />
 		<main class="p-4 mx-auto my-0 max-w-screen-md">
 			<article>
 			<BlogHeading/>
-			<Categories/>
-			</article>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<time datetime={post.frontmatter.pubDate}>
-									{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
-										year: 'numeric',
-										month: 'short',
-										day: 'numeric',
-									})}
-								</time>
-								<a href={post.url}>{post.frontmatter.title}</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
+			<Featured/>
+					{posts.map((post) => (
+							<>
+							<BlogLink  pubDate={post.frontmatter.pubDate}
+									title={post.frontmatter.title}
+									readTime={post.frontmatter.readTime}
+									url={post.url}
+									categories={post.frontmatter.categories}
+									numOfComment={post.frontmatter.numOfComment}
+					/></>))}
+			</article>	
 		</main>
 		<Footer />
 	</body>
