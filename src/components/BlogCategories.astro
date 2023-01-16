@@ -1,9 +1,9 @@
 <fieldset class="search" data-search-id="posts">
                     <div class="">
-                        <h2 class="text-fluid-3 text-brand-secondary-light-text1 mb-4">Categories</h2>
-                        <ul class="flex flex-col"
+                        <h2 class="text-fluid-3 text-brand-secondary-light-text1 mb-6">Categories</h2>
+                        <ul class="grid grid-cols-[repeat(2,_auto)] gap-2 bg-brand-light-surface2 p-6 drop-shadow-md"
                             id="search-posts">
-                            <li class="categories__list category bg-brand-light-surface2 p-4 mb-4"><input 
+                            <li class="categories__list category inline-block bg-brand-light-1 drop-drop-shadow p-4 mb-4"><input 
                                     class="search__control absolute opacity-0" type="radio"
                                     name="posts__catgegory" id="front-end"
                                     value="front-end" /><label
@@ -24,7 +24,7 @@
                                     </svg>
 
                                     <span>Front-End</span></label></li>
-                            <li class="categories__list category bg-brand-light-surface2 p-4 mb-4"><input
+                            <li class="categories__list category bg-brand-light-1 drop-shadow p-4 mb-2"><input
                                     class="search__control absolute opacity-0" type="radio"
                                     name="posts__catgegory" id="back-end"
                                     value="back-end" /><label
@@ -105,7 +105,7 @@
                                         </g>
                                     </svg>
                                     <span>Back-End</span></label></li>
-                            <li class="categories__list category bg-brand-light-surface2 p-4 mb-4"><input
+                            <li class="categories__list category bg-brand-light-1 drop-shadow p-4 mb-4"><input
                                     class="search__control absolute opacity-0" type="radio"
                                     name="posts__catgegory"
                                     id="operating-system"
@@ -191,7 +191,7 @@
                                             d="M38.713,52.243L38.49,51.24c-4.26,0-8.721,0-12.98,0l-0.223,1.003H38.713z" />
                                     </svg>
                                     <span>Operating-System</span></label></li>
-                            <li class="categories__list category bg-brand-light-surface2 p-4 mb-4"><input
+                            <li class="categories__list category bg-brand-light-1 drop-shadow p-4 mb-4"><input
                                     class="search__control absolute opacity-0" type="radio"
                                     name="posts__catgegory" id="system"
                                     value="system" /><label class="posts__label relative flex gap-4"
@@ -232,7 +232,7 @@
                                             transform="translate(580.596 826.973)">1550</text>
                                     </svg>
                                     <span>System</span></label></li>
-                            <li class="categories__list category bg-brand-light-surface2 p-4 mb-4"><input
+                            <li class="categories__list category bg-brand-light-1 drop-shadow p-4 mb-4"><input
                                     class="search__control absolute opacity-0" type="radio"
                                     name="posts__catgegory" id="iot"
                                     value="iot" /><label class="posts__label relative flex gap-4"
@@ -263,7 +263,7 @@
                                             d="M41,27H36.937a2,2,0,0,0-1.537.72L26.6,38.28a2,2,0,0,1-1.537.72H18V35h5.063a2,2,0,0,0,1.537-.72l8.8-10.56A2,2,0,0,1,34.937,23H41V21l5,4-5,4Z" />
                                     </svg>
                                     <span>Iot</span></label></li>
-                            <li class="categories__list bg-brand-light-surface2 p-4 mb-4"><input
+                            <li class="categories__list bg-brand-light-1 drop-shadow p-4 mb-4"><input
                                     class="search__control absolute opacity-0 " type="radio"
                                     name="posts__catgegory"
                                     id="programming-fundamental"
@@ -362,7 +362,7 @@
                                     </svg>
                                     <span>Programming-Fundamental</span></label>
                             </li>
-                            <li class="categories__list category bg-brand-light-surface2 p-4 mb-4"><input
+                            <li class="categories__list category bg-brand-light-1 drop-shadow p-4 mb-4"><input
                                     class="search__control absolute opacity-0" type="radio"
                                     name="posts__catgegory" id="design"
                                     value="design" /><label class="posts__label relative flex gap-4"
@@ -492,13 +492,13 @@
                                     </svg>
                                     <span>Design</span></label></li>
                         </ul>
-                        <div class="search__field">
+                        <div class="search__field mt-8  relative">
                             <iconify-icon icon="fluent-mdl2:search"
-                                style="color: black;" width="2em" height="1em"
-                                class="filter"></iconify-icon>
+                                style="color: black;" width="24" height="24"
+                                class="filter absolute bottom-6 right-6 z-20"></iconify-icon>
                             <label class="search__label"
                                 for="search-posts hide"></label>
-                            <input class="search__input" type="text"
+                            <input class="search__input block w-full p-8 border-2 border-solid border-brand-light-text1 text-fluid-1 shadow-md" type="text"
                                 placeholder="Filter posts" id="search-posts" />
                         </div>
                     </div>
