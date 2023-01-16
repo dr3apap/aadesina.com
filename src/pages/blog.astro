@@ -1,10 +1,11 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/BlogHeader.astro';
-import Footer from '../components/Footer.astro';
 import BlogHeading from '../components/BlogHeading.astro';
 import Featured from '../components/BlogFeatured.astro';
 import BlogLink from "../components/BlogLink.astro";
+import Categories from "../components/BlogCategories.astro";
+import Footer from "../components/BlogFooter.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
@@ -20,9 +21,10 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 	</head>
 	<body>
 		<Header />
-		<main class="p-4 mx-auto my-0 max-w-screen-md">
-			<article>
+		<main class="p-8 mx-auto my-48 max-w-screen-md bg-brand-light-surface1 overflow-hidden">
+			<article class="grid grid-cols-1 gap-y-16">
 			<BlogHeading/>
+			<Categories/>
 			<Featured/>
 					{posts.map((post) => (
 							<>

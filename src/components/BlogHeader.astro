@@ -20,13 +20,12 @@ const heroQuote  = (await (await fetch(`https://api.api-ninjas.com/v1/quotes?cat
 <header class="h-[30vh] w-full relative bg-no-repeat bg-cover object-fill aspect-[9/16]">
     <Nav/>
     <!-- <img src={heroImageSrc}> -->
-    <figure class="absolute left-8 bottom-4 bg-brand-light-surface1 opacity-40 p-4 whitespace-nowrap max-w-[50%]">
+    <figure class="absolute left-8 bottom-4 bg-brand-light-surface1 opacity-40 p-4 whitespace-nowrap max-w-[50%] overflow-hidden">
     <blockquote cite="" ><p class="quote text-sm">{heroMotivationalQuote}</p></blockquote>
         <figcaption class="text-fluid--1"> -{author}<cite> Motivation</cite></figcaption>
 </figure>
     
 </header>
-
 <script>
 const date = new Date();
 const year = date.getFullYear();
