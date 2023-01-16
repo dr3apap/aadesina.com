@@ -75,8 +75,8 @@
     --text1-light-secondary: hsl(var(--brand-secondary-hue) var(--brand-secondary-saturation) 10%);
     --text2-light-secondary: hsl(var(--brand-secondary-hue) 30% 30%);
     /* brand surface scheme**/
-    --surface1-light: hsl(var(--brand-hue) 25% 90%);
-    --surface2-light: hsl(var(--brand-hue) 20% 90);
+    --surface1-light: hsl(var(--brand-hue) 30% 90%);
+    --surface2-light: hsl(var(--brand-hue) 25% 90);
     --surface3-light: hsl(var(--brand-hue) 20% 92%);
     --surface4-light: hsl(var(--brand-hue) 20% 85%);
     /** brand secondary surface scheme*/
