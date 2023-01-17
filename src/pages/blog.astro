@@ -34,14 +34,14 @@ const featuredPost = posts.find(post => ( post.frontmatter.description === "Feat
 			numOfComment={featuredPost!.frontmatter.numOfComment}
 			/>}
 					{posts.map((post) => (
-							<>
+							<ul id="posts" class="">
 							<BlogLink  pubDate={post.frontmatter.pubDate}
 									title={post.frontmatter.title}
 									readTime={post.frontmatter.readTime}
 									url={post.url}
 									categories={post.frontmatter.categories}
 									numOfComment={post.frontmatter.numOfComment}
-					/></>))}
+					/></ul>))}
 			</article>	
 		</main>
 		<Footer />

@@ -6,7 +6,7 @@ pubDate: "Jul 15 2022"
 heroImage: "/placeholder-hero.jpg"
 author: "Dr3"
 numOfComment: 0
-categories: "programming"
+categories: "Programming"
 readTime: 10
 updated: ""
 ---

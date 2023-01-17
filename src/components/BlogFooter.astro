@@ -3,8 +3,8 @@ import HeaderLink from "./HeaderLink.astro";
 const today = new Date();
 ---
 <footer>
-    <div>
-      <div class=""><HeaderLink href="https://www.twitter.com/Dr3_147" class="text-fluid-2 text-fg-dark"
+    <div class="mx-auto my-0 px-8 la:max-w-screen-md la:flex gap-10 ">
+      <div class="text-center"><HeaderLink href="https://www.twitter.com/Dr3_147" class="text-fluid-2 text-fg-dark"
                     target="_blank">
                     <iconify-icon icon="pajamas:twitter" width="2em"
                         height="1em" class="social"></iconify-icon>
@@ -22,9 +22,9 @@ const today = new Date();
                 </HeaderLink>
 
             </div>  
-           <div>
+           <div class="text-center la:flex gap-6">
              <p class="text-fluid--1">Designed and Developed by Adebola Adesina </p>
-            <p class="text-[.9rem] la:items-center">&COPY;{ today.getFullYear() } All rights reserved</p>
+            <p class="text-[.9rem] la:items-center">&COPY;{ today.getFullYear() } All rights reserved.</p>
          </div>
 </div>
 </footer>

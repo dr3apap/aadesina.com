@@ -2,9 +2,9 @@
 import { Icon } from "astro-icon"; 
 const { url, title, pubDate, numOfComment, updated, readTime, categories } = Astro.props;
 ---
- <article class="blog__feature feature overflow-hidden relative">
+ <article class="blog__feature feature overflow-hidden relative la:flex">
                     
-                    <div class="feature__details bg-brand-light-surface2 p-6 drop-shadow-md">
+                    <div class="feature__details bg-brand-light-surface2 p-6 drop-shadow-md la:w-[50%]">
                         <h2 class="feature__title text-fluid-2 mb-6 text-brand-secondary-light-text1 cursor-pointer"><a href={url} class="cursor-pointer">{title}</a></h2>
                         <p class="feature__info">
                             People are often intimidated to learn coding or
@@ -46,7 +46,7 @@ const { url, title, pubDate, numOfComment, updated, readTime, categories } = Ast
                     </div>
                   <img class="w-full object-cover aspect-square la:w-[50%]"
                             src="/asset/demos/programming.jpg" alt="Image of a programmer">
-                    <div class="feature__label bg-brand-light-surface2 absolute  pt-8 pb-32 pl-[43%] pr-[55%] right-0 bottom-0 -rotate-45 translate-x-[47%] translate-y-[20%] origin-[50%_50%] la:translate-x-[52%]">
+                    <div class="feature__label bg-brand-light-surface2 absolute  pt-8 pb-32 pl-[43%] pr-[55%] right-0 bottom-0 -rotate-45 translate-x-[47%] translate-y-[20%] origin-[50%_50%] la:translate-x-[53%] la:pb-40 la:pt-9">
                         <span class="feature__label-text block text-fluid-1 uppercase text-brand-light">Featured</span>
                     </div>
 
