@@ -12,6 +12,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
 );
+const featuredPost = posts.find(post => ( post.frontmatter.description === "Featured"));
 ---
 
 <!DOCTYPE html>
@@ -25,7 +26,13 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 			<article class="grid grid-cols-1 gap-y-16">
 			<BlogHeading/>
 			<Categories/>
-			<Featured/>
+			{  <Featured pubDate={featuredPost!.frontmatter.pubDate}
+			title={featuredPost!.frontmatter.title}
+			readTime={featuredPost!.frontmatter.readTime}
+			categories={featuredPost!.frontmatter.categories}
+			url={featuredPost!.url}
+			numOfComment={featuredPost!.frontmatter.numOfComment}
+			/>}
 					{posts.map((post) => (
 							<>
 							<BlogLink  pubDate={post.frontmatter.pubDate}
