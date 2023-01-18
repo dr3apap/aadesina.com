@@ -17,6 +17,9 @@ module.exports = {
     content:["./src/**/*.{html,js,ts,jsx,astro,md,mdx,tsx}"],
     theme:{
         extend:{
+            width:{
+                "content-area":"96ch",
+            },
             colors:{
                 "brand-light":{
                 DEFAULT:"hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness))",

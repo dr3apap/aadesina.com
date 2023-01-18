@@ -321,5 +321,10 @@
   .quote::after{
     content:'\201D';
   }
+  @layer components{
+    .banner{
+      width:cal(100% + (4 * var(--step-1)));
+    }
+  }
 
 }

@@ -1,0 +1,39 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import BlogHeader from '../components/BlogHeader.astro';
+import BlogFooter from '../components/BlogFooter.astro';
+
+export interface Props {
+			ogTitle?:string,
+			ogHue?:string,
+			ogGradient?:string,
+			
+}
+
+const { ogTitle, ogGradient, ogHue, }  = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead ogTitle={ogTitle}
+		         ogGradient={ogGradient}
+				 ogHue={ogHue}
+		/>
+		
+		<style>
+			.title {
+				font-size: 2em;
+				margin: 0.25em 0 0;
+			}
+			hr {
+				border-top: 1px solid #ddd;
+				margin: 1rem 0;
+			}
+		</style>
+	</head>
+	<body>
+		<BlogHeader />
+		<slot/>
+		<BlogFooter />
+	</body>
+</html>

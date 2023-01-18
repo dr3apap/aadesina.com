@@ -1,5 +1,6 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
+import Nav from "../components/Nav.astro";
 import Header from '../components/BlogHeader.astro';
 import BlogHeading from '../components/BlogHeading.astro';
 import Featured from '../components/BlogFeatured.astro';
@@ -21,12 +22,13 @@ const featuredPost = posts.find(post => ( post.frontmatter.description === "Feat
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
+		<Nav/>
 		<Header />
 		<main class="p-8 mx-auto my-48 max-w-screen-md bg-brand-light-surface1 overflow-hidden">
 			<article class="grid grid-cols-1 gap-y-16">
 			<BlogHeading/>
 			<Categories/>
-			{  <Featured pubDate={featuredPost!.frontmatter.pubDate}
+			<!-- {  <Featured pubDate={featuredPost!.frontmatter.pubDate}
 			title={featuredPost!.frontmatter.title}
 			readTime={featuredPost!.frontmatter.readTime}
 			categories={featuredPost!.frontmatter.categories}
@@ -41,7 +43,7 @@ const featuredPost = posts.find(post => ( post.frontmatter.description === "Feat
 									url={post.url}
 									categories={post.frontmatter.categories}
 									numOfComment={post.frontmatter.numOfComment}
-					/></ul>))}
+					/></ul>))} -->
 			</article>	
 		</main>
 		<Footer />

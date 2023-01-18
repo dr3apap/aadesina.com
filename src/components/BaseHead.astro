@@ -4,21 +4,24 @@
 import '../styles/global.css';
 
 export interface Props {
-	title: string;
-	description: string;
-	image?: string;
+	ogTitle?: string;
+	ogGradient?:string;
+	ogHue?:string;
+	title?:string;
+	description?:string;
+
 }
-
+const { ogTitle, ogGradient, ogHue } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+//TODO: ogImage ogGradient, ogHue
+const title = `${Astro.props.title || "Hey! I'm Adebola Adesina"} - aadesina.com`;
+const description = Astro.props.description || "A passionate developer making awesome things";
+const openGraphTitle = ogTitle || Astro.props.title || "Adebola's page";
 
-const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
 ---
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<!-- <link rel="preload" as="style" href="$CSS&display=swap"> -->
-<!-- <link rel="stylesheet" href="$CSS&display=swap" media="print" onload="this.media='all'"> -->
-<!-- <noscript><link rel="styesheet" href="$CSS&display=swap"></noscript> -->
 <link rel="icon" type="image/svg+xml" href="/asset/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,15 +37,19 @@ const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
 <meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
+<meta name="generator" content={Astro.generator}/>
 <meta property="og:type" content="website" />
+<meta property="og:site_name" content={Astro.generator}/>
 <meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
+<meta property="og:title" content={openGraphTitle} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:author" content="Adebola Adesina"/>
+<!-- <meta property="og:image" content={new URL(image, Astro.url)} /> -->
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
+<meta property="twitter:title" content={openGraphTitle} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:creator" content="@Dr3_147"/>
+<!-- <meta property="twitter:image" content={new URL(image, Astro.url)} /> -->
