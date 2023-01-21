@@ -1,18 +1,16 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
+import BaseHead from "../../components/BaseHead.astro";
 import Nav from "../../components/Nav.astro";
-import Header from '../../components/BlogHeader.astro';
-import BlogHeading from '../../components/BlogHeading.astro';
-import Featured from '../../components/BlogFeatured.astro';
+import Header from "../../components/BlogHeader.astro";
+import BlogHeading from "../../components/BlogHeading.astro";
+import Featured from "../../components/BlogFeatured.astro";
 import BlogLink from "../../components/BlogLink.astro";
 import Categories from "../../components/BlogCategories.astro";
 import Footer from "../../components/BlogFooter.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../config';
-
-// Use Astro.glob() to fetch all posts, and then sort them by date.
-// const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
-// 	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
-// );
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../config";
+import { getPostLinks } from "../../constants/queries.ts";
+import { getReadingTime } from "../../utils/readingTime.ts"
+const posts = await getPostLinks();
 // const featuredPost = posts.find(post => ( post.frontmatter.description === "Featured"));
 ---
 
@@ -22,29 +20,36 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../config';
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<Nav/>
+		<Nav />
 		<Header />
-		<main class="p-8 mx-auto my-48 max-w-screen-md bg-brand-light-surface1 overflow-hidden">
+		<main
+			class="p-8 mx-auto my-48 max-w-screen-md bg-brand-light-surface1 overflow-hidden"
+		>
 			<article class="grid grid-cols-1 gap-y-16">
-			<BlogHeading/>
-			<Categories/>
-			<!-- {  <Featured pubDate={featuredPost!.frontmatter.pubDate}
+				<BlogHeading />
+				<Categories />
+				<!-- <Featured pubDate={featuredPost!.frontmatter.pubDate}
 			title={featuredPost!.frontmatter.title}
 			readTime={featuredPost!.frontmatter.readTime}
 			categories={featuredPost!.frontmatter.categories}
 			url={featuredPost!.url}
 			numOfComment={featuredPost!.frontmatter.numOfComment}
-			/>}
-					{posts.map((post) => (
-							<ul id="posts" class="">
-							<BlogLink  pubDate={post.pubDate}
-									title={post.title}
-									readTime={getReadTime({post.block})}
-									url={post.slug.current}
-									category={post.category.name}
-									numOfComment={post.comment.length}
-					/></ul>))} -->
-			</article>	
+			/> -->
+				<ul id="posts" class="">
+					{
+						posts.map((post) => (
+							<BlogLink
+								pubDate={post.publishedAt}
+								title={post.title}
+								readTime={getReadingTime(post.body).readingTime}
+								url={post.slug.current}
+								category={post.category.name}
+								 numOfComment={post.comment?.length || 0}
+							/>
+						))
+					}
+				</ul>
+			</article>
 		</main>
 		<Footer />
 	</body>
