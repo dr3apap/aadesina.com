@@ -2,12 +2,12 @@ export const deskStructure = (S:any) =>
 S.list()
 .title('Post')
 .items([
-    S.listItems()
+    S.listItem()
     .title('Site Configuration')
     .child(
         S.editor()
         .schemaType('siteConfig')
-        .documentID('siteConfig')
+        .documentId('siteConfig')
     ),
     // Visual divider (optional)
     S.divider(),
@@ -15,8 +15,8 @@ S.list()
     .title('curated Content')
     .child(
         S.editor()
-        .shcemaType('post')
-        .documentID('post')
+        .schemaType('post')
+        .documentId('post')
     ),
     // Visual divide (optional)
     S.divider(),

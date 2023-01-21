@@ -10,7 +10,7 @@ export default defineType({
     fields:[
         defineField({
             name:'title',
-            title:'Demo"s name',
+            title:"Demo's name",
             type:'string',
         }),
         defineField({
@@ -19,10 +19,24 @@ export default defineType({
             type:'string',
         }),
         defineField({
-            name:'skills',
-            title:'Skills',
+            name:'skillsIcon',
+            title:'Skills Icon',
             description:'Skills use for demo',
-            type:'string',
+            type:'image',
+            options:{
+                hotspot:true
+            },
+
+        }),
+
+        defineField({
+            name:'mainIcon',
+            title:'Main Icon',
+            type:'image',
+            options:{
+                hotspot:true
+            },
+
         }),
 
         defineField({

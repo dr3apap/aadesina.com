@@ -10,7 +10,7 @@ export default defineType({
             name:"character",
             title:"Main Character",
             type:"reference",
-            to:{type:"authore"},
+            to:{type:"author"},
         }),
 
         defineField({

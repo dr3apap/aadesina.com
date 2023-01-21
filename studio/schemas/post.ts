@@ -14,7 +14,7 @@ export default defineType({
     defineField({
       name: 'description',
       title: 'Descrtiption',
-      description:"Used for page description/OG images",
+      description:"Used for page description/OG meta",
       type: 'string',
       validation:Rule => Rule.required(),
     }),
@@ -42,7 +42,7 @@ export default defineType({
     }),
     
     defineField({
-      name: 'demo hero',
+      name: 'demoHero',
       title: 'Demo Hero',
       description:'Usea a 3:1 raio for banner images that point to a URL for a demo',
       type: 'object',
@@ -68,7 +68,7 @@ export default defineType({
         defineField({
           name:'attribution',
           title:'Image Attribution',
-          type:'string',
+          type:'markdown',
         }),
       ]
     }),
@@ -88,19 +88,13 @@ export default defineType({
       to: {type: 'author'},
       validation:Rule => Rule.required(),
     }),
+    
     defineField({
-      name: 'mainImage',
-      title: 'Main image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-    }),
-    defineField({
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
+      name: 'category',
+      title: 'Category',
+      type: 'reference',
+      to:{type:'category'},
+      validation:Rule => Rule.required(),
     }),
 
     defineField({
@@ -113,13 +107,22 @@ export default defineType({
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
+      validation:Rule => Rule.required(),
     }),
     defineField({
       name: 'body',
       title: 'Body',
-      description:'The body of the post/article',
+      description:'Body of the post',
       type: 'markdown',
       validation:Rule => Rule.required(),
+    }),
+    defineField({
+      name:'comment',
+      title:'Comment',
+      type:'array',
+      of:[
+        {type:'reference', to:{type:'comment'}},
+      ]
     }),
   ],
 
@@ -130,7 +133,7 @@ export default defineType({
       media: 'mainImage',
     },
     prepare(selection) {
-      const {author} = selection
+      const {author} = selection;
       return {...selection, subtitle: author && `by ${author}`}
     },
   },

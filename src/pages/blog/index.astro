@@ -1,19 +1,19 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Nav from "../components/Nav.astro";
-import Header from '../components/BlogHeader.astro';
-import BlogHeading from '../components/BlogHeading.astro';
-import Featured from '../components/BlogFeatured.astro';
-import BlogLink from "../components/BlogLink.astro";
-import Categories from "../components/BlogCategories.astro";
-import Footer from "../components/BlogFooter.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+import BaseHead from '../../components/BaseHead.astro';
+import Nav from "../../components/Nav.astro";
+import Header from '../../components/BlogHeader.astro';
+import BlogHeading from '../../components/BlogHeading.astro';
+import Featured from '../../components/BlogFeatured.astro';
+import BlogLink from "../../components/BlogLink.astro";
+import Categories from "../../components/BlogCategories.astro";
+import Footer from "../../components/BlogFooter.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../config';
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
-const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
-	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
-);
-const featuredPost = posts.find(post => ( post.frontmatter.description === "Featured"));
+// const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
+// 	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+// );
+// const featuredPost = posts.find(post => ( post.frontmatter.description === "Featured"));
 ---
 
 <!DOCTYPE html>

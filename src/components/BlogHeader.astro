@@ -1,10 +1,9 @@
 ---
-const heroQuote  = (await (await fetch(`https://api.api-ninjas.com/v1/quotes?category=inspirational`, {
+const heroQuote  = {...(await (await fetch(`https://api.api-ninjas.com/v1/quotes?category=inspirational`, {
     headers:{
         'X-Api-Key':import.meta.env.INSPIRATIONAL_QUOTE,
-    },})).json());
-    const heroMotivationalQuote = heroQuote[0]["quote"];
-    const author = heroQuote[0]["author"];
+    },})).json())[0]};
+    const { author, quote } = heroQuote;
     const date = new Date();
     const year = date.getFullYear();
     const today = date.getDate();
@@ -13,12 +12,13 @@ const heroQuote  = (await (await fetch(`https://api.api-ninjas.com/v1/quotes?cat
     const heroImageSrc = (await (await fetch(`https://api.nasa.gov/planetary/apod?api_key=${import.meta.env.NASA_API_KEY}&start_date=${todayDate}&end_date=${todayDate}`)).json())[0].url;
 ---
 
-<header class="w-content-area max-w-full mx-auto grid gap-2 px-4 mb-12">
-    <div class="banner max-w-[100vw] transform relative left-1/2 -translate-x-1/2 aspect-[3/1] bg-brand-light-surface-4">
+<header class="w-content-area max-w-full mx-auto grid gap-2 px-4 mb-12 relative h-[30vh]">
+    <div class="banner max-w-[100vw] relative transform left-1/2 -translate-x-1/2 aspect-[3/1] bg-brand-light-surface-4">
     <img src={heroImageSrc} width="750" height="250" class="absolute inset-0 w-full h-full">
-    </div>
-    <figure class="absolute left-0 bottom-0 bg-brand-light-surface1 p-4 whitespace-nowrap max-w-screen">
-    <blockquote cite="" ><p class="quote text-fluid-1 inline-block">{heroMotivationalQuote}</p></blockquote>
-        <figcaption class="text-fluid--1"> -{author}<cite> Motivation</cite></figcaption>
+    <figure class="absolute left-0 bottom-0 transform translate-y-[50%] bg-brand-light-surface1 p-4 pt-8 whitespace-normal w-[50%] max-w-full opacity-70">
+    <blockquote cite="" class=""><p class="quote text-fluid--0 text-brand-secondary-light-text1">{quote}</p></blockquote>
+        <figcaption class="text-fluid--2 text-brand-light-2">-{author}<cite></cite></figcaption>
 </figure>
+    </div>
+    
 </header>

@@ -57,6 +57,22 @@ export default defineType({
         },
       ],
     }),
+    defineField({
+      name:'comment',
+      title:'Comment',
+      type:'array',
+      of:[
+        {type:'reference', to:{type:'comment'}},
+      ]
+    }),
+
+    defineField({
+      name:'commenter',
+      title:'Commenter',
+      type:'reference',
+      to:{type:'commenter'},
+      
+    }),
   ],
   preview: {
     select: {
