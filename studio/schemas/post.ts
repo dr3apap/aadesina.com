@@ -121,7 +121,7 @@ export default defineType({
       title:'Comment',
       type:'array',
       of:[
-        {type:'reference', to:{type:'comment'}},
+        {type:'reference', weak:true, to:{type:'comment'}},
       ]
     }),
   ],

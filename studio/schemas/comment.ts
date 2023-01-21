@@ -27,8 +27,9 @@ export default defineType({
             
         }),
         defineField({
-            name:'comment',
-            title:'Comment',
+            name:'body',
+            title:'Body',
+            description:'The body of the comment',
             type:'markdown',
             validation:Rule => Rule.required(),
             
