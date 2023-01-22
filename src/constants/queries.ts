@@ -5,7 +5,7 @@ export type Query = string;
 export const orderedPost:Query = `
 *[_type == 'post']{
   title, slug, body, publishedAt, category->{name},
-  comment[]->{body},   
+  comment[]->,   
 } | order(_createdAt desc)
 `
 export const getQueryUrl = (query:Query) => {

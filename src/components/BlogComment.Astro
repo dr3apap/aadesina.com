@@ -1,0 +1,28 @@
+---
+const { comment, commenter } = Astro.props;
+---
+ <li class="comments__comment">
+                <div class="comments__comment__commenter">
+                    <img
+                        src={commenter.avatar}
+                        alt={commenter.alt}
+                        class="rounded-full"
+                    />
+                    <div class="comments__comment__commenter__details">
+                        <h2>{commenter.name}</h2>
+                        <time datetime={comment.publishedDate}
+                            >{
+                                new Date(comment.publishedDate).toLocaleDateString(
+                                    "en-us",
+                                    {
+                                        year: "numeric",
+                                        month: "short",
+                                        day: "numeric",
+                                    }
+                                )
+                            }</time
+                        >
+                    </div>
+                </div>
+                <div class="comments__comment__body">{comment.body}</div>
+            </li>

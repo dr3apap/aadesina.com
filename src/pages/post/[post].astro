@@ -1,7 +1,123 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
+import Layout from "../../layouts/Layout.astro";
+import HeaderLink from "../../components/HeaderLink.astro";
+import BlogComment from "../../components/BlogComment.astro";
+const {
+    description,
+    title,
+    pubDate,
+    numOfComment,
+    readTime,
+    category,
+    updated,
+    author,
+    body,
+    commenter,
+    comment,
+} = Astro.props;
 ---
+
 <Layout>
-    
+    <main>
+        <div>
+            <img src={author.avatar} alt={author.alt} class="rounded-full" />
+            <div>
+                <h2>{author.name}</h2>
+                <time datetime={pubDate}
+                    >{
+                        new Date(pubDate).toLocaleDateString("en-us", {
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric",
+                        })
+                    }</time
+                >
+            </div>
+        </div>
+        <article>
+            <div class="media__details mb-12">
+                <h3 class="text-fluid-2 mb-6">Wrote: {title}</h3>
+                <div class="la:flex gap-8">
+                    <div class="text-center text-fluid-1 flex gap-2">
+                        <iconify-icon
+                            class=""
+                            icon="tabler:category"
+                            style="color:black;"
+                            width="24"
+                            height="24"></iconify-icon>
+                        <span class="la:block">{category}</span>
+                    </div>
+                    <div class="text-center text-fluid-1 flex gap-2">
+                        <iconify-icon
+                            class=""
+                            icon="fluent-emoji-flat:mantelpiece-clock"
+                            style="color: black;"
+                            width="24"
+                            height="24"
+                            class="icon"
+                        >
+                        </iconify-icon>
+                        <span class="">~{readTime}mins read</span>
+                    </div>
+                    <div class="text-center text-fluid-1 flex gap-2">
+                        <iconify-icon
+                            class=""
+                            icon="mdi:calendar-month-outline"
+                            style="color: black;"
+                            width="24"
+                            height="24"
+                            class="icon"
+                        >
+                        </iconify-icon>
+                        <time datetime={pubDate}></time>{
+                            new Date(pubDate).toLocaleDateString("en-us", {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                            })
+                        }<time datetime={updated && updated}
+                            >{
+                                updated &&
+                                    new Date(updated).toLocaleDateString(
+                                        "en-us",
+                                        {
+                                            year: "numeric",
+                                            month: "short",
+                                            day: "numeric",
+                                        }
+                                    )
+                            }</time
+                        >
+                    </div>
+                    <div class="text-center text-fluid-1 flex gap-8">
+                        <p class="posts__comment ml-2 text-fluid-1">Comment</p>
+                        <span class="block">{numOfComment}</span>
+                    </div>
+                    <div class="text-center text-fluid-1 flex gap-8">
+                        <HeaderLink
+                            href="https://www.twitter.com/Dr3_147"
+                            class="text-fluid-2 text-fg-dark"
+                            target="_blank"
+                        >
+                            <iconify-icon
+                                icon="pajamas:twitter"
+                                width="2em"
+                                height="1em"
+                                class="social"></iconify-icon>
+                        </HeaderLink>
+                        <span>Share Post</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-12">{body}</div>
+        </article>
+        <h3
+            class="flex gap-4 before:content-none before:width-[40%] before:h-2 before:bg-gradient-to-r before:from-brand-secondary-light before:to-brand-light after:content-none after:width-[40%] after:h-2 after:bg-gradient-to-l after:from-brand-secondary-light after:to-brand-light mb-12"
+        >
+            Readers Comments
+        </h3>
+        <ul class="comments">
+          <BlogComment comment={comment} commenter={commenter} /> 
+        </ul>
+    </main>
 </Layout>

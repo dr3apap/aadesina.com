@@ -10,7 +10,7 @@ export interface Props {
 			
 }
 
-const { ogTitle, ogGradient, ogHue, }  = Astro.props;
+const { ogTitle, ogGradient, ogHue, description, title }  = Astro.props;
 ---
 
 <html lang="en">
@@ -18,6 +18,8 @@ const { ogTitle, ogGradient, ogHue, }  = Astro.props;
 		<BaseHead ogTitle={ogTitle}
 		         ogGradient={ogGradient}
 				 ogHue={ogHue}
+				 description={description}
+				 title={title}
 		/>
 		
 		<style>
@@ -34,6 +36,6 @@ const { ogTitle, ogGradient, ogHue, }  = Astro.props;
 	<body>
 		<BlogHeader />
 		<slot/>
-		<BlogFooter />
+	<BlogFooter/>
 	</body>
 </html>

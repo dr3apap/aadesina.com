@@ -1,4 +1,16 @@
 ---
+export type Post = {
+	title:string,
+	publishedAt:string,
+	slug:{
+		current:string,
+	},
+	category:{
+		name:string,
+	},
+	comment:string[],
+	body:string,
+}
 import BaseHead from "../../components/BaseHead.astro";
 import Nav from "../../components/Nav.astro";
 import Header from "../../components/BlogHeader.astro";
@@ -8,8 +20,8 @@ import BlogLink from "../../components/BlogLink.astro";
 import Categories from "../../components/BlogCategories.astro";
 import Footer from "../../components/BlogFooter.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../config";
-import { getPostLinks } from "../../constants/queries.ts";
-import { getReadingTime } from "../../utils/readingTime.ts"
+import { getPostLinks } from "../../constants/queries";
+import { getReadingTime } from "../../utils/readingTime";
 const posts = await getPostLinks();
 // const featuredPost = posts.find(post => ( post.frontmatter.description === "Featured"));
 ---
@@ -37,12 +49,12 @@ const posts = await getPostLinks();
 			/> -->
 				<ul id="posts" class="">
 					{
-						posts.map((post) => (
+						posts.map((post:Post) => (
 							<BlogLink
 								pubDate={post.publishedAt}
 								title={post.title}
 								readTime={getReadingTime(post.body).readingTime}
-								url={post.slug.current}
+								url={`/blog/${post.slug.current}`}
 								category={post.category.name}
 								 numOfComment={post.comment?.length || 0}
 							/>
