@@ -1,10 +1,10 @@
 ---
 const { comment } = Astro.props;
-const {commenterAvatar, name} = comment[0].commenter; 
+const {commenterAvatar, name} = comment.commenter; 
 ---
  <li class="comments__comment">
                 <div class="comments__comment__commenter">
-                    <img src={commenterAvatar} alt={`Head shot for ${name}`} class="rounded-full min-h-half-avatar w-avatar" />
+                    <img src={commenterAvatar} alt={`Head shot for ${name}`} class="rounded-full" width="80" height="80"/>
                     <div class="comments__comment__commenter__details">
                         <h2>{name}</h2>
                         <time datetime={comment.publishedAt}>{
@@ -19,5 +19,5 @@ const {commenterAvatar, name} = comment[0].commenter;
                             }</time>
                     </div>
                 </div>
-                <div class="comments__comment__body">{comment[0].commentBody}</div>
+                <div class="comments__comment__body">{comment.commentBody}</div>
             </li>

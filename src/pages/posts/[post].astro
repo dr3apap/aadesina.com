@@ -1,5 +1,5 @@
 ---
-import type { Post }  from "../blog/index.astro";
+import type { Post, Comment }  from "../blog/index.astro";
 import Layout from "../../layouts/Layout.astro";
 import HeaderLink from "../../components/HeaderLink.astro";
 import BlogComment from "../../components/BlogComment.astro";
@@ -36,7 +36,7 @@ description={description}
 >
     <main class="px-8 mx-auto my-12">
         <div>
-            <img src={author.authorAvatar} alt={`Head shot for ${author.name}`} class="rounded-full min-h-half-avatar w-avatar" />
+            <img src={author.authorAvatar} alt={`Head shot for ${author.name}`} class="rounded-full" width="80" height="80"/>
             <div>
                 <h2>{author.name}</h2>
                 <time datetime={publishedAt}
@@ -133,7 +133,7 @@ description={description}
             Readers Comments
         </h3>
         <ul class="comments">
-          <BlogComment comment={comments}/> 
+          { comments.map((comment:Comment) => <BlogComment comment={comment}/> )}
           <BlogCommentForm/>
         </ul>
     </main>

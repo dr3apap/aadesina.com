@@ -1,4 +1,13 @@
 ---
+ export type Comment = {
+		commentBody:string,
+		title:string,
+		publishedAt:string,
+		commenter:{
+			name:string,
+			commenterAvatar:string,
+		}
+	}
 export type Post = {
 	title:string,
 	publishedAt:string,
@@ -8,15 +17,7 @@ export type Post = {
 		current:string,
 	},
 	postCategory:string[],
-	comments:{
-		commentBody:string,
-		title:string,
-		publishedAt:string,
-		commenter:{
-			name:string,
-			commenterAvatar:string,
-		}
-	},
+	comments:Comment[],
 	body:string,
 	author:{
 		name:string,
