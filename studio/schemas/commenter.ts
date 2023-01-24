@@ -17,8 +17,8 @@ export default defineType({
             type:'string',
         }),
         defineField({
-            name:'comment',
-            title:'Comment',
+            name:'comments',
+            title:'Comments',
             type:'array',
             of:[{type:'reference', to:{type:'comment'}}],
         }),

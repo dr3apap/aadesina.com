@@ -1,18 +1,14 @@
 ---
-const { comment, commenter } = Astro.props;
+const { comment } = Astro.props;
+const {commenterAvatar, name} = comment[0].commenter; 
 ---
  <li class="comments__comment">
                 <div class="comments__comment__commenter">
-                    <img
-                        src={commenter.avatar}
-                        alt={commenter.alt}
-                        class="rounded-full"
-                    />
+                    <img src={commenterAvatar} alt={`Head shot for ${name}`} class="rounded-full min-h-half-avatar w-avatar" />
                     <div class="comments__comment__commenter__details">
-                        <h2>{commenter.name}</h2>
-                        <time datetime={comment.publishedDate}
-                            >{
-                                new Date(comment.publishedDate).toLocaleDateString(
+                        <h2>{name}</h2>
+                        <time datetime={comment.publishedAt}>{
+                                new Date(comment.publishedAt).toLocaleDateString(
                                     "en-us",
                                     {
                                         year: "numeric",
@@ -20,9 +16,8 @@ const { comment, commenter } = Astro.props;
                                         day: "numeric",
                                     }
                                 )
-                            }</time
-                        >
+                            }</time>
                     </div>
                 </div>
-                <div class="comments__comment__body">{comment.body}</div>
+                <div class="comments__comment__body">{comment[0].commentBody}</div>
             </li>

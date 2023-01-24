@@ -9,7 +9,7 @@ export default defineConfig({
   name: 'default',
   title: `${import.meta.env.SANITY_STUDIO_PROJECT_NAME} [${import.meta.env.SANITY_STUDIO_PROJECT_DATASET}]`,
   basePath:'/studio',
-
+  token:import.meta.env.SANITY_STUDIO_PROJECT_PREVIEW_TOKEN,
   projectId:import.meta.env.SANITY_STUDIO_PROJECT_ID,
   dataset:import.meta.env.SANITY_STUDIO_PROJECT_DATASET,
 
@@ -19,6 +19,7 @@ export default defineConfig({
   }),
   visionTool(),
   markdownSchema(),
+
 ] ,
 
   schema: {

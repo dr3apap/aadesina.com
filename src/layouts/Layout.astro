@@ -2,11 +2,14 @@
 import BaseHead from '../components/BaseHead.astro';
 import BlogHeader from '../components/BlogHeader.astro';
 import BlogFooter from '../components/BlogFooter.astro';
+import Nav from '../components/Nav.astro';
 
 export interface Props {
-			ogTitle?:string,
-			ogHue?:string,
-			ogGradient?:string,
+			ogTitle?:string;
+			ogHue?:string;
+			ogGradient?:string;
+			title?:string;
+			description?:string;
 			
 }
 
@@ -34,8 +37,9 @@ const { ogTitle, ogGradient, ogHue, description, title }  = Astro.props;
 		</style>
 	</head>
 	<body>
+		<Nav/>
 		<BlogHeader />
 		<slot/>
-	<BlogFooter/>
+		<BlogFooter/>
 	</body>
 </html>

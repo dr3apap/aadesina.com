@@ -90,10 +90,21 @@ export default defineType({
     }),
     
     defineField({
-      name: 'category',
-      title: 'Category',
-      type: 'reference',
-      to:{type:'category'},
+      name: 'postCategory',
+      title: 'Post Category',
+      type: 'array',
+      of:[{type:'string'}],
+      options:{
+        list:[{title:'Web', value:'Web'},
+        {title:'Front End', value:'FrontEnd'},
+        {title:'Back End', value:'Back End'},
+        {title:'System Design', value:'SystemDesign'},
+        {title:'Iot', value:'Iot'},
+        {title:'Programming Fundamental', value:'ProgrammingFundamental'},
+        {title:'Operating System', value:'OperatingSytem'},
+        {title:'Networking', value:'Networking'},
+        {title:'Graphic/Animation', value:'GraphicAndAnimation'}]
+      },
       validation:Rule => Rule.required(),
     }),
 
@@ -102,6 +113,10 @@ export default defineType({
       title: 'Tags',
       type: 'array',
       of: [{type: 'reference', to: {type: 'tag'}}],
+      options:{
+        layout:"tags"
+      },
+      validation:Rule => Rule.unique(),
     }),
     defineField({
       name: 'publishedAt',
@@ -117,12 +132,11 @@ export default defineType({
       validation:Rule => Rule.required(),
     }),
     defineField({
-      name:'comment',
-      title:'Comment',
+      name:'comments',
+      title:'Comments',
       type:'array',
       of:[
-        {type:'reference', weak:true, to:{type:'comment'}},
-      ]
+        {type:'reference', weak:true, to:{type:'comment'}}]
     }),
   ],
 

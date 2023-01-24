@@ -1,32 +1,47 @@
 ---
+import type { Post }  from "../blog/index.astro";
 import Layout from "../../layouts/Layout.astro";
 import HeaderLink from "../../components/HeaderLink.astro";
 import BlogComment from "../../components/BlogComment.astro";
 import BlogCommentForm from "../../components/BlogCommentForm.astro";
+import { getAllPostData } from "../../constants/queries";
+import { getReadingTime } from "../../utils/readingTime";
+
+export async function getStaticPaths(){
+    const posts:Post[] = await getAllPostData();
+    return posts.map(({slug, title, postCategory, comments, numOfComment, body, publishedAt, author, description}) => {
+        return {
+            params:{post:slug.current},
+            props:{title, postCategory, numOfComment, comments, body, publishedAt, author, description,},
+
+        };
+    });
+}
 const {
     description,
     title,
-    pubDate,
-    numOfComment,
-    readTime,
-    category,
+    postCategory,
     updated,
     author,
     body,
-    commenter,
-    comment,
+    publishedAt,
+    numOfComment,
+    comments,
 } = Astro.props;
 ---
 
-<Layout>
-    <main>
+<Layout title="Sharing"
+ogTitle="A post from Adebola Adesina"
+description={description}
+>
+    <main class="px-8 mx-auto my-12">
         <div>
-            <img src={author.avatar} alt={author.alt} class="rounded-full" />
+            <img src={author.authorAvatar} alt={`Head shot for ${author.name}`} class="rounded-full min-h-half-avatar w-avatar" />
             <div>
                 <h2>{author.name}</h2>
-                <time datetime={pubDate}
+                <time datetime={publishedAt}
                     >{
-                        new Date(pubDate).toLocaleDateString("en-us", {
+                        new Date(publishedAt).toLocaleDateString("en-us", {
                             year: "numeric",
                             month: "short",
                             day: "numeric",
@@ -46,7 +61,7 @@ const {
                             style="color:black;"
                             width="24"
                             height="24"></iconify-icon>
-                        <span class="la:block">{category}</span>
+                        <span class="la:block">{postCategory.join(" ")}</span>
                     </div>
                     <div class="text-center text-fluid-1 flex gap-2">
                         <iconify-icon
@@ -58,7 +73,7 @@ const {
                             class="icon"
                         >
                         </iconify-icon>
-                        <span class="">~{readTime}mins read</span>
+                        <span class="">~{getReadingTime(body).readingTime}mins read</span>
                     </div>
                     <div class="text-center text-fluid-1 flex gap-2">
                         <iconify-icon
@@ -70,8 +85,8 @@ const {
                             class="icon"
                         >
                         </iconify-icon>
-                        <time datetime={pubDate}></time>{
-                            new Date(pubDate).toLocaleDateString("en-us", {
+                        <time datetime={publishedAt}></time>{
+                            new Date(publishedAt).toLocaleDateString("en-us", {
                                 year: "numeric",
                                 month: "short",
                                 day: "numeric",
@@ -118,7 +133,8 @@ const {
             Readers Comments
         </h3>
         <ul class="comments">
-          <BlogComment comment={comment} commenter={commenter} /> 
+          <BlogComment comment={comments}/> 
+          <BlogCommentForm/>
         </ul>
     </main>
 </Layout>

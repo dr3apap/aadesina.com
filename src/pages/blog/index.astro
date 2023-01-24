@@ -2,14 +2,27 @@
 export type Post = {
 	title:string,
 	publishedAt:string,
+	description:string,
+	numOfComment:number,
 	slug:{
 		current:string,
 	},
-	category:{
-		name:string,
+	postCategory:string[],
+	comments:{
+		commentBody:string,
+		title:string,
+		publishedAt:string,
+		commenter:{
+			name:string,
+			commenterAvatar:string,
+		}
 	},
-	comment:string[],
 	body:string,
+	author:{
+		name:string,
+		authorAvatar:string,
+	},
+	
 }
 import BaseHead from "../../components/BaseHead.astro";
 import Nav from "../../components/Nav.astro";
@@ -54,9 +67,9 @@ const posts = await getPostLinks();
 								pubDate={post.publishedAt}
 								title={post.title}
 								readTime={getReadingTime(post.body).readingTime}
-								url={`/blog/${post.slug.current}`}
-								category={post.category.name}
-								 numOfComment={post.comment?.length || 0}
+								url={`/posts/${post.slug.current}`}
+								category={post.postCategory.join(" ")}
+								 numOfComment={post.numOfComment}
 							/>
 						))
 					}

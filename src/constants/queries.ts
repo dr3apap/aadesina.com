@@ -4,10 +4,23 @@ export type Query = string;
 
 export const orderedPost:Query = `
 *[_type == 'post']{
-  title, slug, body, publishedAt, category->{name},
-  comment[]->,   
+  title, slug, body, publishedAt, postCategory,
+  "numOfComment":count(comments[]),   
 } | order(_createdAt desc)
 `
+
+export const allPostData:Query = `
+*[_type == 'post']{
+  title, slug, body, publishedAt, postCategory,
+ "numOfComment":count(comments[]), comments[]->{"commentBody":body, publishedAt, commenter->{"commenterAvatar":image.asset->url, name}}, 
+  author->{"authorAvatar":image.asset->url, name},
+} | order(_createdAt desc)
+`
+
+
+
+
+
 export const getQueryUrl = (query:Query) => {
 const queryString = encodeURIComponent(query);
 return `https://${SANITY_STUDIO_PROJECT_ID}.api.sanity.io/v2021-03-25/data/query/${SANITY_STUDIO_PROJECT_DATASET}?query=${queryString}`
@@ -22,4 +35,8 @@ return DATA;
 
 export const getPostLinks = async () =>{
     return getData(orderedPost);
+}
+
+export const getAllPostData = async () =>{
+  return getData(allPostData);
 }
