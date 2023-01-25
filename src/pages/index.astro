@@ -1,21 +1,24 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import Nav from "../components/Nav.astro";
 import Header from "../components/Header.astro";
 import About from "../components/About.astro";
 import FeaturedDemos from "../components/FeatureDemos.astro"
 import Demos from "../components/Demos.astro"
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} ogTitle={SITE_TITLE} />
 	</head>
 	<body>
-		<Header title={SITE_TITLE} />
-		<div class=" p-8 mx-auto my-0 max-w-screen-md bg-brand-light-surface2">
+		<Nav/>	
+		<Header/>
+		<div class="p-8 mx-auto my-0 max-w-screen-md bg-brand-light-surface2">
 		<main class="grid grid-flow-row gap-44">
 			<About/>
 			<FeaturedDemos/>
@@ -24,7 +27,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 		</div>
 		<Footer />
 	</body>
-	<script is:live>
+	<script is:inline>
 
 SANITY_STUDIO_PROJECT_ID="f16qt5br"
 SANITY_STUDIO_PROJECT_DATASET="production"

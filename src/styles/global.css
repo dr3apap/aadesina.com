@@ -199,10 +199,10 @@
   background-color:hsl(0, 0%, 95%);
 } */
   .box {
-    grid-area: control;
-    justify-self: center;
-    width: 6rem;
-    height: 6rem;
+    /* grid-area: control;
+    justify-self: center; */
+    /* width: 6rem;
+    height: 6rem; */
     padding: 0;
     /* right:4rem; */
     position: relative;
@@ -215,7 +215,7 @@
     width: 3rem;
     height: .4rem;
     position: absolute;
-    top: .9rem;
+    top: 1.4rem;
     right: 0;
     line-height: 0;
     /* border:.3rem solid var(--color-grayscale-100); */

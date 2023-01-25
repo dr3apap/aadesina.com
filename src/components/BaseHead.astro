@@ -3,20 +3,16 @@
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
 
-export interface Props {
-	ogTitle?: string;
-	ogGradient?:string;
-	ogHue?:string;
-	description?:string;
-	title?:string;
+export interface BaseHeadProps {
+	ogTitle: string;
+	ogGradient:string;
+	ogHue:string;
+	description:string;
+	title:string;
 
 }
-const { ogTitle, ogGradient, ogHue } = Astro.props;
+const { ogTitle, ogGradient, ogHue, title, description } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-//TODO: ogImage ogGradient, ogHue
-const title = `${Astro.props.title || "Hey! I'm Adebola Adesina"} - aadesina.com`;
-const description = Astro.props.description || "A passionate developer making awesome things";
-const openGraphTitle = ogTitle || Astro.props.title || "Adebola's page";
 
 ---
 <!-- Global Metadata -->
@@ -41,7 +37,7 @@ const openGraphTitle = ogTitle || Astro.props.title || "Adebola's page";
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content={Astro.generator}/>
 <meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={openGraphTitle} />
+<meta property="og:title" content={ogTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:author" content="Adebola Adesina"/>
 <!-- <meta property="og:image" content={new URL(image, Astro.url)} /> -->
@@ -49,7 +45,7 @@ const openGraphTitle = ogTitle || Astro.props.title || "Adebola's page";
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={openGraphTitle} />
+<meta property="twitter:title" content={ogTitle} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:creator" content="@Dr3_147"/>
 <!-- <meta property="twitter:image" content={new URL(image, Astro.url)} /> -->

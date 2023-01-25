@@ -20,6 +20,13 @@ export default defineType({
         }),
 
         defineField({
+          name:'publishedAt',
+          title:'published At',
+          type:'datetime',
+          validation:Rule => Rule.required(),
+        }),
+
+        defineField({
             name:'commenter',
             title:'Commenter',
             type:'reference',

@@ -2,11 +2,13 @@
 import HeaderLink from "./HeaderLink.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 ---
-<div class="grid grid-cols-[1fr_max-content] gap-12 p-4 bg-brand-light-surface-alpha z-10 sticky left-0 top-0">
-		 <nav class="grid grid-cols-[max-content_1fr] [grid-template-areas:'logo_menu-control''._menu-list'] pt-4 la:grid-cols-[1fr_2.2fr] la:[grid-template-areas:'logo_menu-list']">
-                    <HeaderLink href="/" class="[grid-area:logo"><img class="w-12 h-8" src="/asset/dr3-logo.png"
-                            alt="Adebola Adesina logo"/></HeaderLink>
-                    <div class="box [grid-area:menu-control] justify-self-end la:hidden" aria-controls="nav-toggle">
+<div class="grid grid-cols-[1fr_max-content] gap-12 p-2 bg-brand-light-surface-alpha z-10 sticky top-0 left-0">
+		 <nav class="grid grid-cols-[max-content_1fr] [grid-template-areas:'logo_menu-control''._menu-list'] la:grid-cols-[1fr_2.2fr] la:[grid-template-areas:'logo_menu-list']">
+                    <HeaderLink href="/" class="[grid-area:logo w-14 h-14 grid place-items-center hover:bg-brand-secondary-light-surface1 rounded-md"><img class="" src="/asset/dr3-logo.png"
+                            alt="Adebola Adesina logo"/>
+						<span class="sr-only">aadesina.com</span>
+						</HeaderLink>
+                    <div class="box w-14 h-14 [grid-area:menu-control] justify-self-end grid place-items-center la:hidden" aria-controls="nav-toggle">
                         <div class="bar" style="--fade:0" aria-expanded="false">
 							<span class="nav-toggle-label sr-only">Menu Control</span>
 						</div>

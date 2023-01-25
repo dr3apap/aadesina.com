@@ -1,0 +1,35 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import BlogHeader from '../components/BlogHeader.astro';
+import BlogFooter from '../components/BlogFooter.astro';
+import Nav from '../components/Nav.astro';
+import BlogHeading from "../components/BlogHeading.astro";
+import type { BaseHeadProps } from "../components/BaseHead.astro";
+const { ogTitle, ogGradient, ogHue }  = Astro.props;
+//TODO: ogImage ogGradient, ogHue
+const title = `${Astro.props.title || "Hey! I'm Adebola Adesina"} - aadesina.com`;
+const description = Astro.props.description || "A passionate developer making awesome things";
+const openGraphTitle = ogTitle || Astro.props.title || "Adebola's Page";
+const openGraphGradient = ogGradient || "";
+const openGraphHue = ogHue || "";
+---
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead ogTitle={openGraphTitle}
+		         ogGradient={openGraphGradient}
+				 ogHue={openGraphHue}
+				 description={description}
+				 title={title}
+		/>
+	</head>
+	<body>
+	<Nav/>	
+	<BlogHeader />
+	<main class="p-8 mx-auto my-48 max-w-screen-md bg-brand-light-surface1 overflow-hidden">
+		<BlogHeading />
+		<slot/>
+	</main>
+	<BlogFooter/>
+	</body>
+</html>

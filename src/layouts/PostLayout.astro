@@ -1,0 +1,19 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Nav from "../components/Nav.astro";
+import PostHeader from "../components/PostHeader.astro";
+const { title, ogTitle, description, demo } = Astro.props; 
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<BaseHead title={title} ogTitle={ogTitle} description={description}/>
+</head>
+<body>
+<Nav/>
+<PostHeader demo={demo}/>
+<main class="p-8 mx-auto my-48 max-w-screen-md bg-brand-light-surface1 overflow-hidden">
+    <slot/>
+</main>
+</body>
+</html>

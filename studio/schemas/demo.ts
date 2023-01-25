@@ -22,11 +22,11 @@ export default defineType({
             name:'skillsIcon',
             title:'Skills Icon',
             description:'Skills use for demo',
-            type:'image',
-            options:{
-                hotspot:true
-            },
-
+            type:'array',
+           of: [{ type:'image', options:{
+            hotspot:true
+        }, }],
+          
         }),
 
         defineField({
