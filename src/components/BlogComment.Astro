@@ -1,23 +1,33 @@
 ---
-const { comment } = Astro.props;
-const { commenterAvatar } = comment.commenter; 
+import PostContentBlock from './post-content/PostContentBlock'
+const { comment } = Astro.props
+const { commenterAvatar } = comment.commenter
 ---
- <li class="comments__comment">
-                <div class="comments__comment__commenter">
-                    <img src={commenterAvatar} alt={`Head shot for ${comment.commenter.name}`} class="rounded-full" width="80" height="80"/>
-                    <div class="comments__comment__commenter__details">
-                        <h2>{name}</h2>
-                        <time datetime={comment.publishedAt}>{
-                                new Date(comment.publishedAt).toLocaleDateString(
-                                    "en-us",
-                                    {
-                                        year: "numeric",
-                                        month: "short",
-                                        day: "numeric",
-                                    }
-                                )
-                            }</time>
-                    </div>
-                </div>
-                <div class="comments__comment__body">{comment.commentBody}</div>
+
+<li class="comments__comment">
+  <div class="comments__comment__commenter flex gap-4">
+    <div class="w-10 h-10">
+      <img
+        src={commenterAvatar}
+        alt={`Head shot for ${comment.commenter.name}`}
+        class="rounded-full"
+        width="80"
+        height="80"
+      />
+    </div>
+
+    <div class="comments__comment__commenter__details">
+      <h2 class="text-bold">{comment.commenter.name}</h2>
+      <time datetime={comment.publishedAt}
+        >{
+          new Date(comment.publishedAt).toLocaleDateString('en-us', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+          })
+        }</time
+      >
+    </div>
+  </div>
+  <PostContentBlock children={comment.commentBody} />
 </li>

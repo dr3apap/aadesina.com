@@ -157,7 +157,8 @@
   h3,
   h4,
   h5,
-  h6 p:first-line,
+  h6,
+  p::first-line,
   p::first-letter {
     font-family: 'Inter', 'Nunito Sans', -apple-system, \.SFNSText-Regular, 'San Francisco', BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: var(--step-0);

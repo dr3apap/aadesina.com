@@ -6,6 +6,7 @@ import BlogComment from "../../components/BlogComment.astro";
 import BlogCommentForm from "../../components/BlogCommentForm.astro";
 import { getAllPostData } from "../../constants/queries";
 import { getReadingTime } from "../../utils/readingTime";
+import  PostContentBlock  from "../../components/post-content/PostContentBlock";
 
 export async function getStaticPaths(){
     const posts:Post[] = await getAllPostData();
@@ -35,12 +36,14 @@ ogTitle="A post from Adebola Adesina"
 description={description}
 >    
 <article  class="grid grid-cols-1 gap-y-16">
-        <div>
+        <div class="flex gap-4">
+            <a href="" class="w-10 h-10">
             <img src={author.authorAvatar} alt={`Head shot for ${author.name}`} class="rounded-full" width="80" height="80"/>
+            </a>
             <div>
-                <h2>{author.name}</h2>
+                <h2 class="font-bold">{author.name}</h2>
                 <time datetime={publishedAt}
-                    >{
+                    class="mt-[-4px]">{
                         new Date(publishedAt).toLocaleDateString("en-us", {
                             year: "numeric",
                             month: "short",
@@ -52,7 +55,7 @@ description={description}
         </div>
             <div class="media__details mb-12">
                 <h3 class="text-fluid-2 mb-6">Wrote: {title}</h3>
-                <div class="la:flex gap-8">
+                <div class="">
                     <div class="text-center text-fluid-1 flex gap-2">
                         <iconify-icon
                             class=""
@@ -124,14 +127,14 @@ description={description}
                     </div>
                 </div>
             </div>
-            <div class="mb-12">{body}</div>
+            <PostContentBlock children={body}/>
         </article>
         <h3
             class="flex gap-4 text-center before:content-none before:width-[40%] before:h-2 before:bg-gradient-to-r before:from-brand-secondary-light before:to-brand-light after:content-none after:width-[40%] after:h-2 after:bg-gradient-to-l after:from-brand-secondary-light after:to-brand-light mb-12"
         >
             Readers Comments
         </h3>
-        <ul class="comments">
+        <ul class="comments border-2 border-solid p-8">
           { comments.map((comment:Comment) => <BlogComment comment={comment}/> )}
           <BlogCommentForm/>
         </ul>
