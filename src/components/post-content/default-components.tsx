@@ -13,6 +13,7 @@ const defaultComponents = {
     h1:headingBold,
     h2:headingBold,
     h3:headingBold,
+
     p({node, ...props}){
         const embed = node.children.find((child) => child.tagName === "tweet" || child.tagName === "codepen" || child.tagName === "blogCommentForm") 
         if(embed) return <>{props.children}</>

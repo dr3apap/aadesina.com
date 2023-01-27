@@ -36,21 +36,21 @@ ogTitle="A post from Adebola Adesina"
 description={description}
 >    
 <article  class="grid grid-cols-1 gap-y-16">
-        <div class="flex gap-4">
+        <div class="grid grid-cols-[auto_1fr] gap-4">
             <a href="" class="w-10 h-10">
             <img src={author.authorAvatar} alt={`Head shot for ${author.name}`} class="rounded-full" width="80" height="80"/>
             </a>
             <div>
-                <h2 class="font-bold">{author.name}</h2>
-                <time datetime={publishedAt}
-                    class="mt-[-4px]">{
+                <h2 class="font-bold m-0 p-0">{author.name}</h2>
+                <p class="mt-[-3px]"><time datetime={publishedAt}
+                    >{
                         new Date(publishedAt).toLocaleDateString("en-us", {
                             year: "numeric",
                             month: "short",
                             day: "numeric",
                         })
                     }</time
-                >
+                ></p>
             </div>
         </div>
             <div class="media__details mb-12">
@@ -87,7 +87,7 @@ description={description}
                             class="icon"
                         >
                         </iconify-icon>
-                        <time datetime={publishedAt}></time>{
+                        <p><time datetime={publishedAt}></time>{
                             new Date(publishedAt).toLocaleDateString("en-us", {
                                 year: "numeric",
                                 month: "short",
@@ -105,13 +105,13 @@ description={description}
                                         }
                                     )
                             }</time
-                        >
+                        ></p>
                     </div>
-                    <div class="text-center text-fluid-1 flex gap-8">
+                    <div class="text-center text-fluid-1 flex gap-4">
                         <p class="posts__comment ml-2 text-fluid-1">Comment</p>
                         <span class="block">{numOfComment}</span>
                     </div>
-                    <div class="text-center text-fluid-1 flex gap-8">
+                    <div class="text-center text-fluid-1 flex gap-4">
                         <HeaderLink
                             href="https://www.twitter.com/Dr3_147"
                             class="text-fluid-2 text-fg-dark"
@@ -119,8 +119,8 @@ description={description}
                         >
                             <iconify-icon
                                 icon="pajamas:twitter"
-                                width="2em"
-                                height="1em"
+                                width="24"
+                                height="24"
                                 class="social"></iconify-icon>
                         </HeaderLink>
                         <span>Share Post</span>
@@ -130,7 +130,7 @@ description={description}
             <PostContentBlock children={body}/>
         </article>
         <h3
-            class="flex gap-4 text-center before:content-none before:width-[40%] before:h-2 before:bg-gradient-to-r before:from-brand-secondary-light before:to-brand-light after:content-none after:width-[40%] after:h-2 after:bg-gradient-to-l after:from-brand-secondary-light after:to-brand-light mb-12"
+            class="grid grid-cols-[1fr_auto_1fr] gap-4 items-center mb-12 font-bold text-fluid-1 before:block before:h-4 before:bg-gradient-to-r before:from-brand-secondary-light before:to-brand-light  after:block after:h-4 after:bg-gradient-to-l after:from-brand-secondary-light after:to-brand-light"
         >
             Readers Comments
         </h3>
