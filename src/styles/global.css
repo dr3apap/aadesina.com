@@ -7,9 +7,79 @@
 @tailwind utilities;
 
 @layer base {
+  *{
+    /*Color Palleter*/
+      /** Light brand theme*/
+      /** brand hue and component decomposition*/
 
-  /* @link https://utopia.fyi/type/calculator?c=220,16,1.2,768,20,1.25,9,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+     --brand:#eb5a00;
+    --brand-hsl:hsl(23 100% 46%);
+    --brand-hue:23;
+    --brand-saturation:100%;
+    --brand-lightness:46%;
+    --brand-fill0:hsl(var(--brand-hue) 
+    var(--brand-saturation) 
+    var(--brand-lightness));
+    --brand-fill1: hsl(var(--brand-hue) 
+    var(--brand-saturation) 
+    calc(var(--brand-lightness)+12));
+  --brand-stroke:var(--brand-fill0);
+    --text1-light:hsl(var(--brand-hue) 
+    var(--brand-saturation);
+    calc(var(--brand-lightness) - 36));
+    --text2-light:hsl(var(--brand-hue) 
+    calc(var(--brand-saturation) - 70) 
+    calc(var(--brand-lightness)-16));
+    --surface1-light:hsl(var(--brand-hue) 
+    calc(var(--brand-saturation)-20) 
+    calc(var(--brand-lightness)+44));
+    --surface2-light:hsl(var(--brand-hue) 
+    calc(var(--brand-saturation)-26) 
+    calc(var(--brand-lightness)+53));
+    --surface3-light:hsl(var(--brand-hue) 
+    calc(var(--brand-saturation)-26) 
+    calc(var(--brand-lightness)+46));
+    --surface4-light:hsl(var(--brand-hue) 
+    calc(var(--brand-saturation)-26) 
+    calc(var(--brand-lightness)+39));
+    --suface-shadow-light:var(--brand-hue) 10% 20%;
+    --shadow-strength-light:.02;
+ 
+    /** brand accent hue and decompostion*/
+    --brand-accent: #0065a3;
+    --brand-accent-hsl: hsl(203 100% 32%);
+    --brand-accent-hue: 203;
+    --brand-accent-saturation: 84%;
+    --brand-accent-lightness: 29%;
 
+    /* Accent text scheme*/
+    --text1-accent: hsl(var(--brand-accent-hue) 
+    var(--brand-accent-saturation) 10%);
+    --text2-accent:hsl(var(--brand-accent-hue) 30% 30%);
+    /* Accent surface scheme*/
+    --surface1-accent:hsl(var(--brand-accent-hue) 25% 90%);
+    --surface2-accent:hsl(var(--brand-accent-hue) 20% 99%);
+    --surface3-accent:hsl(var(--brand-accent-hue) 20% 92%);
+    --surface4-accent:hsl(var(--brand-accent-hue) 25% 85%);
+    --surface-shadow-accent:var(--brand-accent-hue) 10% 20%;
+    --shadow-strength-accent:.02;
+    
+    /** Brand dark shceme*/
+    --brand-dark:hsl(var(--brand-hue) 
+    calc(var(--brand-saturation) / 2) 
+    calc(var(--brand-lightness) / 1.4));
+    --text1-dark: hsl(var(--brand-hue) 15% 85%);
+    --text2-dark: hsl(var(--brand-hue) 5% 65%);
+    --surface1-dark: hsl(var(--brand-hue) 10% 10%);
+    --surface2-dark: hsl(var(--brand-hue) 10% 15%);
+    --surface3-dark: hsl(var(--brand-hue) 5% 20%);
+    --surface4-dark:hsl(var(--brand-hue) 5% 25%);
+    --shadow-surface-dark:var(--brand-hue) 50% 3%;
+    --shadow-strength-dark:.8;
+    /* End of Pallete */
+   
+  }
+  
   :root {
     font-size: 62.5%;
     /** Text and general purpose metric range*/
@@ -26,8 +96,7 @@
     --step-8: clamp(4.30rem, calc(3.04rem + 9.20vw), 7.45rem);
     --step-9: clamp(5.16rem, calc(3.49rem + 12.13vw), 9.31rem);
     --step-10: clamp(6.19rem, calc(4.00rem + 15.91vw), 11.64rem);
-    /** color theme*/
-    --brand-gradient: linear-gradient(to bottom, hsl(203, 93%, 32%) 50%, hsl(24, 92%, 29%) 100%);
+
     /** paragraph Line height range*/
     --p-line-height-min: 1.15;
     --p-line-height-max: 1.5;
@@ -51,50 +120,84 @@
 
   }
 
+/* Color theme reset */
 
-  * {
-    /** Light brand theme*/
-    /** brand hue and component decomposition*/
-    --brand: hsl(23 100% 46%);
-    --brand-1: hsl(23 77% 61%);
-    --brand-2: hsl(23 80% 55%);
-    --brand-hue: 23;
-    --brand-saturation: 97%;
-    --brand-lightness: 46%;
-    --brand-light: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
-    /** brand secondary hue and decompostion*/
-    --brand-secondary: hsl(203 100% 32%);
-    --brand-secondary-hue: 203;
-    --brand-secondary-saturation: 84%;
-    --brand-secondary-lightness: 29%;
-    --brand-secondary-light: hsl(var(--brand-seondary-hue) var(--brand-secondary-saturation) var(--brand-secondary-lightness));
-    /** brand text shceme*/
-    --text1-light: hsl(var(--brand-hue) var(--brand-satruation) 10%);
-    --text2-light: hsl(var(--brand-hue) 30% 30%);
-    /** brand secondary text scheme*/
-    --text1-light-secondary: hsl(var(--brand-secondary-hue) var(--brand-secondary-saturation) 10%);
-    --text2-light-secondary: hsl(var(--brand-secondary-hue) 30% 30%);
-    /* brand surface scheme**/
-    --surface1-light: hsl(var(--brand-hue) 30% 90%);
-    --surface2-light: hsl(var(--brand-hue) 25% 90);
-    --surface3-light: hsl(var(--brand-hue) 20% 92%);
-    --surface4-light: hsl(var(--brand-hue) 20% 85%);
-    /** brand secondary surface scheme*/
-    --secondary-surface1-light: hsl(var(--brand-secondary-hue) 25% 90%);
-    --secondary-surface2-light: hsl(var(--brand-secondary-hue) 20% 90);
-    --secondary-surface3-light: hsl(var(--brand-secondary-hue) 20% 92%);
-    --secondary-surface4-light: hsl(var(--brand-secondary-hue) 20% 85%);
-    --surface-shadow-light: var(--brand-hue) 10% 20%;
-    --shadow-strength-light: .02;
-    /** Dark brand Theme*/
-    /** brand dark scheme*/
-    --brand-dark: hsl(var(--brand-hue) calc(var(--brand-saturation) / 2) calc(var(--brand-light) / 1.5));
+:root,
+[data-theme="light"]{
+--brand-fill-0:hsl(var(--brand-fill0));
+--brand-fill-1:hsl(var(--brand-fill1));
+--brand-stroke:hsl(var(--brand-fill0));
+--text-1:var(--text1-light);
+--text-2:var(--text2-light);
+--surface-1:var(--surface1-light);
+--surface-2:var(--surface2-light);
+--surface-3:var(--surface3-light);
+--surface-4:var(--surface4-light);
+--surface-alpha:hsl(var(--brand-hue) 17% 98% / 65%);
+--surface-shadow :var(--surface-shadow-light);
+--shadow-strength:var(--shadow-strength-light);
+color-scheme: light;
 
+}
+
+[data-theme="dark"]{
+  --brand-fill-0:var(--brand-fill0);
+  --brand-fill-1:var(--brand-fill1);
+  --brand-stroke:var(--brand-fill1);
+  --text-1:var(--text1-dark);
+  --text-2:var(--text2-dark);
+  --surface-1:var(--surface1-dark);
+  --surface-2:var(--surface2-dark);
+  --surface-3:var(--surface3-dark);
+  --surface-4:var(--surface4-dark);
+  --surface-alpha:hsl(var(--brand-hue) 17% 98% / 65%);
+  --surface-shadow:var(--surface-shadow-dark);
+  --shadow-strength:var(--shadow-strength-dark);
+  color: dark;
+
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --brand-fill-0:var(--brand-fill0);
+    --brand-fill-1:var(--brand-fill1);
+    --brand-stroke:var(--brand-fill1);
+    --text-1:var(--text1-dark);
+    --text-2:var(--text2-dark);
+    --surface-1:var(--surface1-dark);
+    --surface-2:var(--surface2-dark);
+    --surface:var(--surface3-dark);
+    --surface:var(--surface4-dark);
+    --surface-alpha:hsl(var(--brand-hue) 17% 98% / 65%);
+    --surface-shadow:var(--surface-shadow-dark);
+    --shadow-strength:var(--shadow-strength-dark);
+  }
+
+  }
+
+html{
+  accent-color:var(--brand-fill-0);
+  background:var(--surface-1);
+  color:var(--text-1);
+  line-height: var(--step-2);
+  box-sizing: border-box;
+}
+
+ body {
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  hr{
+    border-width:.2px;
+  }
+
+
+  body div:first-child{
+    backdrop-filter:blur(8px);
   }
 
   html {
     scroll-snap-type: y proximity;
-    box-sizing: border-box;
   }
 
   html:focus-within {
@@ -102,8 +205,8 @@
   }
 
   @media (prefers-reduced-motion) {
-    html:focus-within {
-      scroll-behavior: auto;
+   :where(html) {
+      scroll-behavior: smooth;
     }
   }
 
@@ -128,18 +231,10 @@
     --text-wght: 475;
   }
 
-  body {
-
-    line-height: var(--step-2);
-    color: hsl(var(--brand-hue) 30% 30%);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
+ 
   p,
   div,
   section,
-  button,
   b,
   i,
   em,
@@ -161,7 +256,7 @@
   p::first-line,
   p::first-letter {
     font-family: 'Inter', 'Nunito Sans', -apple-system, \.SFNSText-Regular, 'San Francisco', BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: var(--step-0);
+    /* font-size: var(--step-0); */
     font-weight: normal;
     font-variation-settings: "wght" var(--text-wght);
     font-style: normal;
@@ -169,6 +264,12 @@
     text-rendering: optimizeSpeed;
   }
 
+input,
+button, 
+textarea,
+select{
+  font:inherit;
+}
   h1,
   h2,
   h3,
@@ -192,24 +293,28 @@
   }
 
   ::selection {
-    background-color: hsl(60, 50%, 50%);
-    color: hsl(0, 50%, 50%);
+    background: var(--brand-fill-0);
+    color: var(--text-1);
   }
 
-  /* header, section{
-  background-color:hsl(0, 0%, 95%);
-} */
+  *:focus-visible{
+    outline-color: var(--brand-stroke);
+  }
+  a{
+    color:var(--brand-stroke);
+    text-decoration-thickness:4px;
+    text-underline-offset:2px;
+  }
+  a:hover{
+    text-decoration-line:underline;
+  }
+
+ 
   .box {
-    /* grid-area: control;
-    justify-self: center; */
-    /* width: 6rem;
-    height: 6rem; */
     padding: 0;
-    /* right:4rem; */
     position: relative;
     background-color: transparent;
     cursor: pointer;
-
   }
 
   .bar {
@@ -219,7 +324,6 @@
     top: 1.4rem;
     right: 0;
     line-height: 0;
-    /* border:.3rem solid var(--color-grayscale-100); */
     background-color: hsl(0, 0%, 80%);
     border-radius: 1px;
     transition: opacity calc(var(--duration) - 0.5s) linear;
@@ -241,9 +345,7 @@
   .bar::before {
     transform-origin: left top;
     top: 0;
-    /* bottom:1rem; */
     transform: rotate(0deg) translate(0, -.8rem);
-
   }
 
   .bar::after {
@@ -328,4 +430,21 @@
     }
   }
 
+}
+
+@layer utilites{
+   .rad-shadow{
+
+             box-shadow:
+             0 2.8px 2.2px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + .03)), 
+             0 6.7px 5.3px hsl(var(--surface-shadow) / calc(var(--surface-strength) + .01)), 
+             0 12.5px 10px hsl(var(--surface-shadow) / calc(var(--surface-strength) +.02)), 
+             0 22.3px 17.9px hsl(var(--surface-shadow) / calc(var(--shadow-strength) +.02)), 
+             0 41.8px 33.4px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + .03)), 
+             0 100px 80px hsl(var(--surface-shadow) / var(--shadow-strength));
+   }
+   .transform-box-fill{
+    transform-box:fill-box;
+   }
+              
 }

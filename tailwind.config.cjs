@@ -21,48 +21,31 @@ module.exports = {
                 "content-area":"96ch",
             },
             colors:{
-                "brand-light":{
-                DEFAULT:"hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness))",
-                "1":"var(--brand-1)",
-                "2":"var(--brand-2)",
-                "text1":"hsl(var(--brand-hue) var(--brand-saturation) 10%)",
-                "text2":"hsl(var(--brand-hue) 30% 30%)",
-                "surface1":"hsl(var(--brand-hue) 25% 90%)",
-                "surface2":"hsl(var(--brand-hue) 20% 99%)",
-                "surface3":"hsl(var(--brand-hue) 20% 92%)",
-                "surface4":"hsl(var(--brand-hue) 20% 85%)",
-                "surface-alpha":"hsl(var(--brand-hue) 17% 98% / 65%)",
+                "brand-fill":"var(--brand-fill-0)",
+                "brand-fill-1":"var(--brand-fill-1)",
+                "brand-stroke":"var(--brand-stroke)",
+                "text-1":"var(--text-1)",
+                "text2":"var(--text-2)",
+                "surface-1":"var(--surface-1)",
+                "surface-2":"var(--surface-2",
+                "surface-3":"var(--surface-3)",
+                "surface-4":"var(--surface-4)",
+                "surface-alpha":"var(--surface-alpha)",
+                "brand-accent-fill":"var(--brand-fill-0)",
+                "text-1-accent":"var(--text1-accent)",
+                "text-2-accent":"var(--text2-accent)",
+                "surface-1-accent":"var(--surface1-accent)",
+                "surface-2-accent":"var(--surface2-accent)",
+                "surface-3-accent":"var(--surface3-accent)",
+                "surface-4-accent":"var(--surface4-accent)",
                 },
-                "brand-secondary-light":{
-                    DEFAULT:"hsl(var(--brand-secondary-hue) var(--brand-secondary-saturation) var(--brand-secondary-lightness))",
-                    "text1":"hsl(var(--brand-secondary-hue) var(--brand-secondary-saturation) 10%)",
-                    "text2":"hsl(var(--brand-secondary-hue) 30% 30%)",
-                    "surface1":"hsl(var(--brand-secondary-hue) 25% 90%)",
-                    "surface2":"hsl(var(--brand-secondary-hue) 20% 99%)",
-                    "surface3":"hsl(var(--brand-secondary-hue) 20% 92%)",
-                    "surface4":"hsl(var(--brand-secondary-hue) 20% 85%)",
-                    "surface-alpha":"hsl(var(--brand-secondary-hue) 17% 99% / 65%)",
-                },
-                "brand-dark":{
-                    DEFAULT:"hsl(var(--brand-hue) calc(var(--brand-saturation)/2) calc(var(--brand-lightness)/1.5))",
-                    surface1:"hsl(var(--brand-hue) 10% 10%)",
-                    surface2:"hsl(var(--brand-hue) 10% 15%)",
-                    surface3:"hsl(var(--brand-hue) 5% 20%)",
-                    surface4:"hsl(var(--brand-hue) 5% 25%)",
-                    text1:"hsl(var(--brand-hue) 15% 85%)",
-                    text2:"hsl(var(--brand-hue) 5% 65%)",
-                    "surface-alpha":"hsl(var(--brand-hue) 10% 10% / 65%))",
-
-                },
-                
-             },
+             
             "screens":{
                 "la":"620px",
             },
             spacing,
             minHeight,
             fontSize,
-        
     
             gradientColorStops:{
                gradient:"var(--bradn-gradient)"
