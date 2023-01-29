@@ -22,26 +22,26 @@
     var(--brand-lightness));
     --brand-fill1: hsl(var(--brand-hue) 
     var(--brand-saturation) 
-    calc(var(--brand-lightness)+12%));
+    calc(var(--brand-lightness) + 12%));
   --brand-stroke:var(--brand-fill0);
     --text1-light:hsl(var(--brand-hue) 
     var(--brand-saturation)
     calc(var(--brand-lightness) - 36%));
     --text2-light:hsl(var(--brand-hue) 
     calc(var(--brand-saturation) - 70%) 
-    calc(var(--brand-lightness)-16));
+    calc(var(--brand-lightness) - 16));
     --surface1-light:hsl(var(--brand-hue) 
-    calc(var(--brand-saturation)-70%) 
-    calc(var(--brand-lightness)+44%));
+    calc(var(--brand-saturation) - 70%) 
+    calc(var(--brand-lightness) + 44%));
     --surface2-light:hsl(var(--brand-hue) 
-    calc(var(--brand-saturation)-75%) 
-    calc(var(--brand-lightness)+53%));
+    calc(var(--brand-saturation) - 75%) 
+    calc(var(--brand-lightness) + 53%));
     --surface3-light:hsl(var(--brand-hue) 
-    calc(var(--brand-saturation)-80%) 
-    calc(var(--brand-lightness)+46%));
+    calc(var(--brand-saturation) - 80%) 
+    calc(var(--brand-lightness) + 46%));
     --surface4-light:hsl(var(--brand-hue) 
-    calc(var(--brand-saturation)-80%) 
-    calc(var(--brand-lightness)+39%));
+    calc(var(--brand-saturation) - 80%) 
+    calc(var(--brand-lightness) + 39%));
     --suface-shadow-light:var(--brand-hue) 10% 20%;
     --shadow-strength-light:.02;
  
@@ -438,8 +438,8 @@ select{
              box-shadow:
              0 2.8px 2.2px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + .03)), 
              0 6.7px 5.3px hsl(var(--surface-shadow) / calc(var(--surface-strength) + .01)), 
-             0 12.5px 10px hsl(var(--surface-shadow) / calc(var(--surface-strength) +.02)), 
-             0 22.3px 17.9px hsl(var(--surface-shadow) / calc(var(--shadow-strength) +.02)), 
+             0 12.5px 10px hsl(var(--surface-shadow) / calc(var(--surface-strength) + .02)), 
+             0 22.3px 17.9px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + .02)), 
              0 41.8px 33.4px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + .03)), 
              0 100px 80px hsl(var(--surface-shadow) / var(--shadow-strength));
    }

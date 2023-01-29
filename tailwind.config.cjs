@@ -27,7 +27,7 @@ module.exports = {
                 "text-1":"var(--text-1)",
                 "text2":"var(--text-2)",
                 "surface-1":"var(--surface-1)",
-                "surface-2":"var(--surface-2",
+                "surface-2":"var(--surface-2)",
                 "surface-3":"var(--surface-3)",
                 "surface-4":"var(--surface-4)",
                 "surface-alpha":"var(--surface-alpha)",
