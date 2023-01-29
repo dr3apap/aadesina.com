@@ -22,26 +22,26 @@
     var(--brand-lightness));
     --brand-fill1: hsl(var(--brand-hue) 
     var(--brand-saturation) 
-    calc(var(--brand-lightness)+12));
+    calc(var(--brand-lightness)+12%));
   --brand-stroke:var(--brand-fill0);
     --text1-light:hsl(var(--brand-hue) 
-    var(--brand-saturation);
-    calc(var(--brand-lightness) - 36));
+    var(--brand-saturation)
+    calc(var(--brand-lightness) - 36%));
     --text2-light:hsl(var(--brand-hue) 
-    calc(var(--brand-saturation) - 70) 
+    calc(var(--brand-saturation) - 70%) 
     calc(var(--brand-lightness)-16));
     --surface1-light:hsl(var(--brand-hue) 
-    calc(var(--brand-saturation)-20) 
-    calc(var(--brand-lightness)+44));
+    calc(var(--brand-saturation)-70%) 
+    calc(var(--brand-lightness)+44%));
     --surface2-light:hsl(var(--brand-hue) 
-    calc(var(--brand-saturation)-26) 
-    calc(var(--brand-lightness)+53));
+    calc(var(--brand-saturation)-75%) 
+    calc(var(--brand-lightness)+53%));
     --surface3-light:hsl(var(--brand-hue) 
-    calc(var(--brand-saturation)-26) 
-    calc(var(--brand-lightness)+46));
+    calc(var(--brand-saturation)-80%) 
+    calc(var(--brand-lightness)+46%));
     --surface4-light:hsl(var(--brand-hue) 
-    calc(var(--brand-saturation)-26) 
-    calc(var(--brand-lightness)+39));
+    calc(var(--brand-saturation)-80%) 
+    calc(var(--brand-lightness)+39%));
     --suface-shadow-light:var(--brand-hue) 10% 20%;
     --shadow-strength-light:.02;
  
@@ -49,8 +49,8 @@
     --brand-accent: #0065a3;
     --brand-accent-hsl: hsl(203 100% 32%);
     --brand-accent-hue: 203;
-    --brand-accent-saturation: 84%;
-    --brand-accent-lightness: 29%;
+    --brand-accent-saturation: 100%;
+    --brand-accent-lightness: 32%;
 
     /* Accent text scheme*/
     --text1-accent: hsl(var(--brand-accent-hue) 
@@ -124,9 +124,9 @@
 
 :root,
 [data-theme="light"]{
---brand-fill-0:hsl(var(--brand-fill0));
---brand-fill-1:hsl(var(--brand-fill1));
---brand-stroke:hsl(var(--brand-fill0));
+--brand-fill-0:var(--brand-fill0);
+--brand-fill-1:var(--brand-fill1);
+--brand-stroke:var(--brand-fill0);
 --text-1:var(--text1-light);
 --text-2:var(--text2-light);
 --surface-1:var(--surface1-light);

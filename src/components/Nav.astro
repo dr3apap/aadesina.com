@@ -2,9 +2,9 @@
 import HeaderLink from "./HeaderLink.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 ---
-<div class="grid grid-cols-[1fr_max-content] gap-12 p-2 bg-brand-light-surface-alpha z-10 sticky top-0 left-0">
+<div class="grid grid-cols-[1fr_max-content] gap-12 p-2 bg-surface-alpha z-10 sticky top-0 left-0">
 		 <nav class="grid grid-cols-[max-content_1fr] [grid-template-areas:'logo_menu-control''._menu-list'] la:grid-cols-[1fr_2.2fr] la:[grid-template-areas:'logo_menu-list']">
-                    <HeaderLink href="/" class="[grid-area:logo w-14 h-14 grid place-items-center hover:bg-brand-secondary-light-surface1 rounded-md"><img class="" src="/asset/dr3-logo.png"
+                    <HeaderLink href="/" class="[grid-area:logo w-14 h-14 grid place-items-center hover:bg-surface-1-accent rounded-md"><img class="" src="/asset/dr3-logo.png"
                             alt="Adebola Adesina logo"/>
 						<span class="sr-only">aadesina.com</span>
 						</HeaderLink>
@@ -13,12 +13,12 @@ import ThemeToggle from "./ThemeToggle.astro";
 							<span class="nav-toggle-label sr-only">Menu Control</span>
 						</div>
                     </div>
-		<ul id="nav-toggle" aria-expanded="false" role-label="nav-list" class="[grid-area:menu-list] justify-self-end text-brand-light-1  la:justify-self-start la:flex gap-4">
-		<li class="text-fluid-0 bg-gradient-to-b from-brand-secondary-light to-brand-light text-center p-1 la:bg-none"><HeaderLink href="/">Home</HeaderLink></li>
-		<li class="text-fluid-0 bg-gradient-to-b from-brand-secondary-light to-brand-light text-center p-1 la:bg-none"><HeaderLink href="/#about-me">About</HeaderLink></li>
-		<li class="text-fluid-0 bg-gradient-to-b from-brand-secondary-light to-brand-light text-center p-1 la:bg-none"><HeaderLink href="/#demos">Demos</HeaderLink></li>
-		<li class="text-fluid-0 bg-gradient-to-b from-brand-secondary-light to-brand-light text-center p-1 la:bg-none"><HeaderLink href="/contact">Contact</HeaderLink></li>
-		<li class="text-fluid-0 bg-gradient-to-b from-brand-secondary-light to-brand-light text-center p-1 la:bg-none"><HeaderLink href="/blog">Blog</HeaderLink></li>
+		<ul id="nav-toggle" aria-expanded="false" role-label="nav-list" class="[grid-area:menu-list] justify-self-end text-brand-stroke  la:justify-self-start la:flex gap-4">
+		<li class="text-fluid-0 bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/">Home</HeaderLink></li>
+		<li class="text-fluid-0 bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/#about-me">About</HeaderLink></li>
+		<li class="text-fluid-0 bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/#demos">Demos</HeaderLink></li>
+		<li class="text-fluid-0 bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/contact">Contact</HeaderLink></li>
+		<li class="text-fluid-0 bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/blog">Blog</HeaderLink></li>
 		</ul>
 	</nav>
 <ThemeToggle/>
