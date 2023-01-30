@@ -433,6 +433,9 @@ select{
     .banner{
       width:cal(100% + (4 * var(--step-1)));
     }
+    .test-border{
+      border:2px solid green;
+    }
   }
 
 }
