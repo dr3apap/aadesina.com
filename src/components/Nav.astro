@@ -1,6 +1,7 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import ThemeToggle from "./ThemeToggle.astro";
+const {page} = Astro.props;
 ---
 <div class="grid grid-cols-[1fr_max-content] gap-12 p-2 bg-surface-alpha z-10 sticky top-0 left-0">
 		 <nav class="grid grid-cols-[max-content_1fr] [grid-template-areas:'logo_menu-control''._menu-list'] la:grid-cols-[1fr_2.2fr] la:[grid-template-areas:'logo_menu-list']">
@@ -17,8 +18,9 @@ import ThemeToggle from "./ThemeToggle.astro";
 		<li class="text-fluid-0 bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/">Home</HeaderLink></li>
 		<li class="text-fluid-0 bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/#about-me">About</HeaderLink></li>
 		<li class="text-fluid-0 bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/#demos">Demos</HeaderLink></li>
-		<li class="text-fluid-0 bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/contact">Contact</HeaderLink></li>
 		<li class="text-fluid-0 bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/blog">Blog</HeaderLink></li>
+		<li class="text-fluid-0 bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/contact" class={page == "contact"? "underline decoration-brand-accent-fill":""}>Contact</HeaderLink></li>
+		
 		</ul>
 	</nav>
 <ThemeToggle/>

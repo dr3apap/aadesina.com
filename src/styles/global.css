@@ -305,11 +305,16 @@ select{
     text-decoration-thickness:4px;
     text-underline-offset:2px;
   }
+
+  a:visited{
+  text-decoration:underline;
+  text-decoration-color:var(--brand-accent);
+}
+ 
   a:hover{
     text-decoration-line:underline;
   }
 
- 
   .box {
     padding: 0;
     position: relative;

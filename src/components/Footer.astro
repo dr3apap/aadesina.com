@@ -9,8 +9,8 @@ const {page} = Astro.props;
                 <li><HeaderLink href="/">Home</HeaderLink></li>
                 <li><HeaderLink href="/#about-me">About</HeaderLink></li>
                 <li><HeaderLink href="/#demos">Demos</HeaderLink></li>
-                <li><HeaderLink href="/pages/blog">Blog</HeaderLink></li>
-               {page == "contact" && <HeaderLink class="decoration-underline">Contact</HeaderLink>}
+                <li><HeaderLink href="/blog">Blog</HeaderLink></li>
+               {page == "contact" && <HeaderLink class="underline decoration-brand-accent-fill">Contact</HeaderLink>}
 		</ul>
             <div class=""><HeaderLink href="https://www.twitter.com/Dr3_147" class="text-fluid-2 text-text-1"
                     target="_blank">
