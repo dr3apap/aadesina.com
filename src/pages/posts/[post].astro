@@ -41,8 +41,8 @@ description={description}
             <img src={author.authorAvatar} alt={`Head shot for ${author.name}`} class="rounded-full" width="80" height="80"/>
             </a>
             <div>
-                <h2 class="font-bold m-0 p-0">{author.name}</h2>
-                <p class="mt-[-3px]"><time datetime={publishedAt}
+                <h2 class="font-bold text-fluid-1 m-0 p-0">{author.name}</h2>
+                <p class="mt-[-3px] p-0"><time datetime={publishedAt}
                     >{
                         new Date(publishedAt).toLocaleDateString("en-us", {
                             year: "numeric",
@@ -56,7 +56,7 @@ description={description}
             <div class="media__details mb-12">
                 <h3 class="text-fluid-2 mb-6">Wrote: {title}</h3>
                 <div class="">
-                    <div class="text-center text-fluid-1 flex gap-2">
+                    <div class="text-center text-fluid-1 flex gap-2 mb-2">
                         <iconify-icon
                             class=""
                             icon="tabler:category"
@@ -65,7 +65,7 @@ description={description}
                             height="24"></iconify-icon>
                         <span class="la:block">{postCategory.join(" ")}</span>
                     </div>
-                    <div class="text-center text-fluid-1 flex gap-2">
+                    <div class="text-center text-fluid-1 flex gap-2 mb-2">
                         <iconify-icon
                             class=""
                             icon="fluent-emoji-flat:mantelpiece-clock"
@@ -77,7 +77,7 @@ description={description}
                         </iconify-icon>
                         <span class="">~{getReadingTime(body).readingTime}mins read</span>
                     </div>
-                    <div class="text-center text-fluid-1 flex gap-2">
+                    <div class="text-center text-fluid-1 flex gap-2 mb-2">
                         <iconify-icon
                             class=""
                             icon="mdi:calendar-month-outline"
@@ -107,30 +107,30 @@ description={description}
                             }</time
                         ></p>
                     </div>
-                    <div class="text-center text-fluid-1 flex gap-4">
-                        <p class="posts__comment ml-2 text-fluid-1">Comment</p>
+                    <div class="text-center text-fluid-1 flex gap-4 mb-2">
+                        <p class="posts__comment ml-1 text-fluid-1">Comments</p>
                         <span class="block">{numOfComment}</span>
                     </div>
-                    <div class="text-center text-fluid-1 flex gap-4">
+                   
                         <HeaderLink
                             href="https://www.twitter.com/Dr3_147"
-                            class="text-fluid-2 text-fg-dark"
+                            class="text-center text-fluid-1 flex gap-4 mt-2 cursor-pointer"
                             target="_blank"
                         >
                             <iconify-icon
                                 icon="pajamas:twitter"
                                 width="24"
                                 height="24"
-                                class="social"></iconify-icon>
+                                class="social text-brand-accent-fill"></iconify-icon>
+                         <span>Share Post</span>
                         </HeaderLink>
-                        <span>Share Post</span>
-                    </div>
+                        <!-- <span>Share Post</span> -->
                 </div>
             </div>
             <PostContentBlock children={body}/>
         </article>
         <h3
-            class="grid grid-cols-[1fr_auto_1fr] gap-4 items-center mb-12 font-bold text-fluid-1 before:block before:h-4 before:bg-gradient-to-r before:from-brand-secondary-light before:to-brand-light  after:block after:h-4 after:bg-gradient-to-l after:from-brand-secondary-light after:to-brand-light"
+            class="grid grid-cols-[1fr_auto_1fr] gap-4 items-center mb-12 font-bold text-fluid-1 before:block before:h-4 before:bg-gradient-to-r before:from-brand-accent-fill before:to-brand-fill  after:block after:h-4 after:bg-gradient-to-l after:from-brand-accent-fill after:to-brand-fill"
         >
             Readers Comments
         </h3>
