@@ -1,6 +1,7 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 const today = new Date();
+const {page} = Astro.props;
 ---
 	<footer class="mt-44 mx-auto my-0 max-w-screen-md bg-fg-light">
         <div class="flex flex-col gap-y-4 items-center la:flex-row justify-between"> <!-- Footer items wrapper  -->
@@ -9,6 +10,7 @@ const today = new Date();
                 <li><HeaderLink href="/#about-me">About</HeaderLink></li>
                 <li><HeaderLink href="/#demos">Demos</HeaderLink></li>
                 <li><HeaderLink href="/pages/blog">Blog</HeaderLink></li>
+               {page == "contact" && <HeaderLink class="decoration-underline">Contact</HeaderLink>}
 		</ul>
             <div class=""><HeaderLink href="https://www.twitter.com/Dr3_147" class="text-fluid-2 text-text-1"
                     target="_blank">
@@ -26,12 +28,11 @@ const today = new Date();
                     <iconify-icon icon="mdi:linkedin" width="2em" height="1em"
                         class="social"></iconify-icon>
                 </HeaderLink>
-
+              
             </div>
-            <HeaderLink href="/contact.html" class="p-2 bg-brand-accent-fill rounded-3xl text-surface-1 px-4 order-3">Contact</HeaderLink>
+            {!page && <HeaderLink href="/contact.html" class="p-2 bg-brand-accent-fill rounded-3xl text-surface-1 px-4 order-3">Contact</HeaderLink>}
         </div> <!-- Footer items end -->
         <div class="text-center py-2 la:flex gap-2 justify-center">
-            <!-- <p class="text-fluid--1">Designed and Developed by Adebola Adesina.</p> -->
             <p class="text-fluid--1">Designed and Developed by Adebola Adesina </p>
             <p class="text-[.9rem] la:items-center">&COPY;{ today.getFullYear() } All rights reserved.</p>
         </div>
