@@ -52,7 +52,7 @@ const posts = await getPostLinks();
 								pubDate={post.publishedAt}
 								title={post.title}
 								readTime={getReadingTime(post.body).readingTime}
-								url={`/posts/${post.slug.current}`}
+								url={`posts/${post.slug.current}`}
 								category={post.postCategory.join(" ")}
 								 numOfComment={post.numOfComment}
 							/>

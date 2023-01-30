@@ -176,7 +176,7 @@ color-scheme: light;
 
 html{
   accent-color:var(--brand-fill-0);
-  background:var(--surface-1);
+  background:var(--surface-2);
   color:var(--text-1);
   line-height: var(--step-2);
   box-sizing: border-box;
