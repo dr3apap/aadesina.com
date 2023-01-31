@@ -185,6 +185,7 @@ html{
  body {
     min-height: 100vh;
     overflow-x: hidden;
+    font-size: var(--step-0);
   }
 
   hr{
@@ -256,7 +257,6 @@ html{
   p::first-line,
   p::first-letter {
     font-family: 'Inter', 'Nunito Sans', -apple-system, \.SFNSText-Regular, 'San Francisco', BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    /* font-size: var(--step-0); */
     font-weight: normal;
     font-variation-settings: "wght" var(--text-wght);
     font-style: normal;
