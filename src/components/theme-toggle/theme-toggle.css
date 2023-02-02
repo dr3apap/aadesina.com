@@ -1,4 +1,4 @@
-:is(.theme-togge__monitor, .theme-toggle__status){
+:is(.theme-toggle__monitor, .theme-toggle__status){
     display:none;
 }
 [data-theme="system"] .theme-toggle__monitor{

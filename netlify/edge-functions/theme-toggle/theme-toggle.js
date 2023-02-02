@@ -52,7 +52,7 @@ export default  async (request, context) => {
             headers:{
                 Location:path,
                 "Cache-Control":"no-cache",
-            }
+            },
         })
     } 
     
