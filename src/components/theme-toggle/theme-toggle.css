@@ -6,13 +6,13 @@
 }
 
 [data-theme]{
-    --icon-sclae:1;
+    --icon-scale:1;
     --icon-translate:0;
 }
 
 [data-theme="system"]{
     --icon-scale:0.45;
-    --icon-translate:-15%;
+    --icon-translate:-35%;
 }
 
 @media(prefers-color-scheme:light){

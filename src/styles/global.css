@@ -150,7 +150,7 @@ color-scheme: light;
   --surface-2:var(--surface2-dark);
   --surface-3:var(--surface3-dark);
   --surface-4:var(--surface4-dark);
-  --surface-alpha:hsl(var(--brand-hue) 17% 98% / 65%);
+  --surface-alpha:hsl(var(--brand-hue) 14% 10% / 65%);
   --surface-shadow:var(--surface-shadow-dark);
   --shadow-strength:var(--shadow-strength-dark);
   color: dark;
@@ -167,7 +167,7 @@ color-scheme: light;
     --surface-2:var(--surface2-dark);
     --surface:var(--surface3-dark);
     --surface:var(--surface4-dark);
-    --surface-alpha:hsl(var(--brand-hue) 17% 98% / 65%);
+    --surface-alpha:hsl(var(--brand-hue) 14% 10% / 65%);
     --surface-shadow:var(--surface-shadow-dark);
     --shadow-strength:var(--shadow-strength-dark);
   }

@@ -36,8 +36,8 @@ export default  async (request, context) => {
    if (isClient){
     const headers = {
         "content-type":"application/json",
-        "Access-Control-Allow-Origin": "http://localhost:3000",
-        "Vary": "Origin",
+        // "Access-Control-Allow-Origin": "http://localhost:3000",
+        // "Vary": "Origin",
 
     };
 
