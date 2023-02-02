@@ -1,0 +1,22 @@
+[[edge_functions]]
+  function = "og"
+  path = "/og"
+
+[[edge_functions]]
+  function = "theme-toggle"
+  path = "/theme-toggle"
+
+[[edge_functions]]
+  function = "theme-toggle"
+  path = "/*/theme-toggle"
+
+[[edge_functions]]
+  function = "theme-toggle"
+  path = "/*"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"

@@ -2,6 +2,7 @@
 import type { Post, Comment }  from "../blog/index.astro";
 import PostLayout from "../../layouts/PostLayout.astro";
 import HeaderLink from "../../components/HeaderLink.astro";
+import BlogLink from "../../components/BlogLink.astro";
 import BlogComment from "../../components/BlogComments.astro";
 import BlogCommentForm from "../../components/BlogCommentForm.astro";
 import { getAllPostData } from "../../constants/queries";
@@ -112,7 +113,7 @@ description={description}
                         <span class="block">{numOfComment}</span>
                     </div>
                    
-                        <HeaderLink
+                        <!-- <HeaderLink
                             href="https://www.twitter.com/Dr3_147"
                             class="text-center text-fluid-1 flex gap-4 mt-2 cursor-pointer"
                             target="_blank"
@@ -123,16 +124,42 @@ description={description}
                                 height="24"
                                 class="social text-brand-accent-fill"></iconify-icon>
                          <span>Share Post</span>
-                        </HeaderLink>
+                        </HeaderLink> -->
                         <!-- <span>Share Post</span> -->
                 </div>
             </div>
             <PostContentBlock children={body}/>
+            <div class="border-2 border-dotted p-8">
+            <h3 class="text-fluid-2 font-bold mb-4">That's it Felas!</h3>
+            <p>Enjoyed or Find what you read informative?</p>
+           
+            <HeaderLink
+                            href="https://www.twitter.com/Dr3_147"
+                            class="text-center text-fluid-1 flex gap-4 mt-2 cursor-pointer"
+                            target="_blank"
+                        >
+                            <iconify-icon
+                                icon="pajamas:twitter"
+                                width="24"
+                                height="24"
+                                class="social text-brand-accent-fill"></iconify-icon>
+                         <span>Please Share Post</span>
+                        </HeaderLink>
+                    </div>
+                         <ul>
+                        <h3 class="text-fluid-2 uppercase tracking-wide mb-4">Related Posts</h3>
+                {<BlogLink/>}
+            </ul>
+            <form class="mb-16 border-2 border-dotted p-8 flex">
+            <p class="text-fluid-1 p-2">Don't want to miss a thing?</p>
+            <input type="text" name="subscribe" id="subcribe-to-post" class="p-2 border border-solid m-0" placeholder="Subscribe to feed!"/>
+            <input type="button" name="subscribtion" value="Subscribe" class="p-2 bg-brand-accent-fill border border-solid -ml-3"/>
+            </form>
         </article>
         <h3
             class="grid grid-cols-[1fr_auto_1fr] gap-4 items-center mb-12 font-bold text-fluid-1 before:block before:h-4 before:bg-gradient-to-r before:from-brand-accent-fill before:to-brand-fill  after:block after:h-4 after:bg-gradient-to-l after:from-brand-accent-fill after:to-brand-fill"
         >
-            Readers Comments
+            Reader Comments
         </h3>
         <ul class="comments border-2 border-solid p-8">
           { comments.map((comment:Comment) => <BlogComment comment={comment}/> )}

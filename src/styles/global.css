@@ -122,7 +122,7 @@
 
 /* Color theme reset */
 
-:root,
+html,
 [data-theme="light"]{
 --brand-fill-0:var(--brand-fill0);
 --brand-fill-1:var(--brand-fill1);
@@ -157,7 +157,7 @@ color-scheme: light;
 
 }
 @media (prefers-color-scheme:dark){
-  :root{
+  html{
     --brand-fill-0:var(--brand-fill0);
     --brand-fill-1:var(--brand-fill1);
     --brand-stroke:var(--brand-fill1);
