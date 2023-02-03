@@ -29,7 +29,7 @@
     calc(var(--brand-lightness) - 36%));
     --text2-light:hsl(var(--brand-hue) 
     calc(var(--brand-saturation) - 70%) 
-    calc(var(--brand-lightness) - 16));
+    calc(var(--brand-lightness) - 16%));
     --surface1-light:hsl(var(--brand-hue) 
     calc(var(--brand-saturation) - 70%) 
     calc(var(--brand-lightness) + 44%));
@@ -51,29 +51,37 @@
     --brand-accent-hue: 203;
     --brand-accent-saturation: 100%;
     --brand-accent-lightness: 32%;
+    
 
-    /* Accent text scheme*/
-    --text1-accent: hsl(var(--brand-accent-hue) 
+    /* Accent light text scheme*/
+    --text1-accent-light: hsl(var(--brand-accent-hue) 
     var(--brand-accent-saturation) 10%);
-    --text2-accent:hsl(var(--brand-accent-hue) 30% 30%);
-    /* Accent surface scheme*/
-    --surface1-accent:hsl(var(--brand-accent-hue) 25% 90%);
-    --surface2-accent:hsl(var(--brand-accent-hue) 20% 99%);
-    --surface3-accent:hsl(var(--brand-accent-hue) 20% 92%);
-    --surface4-accent:hsl(var(--brand-accent-hue) 25% 85%);
+    --text2-accent-light:hsl(var(--brand-accent-hue) 30% 30%);
+
+    /* Accent light surface scheme*/
+    --surface1-accent-light:hsl(var(--brand-accent-hue) 45% 85%);
+    --surface2-accent-light:hsl(var(--brand-accent-hue) 25% 99%);
+    --surface3-accent-light:hsl(var(--brand-accent-hue) 22% 92%);
+    --surface4-accent-light:hsl(var(--brand-accent-hue) 20% 85%);
     --surface-shadow-accent:var(--brand-accent-hue) 10% 20%;
     --shadow-strength-accent:.02;
+
+    /* Accent dark surface and light scheme*/
+    --surface1-accent-dark:hsl(var(--brand-accent-hue) 12% 31%);
+    --surface2-accent-dark:hsl(var(--brand-accent-hue) 16% 21%);
+    --text1-accent-dark:hsl(var(--brand-accent-hue)  20% 85%);
+    --text2-accent-dark:hsl(var(--brand-accent-hue) 12% 85%);
     
     /** Brand dark shceme*/
     --brand-dark:hsl(var(--brand-hue) 
     calc(var(--brand-saturation) / 2) 
     calc(var(--brand-lightness) / 1.4));
-    --text1-dark: hsl(var(--brand-hue) 15% 85%);
+    --text1-dark: hsl(var(--brand-hue) 15% 90%);
     --text2-dark: hsl(var(--brand-hue) 5% 65%);
-    --surface1-dark: hsl(var(--brand-hue) 10% 10%);
-    --surface2-dark: hsl(var(--brand-hue) 10% 15%);
-    --surface3-dark: hsl(var(--brand-hue) 5% 20%);
-    --surface4-dark:hsl(var(--brand-hue) 5% 25%);
+    --surface1-dark: hsl(var(--brand-hue) 15% 10%);
+    --surface2-dark: hsl(var(--brand-hue) 11% 15%);
+    --surface3-dark: hsl(var(--brand-hue) 10% 20%);
+    --surface4-dark:hsl(var(--brand-hue)  7% 25%);
     --shadow-surface-dark:var(--brand-hue) 50% 3%;
     --shadow-strength-dark:.8;
     /* End of Pallete */
@@ -129,13 +137,20 @@ html,
 --brand-stroke:var(--brand-fill0);
 --text-1:var(--text1-light);
 --text-2:var(--text2-light);
+--text-2-accent:var(--text2-accent-light); 
+--text-1-accent:var(--text1-accent-light);
+--surface-headings:var(--text2-accent-light);
+--surface-1-accent:var(--surface1-accent-light);
+--surface-2-accent:var(--surface2-accent-light);
 --surface-1:var(--surface1-light);
 --surface-2:var(--surface2-light);
 --surface-3:var(--surface3-light);
 --surface-4:var(--surface4-light);
 --surface-alpha:hsl(var(--brand-hue) 17% 98% / 65%);
 --surface-shadow :var(--surface-shadow-light);
+--surface-1-accent:var(--surface1-accent);
 --shadow-strength:var(--shadow-strength-light);
+    /* Accent surface scheme*/
 color-scheme: light;
 
 }
@@ -146,6 +161,12 @@ color-scheme: light;
   --brand-stroke:var(--brand-fill1);
   --text-1:var(--text1-dark);
   --text-2:var(--text2-dark);
+  --text-2-accent:var(--text2-accent-dark);
+  --text-1-accent:var(--text1-accent-dark);
+  --surface-headings:var(--brand-accent-hsl);
+    /* Accent surface scheme*/
+  --surface-1-accent:var(--surface1-accent-dark);
+  --surface-2-accent:var(--surface2-accent-dark);
   --surface-1:var(--surface1-dark);
   --surface-2:var(--surface2-dark);
   --surface-3:var(--surface3-dark);
@@ -163,6 +184,11 @@ color-scheme: light;
     --brand-stroke:var(--brand-fill1);
     --text-1:var(--text1-dark);
     --text-2:var(--text2-dark);
+    --text-1-accent:var(--text2-accent-dark);
+    --text-2-accent:var(--text2-accent-dark);
+    --surface-headings:var(--brand-accent-hsl);
+    --surface-1-accent:var(--surface1-accent-dark);
+    --surface-2-accent:var(--surface2-accent-dark);
     --surface-1:var(--surface1-dark);
     --surface-2:var(--surface2-dark);
     --surface:var(--surface3-dark);
@@ -306,14 +332,14 @@ select{
     text-underline-offset:2px;
   }
 
-  a:visited{
-  text-decoration:underline;
+  a:visited, a:hover{
+  text-decoration-line:underline;
   text-decoration-color:var(--brand-accent);
 }
  
-  a:hover{
+  /* a:hover{
     text-decoration-line:underline;
-  }
+  } */
 
   .box {
     padding: 0;
@@ -436,6 +462,7 @@ select{
     .test-border{
       border:2px solid green;
     }
+   
   }
 
 }

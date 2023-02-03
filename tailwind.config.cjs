@@ -32,12 +32,11 @@ module.exports = {
                 "surface-4":"var(--surface-4)",
                 "surface-alpha":"var(--surface-alpha)",
                 "brand-accent-fill":"var(--brand-accent-hsl)",
-                "text-1-accent":"var(--text1-accent)",
-                "text-2-accent":"var(--text2-accent)",
-                "surface-1-accent":"var(--surface1-accent)",
-                "surface-2-accent":"var(--surface2-accent)",
-                "surface-3-accent":"var(--surface3-accent)",
-                "surface-4-accent":"var(--surface4-accent)",
+                "text-1-accent":"var(--text-1-accent)",
+                "text-2-accent":"var(--text-2-accent)",
+                "surface-1-accent":"var(--surface-1-accent)",
+                "surface-2-accent":"var(--surface-2-accent)",
+                "surface-headings":"var(--surface-headings)",
                 },
              
             "screens":{

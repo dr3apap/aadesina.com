@@ -9,11 +9,8 @@ export default  async (request, context) => {
     if(!contentType.startsWith("text/html") || request.url.includes("/demos/")) return;
 
     const theme = context.cookies.get(COOKIE_KEY) || THEME_STATE[0];
-    console.log("Theme is: ",theme)
     const nextIndex = THEME_STATE.indexOf(theme) + 1;
-    console.log(nextIndex);
     const nextTheme = THEME_STATE.at(nextIndex) || THEME_STATE[0];
-    console.log(nextTheme);
     const afterNextTheme = THEME_STATE.at(THEME_STATE.indexOf(nextTheme) + 1) || THEME_STATE[0]; 
     //Get the real path for redirection in case is not from toggle path
     const path = request.headers.get("referer");
@@ -36,8 +33,8 @@ export default  async (request, context) => {
    if (isClient){
     const headers = {
         "content-type":"application/json",
-        // "Access-Control-Allow-Origin": "http://localhost:3000",
-        // "Vary": "Origin",
+        "Access-Control-Allow-Origin": "http://localhost:3000",
+        "Vary": "Origin",
 
     };
 
