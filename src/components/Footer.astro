@@ -5,31 +5,31 @@ const {page} = Astro.props;
 ---
 	<footer class="mt-44 mx-auto my-0 max-w-screen-md bg-fg-light">
         <div class="flex flex-col gap-y-4 items-center la:flex-row la:justify-between la:gap-0"> <!-- Footer items wrapper  -->
-            <ul class="flex gap-4 text-brand-stroke order-2">
-                <li><HeaderLink href="/">Home</HeaderLink></li>
-                <li><HeaderLink href="/#about-me">About</HeaderLink></li>
-                <li><HeaderLink href="/#demos">Demos</HeaderLink></li>
-                <li><HeaderLink href="/blog">Blog</HeaderLink></li>
+            <ul id="nav-toggle" aria-expanded="false" role-label="nav-list" class="[grid-area:menu-list]  text-text-1 flex gap-4 justify-center la:order-1">
+		<li class="text-fluid-0 hover:bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/">Home</HeaderLink></li>
+		<li class="text-fluid-0 hover:bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/#about-me">About</HeaderLink></li>
+		<li class="text-fluid-0 hover:bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/#demos">Demos</HeaderLink></li>
+		<li class="text-fluid-0 hover:bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/blog">Blog</HeaderLink></li>
 		</ul>
-            <div class=""><HeaderLink href="https://www.twitter.com/Dr3_147" class="text-text-1"
+            <div class="flex gap-2"><HeaderLink href="https://www.twitter.com/Dr3_147" class="text-text-1 p-3 rounded-md hover:bg-surface-1 grid place-items-center"
                     target="_blank">
                     <iconify-icon icon="pajamas:twitter" width="24"
                         height="24" class="social"></iconify-icon>
                 </HeaderLink>
 
-                <HeaderLink href="https://www.github.com/dr3apap" class="text-text-1"
+                <HeaderLink href="https://www.github.com/dr3apap" class="text-text-1 p-3 rounded-md hover:bg-surface-1 grid place-items-center"
                     target="_blank">
                     <iconify-icon icon="fe:github" width="24" height="24"
                         class="social"></iconify-icon>
                 </HeaderLink>
                 <HeaderLink href="https://www.linkedin.com/in/adebola-adesina-8881a4195/"
-                    class="text-text-1" target="_blank">
+                    class="text-text-1 p-3 rounded-md hover:bg-surface-1 grid place-items-center " target="_blank">
                     <iconify-icon icon="mdi:linkedin" width="24" height="24"
                         class="social"></iconify-icon>
                 </HeaderLink>
               
             </div>
-            <HeaderLink href="/contact.html" class={!page?"p-2 bg-brand-accent-fill rounded-3xl text-surface-1 px-4 order-3":"text-brand-stroke underline decoration-brand-accent-fill order-3"}>Contact</HeaderLink>
+            <HeaderLink href="/contact.html" class={!page?"p-2 bg-brand-accent-fill rounded-3xl text-surface-1 px-4 order-3":"text-brand-stroke underline decoration-brand-accent-fill order-3 hover:bg-surface-1"}>Contact</HeaderLink>
         </div> <!-- Footer items end -->
         <div class="text-center pt-4 la:flex gap-4 justify-center">
             <p class="text-fluid--1 la:items-center">Designed and Developed by Adebola Adesina </p>

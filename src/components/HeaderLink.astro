@@ -5,9 +5,10 @@ const { href, class: className, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
 const isActive = href === pathname || href === pathname.replace(/\/$/, '');
+const currentLinkStyle = isActive ?" underline":"";
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
+<a href={href} class:list={[className, { active: isActive }, currentLinkStyle]} {...props}>
 	<slot/>
 </a>
 

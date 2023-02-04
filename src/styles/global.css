@@ -330,16 +330,18 @@ select{
     color:var(--brand-stroke);
     text-decoration-thickness:4px;
     text-underline-offset:2px;
+    text-decoration-color: var(--brand-accent);
   }
 
-  a:visited, a:hover{
+  /* a:visited, a:hover{
   text-decoration-line:underline;
   text-decoration-color:var(--brand-accent);
-}
+} */
  
-  /* a:hover{
+  a:hover{
     text-decoration-line:underline;
-  } */
+    text-decoration-color: var(--brand-stroke);
+  }
 
   .box {
     padding: 0;
@@ -462,7 +464,87 @@ select{
     .test-border{
       border:2px solid green;
     }
+    .heading-1{
+      animation:heading1 4s both;
+    }
+    .heading-2{
+      animation:heading2 4s both;
+    }
+    .reference{
+      animation:reference 4s both;
+    }
+    .hero-container{
+      animation:hero-effect 4s both;
+      }
+      .title{
+        animation:title 6s both;
+      }
+      .offer{
+        animation:offers 6s calc(var(--i) * 0.5s + 4.5s) both;
+      }
+
+    @keyframes reference {
+      from, 25%{
+          clip-path:polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)
+      }
+      to{
+        clip-path:polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      }
+
+
+    }
+
+    @keyframes heading1{
+      from, 50%{
+
+          clip-path:polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)
+      }
+      to{
+        clip-path:polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      }
+    }
    
+  }
+
+  @keyframes heading2{
+    0%, 75%{
+      opacity:0;
+    }
+
+    75%, to{
+      opacity:1;
+    }
+  }
+
+  @keyframes hero-effect{
+    0%, 50%{
+      transform:translate(2px, 50%) scale(1.2);
+
+    }
+    100%{
+      transform:none;
+    }
+
+  }
+
+  @keyframes title{
+    from, 50%{
+
+      clip-path:polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)
+    }
+
+      to{
+        clip-path:polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      }
+  }
+
+  @keyframes offers{
+     from{
+      opacity:0;
+     } 
+      to{
+      opacity:1;
+     }
   }
 
 }

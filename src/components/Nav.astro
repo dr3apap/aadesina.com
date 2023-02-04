@@ -14,12 +14,12 @@ const {page} = Astro.props;
 							<span class="nav-toggle-label sr-only">Menu Control</span>
 						</div>
                     </div>
-		<ul id="nav-toggle" aria-expanded="false" role-label="nav-list" class="[grid-area:menu-list] justify-self-end text-brand-stroke  la:justify-self-start la:flex gap-4">
-		<li class="text-fluid-0 bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/">Home</HeaderLink></li>
-		<li class="text-fluid-0 bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/#about-me">About</HeaderLink></li>
-		<li class="text-fluid-0 bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/#demos">Demos</HeaderLink></li>
-		<li class="text-fluid-0 bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/blog">Blog</HeaderLink></li>
-		<li class="text-fluid-0 bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/contact" class={page == "contact"? "underline decoration-brand-accent-fill":""}>Contact</HeaderLink></li>
+		<ul id="nav-toggle" aria-expanded="false" role-label="nav-list" class="[grid-area:menu-list] flex gap-y-4 justify-center la:justify-self-start">
+		<li class="text-fluid-0 hover:bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/">Home</HeaderLink></li>
+		<li class="text-fluid-0 hover:bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/#about-me">About</HeaderLink></li>
+		<li class="text-fluid-0 hover:bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/#demos">Demos</HeaderLink></li>
+		<li class="text-fluid-0 hover:bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/blog">Blog</HeaderLink></li>
+		<li class="text-fluid-0 hover:bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/contact" class={page == "contact"? "underline decoration-brand-accent-fill":""}>Contact</HeaderLink></li>
 		
 		</ul>
 	</nav>
