@@ -11,14 +11,15 @@ import  PostContentBlock  from "../../components/post-content/PostContentBlock";
 
 export async function getStaticPaths(){
     const posts:Post[] = await getAllPostData();
-    return posts.map(({slug, title, postCategory, comments, numOfComment, body, publishedAt, author, description}) => {
+    return posts.map(({slug, ...props }) => {
         return {
             params:{post:slug.current},
-            props:{title, postCategory, numOfComment, comments, body, publishedAt, author, description,},
+            props:{...props},
 
         };
     });
 }
+const { post } = Astro.params;
 const {
     description,
     title,
@@ -30,6 +31,8 @@ const {
     numOfComment,
     comments,
 } = Astro.props;
+const shareLink = `https://www.twitter.com/intent/tweet?text=${encodeURIComponent(`"${title}" via @Dr3_147\n`)}http://localhost:8888/posts/${post}/`
+
 ---
 
 <PostLayout title="Sharing"
@@ -134,7 +137,7 @@ description={description}
             <p>Enjoyed or Find what you read informative?</p>
            
             <HeaderLink
-                            href="https://www.twitter.com/Dr3_147"
+                            href={shareLink}
                             class="text-center text-fluid-1 flex gap-4 mt-2 cursor-pointer"
                             target="_blank"
                         >

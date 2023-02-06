@@ -13,6 +13,11 @@ export interface BaseHeadProps {
 }
 const { ogTitle, ogGradient, ogHue, title, description } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+let params = ``;
+if(ogGradient) params+=`&gradient=${ogGradient}`;
+if(ogHue) params+=`&hue=${ogHue}`;
+
+let ogImageSrc = `https://aadesina.netlify.app/og?title=${encodeURIComponent(ogTitle)}${params}`
 
 ---
 <!-- Global Metadata -->
@@ -38,15 +43,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content={Astro.generator}/>
 <meta property="og:url" content={Astro.url} />
+<meta name="image" content={ogImageSrc}/>
+<metga property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
 <meta property="og:title" content={ogTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:author" content="Adebola Adesina"/>
-<!-- <meta property="og:image" content={new URL(image, Astro.url)} /> -->
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={ogTitle} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:creator" content="@Dr3_147"/>
-<!-- <meta property="twitter:image" content={new URL(image, Astro.url)} /> -->
+<meta property="twitter:image" content={ogImageSrc} />
