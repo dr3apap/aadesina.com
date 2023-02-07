@@ -4,8 +4,8 @@ import { initStreaming } from 'https://esm.sh/yoga-wasm-web@0.1.2'
 import { initWasm, Resvg } from 'https://esm.sh/@resvg/resvg-wasm@2.0.0-alpha.4'
 
 const GRADIENTS = [
-  'linear-gradient(45deg #eb5a00,#0065a3)',
-  'linear-gradient(45deg #0065a3, #eb5a00)',
+  'linear-gradient(45deg, #eb5a00, #0065a3)',
+  'linear-gradient(45deg, #0065a3, #eb5a00)',
 ]
 
 const resvgWasm = fetch(
@@ -43,7 +43,6 @@ async function loadFonts(font, wght = 900) {
     console.log(err.message)
   }
 
-  //if (!preferType) throw new Error("Failed to load accepted font");
 }
 
 const acceptedFont = loadFonts('Inter', 900)
@@ -64,8 +63,12 @@ export default function handler(request) {
         width: 1200,
         height: 600,
         debug: false,
+<<<<<<< HEAD
         embedFonts: false,
         status:200,
+=======
+        // embedFonts: false,
+>>>>>>> 5e87098 (fix:Typos in og edge function)
       },
       {}
     )
@@ -94,7 +97,7 @@ export default function handler(request) {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewbox="0 0 1200 630"
+            viewBox="0 0 1200 630"
             width="1200"
             height="630"
             fill="none"
@@ -169,19 +172,30 @@ export default function handler(request) {
     )
 
     const result = new ReadableStream({
-      async start(controler) {
+      async start(controller) {
         await initializedYoga
         await initializedResvg
+<<<<<<< HEAD
         const fontData = await acceptedFont
+=======
+        const fontData = await acceptedFont;
+>>>>>>> 5e87098 (fix:Typos in og edge function)
         const svg = await satori(element, {
           width: extendedOptions.width,
           height: extendedOptions.height,
           debug: extendedOptions.debug,
           embedFonts: extendedOptions.embedFonts,
+<<<<<<< HEAD
           fonts: extendedOptions.fonts || [
             {
               name: 'Inter',
               data: fontData,
+=======
+          fonts: fontData || [
+            {
+              name: 'Inter',
+              data: typeFace,
+>>>>>>> 5e87098 (fix:Typos in og edge function)
               weight: 900,
               style: 'bold',
             },
@@ -192,12 +206,16 @@ export default function handler(request) {
             mode: 'width',
             value: extendedOptions.width,
           },
-        }).render()
-        controler.enqueue(result)
-        controler.close()
-      },
+        }).render();
+        controller.enqueue(result);
+        controller.close();
+
+     
+ 
+  }
     })
-    return new Response(result, {
+
+     return new Response(result, {
       headers: {
         'content-type': 'image/png',
         'cache-control': isDev
@@ -208,10 +226,12 @@ export default function handler(request) {
       status: extendedOptions.status,
       statusText: extendedOptions.statusText,
     })
-  } catch (err) {
+    
+    } catch (err) {
     console.log(`${err.message}`)
     return new Response('Failed to generate ogImage', {
       status: 500,
-    })
-  }
+    }) 
+
+    }
 }
