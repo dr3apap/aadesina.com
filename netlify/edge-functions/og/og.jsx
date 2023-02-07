@@ -64,11 +64,19 @@ export default function handler(request) {
         height: 600,
         debug: false,
 <<<<<<< HEAD
+<<<<<<< HEAD
         embedFonts: false,
         status:200,
 =======
         // embedFonts: false,
 >>>>>>> 5e87098 (fix:Typos in og edge function)
+=======
+        // embedFonts: false,
+=======
+        embedFonts: false,
+        status:200,
+>>>>>>> 248a0ef (fix:Add status for og-image response)
+>>>>>>> 571ee56 (fix:Add status for og-image response)
       },
       {}
     )
@@ -175,32 +183,21 @@ export default function handler(request) {
       async start(controller) {
         await initializedYoga
         await initializedResvg
-<<<<<<< HEAD
         const fontData = await acceptedFont
-=======
-        const fontData = await acceptedFont;
->>>>>>> 5e87098 (fix:Typos in og edge function)
         const svg = await satori(element, {
           width: extendedOptions.width,
           height: extendedOptions.height,
           debug: extendedOptions.debug,
-          embedFonts: extendedOptions.embedFonts,
-<<<<<<< HEAD
           fonts: extendedOptions.fonts || [
             {
               name: 'Inter',
               data: fontData,
-=======
-          fonts: fontData || [
-            {
-              name: 'Inter',
-              data: typeFace,
->>>>>>> 5e87098 (fix:Typos in og edge function)
               weight: 900,
               style: 'bold',
             },
-          ],
+          ]
         })
+
         const result = new Resvg(svg, {
           fitTo: {
             mode: 'width',
@@ -209,8 +206,6 @@ export default function handler(request) {
         }).render();
         controller.enqueue(result);
         controller.close();
-
-     
  
   }
     })
