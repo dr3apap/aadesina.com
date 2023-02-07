@@ -40,7 +40,7 @@ export default  async (request, context) => {
 
     return new Response(JSON.stringify({theme:nextTheme, nextTheme:afterNextTheme}), {
         headers,
-        statusCode:200,
+        status:200,
     });
    } 
 

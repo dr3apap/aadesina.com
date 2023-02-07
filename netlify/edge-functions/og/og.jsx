@@ -65,6 +65,7 @@ export default function handler(request) {
         height: 600,
         debug: false,
         embedFonts: false,
+        status:200,
       },
       {}
     )
@@ -171,16 +172,16 @@ export default function handler(request) {
       async start(controler) {
         await initializedYoga
         await initializedResvg
-        const typeFace = await acceptedFont
+        const fontData = await acceptedFont
         const svg = await satori(element, {
           width: extendedOptions.width,
           height: extendedOptions.height,
           debug: extendedOptions.debug,
           embedFonts: extendedOptions.embedFonts,
-          fonts: typeFace || [
+          fonts: extendedOptions.fonts || [
             {
-              name: 'Sans serif',
-              data: typeFace,
+              name: 'Inter',
+              data: fontData,
               weight: 900,
               style: 'bold',
             },
@@ -201,7 +202,7 @@ export default function handler(request) {
         'content-type': 'image/png',
         'cache-control': isDev
           ? 'no-cache, no-store'
-          : 'public, immutable, no-transforms, max-age=31536000',
+          : 'public, immutable, no-transform, max-age=31536000',
         ...extendedOptions.headers,
       },
       status: extendedOptions.status,
