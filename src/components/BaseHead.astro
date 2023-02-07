@@ -19,6 +19,8 @@ if(ogHue) params+=`&hue=${ogHue}`;
 
 let ogImageSrc = `https://aadesina.netlify.app/og?title=${encodeURIComponent(ogTitle)}${params}`
 
+// For local testing of the edge function
+//  let ogImageSrc = `http://localhost:8888/og`
 ---
 <!-- Global Metadata -->
 <meta charset="utf-8" />

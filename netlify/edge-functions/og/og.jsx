@@ -52,11 +52,11 @@ export default function handler(request) {
     const url = new URL(request.url)
     const title = url.searchParams.has('title')
       ? url.searchParams.get('title').slice(0, 100)
-      : 'Hey Felas!'
-    const hue = url.searchParams.has('hue') ? url.searchParams.get('hue') : 23
+      : 'Hey Felas!';
+    const hue = url.searchParams.has('hue') ? url.searchParams.get('hue') : 23;
     const background = url.searchParams.has('gradient')
       ? GRADIENTS[url.searchParams.get('gradient')]
-      : `hsl(${hue} 80% 50%)`
+      : `hsl(${hue} 80% 50%)`;
 
     const extendedOptions = Object.assign(
       {
@@ -75,33 +75,31 @@ export default function handler(request) {
           height: '100%',
           width: '100%',
           position: 'relative',
-          background,
           padding: '2rem',
           alignItems: 'center',
+          background,
         }}
       >
         <div
           style={{
             display: 'flex',
             position: 'absolute',
-            top: '0',
-            left: '0',
-            width: '1200',
-            height: '630',
+            top: 0,
+            left: 0,
+            width: 1200,
+            height: 630,
           }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1200 630"
-            width="1200"
-            height="630"
             fill="none"
             style={{
               position: 'relative',
-              top: '0',
-              left: '0',
-              width: '1200',
-              height: '630',
+              top: 0,
+              left: 0,
+              width: 1200,
+              height: 630,
             }}
           >
             {/* Precut backdrop */}
@@ -146,6 +144,8 @@ export default function handler(request) {
               left: '1rem',
               bottom: '-1rem',
               background: 'hsl(0 0% 100%)',
+              width:'350px',
+              height:'16px',
               zIndex: '-1',
             }}
           ></div>
@@ -153,14 +153,13 @@ export default function handler(request) {
         <img
           style={{
             position: 'absolute',
-            right: '0',
-            bottom: '0',
+            right: 0,
+            bottom: 0,
             height: '75%',
-            width: '50%',
-            transform: 'translate(5%,5%)',
+            transform: 'translate(5%, 5%)',
             filter: 'saturation(0.5) grayscale(0.5)',
           }}
-          src="/public/asset/IMG_1639.jpeg"
+          src="https://pics.pof.com/dating/1157/31/12/3f8e32afb-a139-48db-ae94-12dfaf56786f.jpg"
           alt=""
         />
       </div>
@@ -193,11 +192,12 @@ export default function handler(request) {
         }).render();
         controller.enqueue(result);
         controller.close();
- 
+
+       
   }
     })
 
-     return new Response(result, {
+      return new Response(result, {
       headers: {
         'content-type': 'image/png',
         'cache-control': isDev
@@ -208,6 +208,7 @@ export default function handler(request) {
       status: extendedOptions.status,
       statusText: extendedOptions.statusText,
     })
+ 
     
     } catch (err) {
     console.log(`${err.message}`)
