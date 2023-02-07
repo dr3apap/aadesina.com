@@ -63,20 +63,7 @@ export default function handler(request) {
         width: 1200,
         height: 600,
         debug: false,
-<<<<<<< HEAD
-<<<<<<< HEAD
-        embedFonts: false,
-        status:200,
-=======
         // embedFonts: false,
->>>>>>> 5e87098 (fix:Typos in og edge function)
-=======
-        // embedFonts: false,
-=======
-        embedFonts: false,
-        status:200,
->>>>>>> 248a0ef (fix:Add status for og-image response)
->>>>>>> 571ee56 (fix:Add status for og-image response)
       },
       {}
     )
