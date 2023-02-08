@@ -1,21 +1,8 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
-import Nav from "../../components/Nav.astro";
-import Footer from "../../components/Footer.astro";
+import Layout from "../../layouts/Layout.astro";
 import ContactForm from "../../components/ContactForm.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../config";
 ---
-
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-      <header class="mb-16">
-	   <Nav page="contact"/>	
-      </header>
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION} landingPage={false} contact={true}>
       <ContactForm/>
-		<Footer page="contact" />
-	</body>
-</html>
+</Layout>

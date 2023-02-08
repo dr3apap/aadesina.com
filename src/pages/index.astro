@@ -1,33 +1,22 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Nav from "../components/Nav.astro";
-import Header from "../components/Header.astro";
-import About from "../components/About.astro";
-import FeaturedDemos from "../components/FeatureDemos.astro"
-import Demos from "../components/Demos.astro"
-import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
-
+import Layout from '../layouts/Layout.astro'
+import About from '../components/About.astro'
+import FeaturedDemos from '../components/FeatureDemos.astro'
+import Demos from '../components/Demos.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} ogTitle={SITE_TITLE} />
-	</head>
-	<body>
-		<Nav/>	
-		<Header/>
-		<div class="p-8 mx-auto my-0 max-w-screen-md">
-		<main class="grid grid-flow-row gap-44">
-			<About/>
-			<FeaturedDemos/>
-			<Demos/>
-		</main>
-		</div>
-		<Footer />
-	</body>
-</html>
-<script>
-import "../scripts/themeToggle"
-</script>
+<Layout
+  title={SITE_TITLE}
+  description={SITE_DESCRIPTION}
+  ogTitle={SITE_TITLE}
+  landingPage={true}
+>
+<div class="p-8 mx-auto my-0 max-w-screen-md">
+  <main class="grid grid-flow-row gap-44">
+    <About />
+    <FeaturedDemos />
+    <Demos />
+  </main>
+</div>
+</Layout>

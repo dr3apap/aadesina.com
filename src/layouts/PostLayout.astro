@@ -1,19 +1,156 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Nav from "../components/Nav.astro";
-import PostHeader from "../components/PostHeader.astro";
-const { title, ogTitle, description, demo } = Astro.props; 
+import HeaderLink from "../components/HeaderLink.astro";
+import BlogLink from "../components/BlogLink.astro";
+import BlogComment from "../components/BlogComments.astro";
+import BlogCommentForm from "../components/BlogCommentForm.astro";
+import  PostContentBlock  from "../components/post-content/PostContentBlock";
+import { getReadingTime } from "../utils/readingTime";
+const {
+    description,
+    title,
+    postCategory,
+    updated,
+    author,
+    body,
+    publishedAt,
+    numOfComment,
+    comments,
+    demo,
+    post
+} = Astro.props;
+
+const shareLink = `https://www.twitter.com/intent/tweet?text=${encodeURIComponent(`"${title}" via @Dr3_147\n`)}https://aadesina.netlify.app/posts/${post}/`
+
+// TODO:How to pass ogGradient/hue to Layout for og image
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<BaseHead title={title} ogTitle={ogTitle} description={description}/>
-</head>
-<body>
-<Nav/>
-<PostHeader demo={demo}/>
 <main class="p-8 mx-auto my-48 max-w-screen-md bg-surface-1 overflow-hidden">
-    <slot/>
+ <article  class="grid grid-cols-1 gap-y-16">
+        <div class="grid grid-cols-[auto_1fr] gap-4">
+            <a href="" class="w-10 h-10">
+            <img src={author.authorAvatar} alt={`Head shot for ${author.name}`} class="rounded-full" width="80" height="80"/>
+            </a>
+            <div>
+                <h2 class="font-bold text-fluid-1 m-0 p-0">{author.name}</h2>
+                <p class="mt-[-3px] p-0"><time datetime={publishedAt}
+                    >{
+                        new Date(publishedAt).toLocaleDateString("en-us", {
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric",
+                        })
+                    }</time
+                ></p>
+            </div>
+        </div>
+            <div class="media__details mb-12">
+                <h3 class="text-fluid-2 mb-6">Wrote: {title}</h3>
+                <div class="">
+                    <div class="text-center text-fluid-1 flex gap-2 mb-2">
+                        <iconify-icon
+                            class=""
+                            icon="tabler:category"
+                            style="color:black;"
+                            width="24"
+                            height="24"></iconify-icon>
+                        <span class="la:block">{postCategory.join(" ")}</span>
+                    </div>
+                    <div class="text-center text-fluid-1 flex gap-2 mb-2">
+                        <iconify-icon
+                            class=""
+                            icon="fluent-emoji-flat:mantelpiece-clock"
+                            style="color: black;"
+                            width="24"
+                            height="24"
+                            class="icon"
+                        >
+                        </iconify-icon>
+                        <span class="">~{getReadingTime(body).readingTime}mins read</span>
+                    </div>
+                    <div class="text-center text-fluid-1 flex gap-2 mb-2">
+                        <iconify-icon
+                            class=""
+                            icon="mdi:calendar-month-outline"
+                            style="color: black;"
+                            width="24"
+                            height="24"
+                            class="icon"
+                        >
+                        </iconify-icon>
+                        <p><time datetime={publishedAt}></time>{
+                            new Date(publishedAt).toLocaleDateString("en-us", {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                            })
+                        }<time datetime={updated && updated}
+                            >{
+                                updated &&
+                                    new Date(updated).toLocaleDateString(
+                                        "en-us",
+                                        {
+                                            year: "numeric",
+                                            month: "short",
+                                            day: "numeric",
+                                        }
+                                    )
+                            }</time
+                        ></p>
+                    </div>
+                    <div class="text-center text-fluid-1 flex gap-4 mb-2">
+                        <p class="posts__comment ml-1 text-fluid-1">Comments</p>
+                        <span class="block">{numOfComment}</span>
+                    </div>
+                   
+                        <!-- <HeaderLink
+                            href="https://www.twitter.com/Dr3_147"
+                            class="text-center text-fluid-1 flex gap-4 mt-2 cursor-pointer"
+                            target="_blank"
+                        >
+                            <iconify-icon
+                                icon="pajamas:twitter"
+                                width="24"
+                                height="24"
+                                class="social text-brand-accent-fill"></iconify-icon>
+                         <span>Share Post</span>
+                        </HeaderLink> -->
+                        <!-- <span>Share Post</span> -->
+                </div>
+            </div>
+            <PostContentBlock children={body}/>
+            <div class="border-2 border-dotted p-8">
+            <h3 class="text-fluid-2 font-bold mb-4">That's it Felas!</h3>
+            <p>Enjoyed or Find what you read informative?</p>
+           
+            <HeaderLink
+                            href={shareLink}
+                            class="text-center text-fluid-1 flex gap-4 mt-2 cursor-pointer"
+                            target="_blank"
+                        >
+                            <iconify-icon
+                                icon="pajamas:twitter"
+                                width="24"
+                                height="24"
+                                class="social text-brand-accent-fill"></iconify-icon>
+                         <span>Please Share Post</span>
+                        </HeaderLink>
+                    </div>
+                         <ul>
+                        <h3 class="text-fluid-2 uppercase tracking-wide mb-4">Related Posts</h3>
+                {<BlogLink/>}
+            </ul>
+            <form class="mb-16 border-2 border-dotted p-8 flex">
+            <p class="text-fluid-1 p-2">Don't want to miss a thing?</p>
+            <input type="text" name="subscribe" id="subcribe-to-post" class="p-2 border border-solid m-0" placeholder="Subscribe to feed!"/>
+            <input type="button" name="subscribtion" value="Subscribe" class="p-2 bg-brand-accent-fill border border-solid -ml-3"/>
+            </form>
+        </article>
+        <h3
+            class="grid grid-cols-[1fr_auto_1fr] gap-4 items-center mb-12 font-bold text-fluid-1 before:block before:h-4 before:bg-gradient-to-r before:from-brand-accent-fill before:to-brand-fill  after:block after:h-4 after:bg-gradient-to-l after:from-brand-accent-fill after:to-brand-fill"
+        >
+            Reader Comments
+        </h3>
+        <ul class="comments border-2 border-solid p-8">
+          { comments.map((comment:Comment) => <BlogComment comment={comment}/> )}
+          <BlogCommentForm/>
+        </ul>   
 </main>
-</body>
-</html>

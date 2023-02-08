@@ -1,0 +1,84 @@
+---
+import Footer from "../components/Footer.astro";
+import BlogFooter from "../components/BlogFooter.astro";
+import Nav from "../components/Nav.astro";
+import Header from "../components/Header.astro";
+import BlogHeader from "../components/BlogHeader.astro";
+
+import '../styles/global.css';
+export interface BaseHeadProps {
+	ogTitle: string;
+	ogGradient:string;
+	ogHue:string;
+	description:string;
+	title:string;
+}
+
+const { ogTitle, ogGradient, ogHue, landingPage, contact } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+let params = ``;
+if(ogGradient) params+=`&gradient=${ogGradient}`;
+if(ogHue) params+=`&hue=${ogHue}`;
+
+let ogImageSrc = `https://aadesina.netlify.app/og?title=${encodeURIComponent(ogTitle)}${params}`
+
+const title = `${Astro.props.title || "Hey! I'm Adebola Adesina"} - aadesina.com`;
+const description = Astro.props.description || "A passionate developer making awesome things";
+const openGraphTitle = ogTitle || Astro.props.title || "A post from Adebola";
+
+// For local testing of the edge function
+//  const ogImageSrc = `http://localhost:8888/og`
+
+---
+<!DOCTYPE html>
+<html lang="en" data-theme="system">
+<head>
+<title>{title}</title>
+<meta charset="utf-8" />
+<meta name="description" property="og:description" content={description} />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"/>
+<meta name="theme-color" content="#CC0088"/>
+<link rel="manifest" href="/manifest.json"/>
+<link rel="icon" href="/icons/favicon-32x32.png" type="image/png" sizes="16x16"/>
+<link rel="shortcut icon" href="/icons/favicon-32x32.png"/>
+<link rel="icon" type="image/svg+xml" href="/asset/favicon.png" />
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200..900&display=swap" rel="stylesheet">
+<script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<meta name="generator" content={Astro.generator}/>
+<meta name="image" content={ogImageSrc}/>
+<meta name="image" property="og:image" content={ogImageSrc}/>
+<meta name="author" content="Adebola Adesina"/>
+<meta name="og:image"content={ogImageSrc}/>
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={Astro.generator}/>
+<meta property="og:url" content={Astro.url} />
+<metga property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:title" content={openGraphTitle} />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={ogTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:creator" content="@Dr3_147"/>
+<meta name="twitter:image" content={ogImageSrc} />
+</head>
+<body>
+	<Nav/>
+	{!contact && (landingPage ? <Header/>:<BlogHeader/>)}
+	<slot/>
+	{landingPage ? <Footer/>:<BlogFooter/>}
+</body>
+</html>
+<script>
+	import '../scripts/themeToggle.js'
+</script>
+
