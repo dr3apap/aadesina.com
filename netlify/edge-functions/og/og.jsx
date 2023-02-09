@@ -159,7 +159,7 @@ export default function handler(request) {
             transform: 'translate(5%, 5%)',
             filter: 'saturation(0.5) grayscale(0.5)',
           }}
-          src="https://pics.pof.com/dating/1157/31/12/3f8e32afb-a139-48db-ae94-12dfaf56786f.jpg"
+          src="https://pics.pof.com/thumbnails/size220/1193/76/68/58423b5aa-5a6d-469d-b077-b38c2497c9a8.jpg"
           alt=""
         />
       </div>
