@@ -512,7 +512,7 @@ select{
 
   @keyframes hero-effect{
     0%, 80%{
-      transform:translate(2px, 50%) scale(1.2);
+      transform:translate(5%, 50%) scale(1.2);
 
     }
     100%{
