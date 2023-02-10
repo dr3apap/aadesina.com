@@ -480,14 +480,14 @@ select{
         animation:title 6s both;
       }
       .offer{
-        animation:offers 6s calc(var(--i) * 0.5s + 4.5s) both;
+        animation:offers 6s calc(var(--i) * 0.75s + 4.5s) both;
       }
 
     @keyframes reference {
-      from, 25%{
+      from, 10%{
           clip-path:polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)
       }
-      to{
+     to{
         clip-path:polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
       }
 
@@ -495,7 +495,7 @@ select{
     }
 
     @keyframes heading1{
-      from, 50%{
+      from, 30%{
 
           clip-path:polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)
       }
@@ -517,7 +517,7 @@ select{
   }
 
   @keyframes hero-effect{
-    0%, 50%{
+    0%, 80%{
       transform:translate(2px, 50%) scale(1.2);
 
     }
@@ -528,7 +528,7 @@ select{
   }
 
   @keyframes title{
-    from, 50%{
+    from, 70%{
 
       clip-path:polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)
     }
