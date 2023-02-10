@@ -7,12 +7,14 @@
 @tailwind utilities;
 
 @layer base {
-  *{
-    /*Color Palleter*/
+  
+  :root {
+
+ /*Color Palleter*/
       /** Light brand theme*/
       /** brand hue and component decomposition*/
 
-     --brand:#eb5a00;
+    --brand:#eb5a00;
     --brand-hsl:hsl(23 100% 46%);
     --brand-hue:23;
     --brand-saturation:100%;
@@ -85,10 +87,9 @@
     --shadow-surface-dark:var(--brand-hue) 50% 3%;
     --shadow-strength-dark:.8;
     /* End of Pallete */
-   
-  }
-  
-  :root {
+
+
+
     font-size: 62.5%;
     /** Text and general purpose metric range*/
     --step--2: clamp(0.69rem, calc(0.65rem + 0.31vw), 0.80rem);
@@ -108,23 +109,15 @@
     /** paragraph Line height range*/
     --p-line-height-min: 1.15;
     --p-line-height-max: 1.5;
-    /* Container width range**/
-    --bp-small: 20;
-    --bp-medium: 24.15;
-    --bp-large: 43.75;
-    --bp-xlarge: 48;
+
     /** Variable font axis*/
     --text-slnt: 0;
     --text-wght: 600;
-    /** Variable font feature*/
-    --frac: 1;
-    --denom: 1;
-    --pnum: 1;
-    --numr: 1;
-    --ordn: 1;
-    --sups: 1;
-    --subs: 1;
-    --ss01: 1;
+
+    --delay:0.75s;
+    --hero-duration:4s;
+    --title-offer-duration:2s;
+    --total-duration:calc(var(--hero-duration) + var(--title-offer-duration));
 
   }
 
@@ -468,19 +461,20 @@ select{
       animation:heading1 4s both;
     }
     .heading-2{
-      animation:heading2 4s both;
+      animation:heading2 var(--hero-duration) both;
     }
     .reference{
-      animation:reference 4s both;
+      animation:reference var(--hero-duration) both;
     }
     .hero-container{
-      animation:hero-effect 4s both;
+     
+      animation:hero-effect var(--hero-duration) both;
       }
       .title{
-        animation:title 6s both;
+        animation:title var(--total-duration) both;
       }
       .offer{
-        animation:offers 6s calc(var(--i) * 0.75s + 4.5s) both;
+        animation:offers var(--total-duration) calc(var(--i) * var(--delay) + 4.25s) both;
       }
 
     @keyframes reference {
