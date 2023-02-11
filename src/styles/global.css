@@ -212,7 +212,7 @@ html{
   }
 
 
-  body div:first-child{
+  body div:first-of-type{
     backdrop-filter:blur(8px);
   }
 
@@ -481,7 +481,7 @@ select{
       from, 10%{
           clip-path:polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)
       }
-     to{
+    100%{
         clip-path:polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
       }
 
@@ -489,11 +489,11 @@ select{
     }
 
     @keyframes heading1{
-      from, 30%{
+      from, 25%{
 
           clip-path:polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)
       }
-      to{
+      100%{
         clip-path:polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
       }
     }
@@ -501,18 +501,18 @@ select{
   }
 
   @keyframes heading2{
-    0%, 75%{
+    0%, 50%{
       opacity:0;
     }
 
-    75%, to{
+    100%{
       opacity:1;
     }
   }
 
   @keyframes hero-effect{
-    0%, 80%{
-      transform:translate(5%, 50%) scale(1.2);
+    0%, 50%{
+      transform:translateY(50%) scale(1.5);
 
     }
     100%{
