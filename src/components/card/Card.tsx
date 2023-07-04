@@ -1,5 +1,4 @@
 import ContentBlock from '../post-content/PostContentBlock';
-
 type Feed = {
     pinned: boolean,
     permcard: boolean,

@@ -1,8 +1,6 @@
 
 {/* <script is:inline> */}
-
-SANITY_STUDIO_PROJECT_ID="f16qt5br"
-SANITY_STUDIO_PROJECT_DATASET="production"
+import "dotenv/config";
 
 const allPostData = `
 *[_type == 'post']{
@@ -15,7 +13,7 @@ const allPostData = `
 
  const getQueryUrl = (query) => {
 const queryString = encodeURIComponent(query);
-return `https://${SANITY_STUDIO_PROJECT_ID}.api.sanity.io/v2021-03-25/data/query/${SANITY_STUDIO_PROJECT_DATASET}?query=${queryString}`
+return `https://${process.env.SANITY_STUDIO_PROJECT_ID}.api.sanity.io/v2021-03-25/data/query/${process.env.SANITY_STUDIO_PROJECT_DATASET}?query=${queryString}`
 }
 
  const getData = async (query) =>{

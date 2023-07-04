@@ -12,7 +12,7 @@
 
 [data-theme="system"]{
     --icon-scale:0.45;
-    --icon-translate:-35%;
+    --icon-translate:-40%;
 }
 
 @media(prefers-color-scheme:light){

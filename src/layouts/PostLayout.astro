@@ -138,10 +138,10 @@ const shareLink = `https://www.twitter.com/intent/tweet?text=${encodeURIComponen
                         <h3 class="text-fluid-2 uppercase tracking-wide mb-4">Related Posts</h3>
                 {<BlogLink/>}
             </ul>
-            <form class="mb-16 border-2 border-dotted p-8 flex">
-            <p class="text-fluid-1 p-2">Don't want to miss a thing?</p>
-            <input type="text" name="subscribe" id="subcribe-to-post" class="p-2 border border-solid m-0" placeholder="Subscribe to feed!"/>
-            <input type="button" name="subscribtion" value="Subscribe" class="p-2 bg-brand-accent-fill border border-solid -ml-3"/>
+            <form class="mb-16 border-2 border-dotted p-8 flex gap-2" id="subscription" action="" method="POST">
+            <label class="text-fluid-1 p-2" for="subscribe">Don't want to miss a thing?</label>
+            <input type="text" name="subscribe" id="subscribe" class="p-2 border border-solid m-0" placeholder="Subscribe to feed!"/>
+            <input type="submit" name="subscribtion" value="Subscribe" class="p-2 bg-brand-accent-fill border border-solid -ml-3"/>
             </form>
         </article>
         <h3

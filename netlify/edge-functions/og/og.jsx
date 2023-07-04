@@ -40,7 +40,7 @@ async function loadFonts(font, wght = 900) {
   try {
     return fetch(preferType[1]).then((font) => font.arrayBuffer())
   } catch (err) {
-    console.log(err.message)
+    console.log(err.message);
   }
 
 }
@@ -211,7 +211,7 @@ export default function handler(request) {
  
     
     } catch (err) {
-    console.log(`${err.message}`)
+    console.log(`${err.message}`);
     return new Response('Failed to generate ogImage', {
       status: 500,
     }) 

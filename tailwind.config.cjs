@@ -14,11 +14,13 @@ for (let i = -2; i < 11; i++){
    fontSize[`fluid-${i}`] =  `var(--step-${i})`;
 }
 module.exports = {
-    content:["./src/**/*.{html,js,ts,jsx,astro,md,mdx,tsx}"],
+    content:["./src/**/*.{html,js,ts,jsx,mjs,cjs,astro,md,mdx,tsx}"],
     theme:{
         extend:{
             width:{
                 "content-area":"96ch",
+                "article-area":"66ch",
+                "main-content":"60ch"
             },
             colors:{
                 "brand-fill":"var(--brand-fill-0)",
@@ -47,7 +49,7 @@ module.exports = {
             fontSize,
     
             gradientColorStops:{
-               gradient:"var(--bradn-gradient)"
+               gradient:"var(--brand-gradient)"
             },
             // fontFamily:{
             //     sans:["Inter", "var(--font-sans)", ...defaultTheme.FontFamily.sans],
@@ -60,14 +62,14 @@ module.exports = {
             ".circle-shape":{
                 shapeOutside:"circle()"
             },
-            ".rad-shadow":{
-                    boxShadow:"0 2.8px 2.2px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + .03)), 0 6.7px 5.3px hsl(var(--surface-shadow-light) / calc(var(--surface-strength-light) + .01)), 0 12.5px 10px hsl(var(--surface-shadow-light) / calc(var(--surface-strength-light) +.02)), 0 22.3px 17.9px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) +.02)), 0 41.8px 33.4px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + .03)), 0 100px 80px hsl(var(--surface-shadow-light) / var(--shadow-strength-light))"
-                }
+            // ".rad-shadow":{
+            //         boxShadow:"0 2.8px 2.2px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + .03)), 0 6.7px 5.3px hsl(var(--surface-shadow-light) / calc(var(--surface-strength-light) + .01)), 0 12.5px 10px hsl(var(--surface-shadow-light) / calc(var(--surface-strength-light) +.02)), 0 22.3px 17.9px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) +.02)), 0 41.8px 33.4px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + .03)), 0 100px 80px hsl(var(--surface-shadow-light) / var(--shadow-strength-light))"
+            //     }
             }),
             addUtilities({
-                // ".rad-shadow":{
-                //     boxShadow:"0 2.8px 2.2px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + .03)), 0 6.7px 5.3px hsl(var(--surface-shadow-light) / calc(var(--surface-strength-light) + .01)), 0 12.5px 10px hsl(var(--surface-shadow-light) / calc(var(--surface-strength-light) +.02)), 0 22.3px 17.9px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) +.02)), 0 41.8px 33.4px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + .03)), 0 100px 80px hsl(var(--surface-shadow-light) / var(--shadow-strength-light))"
-                // }
+                ".rad-shadow":{
+                    boxShadow:"0 2.8px 2.2px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + .03)), 0 6.7px 5.3px hsl(var(--surface-shadow-light) / calc(var(--surface-strength-light) + .01)), 0 12.5px 10px hsl(var(--surface-shadow-light) / calc(var(--surface-strength-light) +.02)), 0 22.3px 17.9px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) +.02)), 0 41.8px 33.4px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + .03)), 0 100px 80px hsl(var(--surface-shadow-light) / var(--shadow-strength-light))"
+                }
             })
 
         }),

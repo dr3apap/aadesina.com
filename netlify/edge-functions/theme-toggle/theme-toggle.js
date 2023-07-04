@@ -1,16 +1,24 @@
+//import 'dotenv/config';
 import { HTMLRewriter} from "https://ghuc.cc/worker-tools/html-rewriter";
-const COOKIE_KEY = "adebola-theme"
+const COOKIE_KEY = "Adebola-Adesina";
 const  THEME_STATE = ["system", "light", "dark"]
 
 export default  async (request, context) => {
+    // Get the res context so we can do some logic with it
     const res = await context.next();
+    // We need the contenttype we are sending 
     const contentType = res.headers.get("content-type");
-
+    // We don't want to send html on this route and we don't want to respond to request from demos path
+    // it has his own thing
     if(!contentType.startsWith("text/html") || request.url.includes("/demos/")) return;
-
+    // If the user send a cookie use it else (this is  the first time)
     const theme = context.cookies.get(COOKIE_KEY) || THEME_STATE[0];
+        // If user has no cookie we default to system since that will be the first time they are 
+        // changing theme
     const nextIndex = THEME_STATE.indexOf(theme) + 1;
+    // Dark -> system
     const nextTheme = THEME_STATE.at(nextIndex) || THEME_STATE[0];
+    // system -> light
     const afterNextTheme = THEME_STATE.at(THEME_STATE.indexOf(nextTheme) + 1) || THEME_STATE[0]; 
     //Get the real path for redirection in case is not from toggle path
     const path = request.headers.get("referer");
@@ -23,15 +31,14 @@ export default  async (request, context) => {
    // Set response up if we made it here
    context.cookies.set({
     name: COOKIE_KEY,
-    value: nextTheme,
+    value: nextTheme, // for next theme
     path:"/",
     secure:true,
     httpOnly:true,
-    expires:new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+    expires:new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), // 30 days
    });
-
    if (isClient){
-    const headers = {
+   const headers = {
         "content-type":"application/json",
         // "Access-Control-Allow-Origin": "http://localhost:3000",
         // "Vary": "Origin",

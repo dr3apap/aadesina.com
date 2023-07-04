@@ -1,8 +1,8 @@
 ---
-const { demo } = Astro.props;
+const { demo, image } = Astro.props;
 ---
-{demo && <header class="w-content-area max-w-full mx-auto grid gap-2 px-4 mb-12 relative h-[30vh]">
+<header class="w-content-area max-w-full mx-auto grid gap-2 px-4 mb-12 relative h-[30vh]">
     <div class="banner max-w-[100vw] relative transform left-1/2 -translate-x-1/2 aspect-[3/1] bg-brand-light-surface-4">
     <img src={demo} width="750" height="250" class="absolute inset-0 w-full h-full">
     </div>
-</header>}
+</header>
