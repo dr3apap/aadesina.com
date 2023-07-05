@@ -4,5 +4,10 @@
 export const SITE_TITLE = "Adebola's Page";
 export const SITE_DESCRIPTION = "Adebola's Web Page";
 export const site = "www.aadesina.com";
-
-// TODO: request this asyncrhonouly from the cloud after the documdent has been lodaded
+export const siteMetaData = {
+    mainPage:"Adebola's Page",
+    blog:"Adebola's Blog",
+    mainPageDes:"Adebola's Web Page",
+    blogDes:"Adebola's Blog Page",
+    siteUrl:"www.aadesina.com"
+}
