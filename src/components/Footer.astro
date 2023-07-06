@@ -3,7 +3,7 @@ import HeaderLink from "./HeaderLink.astro";
 const today = new Date();
 const {page} = Astro.props;
 ---
-	<footer class="mt-44 mx-auto my-0 max-w-screen-md bg-fg-light">
+	<footer class="mx-auto my-44 max-w-screen-md bg-fg-light">
         <div class="flex flex-col gap-y-4 items-center la:flex-row la:justify-between la:gap-0"> <!-- Footer items wrapper  -->
             <ul id="nav-toggle" aria-expanded="false" role-label="nav-list" class="[grid-area:menu-list]  text-text-1 flex gap-4 justify-center la:order-1">
 		<li class="text-fluid-0 hover:bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><HeaderLink href="/">Home</HeaderLink></li>

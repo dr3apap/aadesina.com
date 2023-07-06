@@ -1,4 +1,4 @@
-<section id="demos" tabindex="-1">
+<section id="demos" tabindex="-1" class="mb-4">
     <div class="demos__header mb-8">
         <h2 class="text-fluid-3 mb-4 p-0 sm:text-fluid-3">Adebola's Demos</h2>
         <p>
@@ -7,18 +7,19 @@
         <p>I created some demos and systems.</p>
     </div>
 
+    <!-- Demos card wrapper -->
     <div
-        class="grid p-4 grid-cols-[repeat(2,_minmax(min-content,_1fr))] gap-4 sm:grid-cols-2 grid-flow-row-auto relative la:grid-cols-[repeat(3,_minmax(min-content,_25rem))]"
+        class="grid grid-cols-[minmax(0,3rem)_1fr_minmax(0,3rem)]"
     >
-        <!-- Demos card wrapper -->
         <button
-            class="bg-surface-1-accent w-12 h-12 flex justify-center items-center absolute rounded-full p-2 text-brand-stroke -top-8 left-[50%] -translate-x-1/2"
+            class="bg-surface-1-accent w-12 h-12 flex  rounded-full p-2 text-brand-stroke relative self-center"
             >&#10094;</button
         >
-  <div class="grid bg-surface-1-accent gap-y-4 drop-shadow-md pb-4">
-            <!-- Demos card -->
+        <!-- Demos card -->
+        <div class="flex gap-x-4">
+        <div class="grid bg-surface-1-accent gap-y-4 drop-shadow-md pb-4">
             <div class="h-[80%]">
-                <img src="/asset/demos/game.jpg" alt="Image of game controller" class="w-full aspect-video" />
+                <img src="/asset/demos/game.jpg" alt="Image of game controller" class="w-full aspect-auto" />
             </div>
 
             <h3 class="text-fluid-2 px-4 text-text-1-accent">Game Hub</h3>
@@ -70,10 +71,10 @@
             <a href="" class="block px-4 text-brand-light-text2">[Try Bug-Tracker]</a>
         </div><!-- demos card end -->
 
+        <!-- Demos card -->
         <div class="grid gap-y-4 bg-surface-1-accent drop-shadow-md pb-4">
-            <!-- Demos card -->
             <div class="h-[80%]">
-                <img src="/asset/demos/calendar.jpg" alt="Image of game controller" class="w-full aspect-video" />
+                <img src="/asset/demos/calendar.jpg" alt="Image of game controller" class="w-full aspect-auto" />
             </div>
 
             <h3 class="text-fluid-2 px-4 text-text-1-accent">Calendar</h3>
@@ -126,10 +127,10 @@
         </div><!-- demos card end -->
        
 
+        <!-- Demos card -->
          <div class="grid gap-y-4 bg-surface-1-accent drop-shadow-md pb-4">
-            <!-- Demos card -->
             <div class="h-[80%]">
-                <img src="/asset/demos/3d.jpg" alt="Image of game controller" class="w-full aspect-video" />
+                <img src="/asset/demos/3d.jpg" alt="Image of game controller" class="w-full aspect-auto" />
             </div>
 
             <h3 class="text-fluid-2 px-4 text-text-1-accent">3D Animation</h3>
@@ -150,7 +151,7 @@
                         this is done the open report will be close otherwise
                         leave open.Report state can be track till the final
                         state of close
-                    </p>
+                   </p>
                 </div>
                 <div class="mb-4">
                     <h3 class="text-fluid-2 p-0 my-4 text-text-1-accent">Skills</h3>
@@ -180,14 +181,10 @@
             </div> <!-- accordion end -->
             <a href="" class="block px-4 text-brand-light-text2">[Try Bug-Tracker]</a>
         </div><!-- demos card end -->
-        <button
-        class="bg-surface-1-accent w-12 h-12 flex justify-center items-center absolute rounded-full p-2 text-brand-stroke transform  -bottom-8 right-[50%] translate-x-1/2"
-        >&#10095;</button
-    >
-    </div>
-    <!-- Demos card end -->
- <div class="h-[80%]">
-                <img src="/asset/demos/3d.jpg" alt="Image of game controller" class="w-full aspect-video" />
+        <!-- Demos card -->
+         <div class="grid gap-y-4 bg-surface-1-accent drop-shadow-md pb-4">
+            <div class="h-[80%]">
+                <img src="/asset/demos/3d.jpg" alt="Image of game controller" class="w-full aspect-auto" />
             </div>
 
             <h3 class="text-fluid-2 px-4 text-text-1-accent">3D Animation</h3>
@@ -205,10 +202,10 @@
                         Bug tracker is an app that let user report a bug or
                         issue about a specific application detailing what went
                         wrong.This allow the developer to fix the issue, when
-                        this is done the open report will be close otherwise
+                        this is done the open report will be close otherwis
                         leave open.Report state can be track till the final
                         state of close
-                    </p>
+                   </p>
                 </div>
                 <div class="mb-4">
                     <h3 class="text-fluid-2 p-0 my-4 text-text-1-accent">Skills</h3>
@@ -237,11 +234,11 @@
                 </div>
             </div> <!-- accordion end -->
             <a href="" class="block px-4 text-brand-light-text2">[Try Bug-Tracker]</a>
-        </div><!-- demos card end -->
+        </div>
+    </div><!-- demos card end -->
         <button
-        class="bg-surface-1-accent w-12 h-12 flex justify-center items-center absolute rounded-full p-2 text-brand-stroke transform  -bottom-8 right-[50%] translate-x-1/2"
-        >&#10095;</button
-    >
+        class="bg-surface-1-accent w-12 h-12  rounded-full p-2 text-brand-stroke relative self-center"
+        >&#10095;</button>
     </div>
     
 </section>

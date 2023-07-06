@@ -25,15 +25,3 @@ const {page} = Astro.props;
 	</nav>
 <ThemeToggle/>
 </div>
-<script is:inline>
-	const navToggle = document.querySelector("div [aria-controls]");
-	const navMenu = document.querySelector("nav ul");
-	const bar = document.querySelector(".bar")
-function toggleNav(e) {
-        let barState = e.currentTarget.firstElementChild.getAttribute("aria-expanded") == "true" || false;
-        bar.setAttribute("aria-expanded", !barState);
-        navMenu.classList.toggle("show");
-
-    }
-    navToggle.addEventListener("click", toggleNav);
-</script>
