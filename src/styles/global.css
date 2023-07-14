@@ -301,6 +301,7 @@ select{
   p {
     hyphens: auto;
     line-height: 1.5;
+    font-size: var(--step-1);
   }
 
   section {

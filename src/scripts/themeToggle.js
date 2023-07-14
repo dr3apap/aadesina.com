@@ -3,10 +3,8 @@ const TOGGLE_BUTTON = TOGGLE_FORM.querySelector("button");
 const TOGGLE_LABEL = TOGGLE_FORM.querySelector("#theme-toggle-label");
 const url = TOGGLE_FORM.action
 const navToggle = document.querySelector("div[aria-controls]");
-console.log(navToggle);
 const navMenu = document.querySelector("nav ul");
 const bar = document.querySelector(".bar")
-console.log(navMenu, bar)
 
 function toggleNav(e) {
         let barState = e.currentTarget.firstElementChild.getAttribute("aria-expanded") == "true" || false;
