@@ -300,6 +300,7 @@ select{
 
   p {
     hyphens: auto;
+    line-height: 2;
   }
 
   section {
@@ -321,7 +322,7 @@ select{
   }
   a{
     color:var(--brand-stroke);
-    text-decoration-thickness:4px;
+    text-decoration-thickness:2px;
     text-underline-offset:2px;
     text-decoration-color: var(--brand-accent);
   }
@@ -394,6 +395,7 @@ select{
   .bar[aria-expanded="true"]::after {
     transform: translate(-.6rem, -1rem) rotate(-45deg);
     border-radius: .7rem;
+    transition:none;
 
   }
 

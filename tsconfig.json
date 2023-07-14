@@ -9,7 +9,6 @@
   "noImplicitAny":false,
   "noEmitOnError":true,
   "jsx":"preserve",
-    "jsxImportSource": "solid-js",
     "importsNotUsedAsValues": "remove"
   },
   "include": ["**/*", ".eslintrc.cjs"],
