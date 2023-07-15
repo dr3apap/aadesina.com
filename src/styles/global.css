@@ -19,13 +19,14 @@
     --brand-hue:23;
     --brand-saturation:100%;
     --brand-lightness:46%;
+
     --brand-fill0:hsl(var(--brand-hue) 
     var(--brand-saturation) 
     var(--brand-lightness));
     --brand-fill1: hsl(var(--brand-hue) 
     var(--brand-saturation) 
     calc(var(--brand-lightness) + 12%));
-  --brand-stroke:var(--brand-fill0);
+    --brand-stroke:var(--brand-fill0);
     --text1-light:hsl(var(--brand-hue) 
     var(--brand-saturation)
     calc(var(--brand-lightness) - 36%));
@@ -204,7 +205,7 @@ html{
  body {
     min-height: 100vh;
     overflow-x: hidden;
-    font-size: var(--step-0);
+    font-size: var(--step-1);
   }
 
   hr{
@@ -419,17 +420,19 @@ select{
  
 
 
-  .accordion-ctrl::after {
+  /* .accordion-ctrl::after {
     content: "\276F";
     width: 1.5rem;
     height: 1rem;
     text-align: center;
     transition: all .3s;
-  }
+  } */
 
 
-  input:checked+label::after {
+  input:checked+label span {
+    display:inline-block;
     transform: rotate(90deg);
+    transition:all .3s;
   }
 
   input~.accordion {
