@@ -8,13 +8,9 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "prebuild": "node src/data/sync.js",
-    "postbuild": "node src/enhancers/enhancer.js",
     "just-build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
     "deploy:prod": "yarn build && ntl deploy --prod",
     "fix-up-look-sharp": "eslint --resolve-plugins-relative-to src/**/*.jsx && prettier src/**/*.{astro,css,jsx}"
   },
