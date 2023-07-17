@@ -2,8 +2,8 @@ import React from "react";
 import Link from "../link/link";
 
 const Footer = () => {
-    return <footer class="mx-auto mt-24 mb-4 max-w-screen-md bg-fg-light">
-        <div class="text-fluid--1 grid place-items-center gap-y-2 w-full"> { /* Footer items wrapper*/}
+    return <footer className="mx-auto mt-24 mb-4 max-w-screen-md bg-fg-light">
+        <div className="text-fluid--1 grid place-items-center gap-y-2 w-full"> { /* Footer items wrapper*/}
             <ul className="text-surface-headings font-bold flex gap-x-8 self-start">{["/", "about-me", "demos", "Blog"].map((route, index) => {
                 return <li class="hover:bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><Link route={index > 2 ? `/${route.toLowerCase()}` : `#${route}`} key={index}>{index == 0 ? "Home" : index == 1 ? "About" : index == 2 ? "Demos" : route}</Link></li>
             })}
