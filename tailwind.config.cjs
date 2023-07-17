@@ -27,7 +27,7 @@ module.exports = {
                 "brand-fill-1":"var(--brand-fill-1)",
                 "brand-stroke":"var(--brand-stroke)",
                 "text-1":"var(--text-1)",
-                "text2":"var(--text-2)",
+                "text-2":"var(--text-2)",
                 "surface-1":"var(--surface-1)",
                 "surface-2":"var(--surface-2)",
                 "surface-3":"var(--surface-3)",

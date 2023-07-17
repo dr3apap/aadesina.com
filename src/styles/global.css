@@ -324,9 +324,13 @@ select{
   }
   a{
     color:var(--brand-stroke);
-    text-decoration-thickness:2px;
+    text-decoration-thickness:4px;
     text-underline-offset:2px;
     text-decoration-color: var(--brand-accent);
+  }
+
+  ul ::marker {
+    color: var(--brand-fill);
   }
 
   /* a:visited, a:hover{
