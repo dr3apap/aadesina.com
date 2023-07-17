@@ -4,11 +4,11 @@ import Link from "../link/link";
 const Footer = () => {
     return <footer class="mx-auto mt-24 mb-4 max-w-screen-md bg-fg-light">
         <div class="text-fluid--1 grid place-items-center gap-y-2 w-full"> { /* Footer items wrapper*/}
-            <ul class="text-surface-headings font-bold flex gap-x-8 self-start">{["/", "about-me", "demos", "Blog"].map((route, index) => {
+            <ul className="text-surface-headings font-bold flex gap-x-8 self-start">{["/", "about-me", "demos", "Blog"].map((route, index) => {
                 return <li class="hover:bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><Link route={index > 2 ? `/${route.toLowerCase()}` : `#${route}`} key={index}>{index == 0 ? "Home" : index == 1 ? "About" : index == 2 ? "Demos" : route}</Link></li>
             })}
             </ul>
-            <div class="flex flex-wrap justify-center">
+            <div className="flex flex-wrap justify-center">
                 <Link route="https://www.twitter.com/Dr3_147" linkStyle="text-text-1 w-14 h-14 grid place-items-center rounded-md hover:bg-text-2-accent" 
                     target="_blank" rel="noopener noreferrer" title="follow me on twitter">
                    <svg fill="currentColor" className="w-10 h-10" viewBox="0 0 24 24" role="img">

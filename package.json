@@ -4,17 +4,21 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "build:cms": "cd ./studio && ./studio/node_modules/.bin/sanity build ../dist",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "prebuild": "node src/data/sync.js",
+    "postbuild": "node src/enhancers/enhancer.js",
+    "just-build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "deploy:prod": "yarn build && ntl deploy --prod",
+    "fix-up-look-sharp": "eslint --resolve-plugins-relative-to src/**/*.jsx && prettier src/**/*.{astro,css,jsx}"
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.14.0",
-    "@astrojs/netlify": "^2.3.0",
-    "@astrojs/rss": "^2.0.0",
-    "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^4.0.0",
     "@sanity/client": "^4.0.1",
     "@types/react": "^18.0.27",
@@ -29,6 +33,7 @@
     "rehype-raw": "^6.1.1",
     "remark-gfm": "^3.0.1",
     "sanitize-html": "^2.8.1",
+    "tailwindcss": "^3.3.3",
     "unist-util-visit": "^4.1.1"
   },
   "devDependencies": {
