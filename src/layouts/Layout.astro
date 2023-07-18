@@ -1,6 +1,5 @@
 ---
 import Footer from "../components/footer/footer.jsx";
-import BlogFooter from "../components/BlogFooter.astro";
 import Nav from "../components/nav/nav.jsx";
 import Header from "../components/Header.astro";
 import BlogHeader from "../components/BlogHeader.astro";
@@ -73,7 +72,7 @@ const openGraphTitle = ogTitle || Astro.props.title || "A post from Adebola";
 <body>
 	<Nav/>
 	<main class="px-8 max-w-screen-md mx-auto my-0">
-		<Header/>
+		{(landingPage && <Header/>) || !contact && <BlogHeader/>}
 		<slot/>
 		<Footer/>
   	</main>

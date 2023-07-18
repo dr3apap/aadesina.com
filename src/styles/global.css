@@ -311,7 +311,6 @@ select{
 
   img {
     max-width: 100%;
-    height: auto;
   }
 
   ::selection {
@@ -435,9 +434,11 @@ select{
 
   input:checked+label span {
     display:inline-block;
-    transform: rotate(90deg);
-    transition:all .3s;
+    padding-left:1.5rem;
+    transform:rotate(90deg);
+    transition:all .2s;
   }
+
 
   input~.accordion {
     display: none;

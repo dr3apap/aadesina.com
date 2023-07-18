@@ -42,7 +42,7 @@ module.exports = {
                 },
              
             "screens":{
-                "la":"620px",
+                "la":"640px",
             },
             spacing,
             minHeight,
@@ -51,9 +51,7 @@ module.exports = {
             gradientColorStops:{
                gradient:"var(--brand-gradient)"
             },
-            // fontFamily:{
-            //     sans:["Inter", "var(--font-sans)", ...defaultTheme.FontFamily.sans],
-            // }
+           
       },
     },
     plugins:[
