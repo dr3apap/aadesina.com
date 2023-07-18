@@ -5,7 +5,7 @@ const Footer = () => {
     return <footer className="mx-auto mt-24 mb-4 max-w-screen-md bg-fg-light">
         <div className="text-fluid--1 grid place-items-center gap-y-2 w-full"> { /* Footer items wrapper*/}
             <ul className="text-surface-headings font-bold flex gap-x-8 self-start">{["/", "about-me", "demos", "Blog"].map((route, index) => {
-                return <li class="hover:bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none"><Link route={index > 2 ? `/${route.toLowerCase()}` : `#${route}`} key={index}>{index == 0 ? "Home" : index == 1 ? "About" : index == 2 ? "Demos" : route}</Link></li>
+                return <li className="hover:bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none" key={index}><Link route={index > 2 ? `/${route.toLowerCase()}` : `#${route}`}>{index == 0 ? "Home" : index == 1 ? "About" : index == 2 ? "Demos" : route}</Link></li>
             })}
             </ul>
             <div className="flex flex-wrap justify-center">
@@ -28,7 +28,7 @@ const Footer = () => {
                     linkStyle="text-text-1 w-14 h-14 grid place-items-center rounded-md hover:bg-text-2-accent" target="_blank" rel="noopener noreferrer">
                    <svg fill="currentColor" className="w-10 h-10" viewBox="0 0 24 24"  role="img">
             <title>Linkedin icon</title>
-        <path d="M20.47,2H3.53A1.45,1.45,0,0,0,2.06,3.43V20.57A1.45,1.45,0,0,0,3.53,22H20.47a1.45,1.45,0,0,0,1.47-1.43V3.43A1.45,1.45,0,0,0,20.47,2ZM8.09,18.74h-3v-9h3ZM6.59,8.48h0a1.56,1.56,0,1,1,0-3.12,1.57,1.57,0,1,1,0,3.12ZM18.91,18.74h-3V13.91c0-1.21-.43-2-1.52-2A1.65,1.65,0,0,0,12.85,13a2,2,0,0,0-.1.73v5h-3s0-8.18,0-9h3V11A3,3,0,0,1,15.46,9.5c2,0,3.45,1.29,3.45,4.06Z"></path></svg>
+      <path d="M19 0H5a5 5 0 0 0-5 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"/></svg>
 
                 </Link>
             </div>

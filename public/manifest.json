@@ -1,18 +1,26 @@
-{
-"short_name":"aadesina.com",
-"name":"aadesina.com",
-"icons":[
+  {
+  "short_name": "aadesina.com",
+  "name": "aadesina.com",
+  "icons": [
     {
-        "src":"/icons/favicon.ico",
-        "type":"image/x-icon",
-        "sizes":"32x32"
+      "src": "/icons/favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "32x32"
+    },
+    {
+      "src": "/icons/android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icons/android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
-   
- ],
-"start_url":".",
-"display":"standalone",
-"theme-color":"#141a1c",
-"background_color":"#141a1c"
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#141a1c",
+  "background_color": "#141a1c"
 }
-
  
