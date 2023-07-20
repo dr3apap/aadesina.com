@@ -35,7 +35,7 @@ async function loadFonts(font, wght = 900) {
   ).text()
 
   const preferType = googleFont.match(
-    /\S+\s?\S+\((\S+)\)\s?format\('(opentype|truetype|woff)'\)/
+    /src: url\((.+)\) format\('(opentype|truetype)'\)/
   )
   try {
     return fetch(preferType[1]).then((font) => font.arrayBuffer())

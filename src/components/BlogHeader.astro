@@ -9,12 +9,12 @@ const heroQuote  = {...(await (await fetch(`https://api.api-ninjas.com/v1/quotes
     const today = date.getDate();
     const month = date.getMonth()+1;
     const todayDate = `${year}-${month}-${today}`;
-    //const heroImageSrc = (await (await fetch(`https://api.nasa.gov/planetary/apod?api_key=${import.meta.env.NASA_API_KEY}&start_date=${todayDate}&end_date=${todayDate}`)).json())[0].url;
+    const heroImageSrc = (await (await fetch(`https://api.nasa.gov/planetary/apod?api_key=${import.meta.env.NASA_API_KEY}&start_date=${todayDate}&end_date=${todayDate}`)).json())[0].url;
 ---
 
 <header class="max-w-screen-md mx-auto my-12">
     <div class="banner max-w-[100vw] relative  aspect-[3/1] bg-surface-4">
-    <img src="" width="750" height="250" class="absolute inset-0 w-full h-full">
+    <img src={heroImageSrc} width="750" height="250" class="absolute inset-0 w-full h-full">
     <figure class="absolute left-0 bottom-0 transform translate-y-[50%] bg-surface-2 p-4 pt-8 whitespace-normal w-[50%] max-w-full opacity-70">
     <blockquote cite="" class=""><p class="quote text-fluid-0 text-text-1-accent">{quote}</p></blockquote>
         <figcaption class="text-fluid--1 text-brand-stroke">-{author}<cite></cite></figcaption>
