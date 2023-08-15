@@ -23,22 +23,22 @@ module.exports = {
                 "main-content":"60ch"
             },
             colors:{
-                "brand-fill":"var(--brand-fill-0)",
-                "brand-fill-1":"var(--brand-fill-1)",
-                "brand-stroke":"var(--brand-stroke)",
-                "text-1":"var(--text-1)",
-                "text-2":"var(--text-2)",
-                "surface-1":"var(--surface-1)",
-                "surface-2":"var(--surface-2)",
-                "surface-3":"var(--surface-3)",
-                "surface-4":"var(--surface-4)",
+                "brand":"var(--brand-hsl)",
+                "stroke":"var(--stroke)",
+                "text-1":"var(--text1-light)",
+                "text-2":"var(--text2-light)",
+                "surface-1":"var(--surface1-light)",
+                "surface-2":"var(--surface2-light)",
+                "surface-3":"var(--surface3-light)",
+                "surface-4":"var(--surface4-light)",
                 "surface-alpha":"var(--surface-alpha)",
-                "brand-accent-fill":"var(--brand-accent-hsl)",
-                "text-1-accent":"var(--text-1-accent)",
-                "text-2-accent":"var(--text-2-accent)",
-                "surface-1-accent":"var(--surface-1-accent)",
-                "surface-2-accent":"var(--surface-2-accent)",
-                "surface-headings":"var(--surface-headings)",
+                "accent":"var(--brand-accent-hsl)",
+                "text-1-accent":"var(--text1-accent-light)",
+                "text-2-accent":"var(--text2-accent-light)",
+                "surface-1-accent":"var(--surface1-accent-light)",
+                "surface-2-accent":"var(--surface2-accent-light)",
+                "headings":"var(--text2-accent-light)",
+                "hover-light":"var(--text2-accent-dark)"
                 },
              
             "screens":{
@@ -61,13 +61,13 @@ module.exports = {
                 shapeOutside:"circle()"
             },
             
-            // ".rad-shadow":{
-            //         boxShadow:"0 2.8px 2.2px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + .03)), 0 6.7px 5.3px hsl(var(--surface-shadow-light) / calc(var(--surface-strength-light) + .01)), 0 12.5px 10px hsl(var(--surface-shadow-light) / calc(var(--surface-strength-light) +.02)), 0 22.3px 17.9px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) +.02)), 0 41.8px 33.4px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + .03)), 0 100px 80px hsl(var(--surface-shadow-light) / var(--shadow-strength-light))"
-            //     }
+            ".rad-shadow":{
+                    boxShadow:"0 2.8px 2.2px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + 0.03)), 0 6.7px 5.3px hsl(var(--surface-shadow-light) / calc(var(--surface-strength-light) + 0.01)), 0 12.5px 10px hsl(var(--surface-shadow-light) / calc(var(--surface-strength-light) + 0.02)), 0 22.3px 17.9px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + 0.02)), 0 41.8px 33.4px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + 0.03)), 0 100px 80px hsl(var(--surface-shadow-light) / var(--shadow-strength-light))"
+                }
             }),
             addUtilities({
                 ".rad-shadow":{
-                    boxShadow:"0 2.8px 2.2px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + .03)), 0 6.7px 5.3px hsl(var(--surface-shadow-light) / calc(var(--surface-strength-light) + .01)), 0 12.5px 10px hsl(var(--surface-shadow-light) / calc(var(--surface-strength-light) +.02)), 0 22.3px 17.9px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) +.02)), 0 41.8px 33.4px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + .03)), 0 100px 80px hsl(var(--surface-shadow-light) / var(--shadow-strength-light))"
+                    boxShadow:"0 2.8px 2.2px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + 0.03)), 0 6.7px 5.3px hsl(var(--surface-shadow-light) / calc(var(--surface-strength-light) + 0.01)), 0 12.5px 10px hsl(var(--surface-shadow-light) / calc(var(--surface-strength-light) + 0.02)), 0 22.3px 17.9px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + 0.02)), 0 41.8px 33.4px hsl(var(--surface-shadow-light) / calc(var(--shadow-strength-light) + 0.03)), 0 100px 80px hsl(var(--surface-shadow-light) / var(--shadow-strength-light))"
                 }
             })
 

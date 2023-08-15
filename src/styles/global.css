@@ -1,6 +1,3 @@
-@import url("../../node_modules/open-props/colors.min.css");
-@import url("../../node_modules/open-props/colors-hsl.min.css");
-@import url("../../node_modules/open-props/gradients.min.css");
 
 @tailwind base;
 @tailwind components;
@@ -10,89 +7,76 @@
   
   :root {
 
- /*Color Palleter*/
-      /** Light brand theme*/
-      /** brand hue and component decomposition*/
+ /*Color Pallete*/
 
+/** Brand hue and Component Decomposition*/
     --brand:#eb5a00;
-    --brand-hsl:hsl(23 100% 46%);
+    --brand-hsl:hsl(23 100% 50%);
     --brand-hue:23;
     --brand-saturation:100%;
-    --brand-lightness:46%;
-
-    --brand-fill0:hsl(var(--brand-hue) 
-    var(--brand-saturation) 
-    var(--brand-lightness));
-    --brand-fill1: hsl(var(--brand-hue) 
-    var(--brand-saturation) 
-    calc(var(--brand-lightness) + 12%));
-    --brand-stroke:var(--brand-fill0);
-    --text1-light:hsl(var(--brand-hue) 
-    var(--brand-saturation)
-    calc(var(--brand-lightness) - 36%));
-    --text2-light:hsl(var(--brand-hue) 
-    calc(var(--brand-saturation) - 70%) 
-    calc(var(--brand-lightness) - 16%));
-    --surface1-light:hsl(var(--brand-hue) 
-    calc(var(--brand-saturation) - 70%) 
-    calc(var(--brand-lightness) + 44%));
-    --surface2-light:hsl(var(--brand-hue) 
-    calc(var(--brand-saturation) - 75%) 
-    calc(var(--brand-lightness) + 53%));
-    --surface3-light:hsl(var(--brand-hue) 
-    calc(var(--brand-saturation) - 80%) 
-    calc(var(--brand-lightness) + 46%));
-    --surface4-light:hsl(var(--brand-hue) 
-    calc(var(--brand-saturation) - 80%) 
-    calc(var(--brand-lightness) + 39%));
-    --suface-shadow-light:var(--brand-hue) 10% 20%;
-    --shadow-strength-light:.02;
- 
-    /** brand accent hue and decompostion*/
+    --brand-lightness:50%;
+/** Brand Accent */
     --brand-accent: #0065a3;
     --brand-accent-hsl: hsl(203 100% 32%);
     --brand-accent-hue: 203;
     --brand-accent-saturation: 100%;
     --brand-accent-lightness: 32%;
-    
 
-    /* Accent light text scheme*/
-    --text1-accent-light: hsl(var(--brand-accent-hue) 
-    var(--brand-accent-saturation) 10%);
+    --brand-stroke:var(--brand-hsl);
+
+/* Brand Light Scheme*/
+    --brand-light: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
+    /* Brand Light text scheme*/
+    --text1-light:hsl(var(--brand-hue) var(--brand-saturation) 10%);
+    --text2-light:hsl(var(--brand-hue) 30% 30%);
+    /* Brand Light surface scheme */
+    --surface1-light:hsl(var(--brand-hue) 25% 90%);
+    --surface2-light:hsl(var(--brand-hue) 20% 99%);
+    --surface3-light:hsl(var(--brand-hue) 20% 92%);
+    --surface4-light:hsl(var(--brand-hue) 20% 85%);
+    --surface-shadow-light:var(--brand-hue) 10% 20%;
+    --shadow-strength-light:0.02;
+
+
+/* Brand dark shceme*/
+    --brand-dark:hsl(var(--brand-hue) calc(var(--brand-saturation) / 2) calc(var(--brand-lightness) / 1.5));
+    /* Brand dardk text scheme */
+    --text1-dark: hsl(var(--brand-hue) 15% 85%);
+    --text2-dark: hsl(var(--brand-hue) 5% 65%);
+   /* Brand dark surface scheme*/
+    --surface1-dark: hsl(var(--brand-hue) 15% 10%);
+    --surface2-dark: hsl(var(--brand-hue) 10% 15%);
+    --surface3-dark: hsl(var(--brand-hue) 5% 20%);
+    --surface4-dark:hsl(var(--brand-hue)  5% 25%);
+    --shadow-surface-dark:var(--brand-hue) 50% 3%;
+    --shadow-strength-dark:0.8;
+ 
+/* Brand accent */
+    --brand-accent:hsl(var(--brand-accent) var(--brand-accent-saturation) var(--brand-accent-lightness));
+     /* Brand accent light text scheme*/
+    --text1-accent-light: hsl(var(--brand-accent-hue) var(--brand-accent-saturation) 30%);
     --text2-accent-light:hsl(var(--brand-accent-hue) 30% 30%);
 
     /* Accent light surface scheme*/
-    --surface1-accent-light:hsl(var(--brand-accent-hue) 45% 85%);
-    --surface2-accent-light:hsl(var(--brand-accent-hue) 25% 99%);
-    --surface3-accent-light:hsl(var(--brand-accent-hue) 22% 92%);
+    --surface1-accent-light:hsl(var(--brand-accent-hue) 25% 90%);
+    --surface2-accent-light:hsl(var(--brand-accent-hue) 20% 99%);
+    --surface3-accent-light:hsl(var(--brand-accent-hue) 20% 92%);
     --surface4-accent-light:hsl(var(--brand-accent-hue) 20% 85%);
-    --surface-shadow-accent:var(--brand-accent-hue) 10% 20%;
-    --shadow-strength-accent:.02;
+    --surface-shadow-accent:var(--brand-accent-hue) 10% 20;
+    --shadow-strength-accent:0.02;
 
-    /* Accent dark surface and light scheme*/
-    --surface1-accent-dark:hsl(var(--brand-accent-hue) 12% 31%);
-    --surface2-accent-dark:hsl(var(--brand-accent-hue) 16% 21%);
-    --text1-accent-dark:hsl(var(--brand-accent-hue)  20% 85%);
-    --text2-accent-dark:hsl(var(--brand-accent-hue) 12% 85%);
-    
-    /** Brand dark shceme*/
-    --brand-dark:hsl(var(--brand-hue) 
-    calc(var(--brand-saturation) / 2) 
-    calc(var(--brand-lightness) / 1.4));
-    --text1-dark: hsl(var(--brand-hue) 15% 90%);
-    --text2-dark: hsl(var(--brand-hue) 5% 65%);
-    --surface1-dark: hsl(var(--brand-hue) 15% 10%);
-    --surface2-dark: hsl(var(--brand-hue) 11% 15%);
-    --surface3-dark: hsl(var(--brand-hue) 10% 20%);
-    --surface4-dark:hsl(var(--brand-hue)  7% 25%);
-    --shadow-surface-dark:var(--brand-hue) 50% 3%;
-    --shadow-strength-dark:.8;
-    /* End of Pallete */
+   /* Accent dark text scheme*/
+    --text1-accent-dark:hsl(var(--brand-accent-hue)  15% 85%);
+    --text2-accent-dark:hsl(var(--brand-accent-hue) 10% 65%);
 
+    /* Accent dark surface scheme*/
+    --surface1-accent-dark:hsl(var(--brand-accent-hue) 10% 10%);
+    --surface2-accent-dark:hsl(var(--brand-accent-hue) 10% 15%);
 
-
+/* End Color Pallee*/
+  
+/** Text and general purpose metric range*/
     font-size: 62.5%;
-    /** Text and general purpose metric range*/
     --step--2: clamp(0.69rem, calc(0.65rem + 0.31vw), 0.80rem);
     --step--1: clamp(0.83rem, calc(0.77rem + 0.49vw), 1.00rem);
     --step-0: clamp(1.00rem, calc(0.90rem + 0.73vw), 1.25rem);
@@ -124,72 +108,70 @@
 
 /* Color theme reset */
 
+
 html,
 [data-theme="light"]{
---brand-fill-0:var(--brand-fill0);
---brand-fill-1:var(--brand-fill1);
---brand-stroke:var(--brand-fill0);
---text-1:var(--text1-light);
---text-2:var(--text2-light);
---text-2-accent:var(--text2-accent-light); 
---text-1-accent:var(--text1-accent-light);
---surface-headings:var(--text2-accent-light);
---surface-1-accent:var(--surface1-accent-light);
---surface-2-accent:var(--surface2-accent-light);
---surface-1:var(--surface1-light);
---surface-2:var(--surface2-light);
---surface-3:var(--surface3-light);
---surface-4:var(--surface4-light);
+--brand:var(--brand-light);
+--stroke:var(--brand-stroke);
+--text1:var(--text1-light);
+--text2:var(--text2-light);
+--text2-accent:var(--text2-accent-light); 
+--text1-accent:var(--text1-accent-light);
+--surface1-accent:var(--surface1-accent-light);
+--surface2-accent:var(--surface2-accent-light);
+--surface1:var(--surface1-light);
+--surface2:var(--surface2-light);
+--surface3:var(--surface3-light);
+--surface4:var(--surface4-light);
 --surface-alpha:hsl(var(--brand-hue) 17% 98% / 65%);
---surface-shadow :var(--surface-shadow-light);
+--light-shadow :var(--surface-shadow-light);
 --surface-1-accent:var(--surface1-accent);
 --shadow-strength:var(--shadow-strength-light);
-    /* Accent surface scheme*/
 color-scheme: light;
 
 }
 
+
 [data-theme="dark"]{
-  --brand-fill-0:var(--brand-fill0);
-  --brand-fill-1:var(--brand-fill1);
-  --brand-stroke:var(--brand-fill1);
-  --text-1:var(--text1-dark);
-  --text-2:var(--text2-dark);
-  --text-2-accent:var(--text2-accent-dark);
-  --text-1-accent:var(--text1-accent-dark);
-  --surface-headings:var(--brand-accent-hsl);
+  --brand:var(--brand-dark);
+  --stroke:var(--brand-stroke);
+  --text1:var(--text1-dark);
+  --text2:var(--text2-dark);
+  --text2-accent:var(--text2-accent-dark);
+  --text1-accent:var(--text1-accent-dark);
     /* Accent surface scheme*/
-  --surface-1-accent:var(--surface1-accent-dark);
-  --surface-2-accent:var(--surface2-accent-dark);
-  --surface-1:var(--surface1-dark);
-  --surface-2:var(--surface2-dark);
-  --surface-3:var(--surface3-dark);
-  --surface-4:var(--surface4-dark);
+  --surface1-accent:var(--surface1-accent-dark);
+  --surface2-accent:var(--surface2-accent-dark);
+  --surface1:var(--surface1-dark);
+  --surface2:var(--surface2-dark);
+  --surface3:var(--surface3-dark);
+  --surface4:var(--surface4-dark);
   --surface-alpha:hsl(var(--brand-hue) 14% 10% / 65%);
   --surface-shadow:var(--surface-shadow-dark);
   --shadow-strength:var(--shadow-strength-dark);
-  color: dark;
+  color-scheme: dark;
 
 }
+
+
 @media (prefers-color-scheme:dark){
-  html{
-    --brand-fill-0:var(--brand-fill0);
-    --brand-fill-1:var(--brand-fill1);
-    --brand-stroke:var(--brand-fill1);
-    --text-1:var(--text1-dark);
-    --text-2:var(--text2-dark);
-    --text-1-accent:var(--text2-accent-dark);
-    --text-2-accent:var(--text2-accent-dark);
-    --surface-headings:var(--brand-accent-hsl);
-    --surface-1-accent:var(--surface1-accent-dark);
-    --surface-2-accent:var(--surface2-accent-dark);
-    --surface-1:var(--surface1-dark);
-    --surface-2:var(--surface2-dark);
-    --surface:var(--surface3-dark);
-    --surface:var(--surface4-dark);
-    --surface-alpha:hsl(var(--brand-hue) 14% 10% / 65%);
-    --surface-shadow:var(--surface-shadow-dark);
-    --shadow-strength:var(--shadow-strength-dark);
+  :root{
+  --brand:var(--brand-dark);
+  --stroke:var(--brand-stroke);
+  --text1:var(--text1-dark);
+  --text2:var(--text2-dark);
+  --text2-accent:var(--text2-accent-dark);
+  --text1-accent:var(--text1-accent-dark);
+    /* Accent surface scheme*/
+  --surface1-accent:var(--surface1-accent-dark);
+  --surface2-accent:var(--surface2-accent-dark);
+  --surface1:var(--surface1-dark);
+  --surface2:var(--surface2-dark);
+  --surface3:var(--surface3-dark);
+  --surface4:var(--surface4-dark);
+  --surface-alpha:hsl(var(--brand-hue) 14% 10% / 65%);
+  --surface-shadow:var(--surface-shadow-dark);
+  --shadow-strength:var(--shadow-strength-dark);
   }
 
   }
@@ -401,8 +383,6 @@ select{
   .bar[aria-expanded="true"]::after {
     transform: translate(-.6rem, -1rem) rotate(-45deg);
     border-radius: .7rem;
-    transition:none;
-
   }
 
   nav {
@@ -524,7 +504,7 @@ select{
 
   @keyframes hero-effect{
     0%, 50%{
-      transform:translateY(50%) scale(1.5);
+      transform:translate(15%, 50%) scale(1.5);
 
     }
     100%{

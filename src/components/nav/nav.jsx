@@ -16,7 +16,7 @@ const Nav = () => {
 						</div>
                     </div>
 		<ul id="nav-toggle" aria-expanded="false" role-label="nav-list" className=" col-[1_/-1] flex gap-4 justify-self-center la:w-[768px] la:col-[2_/3] sm:m-x-auto sm:translate-x-[35px]">
-            {["about-me", "demos", "Blog", "Contact"].map((route, index) => {return  <li className="text-fluid-0 hover:bg-gradient-to-b from-brand-accent-fill to-brand-fill text-center p-1 la:bg-none" key={index}><a className="text-surface-headings font-bold text-fluid-1" href={index > 1?`/${route.toLowerCase()}`:`#${route}`}>{index == 0?"About":index == 1?"Demos":route}</a></li>})}
+            {["about-me", "demos", "Blog", "Contact"].map((route, index) => {return  <li className="text-fluid-0 text-center la:bg-none" key={index}><a className="block p-2 hover:bg-hover-light text-accent font-bold text-fluid-1 lg:text-fluid-2" href={index > 1?`/${route.toLowerCase()}`:`#${route}`}>{index == 0?"About":index == 1?"Demos":route}</a></li>})}
 		</ul>
 		</nav>
     <ThemeToggle/>
