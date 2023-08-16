@@ -33,6 +33,7 @@ async function loadFonts(font, wght = 900) {
       },
     })
   ).text()
+  console.log(googleFont);
 
   const preferType = googleFont.match(
     /src: url\((.+)\) format\('(opentype|truetype)'\)/
@@ -40,7 +41,6 @@ async function loadFonts(font, wght = 900) {
   try {
     return fetch(preferType[1]).then((font) => font.arrayBuffer())
   } catch (err) {
-    console.log(err.message);
   }
 
 }

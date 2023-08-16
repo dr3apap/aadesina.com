@@ -14,29 +14,22 @@ export default defineType({
             type:'string',
         }),
         defineField({
+            name:'image',
+            title:'Image',
+            type:'string',
+        }),
+        defineField({
             name:'description',
             title:'Description',
             type:'string',
         }),
         defineField({
-            name:'skillsIcon',
-            title:'Skills Icon',
+            name:'skills',
+            title:'Skills',
             description:'Skills use for demo',
             type:'array',
-           of: [{ type:'image', options:{
-            hotspot:true
-        }, }],
+           of: [{ type:'string'}],
           
-        }),
-
-        defineField({
-            name:'mainIcon',
-            title:'Main Icon',
-            type:'image',
-            options:{
-                hotspot:true
-            },
-
         }),
 
         defineField({
@@ -62,5 +55,13 @@ export default defineType({
                 }
             ]
         }),
-    ]
+    ],
+    preview:{
+        select:{
+            title:'title',
+            skills:'skills',
+            media:'mainImage'
+
+        }
+    }
 })

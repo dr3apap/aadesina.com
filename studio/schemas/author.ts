@@ -1,17 +1,19 @@
 import {defineField, defineType} from 'sanity'
 
-export default defineType({
+  export default defineType({
   name: 'author',
   title: 'Author',
   type: 'document',
+  initialValue: () => ({
+    verified: false,
+  }),
   fields: [
     defineField({
       name: 'title',
       title: 'Title',
-      description:'Title of author:[writer, developer, engineer]',
       type: 'string',
+      //validation: Rule => Rule.required(),
     }),
-
     defineField({
       name: 'name',
       title: 'Name',
@@ -28,49 +30,31 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'name',
-        maxLength: 96,
-      },
+      name: 'image',
+      title: 'Image',
+      type: 'string',
     }),
     defineField({
-      name: 'image',
-      title: 'HeadShot',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
+      name: 'specialty',
+      title: 'Specialty',
+      type: 'reference',
+      to: {type: 'tag'},
+    }),
+    defineField({
+      name: 'verified',
+      title: 'Verified',
+      type: 'boolean',
+      description: 'Whether poster is verified',
     }),
     defineField({
       name: 'bio',
       title: 'Bio',
-      type: 'array',
-      of: [
-        {
-          title: 'Block',
-          type: 'block',
-          styles: [{title: 'Normal', value: 'normal'}],
-          lists: [],
-        },
-      ],
+      type: 'markdown'
     }),
-    defineField({
-      name:'comments',
-      title:'Comments',
-      type:'array',
-      of:[
-        {type:'reference', weak:true, to:{type:'comment'}},
-      ]
-    }),
-    
   ],
   preview: {
     select: {
-      title: 'name',
-      media: 'image',
+      title: 'title',
     },
   },
 })

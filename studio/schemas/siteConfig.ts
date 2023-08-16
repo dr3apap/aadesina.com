@@ -14,12 +14,11 @@ export default defineType({
         }),
 
         defineField({
-            name:"bannderDemo",
+            name:"bannerDemo",
             title:"Banner embeded demo",
             description:"Use a 3:1 ratio for banner demos",
             type:"object",
             fields:[
-
         defineField({
             name:"bannderDemo",
             title:"Banner embeded demo",

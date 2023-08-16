@@ -2,7 +2,8 @@
 import type { Post }  from "../blog/index.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getAllPostData } from "../../constants/queries";
-import PostLayout from "../../layouts/PostLayout.astro";
+import PostLayout from "../../components/post-layout/post-layout";
+import blogHeroData from "../../scripts/blog.js";
 
 export async function getStaticPaths(){
     const posts:Post[] = await getAllPostData();
@@ -15,9 +16,8 @@ export async function getStaticPaths(){
     });
 }
 const { post } = Astro.params;
-const { title, description } = Astro.props;
-
-const shareLink = `https://www.twitter.com/intent/tweet?text=${encodeURIComponent(`"${title}" via @Dr3_147\n`)}https://aadesina.netlify.app/posts/${post}/`
+const { title, description} = Astro.props;
+const shareLink = `https://www.twitter.com/intent/tweet?text=${encodeURIComponent(`"${title}" via @Dr3_147\n`)}https://aadesina.netlify.app/posts/${post}/`;
 
 ---
 
@@ -27,7 +27,6 @@ landingPage={false}
 ogGradient={Astro.props?.og?.ogGradient}
 ogHue={Astro.props?.og?.ogHue}
 ogTitle={Astro.props?.og?.ogTitle}
-
 >   
-<PostLayout {...Astro.props} {...Astro.params} shareLink={shareLink}/>
+<PostLayout sharelink={shareLink} heroImageSrc={blogHeroData.heroImageSrc}  {...Astro.props}/>
 </Layout>

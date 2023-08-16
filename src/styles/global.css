@@ -1,206 +1,203 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  
+
   :root {
 
- /*Color Pallete*/
+    /*Color Pallete*/
 
-/** Brand hue and Component Decomposition*/
-    --brand:#eb5a00;
-    --brand-hsl:hsl(23 100% 50%);
-    --brand-hue:23;
-    --brand-saturation:100%;
-    --brand-lightness:50%;
-/** Brand Accent */
+    /** Brand hue and Component Decomposition*/
+    --brand: #eb5a00;
+    --brand-hsl: hsl(23 100% 50%);
+    --brand-hue: 23;
+    --brand-saturation: 100%;
+    --brand-lightness: 50%;
+    /** Brand Accent */
     --brand-accent: #0065a3;
     --brand-accent-hsl: hsl(203 100% 32%);
     --brand-accent-hue: 203;
     --brand-accent-saturation: 100%;
     --brand-accent-lightness: 32%;
 
-    --brand-stroke:var(--brand-hsl);
+    --brand-stroke: var(--brand-hsl);
 
-/* Brand Light Scheme*/
+    /* Brand Light Scheme*/
     --brand-light: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
     /* Brand Light text scheme*/
-    --text1-light:hsl(var(--brand-hue) var(--brand-saturation) 10%);
-    --text2-light:hsl(var(--brand-hue) 30% 30%);
+    --text1-light: hsl(var(--brand-hue) var(--brand-saturation) 10%);
+    --text2-light: hsl(var(--brand-hue) 30% 30%);
     /* Brand Light surface scheme */
-    --surface1-light:hsl(var(--brand-hue) 25% 90%);
-    --surface2-light:hsl(var(--brand-hue) 20% 99%);
-    --surface3-light:hsl(var(--brand-hue) 20% 92%);
-    --surface4-light:hsl(var(--brand-hue) 14% 89%);
-    --surface-shadow-light:var(--brand-hue) 10% 20%;
-    --shadow-strength-light:0.02;
+    --surface1-light: hsl(var(--brand-hue) 25% 90%);
+    --surface2-light: hsl(var(--brand-hue) 20% 99%);
+    --surface3-light: hsl(var(--brand-hue) 20% 92%);
+    --surface4-light: hsl(var(--brand-hue) 14% 89%);
+    --surface-shadow-light: var(--brand-hue) 10% 20%;
+    --shadow-strength-light: 0.02;
 
 
-/* Brand dark shceme*/
-    --brand-dark:hsl(var(--brand-hue) calc(var(--brand-saturation) / 2) calc(var(--brand-lightness) / 1.5));
+    /* Brand dark shceme*/
+    --brand-dark: hsl(var(--brand-hue) calc(var(--brand-saturation) / 2) calc(var(--brand-lightness) / 1.5));
     /* Brand dardk text scheme */
     --text1-dark: hsl(var(--brand-hue) 15% 85%);
     --text2-dark: hsl(var(--brand-hue) 5% 65%);
-   /* Brand dark surface scheme*/
+    /* Brand dark surface scheme*/
     --surface1-dark: hsl(var(--brand-hue) 15% 10%);
     --surface2-dark: hsl(var(--brand-hue) 10% 15%);
     --surface3-dark: hsl(var(--brand-hue) 5% 20%);
-    --surface4-dark:hsl(var(--brand-hue)  9% 31%);
-    --shadow-surface-dark:var(--brand-hue) 50% 3%;
-    --shadow-strength-dark:0.8;
- 
-/* Brand accent */
-    --brand-accent:hsl(var(--brand-accent) var(--brand-accent-saturation) var(--brand-accent-lightness));
-     /* Brand accent light text scheme*/
-    --text1-accent-light: hsl(var(--brand-accent-hue) var(--brand-accent-saturation) 30%);
-    --text2-accent-light:hsl(var(--brand-accent-hue) 30% 30%);
+    --surface4-dark: hsl(var(--brand-hue) 9% 31%);
+    --shadow-surface-dark: var(--brand-hue) 50% 3%;
+    --shadow-strength-dark: 0.8;
+
+    /* Brand accent */
+    --brand-accent: hsl(var(--brand-accent) var(--brand-accent-saturation) var(--brand-accent-lightness));
+    /* Brand accent light text scheme*/
+    --text1-accent-light: hsl(var(--brand-accent-hue) var(--brand-accent-saturation) 20%);
+    --text2-accent-light: hsl(var(--brand-accent-hue) 30% 30%);
 
     /* Accent light surface scheme*/
-    --surface1-accent-light:hsl(var(--brand-accent-hue) 25% 90%);
-    --surface2-accent-light:hsl(var(--brand-accent-hue) 20% 99%);
-    --surface3-accent-light:hsl(var(--brand-accent-hue) 20% 92%);
-    --surface4-accent-light:hsl(var(--brand-accent-hue) 20% 85%);
-    --surface-shadow-accent:var(--brand-accent-hue) 10% 20;
-    --shadow-strength-accent:0.02;
+    --surface1-accent-light: hsl(var(--brand-accent-hue) 25% 90%);
+    --surface2-accent-light: hsl(var(--brand-accent-hue) 20% 99%);
+    --surface3-accent-light: hsl(var(--brand-accent-hue) 20% 92%);
+    --surface4-accent-light: hsl(var(--brand-accent-hue) 20% 85%);
+    --surface-shadow-accent: var(--brand-accent-hue) 10% 20;
+    --shadow-strength-accent: 0.02;
 
-   /* Accent dark text scheme*/
-    --text1-accent-dark:hsl(var(--brand-accent-hue)  15% 85%);
-    --text2-accent-dark:hsl(var(--brand-accent-hue) 10% 65%);
+    /* Accent dark text scheme*/
+    --text1-accent-dark: hsl(var(--brand-accent-hue) 15% 85%);
+    --text2-accent-dark: hsl(var(--brand-accent-hue) 10% 65%);
 
     /* Accent dark surface scheme*/
-    --surface1-accent-dark:hsl(var(--brand-accent-hue) 10% 10%);
-    --surface2-accent-dark:hsl(var(--brand-accent-hue) 10% 15%);
+    --surface1-accent-dark: hsl(var(--brand-accent-hue) 10% 10%);
+    --surface2-accent-dark: hsl(var(--brand-accent-hue) 10% 15%);
 
-/* End Color Pallee*/
-  
-/** Text and general purpose metric range*/
-    font-size: 62.5%;
-    --step--2: clamp(0.69rem, calc(0.65rem + 0.31vw), 0.80rem);
-    --step--1: clamp(0.83rem, calc(0.77rem + 0.49vw), 1.00rem);
-    --step-0: clamp(1.00rem, calc(0.90rem + 0.73vw), 1.25rem);
-    --step-1: clamp(1.20rem, calc(1.05rem + 1.06vw), 1.56rem);
-    --step-2: clamp(1.44rem, calc(1.23rem + 1.50vw), 1.95rem);
-    --step-3: clamp(1.73rem, calc(1.44rem + 2.08vw), 2.44rem);
-    --step-4: clamp(2.07rem, calc(1.68rem + 2.86vw), 3.05rem);
-    --step-5: clamp(2.49rem, calc(1.96rem + 3.87vw), 3.82rem);
-    --step-6: clamp(2.99rem, calc(2.27rem + 5.20vw), 4.77rem);
-    --step-7: clamp(3.58rem, calc(2.63rem + 6.94vw), 5.96rem);
-    --step-8: clamp(4.30rem, calc(3.04rem + 9.20vw), 7.45rem);
-    --step-9: clamp(5.16rem, calc(3.49rem + 12.13vw), 9.31rem);
-    --step-10: clamp(6.19rem, calc(4.00rem + 15.91vw), 11.64rem);
+    /* End Color Pallee*/
+
+    /** Text and general purpose metric range*/
+    /*font-size: 62.5%;*/
+    --step--2: clamp(0.69rem, calc(0.66rem + 0.18vw), 0.80rem);
+    --step--1: clamp(0.83rem, calc(0.78rem + 0.29vw), 1.00rem);
+    --step-0: clamp(1.00rem, calc(0.91rem + 0.43vw), 1.25rem);
+    --step-1: clamp(1.20rem, calc(1.07rem + 0.63vw), 1.56rem);
+    --step-2: clamp(1.44rem, calc(1.26rem + 0.89vw), 1.95rem);
+    --step-3: clamp(1.73rem, calc(1.48rem + 1.24vw), 2.44rem);
+    --step-4: clamp(2.07rem, calc(1.73rem + 1.70vw), 3.05rem);
+    --step-5: clamp(2.49rem, calc(2.03rem + 2.31vw), 3.82rem);
+    --step-6: clamp(2.99rem, calc(2.37rem + 3.10vw), 4.77rem);
+    --step-7: clamp(3.58rem, calc(2.76rem + 4.13vw), 5.96rem);
+    --step-8: clamp(4.30rem, calc(3.20rem + 5.48vw), 7.45rem);
+    --step-9: clamp(5.16rem, calc(3.72rem + 7.22vw), 9.31rem);
 
     /** paragraph Line height range*/
     --p-line-height-min: 1.15;
     --p-line-height-max: 1.5;
 
     /** Variable font axis*/
-    --text-slnt: 0;
-    --text-wght: 600;
+    /* --text-slnt: 0;
+    --text-wght: 600; */
 
-    --delay:0.75s;
-    --hero-duration:4s;
-    --title-offer-duration:2s;
-    --total-duration:calc(var(--hero-duration) + var(--title-offer-duration));
+    --delay: 0.75s;
+    --hero-duration: 4s;
+    --title-offer-duration: 2s;
+    --total-duration: calc(var(--hero-duration) + var(--title-offer-duration));
 
   }
 
-/* Color theme reset */
+  /* Color theme reset */
 
 
-html,
-[data-theme="light"]{
---brand:var(--brand-light);
---stroke:var(--brand-stroke);
---text1:var(--text1-light);
---text2:var(--text2-light);
---text2-accent:var(--text2-accent-light); 
---text1-accent:var(--text1-accent-light);
---surface1-accent:var(--surface1-accent-light);
---surface2-accent:var(--surface2-accent-light);
---surface1:var(--surface1-light);
---surface2:var(--surface2-light);
---surface3:var(--surface3-light);
---surface4:var(--surface4-light);
---surface-alpha:hsl(var(--surface1-light) 17% 98% / 65%);
---light-shadow :var(--surface-shadow-light);
---surface-1-accent:var(--surface1-accent);
---shadow-strength:var(--shadow-strength-light);
-color-scheme: light;
+  html,
+  [data-theme="light"] {
+    --brand: var(--brand-light);
+    --stroke: var(--brand-stroke);
+    --text1: var(--text1-light);
+    --text2: var(--text2-light);
+    --text2-accent: var(--text2-accent-light);
+    --text1-accent: var(--text1-accent-light);
+    --surface1-accent: var(--surface1-accent-light);
+    --surface2-accent: var(--surface2-accent-light);
+    --surface1: var(--surface1-light);
+    --surface2: var(--surface2-light);
+    --surface3: var(--surface3-light);
+    --surface4: var(--surface4-light);
+    --surface-alpha: hsl(var(--surface1-light) 17% 98% / 65%);
+    --surface-shadow: var(--surface-shadow-light);
+    --shadow-strength: var(--shadow-strength-light);
+    color-scheme: light;
 
-}
+  }
 
 
-[data-theme="dark"]{
-  --brand:var(--brand-dark);
-  --stroke:var(--brand-stroke);
-  --text1:var(--text1-dark);
-  --text2:var(--text2-dark);
-  --text2-accent:var(--text2-accent-dark);
-  --text1-accent:var(--text1-accent-dark);
+  [data-theme="dark"] {
+    --brand: var(--brand-dark);
+    --stroke: var(--brand-stroke);
+    --text1: var(--text1-dark);
+    --text2: var(--text2-dark);
+    --text2-accent: var(--text2-accent-dark);
+    --text1-accent: var(--text1-accent-dark);
     /* Accent surface scheme*/
-  --surface1-accent:var(--surface1-accent-dark);
-  --surface2-accent:var(--surface2-accent-dark);
-  --surface1:var(--surface2-dark);
-  --surface2:var(--surface2-dark);
-  --surface3:var(--surface3-dark);
-  --surface4:var(--surface4-dark);
-  --surface-alpha:hsl(var(--surface1-dark) 14% 10% / 65%);
-  --surface-shadow:var(--surface-shadow-dark);
-  --shadow-strength:var(--shadow-strength-dark);
-  color-scheme:dark;
-
-}
-
-html{
-  accent-color:var(--brand);
-  background:var(--surface2);
-  color:var(--text1);
-  text-rendering:optimizeSpeed;
-  line-height: var(--step-2);
-  box-sizing: border-box;
-}
-
-
-@media (prefers-color-scheme:dark){
-  html{
-  --brand:var(--brand-dark);
-  --stroke:var(--brand-stroke);
-  --text1:var(--text1-dark);
-  --text2:var(--text2-dark);
-  --text2-accent:var(--text2-accent-dark);
-  --text1-accent:var(--text1-accent-dark);
-    /* Accent surface scheme*/
-  --surface1-accent:var(--surface1-accent-dark);
-  --surface2-accent:var(--surface2-accent-dark);
-  --surface1:var(--surface1-dark);
-  --surface2:var(--surface2-dark);
-  --surface3:var(--surface3-dark);
-  --surface4:var(--surface4-dark);
-  --surface-alpha:hsl(var(--brand-hue) 14% 10% / 65%);
-  --surface-shadow:var(--surface-shadow-dark);
-  --shadow-strength:var(--shadow-strength-dark);
-  color-scheme: dark;
-  }
+    --surface1-accent: var(--surface1-accent-dark);
+    --surface2-accent: var(--surface2-accent-dark);
+    --surface1: var(--surface2-dark);
+    --surface2: var(--surface2-dark);
+    --surface3: var(--surface3-dark);
+    --surface4: var(--surface4-dark);
+    --surface1-accent: var(--surface1-accent-dark);
+    --surface2-accent: var(--surface2-accent-dark);
+    --surface-alpha: hsl(var(--surface1-dark) 14% 10% / 65%);
+    --surface-shadow: var(--surface-shadow-dark);
+    --shadow-strength: var(--shadow-strength-dark);
+    color-scheme: dark;
 
   }
 
+  html {
+    accent-color: var(--brand);
+    /*background: var(--surface2);*/
+    text-rendering: optimizeSpeed;
+    line-height: var(--step-2);
+    box-sizing: border-box;
+  }
 
 
- body {
+  @media (prefers-color-scheme:dark) {
+    html {
+      --brand: var(--brand-dark);
+      --stroke: var(--brand-stroke);
+      --text1: var(--text1-dark);
+      --text2: var(--text2-dark);
+      --text2-accent: var(--text2-accent-dark);
+      --text1-accent: var(--text1-accent-dark);
+      /* Accent surface scheme*/
+      --surface1-accent: var(--surface1-accent-dark);
+      --surface2-accent: var(--surface2-accent-dark);
+      --surface1: var(--surface1-dark);
+      --surface2: var(--surface2-dark);
+      --surface3: var(--surface3-dark);
+      --surface4: var(--surface4-dark);
+      --surface-alpha: hsl(var(--brand-hue) 14% 10% / 65%);
+      --surface-shadow: var(--surface-shadow-dark);
+      --shadow-strength: var(--shadow-strength-dark);
+      color-scheme: dark;
+    }
+
+  }
+
+
+
+  body {
     min-height: 100vh;
     overflow-x: hidden;
-    font-size: var(--step-1);
   }
 
-  hr{
-    border-width:.2px;
+  hr {
+    border-width: .2px;
   }
 
 
-  body div:first-of-type{
-    backdrop-filter:blur(8px);
+  body div:first-of-type {
+    backdrop-filter: blur(8px);
   }
 
   html {
@@ -212,7 +209,7 @@ html{
   }
 
   @media (prefers-reduced-motion) {
-   :where(html) {
+    :where(html) {
       scroll-behavior: smooth;
     }
   }
@@ -238,7 +235,7 @@ html{
     --text-wght: 475;
   }
 
- 
+
   p,
   div,
   section,
@@ -270,12 +267,13 @@ html{
     text-rendering: optimizeSpeed;
   }
 
-input,
-button, 
-textarea,
-select{
-  font:inherit;
-}
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
   h1,
   h2,
   h3,
@@ -288,7 +286,7 @@ select{
   p {
     hyphens: auto;
     line-height: 1.5;
-    font-size: var(--step-1);
+    font-size: var(--step-0);
   }
 
   section {
@@ -297,7 +295,7 @@ select{
 
   img {
     max-width: 100%;
-    height:auto;
+    height: auto;
   }
 
   ::selection {
@@ -305,13 +303,26 @@ select{
     color: var(--text-1);
   }
 
-  *:focus-visible{
+  *:focus-visible {
     outline-color: var(--brand-stroke);
   }
-  a{
-    color:var(--brand-stroke);
-    text-decoration-thickness:4px;
-    text-underline-offset:2px;
+ code:not([class]) {
+    background: var(--surface-3);
+  }
+
+  code[class] {
+    font-size: var(--step--1);
+  }
+
+  pre {
+    font-size: var(--step--2);
+  }
+
+
+  a {
+    color: var(--brand-stroke);
+    text-decoration-thickness: 4px;
+    text-underline-offset: 2px;
     text-decoration-color: var(--brand-accent);
   }
 
@@ -323,9 +334,9 @@ select{
   text-decoration-line:underline;
   text-decoration-color:var(--brand-accent);
 } */
- 
-  a:hover{
-    text-decoration-line:underline;
+
+  a:hover {
+    text-decoration-line: underline;
     text-decoration-color: var(--brand-stroke);
   }
 
@@ -337,15 +348,15 @@ select{
   }
 
   .bar {
-    width: 3rem;
-    height: .4rem;
+    width: 2.5rem;
+    height: .35rem;
     position: absolute;
     top: 1.4rem;
     right: 0;
     line-height: 0;
     background-color: hsl(0, 0%, 80%);
     border-radius: 1px;
-    transition: opacity calc(var(--duration) - 0.5s) linear;
+    transition: opacity calc(var(--duration) - 0.2s) linear;
   }
 
   .bar::before,
@@ -353,7 +364,7 @@ select{
     content: "";
     position: absolute;
     display: block;
-    width: 3rem;
+    width: 2.5rem;
     left: 0;
     border: .2rem solid hsl(0, 0%, 80%);
     border-radius: 1px;
@@ -363,13 +374,13 @@ select{
 
   .bar::before {
     transform-origin: left top;
-    top: 0;
+    top: 3px;
     transform: rotate(0deg) translate(0, -.8rem);
   }
 
   .bar::after {
     transform-origin: right top;
-    bottom: 0;
+    bottom: 3px;
     transform: rotate(0deg) translate(0, .8rem);
 
   }
@@ -379,13 +390,13 @@ select{
   }
 
   .bar[aria-expanded="true"]::before {
-    transform: translate(.6rem, -1rem) rotate(45deg);
+    transform: translate(.4rem, -.8rem) rotate(45deg);
     border-radius: .7rem;
 
   }
 
   .bar[aria-expanded="true"]::after {
-    transform: translate(-.6rem, -1rem) rotate(-45deg);
+    transform: translate(-.6rem, -.5rem) rotate(-45deg);
     border-radius: .7rem;
   }
 
@@ -399,13 +410,14 @@ select{
     transform: rotateX(90deg);
     transition: all .5s;
   }
-@media(min-width:620px){
- nav ul{
-    transform: rotateX(0);
-    max-height: 50rem;
+
+  @media(min-width:650px) {
+    nav ul {
+      transform: rotateX(0);
+      max-height: 50rem;
+    }
   }
-}
- 
+
 
 
   /* .accordion-ctrl::after {
@@ -418,14 +430,17 @@ select{
 
 
   input:checked+label span {
-    display:inline-block;
-    padding-left:1.5rem;
-    transform:rotate(90deg);
-    transition:all .2s;
+    padding-left: 1.5rem;
+    transform: rotate(90deg) translate(-8px);
+    transition: all .2s;
   }
 
+  input+label span {
+    transition: all .2s;
+  }
 
   input~.accordion {
+    position: absolute;
     display: none;
     transition: all .3s;
   }
@@ -440,118 +455,173 @@ select{
     transform: rotateX(0);
     max-height: 50rem;
   }
+
   .quote::before {
-    content:'\201C';
+    content: '\201C';
   }
-  .quote::after{
-    content:'\201D';
+
+  .quote::after {
+    content: '\201D';
   }
-  @layer components{
-    .banner{
-      width:cal(100% + (4 * var(--step-1)));
+
+  @layer components {
+    .banner {
+      width: cal(100% + (4 * var(--step-1)));
     }
-    .test-border{
-      border:2px solid green;
+
+    .test-border {
+      border: 2px solid green;
     }
-    .heading-1{
-      animation:heading1 4s both;
+
+    .heading-1 {
+      animation: heading1 4s both;
     }
-    .heading-2{
-      animation:heading2 var(--hero-duration) both;
+
+    .heading-2 {
+      animation: heading2 var(--hero-duration) both;
     }
-    .reference{
-      animation:reference var(--hero-duration) both;
+
+    .reference {
+      animation: reference var(--hero-duration) both;
     }
-    .hero-container{
-     
-      animation:hero-effect var(--hero-duration) both;
-      }
-      .title{
-        animation:title var(--total-duration) both;
-      }
-      .offer{
-        animation:offers var(--total-duration) calc(var(--i) * var(--delay) + 4.25s) both;
-      }
+
+    .hero-container {
+
+      animation: hero-effect var(--hero-duration) both;
+    }
+
+    .title {
+      animation: title var(--total-duration) both;
+    }
+
+    .offer {
+      animation: offers var(--total-duration) calc(var(--i) * var(--delay) + 4.25s) both;
+    }
 
     @keyframes reference {
-      from, 10%{
-          clip-path:polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)
+
+      from,
+      10% {
+        clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)
       }
-    100%{
-        clip-path:polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+
+      100% {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
       }
 
 
     }
 
-    @keyframes heading1{
-      from, 25%{
+    @keyframes heading1 {
 
-          clip-path:polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)
+      from,
+      25% {
+
+        clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)
       }
-      100%{
-        clip-path:polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+
+      100% {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
       }
-    }
-   
-  }
-
-  @keyframes heading2{
-    0%, 50%{
-      opacity:0;
-    }
-
-    100%{
-      opacity:1;
-    }
-  }
-
-  @keyframes hero-effect{
-    0%, 50%{
-      transform:translate(15%, 50%) scale(1.5);
-
-    }
-    100%{
-      transform:none;
     }
 
   }
 
-  @keyframes title{
-    from, 70%{
+  @keyframes heading2 {
 
-      clip-path:polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)
+    0%,
+    50% {
+      opacity: 0;
     }
 
-      to{
-        clip-path:polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-      }
+    100% {
+      opacity: 1;
+    }
   }
 
-  @keyframes offers{
-     from{
-      opacity:0;
-     } 
-      to{
-      opacity:1;
-     }
+  @keyframes hero-effect {
+
+    0%,
+    50% {
+      transform: translate(15%, 50%) scale(1.5);
+
+    }
+
+    100% {
+      transform: none;
+    }
+
   }
+
+  @keyframes title {
+
+    from,
+    70% {
+
+      clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)
+    }
+
+    to {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+  }
+
+  @keyframes offers {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .demos-slider--ctl {
+    width: 2.5rem;
+    height: 2.5rem;
+    top: 50%;
+    position: absolute;
+    border: 1px solid goldenrod;
+    font-size: var(--step-0);
+    transform: translateY(-50%);
+    background: var(--text1-accent);
+    border-radius: 50%;
+    color: var(--brand);
+  }
+
+  .demos-slider--card {
+    width: 20rem;
+    @apply grid bg-surface-1-accent shrink-0 grow gap-y-4 drop-shadow-md mb-4 relative items-start;
+
+  }
+ .comment-heading:before{
+  width:33.3%;
+  height: 100px;
+  content:"";
+  background:linear-gradient(left hsl(var(--brand-accent)))
+ }
+
 
 }
 
-@layer utilites{
-   .rad-shadow{
+.hidden {
+  display: none;
+}
 
-             box-shadow:
-             0 2.8px 2.2px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + .03)), 
-             0 6.7px 5.3px hsl(var(--surface-shadow) / calc(var(--surface-strength) + .01)), 
-             0 12.5px 10px hsl(var(--surface-shadow) / calc(var(--surface-strength) + .02)), 
-             0 22.3px 17.9px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + .02)), 
-             0 41.8px 33.4px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + .03)), 
-             0 100px 80px hsl(var(--surface-shadow) / var(--shadow-strength));
-   }
-   .transform-box-fill{
-    transform-box:fill-box;
-   }
-              
+@layer utilites {
+  .rad-shadow {
+
+    box-shadow:
+      0 2.8px 2.2px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + .03)),
+      0 6.7px 5.3px hsl(var(--surface-shadow) / calc(var(--surface-strength) + .01)),
+      0 12.5px 10px hsl(var(--surface-shadow) / calc(var(--surface-strength) + .02)),
+      0 22.3px 17.9px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + .02)),
+      0 41.8px 33.4px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + .03)),
+      0 100px 80px hsl(var(--surface-shadow) / var(--shadow-strength));
+  }
+
+  .transform-box-fill {
+    transform-box: fill-box;
+  }
+
 }

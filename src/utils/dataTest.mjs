@@ -4,9 +4,10 @@ import "dotenv/config";
 
 const allPostData = `
 *[_type == 'post']{
-  title, slug, body, publishedAt, category->{name},
+  title, slug, body, publishedAt, updatedAt, category,
   comment[]->{"commentBody":body, publishedAt, commenter->{"commenterAvatar":image, name}}, 
   author->{"avatar":image, name},
+  tags[]->{...}
 } | order(_createdAt desc)
 `
 
@@ -26,5 +27,3 @@ return DATA;
  const getAllPostData = async () =>{
   return getData(allPostData);
 }
-console.log(getAllPostData());
-// </script>

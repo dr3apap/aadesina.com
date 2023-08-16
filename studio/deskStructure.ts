@@ -12,7 +12,7 @@ S.list()
     // Visual divider (optional)
     S.divider(),
     S.listItem()
-    .title('curated Content')
+    .title('Post body')
     .child(
         S.editor()
         .schemaType('post')

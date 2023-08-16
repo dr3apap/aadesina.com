@@ -1,9 +1,6 @@
 ---
 import Footer from "../components/footer/footer.jsx";
 import Nav from "../components/nav/nav.jsx";
-import Header from "../components/Header.astro";
-import BlogHeader from "../components/BlogHeader.astro";
-
 import '../styles/global.css';
 export interface BaseHeadProps {
 	ogTitle: string;
@@ -13,7 +10,7 @@ export interface BaseHeadProps {
 	title:string;
 }
 
-const { ogTitle, ogGradient, ogHue, landingPage, contact } = Astro.props;
+const { ogTitle, ogGradient, ogHue, landingPage, contact} = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 let params = ``;
@@ -72,7 +69,7 @@ const openGraphTitle = ogTitle || Astro.props.title || "A post from Adebola";
 <body>
 	<Nav/>
 	<main class="px-8 max-w-screen-la mx-auto my-0">
-		{(landingPage && <Header/>) || !contact && <BlogHeader/>}
+		<!-- {(landingPage && <Header/>) || !contact && <BlogHeader {...blogHeroData}/>} -->
 		<slot/>
 		<Footer/>
   	</main>

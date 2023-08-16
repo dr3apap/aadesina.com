@@ -11,7 +11,7 @@
 }
 
 [data-theme=system]{
-    --icon-scale:0.45;
+    --icon-scale:0.25;
     --icon-translate:-40%;
 }
 

@@ -42,9 +42,9 @@ export default defineType({
     }),
     
     defineField({
-      name: 'demoHero',
-      title: 'Demo Hero',
-      description:'Usea a 3:1 raio for banner images that point to a URL for a demo',
+      name: 'hero',
+      title: 'Hero',
+      description:'Use a 3:1 raio for banner images that point to a URL for a demo',
       type: 'object',
       fields: [
         defineField({
@@ -60,7 +60,7 @@ export default defineType({
           type:'string',
           }),
         defineField({
-          name:'imageAlt',
+          name:'alt',
           title:'Image alt',
           type:'string',
         }),
@@ -90,21 +90,10 @@ export default defineType({
     }),
     
     defineField({
-      name: 'postCategory',
+      name: 'category',
       title: 'Post Category',
-      type: 'array',
-      of:[{type:'string'}],
-      options:{
-        list:[{title:'Web', value:'Web'},
-        {title:'Front End', value:'FrontEnd'},
-        {title:'Back End', value:'Back End'},
-        {title:'System Design', value:'SystemDesign'},
-        {title:'Iot', value:'Iot'},
-        {title:'Programming Fundamental', value:'ProgrammingFundamental'},
-        {title:'Operating System', value:'OperatingSytem'},
-        {title:'Networking', value:'Networking'},
-        {title:'Graphic/Animation', value:'GraphicAndAnimation'}]
-      },
+      type: 'reference',
+      to:{type:'category'},
       validation:Rule => Rule.required(),
     }),
 
@@ -113,14 +102,16 @@ export default defineType({
       title: 'Tags',
       type: 'array',
       of: [{type: 'reference', to: {type: 'tag'}}],
-      options:{
-        layout:"tags"
-      },
-      validation:Rule => Rule.unique(),
     }),
     defineField({
       name: 'publishedAt',
       title: 'Published at',
+      type: 'datetime',
+      validation:Rule => Rule.required(),
+    }),
+    defineField({
+      name: 'updatedAt',
+      title: 'Updated at',
       type: 'datetime',
       validation:Rule => Rule.required(),
     }),

@@ -1,39 +1,43 @@
 ---
+import BlogHeader from '../../components/blog-header/blog-header';
 import Layout from '../../layouts/Layout.astro'
-import BlogHeading from "../../components/BlogHeading.astro";
-import Featured from '../../components/BlogFeatured.astro'
-import BlogLink from '../../components/BlogLink.astro'
-import Categories from '../../components/BlogCategories.astro'
+import BlogHeading from "../../components/blog-heading/blog-heading.jsx";
+import BlogLink from '../../components/post-link/post-link';
+import Categories from '../../components/blog-categories/blog-categories';
 import { getPostLinks } from '../../constants/queries'
 import { getReadingTime } from '../../utils/readingTime'
+import blogHeroData from '../../scripts/blog.js';
 
 export type Comment = {
-  commentBody: string
-  title: string
-  publishedAt: string
+  commentBody: string,
+  title: string,
+  publishedAt: string,
   commenter: {
     name: string
     commenterAvatar: string
-  }
+  },
 }
 export type Post = {
-  title: string
-  publishedAt: string
-  description: string
-  numOfComment: number
+  title: string,
+  publishedAt: string,
+  updatedAt:string,
+  description: string,
+  numOfComment: number,
   slug: {
     current: string
-  }
-  postCategory: string[]
-  comments: Comment[]
-  body: string
+  },
+  tags: string[],
+  category:string,
+  comments: Comment[],
+  body: string,
   author: {
     name: string
-    authorAvatar: string
-  }
+    avatar: string
+  },
 }
 
 const posts = await getPostLinks();
+
 // const featuredPost = posts.find(post => ( post.frontmatter.description === "Featured"));
 ---
 
@@ -42,10 +46,11 @@ const posts = await getPostLinks();
   landingPage={false}
   contact={false}
 >
-<main class="p-8 mx-auto my-48 grid gap-y-16 max-w-screen-md bg-surface-1 overflow-hidden">
+<BlogHeader {...blogHeroData}/>
+<main class="py-8 mx-auto my-48 grid gap-y-16 max-w-screen-md bg-surface-2 overflow-hidden">
 	<BlogHeading/>
   <article class="grid grid-cols-1 gap-y-16">
-    <Categories />
+    <Categories posts={[]} />
     <!-- <Featured pubDate={featuredPost!.frontmatter.pubDate}
 			title={featuredPost!.frontmatter.title}
 			readTime={featuredPost!.frontmatter.readTime}
@@ -54,15 +59,20 @@ const posts = await getPostLinks();
 			numOfComment={featuredPost!.frontmatter.numOfComment}
 			/> -->
     <ul id="posts" class="">
+      <div class="mb-12">
+      <h3 class="text-fluid-3 text-text-1-accent mb-4 uppercase tracking-widest">Posts</h3>
+      <p>Here are some of my thougts; exploration; observations and discovery. I hope the readers find informations and ideas that can be transform to reasonings of their own</p>
+      </div>
       {
         posts.map((post: Post) => (
           <BlogLink
             pubDate={post.publishedAt}
             title={post.title}
-            readTime={getReadingTime(post.body).readingTime}
             url={`/posts/${post.slug.current}`}
-            category={post.postCategory.join(' ')}
+            tags={post.tags}
             numOfComment={post.numOfComment}
+            updated={post.updatedAt}
+            category={post.category}
           />
         ))
       }
