@@ -42,7 +42,8 @@ module.exports = {
                 },
              
             "screens":{
-                "la":"640px",
+                "md":"640px",
+                "la":"768px"
             },
             spacing,
             minHeight,
