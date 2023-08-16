@@ -33,7 +33,7 @@
     --surface1-light:hsl(var(--brand-hue) 25% 90%);
     --surface2-light:hsl(var(--brand-hue) 20% 99%);
     --surface3-light:hsl(var(--brand-hue) 20% 92%);
-    --surface4-light:hsl(var(--brand-hue) 20% 85%);
+    --surface4-light:hsl(var(--brand-hue) 14% 89%);
     --surface-shadow-light:var(--brand-hue) 10% 20%;
     --shadow-strength-light:0.02;
 
@@ -47,7 +47,7 @@
     --surface1-dark: hsl(var(--brand-hue) 15% 10%);
     --surface2-dark: hsl(var(--brand-hue) 10% 15%);
     --surface3-dark: hsl(var(--brand-hue) 5% 20%);
-    --surface4-dark:hsl(var(--brand-hue)  5% 25%);
+    --surface4-dark:hsl(var(--brand-hue)  9% 31%);
     --shadow-surface-dark:var(--brand-hue) 50% 3%;
     --shadow-strength-dark:0.8;
  
@@ -123,7 +123,7 @@ html,
 --surface2:var(--surface2-light);
 --surface3:var(--surface3-light);
 --surface4:var(--surface4-light);
---surface-alpha:hsl(var(--brand-hue) 17% 98% / 65%);
+--surface-alpha:hsl(var(--surface1-light) 17% 98% / 65%);
 --light-shadow :var(--surface-shadow-light);
 --surface-1-accent:var(--surface1-accent);
 --shadow-strength:var(--shadow-strength-light);
@@ -142,20 +142,29 @@ color-scheme: light;
     /* Accent surface scheme*/
   --surface1-accent:var(--surface1-accent-dark);
   --surface2-accent:var(--surface2-accent-dark);
-  --surface1:var(--surface1-dark);
+  --surface1:var(--surface2-dark);
   --surface2:var(--surface2-dark);
   --surface3:var(--surface3-dark);
   --surface4:var(--surface4-dark);
-  --surface-alpha:hsl(var(--brand-hue) 14% 10% / 65%);
+  --surface-alpha:hsl(var(--surface1-dark) 14% 10% / 65%);
   --surface-shadow:var(--surface-shadow-dark);
   --shadow-strength:var(--shadow-strength-dark);
-  color-scheme: dark;
+  color-scheme:dark;
 
+}
+
+html{
+  accent-color:var(--brand);
+  background:var(--surface2);
+  color:var(--text1);
+  text-rendering:optimizeSpeed;
+  line-height: var(--step-2);
+  box-sizing: border-box;
 }
 
 
 @media (prefers-color-scheme:dark){
-  :root{
+  html{
   --brand:var(--brand-dark);
   --stroke:var(--brand-stroke);
   --text1:var(--text1-dark);
@@ -172,17 +181,12 @@ color-scheme: light;
   --surface-alpha:hsl(var(--brand-hue) 14% 10% / 65%);
   --surface-shadow:var(--surface-shadow-dark);
   --shadow-strength:var(--shadow-strength-dark);
+  color-scheme: dark;
   }
 
   }
 
-html{
-  accent-color:var(--brand-fill-0);
-  background:var(--surface-2);
-  color:var(--text-1);
-  line-height: var(--step-2);
-  box-sizing: border-box;
-}
+
 
  body {
     min-height: 100vh;
