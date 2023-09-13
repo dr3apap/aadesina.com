@@ -17,7 +17,7 @@ function PostLink({ url, title, pubDate, numOfComment, tags, updated, category }
               {title}
             </a>
           </h3>
-          <div className="la:flex gap-8">
+          <div className="la:flex gap-6">
             <div className="text-center text-fluid-0 la:flex gap-2 uppercase">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -38,19 +38,19 @@ function PostLink({ url, title, pubDate, numOfComment, tags, updated, category }
                   d="M6 6h.008v.008H6V6z"
                 />
               </svg>
-             <ul className="flex flex-wrap items-center">
+             <ul className="flex items-center">
               {tags &&
                tags.map((tag, index) => {
                   return (
                     <React.Fragment key={tag._id}>
                       <li>
                         <a
-                          className="font-bold"
+                          className="font-bold text-brand"
                           href={`/post/${tag.title.toLowerCase()}`}
                         >
                           {tag.title}
                         </a>
-                        {index !== props.tags.length - 1 ? (
+                        {index !== tags.length - 1 ? (
                           <span aria-hidden="true">,&nbsp;</span>
                         ) : (
                           ''
@@ -64,14 +64,14 @@ function PostLink({ url, title, pubDate, numOfComment, tags, updated, category }
 
             <div className="text-center text-fluid-0 flex gap-2">
               <time dateTime={pubDate}></time>
-              {new Date(pubDate).toLocaleDateString('en-UK', {
+              {new Date(pubDate).toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'short',
                 day: 'numeric',
               })}
               <time dateTime={updated && updated}>
                 {updated &&
-                  new Date(updated).toLocaleDateString('en-UK', {
+                  new Date(updated).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'short',
                     day: 'numeric',

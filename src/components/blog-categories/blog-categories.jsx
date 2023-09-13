@@ -6,11 +6,11 @@ function BlogCategories({ posts }) {
   return (
     <fieldset className="search" data-search-id="posts">
       <div className="">
-        <h2 className="text-fluid-3 text-text-1-accent mb-6 uppercase tracking-widest">
+        <h2 className="text-fluid-2 la:text-fluid-3 text-text-2-accent mb-6 uppercase tracking-widest">
           Categories
         </h2>
         <ul
-          className="posts flex shrink-0 flex-wrap gap-2 bg-surface-2 drop-shadow-md rounded-md"
+          className="posts flex items-center justify-items-center flex-wrap gap-2 bg-surface-2 drop-shadow-md rounded-md"
           id="search-posts"
         >
           {Object.keys(catIcons).map((key) => {
@@ -25,9 +25,9 @@ function BlogCategories({ posts }) {
           })}
         </ul>
         <div className="search__field mt-16 relative">
-          <label className="search__label" htmlfor="search-posts hide"></label>
+          <label className="search__label" htmlFor="search-posts hide"></label>
           <input
-            className="search__input block w-full p-8 border-2 border-solid border-brand-light-text1 text-fluid-1 shadow-md"
+            className="search__input block w-full p-6 border-2 border-solid border-surface-1 text-fluid-1 shadow-md"
             type="text"
             placeholder="Filter posts"
             id="search-posts"

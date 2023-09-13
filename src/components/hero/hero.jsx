@@ -8,10 +8,10 @@ function Hero() {
           Let<span className="text-fluid-3 not-italic pl-2 align-middle">👇🏾</span>
         </h2>
         <h1 className="uppercase leading-none heading-1">
-          <span className="text-fluid-7 leading-none pl-4  text-text-2-accent md:text-fluid-9 md:pl-6 font-black la:text-fluid-9 la:pl-7">
+          <span className="text-fluid-7 leading-none pl-4  text-text-2-accent md:text-fluid-9 md:pl-6 font-black la:text-fluid-8 la:pl-7">
             Adebola
           </span>
-          <span className="heading-2 text-fluid-5 leading-none font-black pl-1 text-text-2-accent block mt-[-.5rem] md:text-fluid-7 la:text-fluid-8 la:mt-[-1rem]">
+          <span className="heading-2 text-fluid-5 leading-none font-black pl-1 text-text-2-accent block mt-[-.5rem] md:text-fluid-7 la:mt-[-1rem]">
             Adesina
           </span>
         </h1>

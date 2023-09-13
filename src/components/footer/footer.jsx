@@ -3,7 +3,7 @@ function Footer(){
     return <footer className="mx-auto mt-24 mb-4 max-w-screen-md bg-fg-light">
         <div className="text-fluid--2 grid place-items-center gap-y-2 w-full"> { /* Footer items wrapper*/}
             <ul className="font-bold flex gap-x-2 self-start">{["/", "about-me", "demos", "Blog"].map((route, index) => {
-                return <li className="hover:bg-hover-light text-center p-1" key={index}><a className="block p-2 hover:bg-hover-light text-text-2-accent font-bold text-fluid--1" href={index > 2 ? `/${route.toLowerCase()}` : `#${route}`}>{index == 0 ? "Home" : index == 1 ? "About" : index == 2 ? "Demos" : route}</a></li>
+                return <li className="hover:bg-hover-light text-center p-1" key={index}><a className="block p-2 hover:bg-hover-light text-text-2-accent font-bold text-fluid-0" href={index > 2 ? `/${route.toLowerCase()}` : `#${route}`}>{index == 0 ? "Home" : index == 1 ? "About" : index == 2 ? "Demos" : route}</a></li>
             })}
             </ul>
             <div className="flex gap-x-4 flex-wrap justify-center">
@@ -30,7 +30,7 @@ function Footer(){
 
                 </a>
             </div>
-            <div className="text-fluid--1">
+            <div className="text-fluid--2">
                     Adebola &copy; <span>{`${new Date().getFullYear()}`}</span>
                 </div>
         </div> { /* Footer items end*/}

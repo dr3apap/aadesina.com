@@ -6,9 +6,9 @@ const minHeight = {};
 const AVATAR_SPACING = 9;
 const fontSize = {};
 
-spacing.avatar = `calc(var(--step-${AVATAR_SPACING}) + 6)`;
+spacing.avatar = `calc(var(--step-${AVATAR_SPACING}))`;
 
-minHeight['half-avatar'] = `calc(var(--step-${AVATAR_SPACING}) * 0.5 + 6)`;
+minHeight['half-avatar'] = `calc(var(--step-${AVATAR_SPACING}) * 0.5)`;
 // Typography scales
 for (let i = -2; i < 11; i++){
    fontSize[`fluid-${i}`] =  `var(--step-${i})`;
@@ -44,7 +44,7 @@ module.exports = {
              
             "screens":{
                 "md":"640px",
-                "la":"1024px"
+                "la":"768px"
             },
             spacing,
             minHeight,

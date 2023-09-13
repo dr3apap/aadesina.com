@@ -13,7 +13,7 @@ export default {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-20 h-20"
-          enable-background="new 0 0 92 92"
+          enableBackground="new 0 0 92 92"
           viewBox="0 0 92 92"
         >
           <path
@@ -138,8 +138,8 @@ export default {
             y2="10.982"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stop-color="#ffc80b" />
-            <stop offset="1" stop-color="#e89318" />
+            <stop offset="0" stopColor="#ffc80b" />
+            <stop offset="1" stopColor="#e89318" />
           </linearGradient>
           <path
             fill="url(#a)"
@@ -153,8 +153,8 @@ export default {
             y2="14.877"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stop-color="#708afb" />
-            <stop offset="1" stop-color="#426de8" />
+            <stop offset="0" stopColor="#708afb" />
+            <stop offset="1" stopColor="#426de8" />
           </linearGradient>
           <path fill="url(#b)" d="m12.1 15.2.7.7 1.4-1.4-.7-.7z" />
           <linearGradient
@@ -165,8 +165,8 @@ export default {
             y2="13.81"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stop-color="#708afb" />
-            <stop offset="1" stop-color="#426de8" />
+            <stop offset="0" stopColor="#708afb" />
+            <stop offset="1" stopColor="#426de8" />
           </linearGradient>
           <path fill="url(#c)" d="m10.7 13.8.7.7.7-.7-.7-.7z" />
           <linearGradient
@@ -177,8 +177,8 @@ export default {
             y2="12.048"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stop-color="#708afb" />
-            <stop offset="1" stop-color="#426de8" />
+            <stop offset="0" stopColor="#708afb" />
+            <stop offset="1" stopColor="#426de8" />
           </linearGradient>
           <path fill="url(#d)" d="m9.3 12.4.7.7 1.4-1.4-.7-.7z" />
           <linearGradient
@@ -189,8 +189,8 @@ export default {
             y2="10.973"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stop-color="#708afb" />
-            <stop offset="1" stop-color="#426de8" />
+            <stop offset="0" stopColor="#708afb" />
+            <stop offset="1" stopColor="#426de8" />
           </linearGradient>
           <path fill="url(#e)" d="m7.9 11 .7.7.7-.7-.7-.7z" />
           <linearGradient
@@ -201,8 +201,8 @@ export default {
             y2="9.22"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stop-color="#708afb" />
-            <stop offset="1" stop-color="#426de8" />
+            <stop offset="0" stopColor="#708afb" />
+            <stop offset="1" stopColor="#426de8" />
           </linearGradient>
           <path fill="url(#f)" d="m6.4 9.6.8.7 1.4-1.4-.7-.7z" />
           <linearGradient
@@ -213,8 +213,8 @@ export default {
             y2="8.153"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stop-color="#708afb" />
-            <stop offset="1" stop-color="#426de8" />
+            <stop offset="0" stopColor="#708afb" />
+            <stop offset="1" stopColor="#426de8" />
           </linearGradient>
           <path fill="url(#g)" d="m5 8.2.7.7.8-.8-.7-.7z" />
           <linearGradient
@@ -225,8 +225,8 @@ export default {
             y2="6.886"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stop-color="#ffc80b" />
-            <stop offset="1" stop-color="#e89318" />
+            <stop offset="0" stopColor="#ffc80b" />
+            <stop offset="1" stopColor="#e89318" />
           </linearGradient>
           <path
             fill="url(#h)"
@@ -240,8 +240,8 @@ export default {
             y2="11.007"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stop-color="#ff5640" />
-            <stop offset="1" stop-color="#cc3737" />
+            <stop offset="0" stopColor="#ff5640" />
+            <stop offset="1" stopColor="#cc3737" />
           </linearGradient>
           <path fill="url(#i)" d="m7.7 15.4-2.1-2.1 6.6-6.7 2.1 2.2z" />
           <linearGradient
@@ -252,8 +252,8 @@ export default {
             y2="10.348"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stop-color="#708afb" />
-            <stop offset="1" stop-color="#426de8" />
+            <stop offset="0" stopColor="#708afb" />
+            <stop offset="1" stopColor="#426de8" />
           </linearGradient>
           <path
             fill="url(#j)"
@@ -267,8 +267,8 @@ export default {
             y2="14.841"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stop-color="#ffc80b" />
-            <stop offset="1" stop-color="#e89318" />
+            <stop offset="0" stopColor="#ffc80b" />
+            <stop offset="1" stopColor="#e89318" />
           </linearGradient>
           <path fill="url(#k)" d="m4.5 16.4 1.1-3.2 2.1 2.2z" />
           <linearGradient
@@ -279,8 +279,8 @@ export default {
             y2="15.902"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stop-color="#708afb" />
-            <stop offset="1" stop-color="#426de8" />
+            <stop offset="0" stopColor="#708afb" />
+            <stop offset="1" stopColor="#426de8" />
           </linearGradient>
           <path fill="url(#l)" d="m4.9 15.4-.4 1 1.1-.3z" />
         </svg>

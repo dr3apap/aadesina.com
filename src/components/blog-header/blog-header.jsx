@@ -22,10 +22,10 @@ function BlogHeader({quote, quoteCite, ...props}){
           ></iframe>
         )}
       </div>
-      <div className="max-w-screen-md mx-auto grid gap-2 px-10 mb-14">
+      <div className="max-w-screen-md mx-auto grid gap-2 px-5 mb-14">
         <div className="relative flex justify-end items-center min-h-half-avatar py-6">
           <img
-            className="absolute top-0 transform -translate-y-1/2 left-0 rounded-full bg-surface-4 aspect-square border-4 border-text-1 p-2"
+            className="absolute top-0 transform -translate-y-1/2 left-0 rounded-full bg-surface-4 aspect-square border-3 border-text-1 p-2"
             src="./asset/dr3-no-background-2.png"
             alt="Adebola Adesina"
             width="100"
@@ -35,12 +35,12 @@ function BlogHeader({quote, quoteCite, ...props}){
             href="https://twitter.com/intent/follow?screen_name=Dr3_147"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:no-underline border-transparent focus:border-text-1 outline-transparent focus-visible:border-text-1 hover:border-text-1 border-4 rounded-full text-fluid-1 flex gap-x-2 items-center text-white bg-brand px-3 py-1"
+            className="hover:no-underline border-transparent focus:border-text-1 outline-transparent focus-visible:border-text-1 hover:border-text-1 border-3 rounded-full text-fluid--1 flex gap-x-2 items-center text-text-1 bg-brand px-3 py-1"
           >
             <span className="font-bold">Follow</span>
             <svg
               fill="currentColor"
-              className="w-5 h-5"
+              className="w-3 h-3"
               viewBox="0 0 24 24"
               role="img"
             >

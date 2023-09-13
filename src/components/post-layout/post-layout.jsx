@@ -8,7 +8,7 @@ function PostLayout({sharelink, heroImageSrc, ...props}){
 
 return <>
         <PostHeader heroImageSrc={heroImageSrc}  sharelink={sharelink} {...props}/>        
-        <main className="p-8 mx-auto my-48 max-w-screen-md bg-surface-1 overflow-hidden">
+        <main className="p-8 mx-auto my-48 max-w-screen-md overflow-hidden">
          <article  className="grid grid-cols-1 gap-y-10">
             <PostContentBlock type="article" children={props.body}/>
             {props.siteConfig?.footer && (
@@ -21,10 +21,10 @@ return <>
               <PostContentBlock type="footer">{props.siteConfig?.footer}</PostContentBlock>
             </aside>)}
            
-            <form className="mb-16 border-2 border-dotted border-accent p-4 flex" id="subscription" action="" method="POST">
-            <label className="block w-full text-fluid-1 py-4" for="subscribe">Don't want to miss a thing?</label>
-            <input type="text" name="subscribe" id="subscribe" className="p-4 border border-solid m-0" placeholder="Subscribe to feed!"/>
-            <input type="submit" name="subscription" value="Subscribe" className="p-4 bg-accent border border-solid -ml-3 text-brand w-[20%]"/>
+            <form className="mb-16 border-2 border-dotted border-accent p-2 flex" id="subscription" action="" method="POST">
+            <label className="block text-fluid-1 py-4 w-[30%]" htmlFor="subscribe">Don't want to miss a thing?</label>
+            <input type="text" name="subscribe" id="subscribe" className="p-2 border border-solid m-0 w-[30%]" placeholder="Subscribe to feed!"/>
+            <input type="submit" name="subscription" value="Subscribe" className="p-2 bg-accent border border-solid -ml-3 text-brand w-[30%]"/>
            
             </form>
         <h3

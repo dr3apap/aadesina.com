@@ -1,6 +1,6 @@
 import React from 'react';
 function About(){
-return (<section id="about-me" tabindex="-1">
+return (<section id="about-me" tabIndex="-1">
   <div className="">
     <h2 className="text-fluid-2 mb-4">
       Adebola is a Passionate Developer
@@ -13,7 +13,7 @@ return (<section id="about-me" tabindex="-1">
       className="float-left rounded-full w-48 aspect-square circle-shape mr-4"
     />
     <p
-      className="first-line:uppercase first-line:tracking-widest first-letter:float-left first-letter:font-bold first-letter:text-fluid-5 first-letter:text-brand first-letter:mr-2 "
+      className="first-line:uppercase first-line:tracking-widest first-letter:float-left first-letter:font-bold first-letter:text-fluid-5 first-letter:text-brand first-letter:mr-2"
     >
       I'm a full stack software engineer with exceptional digital experience
       specializing in web development, web3, embedded

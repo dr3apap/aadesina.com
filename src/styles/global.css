@@ -1,3 +1,6 @@
+@import url("./night-owl.css");
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,6 +17,8 @@
     --brand-hue: 23;
     --brand-saturation: 100%;
     --brand-lightness: 50%;
+    --brand-stroke: var(--brand-hsl);
+
     /** Brand Accent */
     --brand-accent: #0065a3;
     --brand-accent-hsl: hsl(203 100% 32%);
@@ -21,7 +26,6 @@
     --brand-accent-saturation: 100%;
     --brand-accent-lightness: 32%;
 
-    --brand-stroke: var(--brand-hsl);
 
     /* Brand Light Scheme*/
     --brand-light: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
@@ -72,6 +76,9 @@
     --surface1-accent-dark: hsl(var(--brand-accent-hue) 10% 10%);
     --surface2-accent-dark: hsl(var(--brand-accent-hue) 10% 15%);
 
+    /*For icons and hoover*/
+    --special:hsl(0, 0%, 80%);
+
     /* End Color Pallee*/
 
     /** Text and general purpose metric range*/
@@ -89,14 +96,6 @@
     --step-8: clamp(4.30rem, calc(3.20rem + 5.48vw), 7.45rem);
     --step-9: clamp(5.16rem, calc(3.72rem + 7.22vw), 9.31rem);
 
-    /** paragraph Line height range*/
-    --p-line-height-min: 1.15;
-    --p-line-height-max: 1.5;
-
-    /** Variable font axis*/
-    /* --text-slnt: 0;
-    --text-wght: 600; */
-
     --delay: 0.75s;
     --hero-duration: 4s;
     --title-offer-duration: 2s;
@@ -105,8 +104,6 @@
   }
 
   /* Color theme reset */
-
-
   html,
   [data-theme="light"] {
     --brand: var(--brand-light);
@@ -131,7 +128,6 @@
 
   [data-theme="dark"] {
     --brand: var(--brand-dark);
-    --stroke: var(--brand-stroke);
     --text1: var(--text1-dark);
     --text2: var(--text2-dark);
     --text2-accent: var(--text2-accent-dark);
@@ -154,8 +150,8 @@
 
   html {
     accent-color: var(--brand);
-    /*background: var(--surface2);*/
     text-rendering: optimizeSpeed;
+    background:var(--surface-1);
     line-height: var(--step-2);
     box-sizing: border-box;
   }
@@ -299,7 +295,7 @@
   }
 
   ::selection {
-    background: var(--brand-fill-0);
+    background: var(--brand);
     color: var(--text-1);
   }
 
@@ -418,8 +414,6 @@
     }
   }
 
-
-
   /* .accordion-ctrl::after {
     content: "\276F";
     width: 1.5rem;
@@ -429,26 +423,10 @@
   } */
 
 
-  input:checked+label span {
-    padding-left: 1.5rem;
-    transform: rotate(90deg) translate(-8px);
-    transition: all .2s;
-  }
-
-  input+label span {
-    transition: all .2s;
-  }
-
-  input~.accordion {
-    position: absolute;
-    display: none;
-    transition: all .3s;
-  }
-
-  input:checked~.accordion {
-    display: block;
-    transition: all .3s;
-
+  input:checked+label+ul{
+    display:flex;
+    flex-direction:column;
+    transition:all 1s;
   }
 
   .show {
@@ -590,8 +568,8 @@
   }
 
   .demos-slider--card {
-    width: 20rem;
-    @apply grid bg-surface-1-accent shrink-0 grow gap-y-4 drop-shadow-md mb-4 relative items-start;
+    width:13rem;
+    @apply grid bg-surface-1-accent gap-y-4 drop-shadow-md mb-4 relative items-start;
 
   }
  .comment-heading:before{

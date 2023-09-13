@@ -10,7 +10,7 @@ function DemoCard({ imageSrc, description, title, skills, link }) {
           className="w-full aspect-square"
         />
       </div>
-      <h3 className="text-fluid-2 px-4 text-text-2-accent tracking-wide">{title}</h3>
+      <h3 className="text-fluid-1 px-4 text-text-2-accent tracking-wide">{title}</h3>
       <details className="demo--accordion px-1 bg-surface-1">
         {/*accordion */}
         <summary
@@ -31,20 +31,21 @@ function DemoCard({ imageSrc, description, title, skills, link }) {
             />
           </svg>
         </summary>
-        <div class="p-2 absolute top-0 bottom-0 w-full h-full">
+        <div className="p-2 absolute top-0 bottom-0 left-0 right-0">
           <div className="px-1 relative bg-surface-alpha">
             {/*accordion description */}
-            <h3 className="text-fluid-2 mb-4 text-text-2-accent">
+            <h3 className="text-fluid-2 la:text-fluid-1 mb-2 text-text-2-accent tracking-wide">
               Description
             </h3>
 
-            <p>{description}</p>
+            <p className="text-fluid--1">{description}</p>
           </div>
-          <div className="px-2">
-            <h3 className="text-fluid-2 p-0 my-4 text-text-2-accent">Skills</h3>
-            <div className="flex gap-2 flex-wrap">
-              {skills.map((skillIcon) => (
+          <div className="p-1">
+            <h3 className="text-fluid-1 p-0 my-2 text-text-2-accent tracking-wide">Skills</h3>
+            <div className="flex gap-1 flex-wrap">
+              {skills.map((skillIcon, index) => (
                 <img
+                  key={index}
                   src={`/asset/skills/${skillIcon}`}
                   alt={`image of ${skillIcon.replace(
                     /\.svg/,
@@ -54,10 +55,10 @@ function DemoCard({ imageSrc, description, title, skills, link }) {
               ))}{' '}
             </div>
           </div>
-          <span class="demo--accordion__ctl absolute top-4 right-0 -translate-x-1/4 -translate-y-1/4 bg-surface-1 text-text-2 p-2 rounded-full hover:bg-hover-light">
+          <span className="demo--accordion__ctl absolute top-2 right-[-2px] -translate-x-1/4 -translate-y-1/4 bg-surface-1 text-text-2 p-[.5rem] rounded-full hover:bg-hover-light">
             <svg
-              width="18"
-              height="18"
+              width="14"
+              height="14"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"

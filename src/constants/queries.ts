@@ -4,7 +4,7 @@ export type Query = string;
 
 export const orderedPost:Query = `
 *[_type == 'post']{
-  title, slug, body, publishedAt, postCategory,
+  title, slug, body, publishedAt, postCategory, tags[]->{...},
   "numOfComment":count(comments[]),   
 } | order(_createdAt desc)
 `
@@ -12,8 +12,9 @@ export const orderedPost:Query = `
 export const allPostData:Query = `
 *[_type == 'post']{
   title, slug, body, publishedAt, postCategory,
- "numOfComment":count(comments[]), comments[]->{"commentBody":body, publishedAt, commenter->{"commenterAvatar":image.asset->url, name}}, 
-  author->{"authorAvatar":image.asset->url, name},
+  tags[]->{...},
+ "numOfComment":count(comments[]), comments[]->{"commentBody":body, publishedAt, "id":_id, commenter->{"commenterAvatar":image.asset->url, name}}, 
+  author->{"avatar":image, name, verified},
 } | order(_createdAt desc)
 `
 

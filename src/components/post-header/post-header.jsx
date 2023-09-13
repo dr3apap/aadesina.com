@@ -9,7 +9,7 @@ const getReadingTime = (content) => {
   return result
 }
 
-const formatter = new Intl.DateTimeFormat('en-UK', {
+const formatter = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
   day: 'numeric',
   month: 'short',
@@ -58,12 +58,12 @@ const LayoutHeader = ({ sharelink, heroImageSrc, ...props }) => {
             href={sharelink}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:no-underline border-transparent focus:border-text-1 outline-transparent focus-visible:border-text-1 hover:border-text-1 border-4 rounded-full text-fluid-1 flex gap-x-2 items-center text-white bg-brand px-4 py-1"
+            className="hover:no-underline border-transparent focus:border-text-1 outline-transparent focus-visible:border-text-1 hover:border-text-1 border-4 rounded-full text-fluid-0 flex gap-x-2 items-center text-white bg-brand px-4 py-1"
           >
             <span className="font-bold">Share</span>
             <svg
               fill="currentColor"
-              className="w-5 h-5"
+              className="w-3 h-3"
               viewBox="0 0 24 24"
               role="img"
             >
@@ -72,13 +72,13 @@ const LayoutHeader = ({ sharelink, heroImageSrc, ...props }) => {
             </svg>
           </a>
         </div>
-        <h1 className="text-fluid-4 font-bold relative">
+        <h1 className="text-fluid-2 la:text-fluid-3 font-bold relative">
         {props.title}
         <span className="w-20 h-20 absolute left-2 top-2 -translate-x-[50%] -translate-y-[50%] hover:bg-accent flex items-center justify-center">
             {/* Svg for pencil writing*/}
         </span>
         </h1>
-        <h2 className="text-fluid-1 text-text-3 flex gap-x-3 items-center mb-2 mt-[-1rem]">
+        <h2 className="text-fluid-1 text-text-2 flex gap-x-2 items-center mb-2 mt-[-1rem]">
           <span>{`${props.author.name}`}</span>
           {props.author.verified && (
             <span className="w-5 inline-block">
@@ -93,7 +93,7 @@ const LayoutHeader = ({ sharelink, heroImageSrc, ...props }) => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
-              className="w-8 h-8"
+              className="w-6 h-6"
             >
               <path d="M5.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H6a.75.75 0 01-.75-.75V12zM6 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H6zM7.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H8a.75.75 0 01-.75-.75V12zM8 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H8zM9.25 10a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H10a.75.75 0 01-.75-.75V10zM10 11.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V12a.75.75 0 00-.75-.75H10zM9.25 14a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H10a.75.75 0 01-.75-.75V14zM12 9.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V10a.75.75 0 00-.75-.75H12zM11.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H12a.75.75 0 01-.75-.75V12zM12 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H12zM13.25 10a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H14a.75.75 0 01-.75-.75V10zM14 11.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V12a.75.75 0 00-.75-.75H14z" />
               <path
@@ -111,7 +111,7 @@ const LayoutHeader = ({ sharelink, heroImageSrc, ...props }) => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="w-8 h-8"
+                className="w-6 h-6"
               >
                 <path
                   fillRule="evenodd"
@@ -130,7 +130,7 @@ const LayoutHeader = ({ sharelink, heroImageSrc, ...props }) => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-8 h-8"
+              className="w-6 h-6"
             >
               <path
                 strokeLinecap="round"
@@ -150,7 +150,7 @@ const LayoutHeader = ({ sharelink, heroImageSrc, ...props }) => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-8 h-8"
+              className="w-6 h-6"
             >
               <path
                 strokeLinecap="round"
