@@ -9,18 +9,18 @@ export default async (request) => {
   //const formData = await request.body
   //const transporter = new SMTPClient({
   //  connection: {
-  //    hostname: 'smtp.selgrind.com',
-  //    port: 2525,
+  //    hostname: Deno.env.get('SMTP_PROVIDER'),
+  //    port: Deno.env.get('SMTP_PORT'),
   //    tls: true,
   //    auth: {
-  //      user: '7a60fcce375478',
-  //      pass: '88e1d77b57b488',
+  //      user: Deno.env.get('MAIL_USER'),
+  //      pass: Deno.env.get('MAIL_PASS'),
   //    },
   //  },
   //})
   //const info = await transporter.send({
   //  from: formData.get(email), // sender address
-  //  to: 'adeeboom311082@aol.com', // list of receivers
+  //  to: Deno.env.get('USER_EMAIL'), // list of receivers
   //  subject: formData.get(purpose), // Subject line
   //  content: formData.get(fullname), // plain text body
   //  html: `<b>${FormData.get(message)}</b>`, // html body
