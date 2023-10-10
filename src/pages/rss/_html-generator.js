@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDom from 'react-dom/server'
 import sanitizeHtml from 'sanitize-html'
-import ContentBlock from '../../components/post-block/PostContentBlock.jsx'
+import ContentBlock from '../../components/content-block/content-block'
 
 const allowedTags = [
   ...sanitizeHtml.defaults.allowedTags,
@@ -29,7 +29,7 @@ const genHtml = (children) => {
     allowedTags,
     allowedAttributes,
   })
-};
+}
 
 export const generatePosts = (posts, metadata) =>
   posts
@@ -42,9 +42,8 @@ export const generatePosts = (posts, metadata) =>
         <link>${post.url}</link>
         <author>${metadata.email} (${post.author.name})</author>
         ${
-          post.body? `<description><![CDATA[${genHtml(
-                post.body 
-              )}]]></description>`
+          post.body
+            ? `<description><![CDATA[${genHtml(post.body)}]]></description>`
             : ''
         }
         <pubDate>${new Date(post.publishedAt).toUTCString()}</pubDate>
@@ -54,8 +53,16 @@ export const generatePosts = (posts, metadata) =>
       }.xml">Adebola Adesina${
         metadata.tag ? ` ${metadata.tag}` : ''
       } RSS feed</source>
-        ${post.category !== undefined? `<category>${category.title}</category>`:''}
-        ${tags && tags.length > 0?tags.map((tag) => `<catergory>${tag}</catergory>`):''}
+        ${
+          post.category !== undefined
+            ? `<category>${category.title}</category>`
+            : ''
+        }
+        ${
+          tags && tags.length > 0
+            ? tags.map((tag) => `<catergory>${tag}</catergory>`)
+            : ''
+        }
       </item>
     `
     })
@@ -99,4 +106,4 @@ export const genRssMarkup = (
       ${posts.length > 0 ? generatePosts(posts, metadata) : ''}
     </channel>
   </rss>
-`;
+`
