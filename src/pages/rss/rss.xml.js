@@ -1,5 +1,5 @@
 import { getAllPostData } from '../../constants/queries.ts'
-import { genRssMarkup } from './_htmlGenerator.js'
+import { genRssMarkup } from './_html-generator.js'
 
 const { posts, config: siteConfig, tags: allTags } = await getAllPostData();
 
