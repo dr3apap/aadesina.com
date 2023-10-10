@@ -10,7 +10,21 @@ export default defineType({
             title:'Title',
             type:'string',
         }),
-
+        defineField({
+            name:'type',
+            title:'Type',
+            type:'string',
+            validation:Rule => Rule.required(),
+        }),
+        defineField({
+            name:'reply',
+            title:'Reply',
+            description:'The reply to the main comment',
+            type:'array',
+            of:[
+            {type:'reference', weak:true, to:{type:'comment'}}]
+    }),
+            
         defineField({
             name:'post',
             title:'Post',
@@ -47,10 +61,12 @@ export default defineType({
       title: 'title',
       commenter: 'commenter.name',
       media: 'mainImage',
+      reply:'reply',
+      
     },
     prepare(selection) {
-      const {commenter} = selection
-      return {...selection, subtitle: commenter && `by ${commenter}`}
+      const {commenter, reply} = selection
+      return {...selection, ...reply, subtitle: commenter && `by ${commenter}`}
     },
   },
 

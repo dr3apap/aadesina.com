@@ -200,7 +200,7 @@ const articleComponents = {
   },
   pre({ node, ...props }) {
     return (
-      <div className="col-span-full group bg-[var(--gray-8)] max-w-[100vw] relative lg:rounded-lg">
+      <div className="col-span-full group bg-[var(--surface3-dark)] max-w-[100vw] relative lg:rounded-lg">
         <pre tabIndex="0" className="p-4 m-0 overflow-auto">
           {props.children}
         </pre>

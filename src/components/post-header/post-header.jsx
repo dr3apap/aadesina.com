@@ -16,26 +16,28 @@ const formatter = new Intl.DateTimeFormat('en-US', {
 })
 
 const LayoutHeader = ({ sharelink, heroImageSrc, ...props }) => {
+  console.log(props.slug);
   const readingTime = getReadingTime(props.body)
   const publishedAt = formatter.format(new Date(props.publishedAt))
   const updatedAt = formatter.format(
     new Date(props.updatedAt || props.publishedAt)
-  );
-  const demo = props?.hero?.demo;
-  
+  )
+  const demo = props?.hero?.demo
+
   return (
-    <header className="max-w-screen-full mx-auto">
+    <header className="w-content max-w-full mx-auto">
       <div className="w-full aspect-[3/1] bg-surface-4">
         {/* Gets funky here... If there's a demo, do that. Else do an image */}
-        
-          <img
-            width="750"
-            height="250"
-            className="w-full h-full"
-            src={!demo && heroImageSrc}
-            alt="Nasa Image"
-          />
-        
+
+        <img
+          width="750"
+          height="250"
+          className="w-full h-full"
+          src={!demo && heroImageSrc}
+          // Get the aut attribute from the return data
+          alt="Nasa Image"
+        />
+
         {demo && (
           <iframe
             title="Result demo for this post"
@@ -45,25 +47,25 @@ const LayoutHeader = ({ sharelink, heroImageSrc, ...props }) => {
           ></iframe>
         )}
       </div>
-      <div className="max-w-screen-md  mx-auto grid gap-2 px-10 mb-14">
+      <div className="w-content max-w-full mv-0 mx-auto grid gap-2 px-4 mb-12">
         <div className="relative flex justify-end items-center min-h-half-avatar py-2">
           <img
-            className="absolute top-0 transform -translate-y-1/2 left-0 rounded-full bg-surface-4 aspect-square  border-4 border-text-1"
+            className="absolute top-0 transform -translate-y-1/2 left-0 rounded-full bg-surface-4 aspect-square w-avatar border-4 border-text-1"
             src={props.author.avatar}
             alt={props.author.name}
-            width="100"
-            height="100"
+            width="130"
+            height="130"
           />
           <a
             href={sharelink}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:no-underline border-transparent focus:border-text-1 outline-transparent focus-visible:border-text-1 hover:border-text-1 border-4 rounded-full text-fluid-0 flex gap-x-2 items-center text-white bg-brand px-4 py-1"
+            className="hover:no-underline border-transparent focus:border-text-1 outline-transparent focus-visible:border-text-1 hover:border-text-1 border-4 rounded-full text-fluid--1 flex gap-x-1 items-center text-white bg-brand px-3 py-1"
           >
             <span className="font-bold">Share</span>
             <svg
               fill="currentColor"
-              className="w-3 h-3"
+              className="w-4 h-4"
               viewBox="0 0 24 24"
               role="img"
             >
@@ -72,28 +74,59 @@ const LayoutHeader = ({ sharelink, heroImageSrc, ...props }) => {
             </svg>
           </a>
         </div>
-        <h1 className="text-fluid-2 la:text-fluid-3 font-bold relative">
-        {props.title}
-        <span className="w-20 h-20 absolute left-2 top-2 -translate-x-[50%] -translate-y-[50%] hover:bg-accent flex items-center justify-center">
-            {/* Svg for pencil writing*/}
-        </span>
+        <h1 className="text-fluid-3 font-bold relative">
+          {props.title}
         </h1>
-        <h2 className="text-fluid-1 text-text-2 flex gap-x-2 items-center mb-2 mt-[-1rem]">
+        <h2 className="text-fluid-0 text-text-3 flex gap-x-2 items-center mb-2">
           <span>{`${props.author.name}`}</span>
           {props.author.verified && (
             <span className="w-5 inline-block">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512.001 512.001"><path d="M14.675 442.983c-19.567-19.567-19.567-51.29 0-70.857l192.887-192.887 70.857 70.857L85.532 442.983c-19.567 19.567-51.29 19.567-70.857 0z" style={{fill:"#95673f"}}/><path d="M14.675 442.983c19.567 19.567 51.29 19.567 70.857 0l192.887-192.887-35.429-35.429L14.675 442.983z" style={{fill:"#875334"}}/><path d="m341.404 187.113-70.857-70.857 47.237-47.237c19.567-19.567 51.29-19.567 70.857 0s19.567 51.29 0 70.857l-47.237 47.237z" style={{fill:"#95673f"}}/><path d="m341.404 187.113 47.237-47.237c19.567-19.567 19.567-51.29 0-70.857l-82.666 82.666 35.429 35.428z" style={{fill:"#875334"}}/><path d="M511.145 203.804c3.7-11.259-5.118-22.281-16.455-21.966-51.804 1.889-108.883-21.965-149.036-62.118l-51.095-51.095c-6.536-6.536-17.163-6.456-23.619 0L176.465 163.1c-6.535 6.535-6.536 17.084 0 23.619l51.095 51.095c40.153 40.153 63.849 97.231 62.039 149.114-.315 11.652 11.022 20.155 22.044 16.376 93.689-31.177 168.246-105.734 199.502-199.5z" style={{fill:"#ff5023"}}/><path d="M311.645 403.304c-11.023 3.779-22.359-4.724-22.044-16.376 1.81-51.884-21.886-108.961-62.039-149.114l-3.858-3.858 118.093-118.095 3.858 3.858c40.153 40.153 97.231 64.006 149.036 62.118 11.337-.315 20.155 10.706 16.455 21.966-31.257 93.767-105.814 168.324-199.501 199.501z" style={{fill:"#cd2a00"}}/><path d="M342.432 296.413c-5.725-7.23-4.501-17.734 2.735-23.458a217.424 217.424 0 0 0 35.637-35.652c5.725-7.242 16.222-8.46 23.458-2.746 7.236 5.72 8.465 16.222 2.746 23.458a250.768 250.768 0 0 1-41.117 41.132c-7.224 5.714-17.725 4.522-23.459-2.734z" style={{fill:"#a5412c"}}/></svg>
-                </span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 512.001 512.001"
+              >
+                <path
+                  d="M14.675 442.983c-19.567-19.567-19.567-51.29 0-70.857l192.887-192.887 70.857 70.857L85.532 442.983c-19.567 19.567-51.29 19.567-70.857 0z"
+                  style={{ fill: '#95673f' }}
+                />
+                <path
+                  d="M14.675 442.983c19.567 19.567 51.29 19.567 70.857 0l192.887-192.887-35.429-35.429L14.675 442.983z"
+                  style={{ fill: '#875334' }}
+                />
+                <path
+                  d="m341.404 187.113-70.857-70.857 47.237-47.237c19.567-19.567 51.29-19.567 70.857 0s19.567 51.29 0 70.857l-47.237 47.237z"
+                  style={{ fill: '#95673f' }}
+                />
+                <path
+                  d="m341.404 187.113 47.237-47.237c19.567-19.567 19.567-51.29 0-70.857l-82.666 82.666 35.429 35.428z"
+                  style={{ fill: '#875334' }}
+                />
+                <path
+                  d="M511.145 203.804c3.7-11.259-5.118-22.281-16.455-21.966-51.804 1.889-108.883-21.965-149.036-62.118l-51.095-51.095c-6.536-6.536-17.163-6.456-23.619 0L176.465 163.1c-6.535 6.535-6.536 17.084 0 23.619l51.095 51.095c40.153 40.153 63.849 97.231 62.039 149.114-.315 11.652 11.022 20.155 22.044 16.376 93.689-31.177 168.246-105.734 199.502-199.5z"
+                  style={{ fill: '#ff5023' }}
+                />
+                <path
+                  d="M311.645 403.304c-11.023 3.779-22.359-4.724-22.044-16.376 1.81-51.884-21.886-108.961-62.039-149.114l-3.858-3.858 118.093-118.095 3.858 3.858c40.153 40.153 97.231 64.006 149.036 62.118 11.337-.315 20.155 10.706 16.455 21.966-31.257 93.767-105.814 168.324-199.501 199.501z"
+                  style={{ fill: '#cd2a00' }}
+                />
+                <path
+                  d="M342.432 296.413c-5.725-7.23-4.501-17.734 2.735-23.458a217.424 217.424 0 0 0 35.637-35.652c5.725-7.242 16.222-8.46 23.458-2.746 7.236 5.72 8.465 16.222 2.746 23.458a250.768 250.768 0 0 1-41.117 41.132c-7.224 5.714-17.725 4.522-23.459-2.734z"
+                  style={{ fill: '#a5412c' }}
+                />
+              </svg>
+            </span>
           )}
         </h2>
         {/* Details */}
-        <span className="flex gap-x-4 items-center text-fluid-1 flex-wrap text-text-4">
+        <span className="flex gap-x-2 items-center text-fluid--1 flex-wrap text-text-4">
           <span className="flex items-center gap-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
-              className="w-6 h-6"
+              className="w-5 h-5"
             >
               <path d="M5.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H6a.75.75 0 01-.75-.75V12zM6 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H6zM7.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H8a.75.75 0 01-.75-.75V12zM8 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H8zM9.25 10a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H10a.75.75 0 01-.75-.75V10zM10 11.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V12a.75.75 0 00-.75-.75H10zM9.25 14a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H10a.75.75 0 01-.75-.75V14zM12 9.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V10a.75.75 0 00-.75-.75H12zM11.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H12a.75.75 0 01-.75-.75V12zM12 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H12zM13.25 10a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H14a.75.75 0 01-.75-.75V10zM14 11.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V12a.75.75 0 00-.75-.75H14z" />
               <path
@@ -111,7 +144,7 @@ const LayoutHeader = ({ sharelink, heroImageSrc, ...props }) => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="w-6 h-6"
+                className="w-5 h-5"
               >
                 <path
                   fillRule="evenodd"
@@ -130,7 +163,7 @@ const LayoutHeader = ({ sharelink, heroImageSrc, ...props }) => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-5 h-5"
             >
               <path
                 strokeLinecap="round"
@@ -150,7 +183,7 @@ const LayoutHeader = ({ sharelink, heroImageSrc, ...props }) => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-5 h-5"
             >
               <path
                 strokeLinecap="round"
@@ -170,8 +203,8 @@ const LayoutHeader = ({ sharelink, heroImageSrc, ...props }) => {
                     <React.Fragment key={tag._id}>
                       <li>
                         <a
-                          className="font-bold"
-                          href={`/blog/${tag.title.toLowerCase()}`}
+                          className="font-bold text-brand decoration-4 decoration-brand"
+                          href={`/posts/${props.slug?.current}`}
                         >
                           {tag.title}
                         </a>
@@ -184,8 +217,25 @@ const LayoutHeader = ({ sharelink, heroImageSrc, ...props }) => {
                     </React.Fragment>
                   )
                 })}
+             
             </ul>
           </span>
+           <span className="flex items-center gap-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 -960 960 960"
+                  stroke="curentColor"
+                  className="w-5 h-5"
+                >
+                  <path d="M500-520v-280H160v525l46-45h594v-480H700v280l-100-60-100 60ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm80-720v480-480Z" />
+                </svg>
+                <span className="sr-only">comments</span>
+                <span className="text-brand">
+                  {props.numOfComment}
+                </span>
+              </span>
         </span>
       </div>
     </header>

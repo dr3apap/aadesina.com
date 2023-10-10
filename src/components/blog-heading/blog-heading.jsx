@@ -1,8 +1,8 @@
 import React from 'react'
 function BlogHeading() {
   return (
-    <div className="py-6">
-      <h1 className="text-fluid-2 la:text-fluid-3 uppercase mb-4 tracking-widest text-text-2-accent">
+    <div className="my-6">
+      <h1 className="text-fluid-2 la:text-fluid-3 uppercase tracking-wide text-text-2-accent mb-3">
         sharing
       </h1>
       <div className="blog__intro__intro">

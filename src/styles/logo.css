@@ -1,0 +1,9 @@
+.watermark-logo{
+   height:65vh;
+   position:fixed;
+   opacity: 0.11;
+   right:-40px;
+   top:50%;
+   transform:translateX(50%);
+   z-index:-1;
+}

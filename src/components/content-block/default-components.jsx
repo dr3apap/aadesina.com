@@ -75,16 +75,16 @@ const defaultComponents = {
     }
     return (
       <aside
-        className="relative my-12 rounded-lg bg-surface-3 text-fluid-1 text-text-2 p-8"
+        className="relative my-12 rounded-lg bg-surface-1-accent text-fluid--2 text-text-2 p-8"
         {...props}
       >
         {type && (
-          <span className="absolute top-0 left-0 p-2 bg-hover-light rounded-md -translate-x-1/4 border-2 border-surface-1 -translate-y-1/4">
+          <span className="absolute top-0 left-0 p-2 bg-surface-3 rounded-md -translate-x-1/4 border-2 border-surface-1 -translate-y-1/4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="w-7 h-7"
+              className="w-5 h-5"
             >
               {type === 'warning' && (
                 <>
@@ -190,7 +190,7 @@ const defaultComponents = {
     return (
       <pre
         tabIndex="0"
-        className="rounded-lg bg-[var(--gray-8)] p-4 m-0 overflow-auto mb-6"
+        className="rounded-lg bg-[var(--surface3-dark)] p-4 m-0 overflow-auto mb-6"
       >
         {props.children}
       </pre>
@@ -201,7 +201,6 @@ const defaultComponents = {
       (child) =>
         child.tagName === 'tweet' ||
         child.tagName === 'codepen' ||
-        child.tagName === 'guestbookform' ||
         child.tagName === 'browsersupport' ||
         child.tagName === 'tableofcontents'
     )

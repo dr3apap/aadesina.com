@@ -18,9 +18,8 @@ module.exports = {
     theme:{
         extend:{
             width:{
-                "content-area":"96ch",
-                "article-area":"66ch",
-                "main-content":"60ch"
+                "article":"640px",
+                "content":"768px"
             },
             colors:{
                 "brand":"var(--brand-hsl)",
@@ -38,8 +37,6 @@ module.exports = {
                 "text-2-accent":"var(--text2-accent)",
                 "surface-1-accent":"var(--surface1-accent)",
                 "surface-2-accent":"var(--surface2-accent)",
-                "headings":"var(--text2-accent)",
-                "hover-light":"var(--text2-accent-dark)"
                 },
              
             "screens":{

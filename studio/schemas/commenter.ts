@@ -23,6 +23,13 @@ export default defineType({
             of:[{type:'reference', to:{type:'comment'}}],
         }),
         defineField({
+            name:'posts',
+            title:'Posts',
+            description:'List of posts that this person has comment to',
+            type:'array',
+            of:[{type:'reference', to:{type:'comment'}}],
+        }),
+        defineField({
             name:'image',
             title:'HeadShot',
             type:'image',

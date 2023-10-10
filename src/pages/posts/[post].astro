@@ -10,7 +10,7 @@ export async function getStaticPaths(){
     return posts.map(({slug, ...props }) => {
         return {
             params:{post:slug.current},
-            props:{...props},
+            props:{...props, slug},
 
         };
     });
@@ -30,3 +30,8 @@ ogTitle={Astro.props?.og?.ogTitle}
 >   
 <PostLayout sharelink={shareLink} heroImageSrc={blogHeroData.heroImageSrc}  {...Astro.props}/>
 </Layout>
+<script>
+    import '../../scripts/copy-cats.js';
+    import '../../scripts/comment-response.js';
+    import '../../scripts/comment.js'
+</script>

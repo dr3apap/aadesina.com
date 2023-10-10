@@ -13,6 +13,14 @@
 [[edge_functions]]
   function = "theme-toggle"
   path = "/*"
+  
+[[edge-functions]]
+  function = "contact-form"
+  path = "/contact/contact-form"
+
+[[edge-functions]]
+  function = "contact-form"
+  path = "/contact-form"
 
 [[headers]]
   for = "/*"
