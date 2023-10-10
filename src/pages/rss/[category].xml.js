@@ -1,4 +1,4 @@
-import { getAllpostData } from '../../../constants/queries.js';
+import { getAllpostData } from '../../constants/queries';
 import { genRssMarkup } from './_html-generator';
 
 const { posts, config: siteConfig, tags: allTags } = await getAllpostData();
