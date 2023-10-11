@@ -15,7 +15,7 @@ export async function getStaticPaths(){
         };
     });
 }
-const { post } = Astro.params;
+const { post }  = Astro.params;
 const { title, description} = Astro.props;
 const shareLink = `https://www.twitter.com/intent/tweet?text=${encodeURIComponent(`"${title}" via @Dr3_147\n`)}https://aadesina.netlify.app/posts/${post}/`;
 
