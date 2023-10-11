@@ -6,7 +6,7 @@ import PostLayout from "../../components/post-layout/post-layout";
 import blogHeroData from "../../scripts/blog.js";
 
 export async function getStaticPaths(){
-    const posts:Post[] = await getAllPostData();
+    const posts:Post[] | [] = await getAllPostData();
     return posts.map(({slug, ...props }) => {
         return {
             params:{post:slug.current},
