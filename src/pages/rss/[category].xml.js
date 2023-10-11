@@ -2,7 +2,8 @@ import { getAllPostData } from '../../constants/queries';
 import { genRssMarkup } from './_html-generator';
 
 const allPosts = await getAllPostData();
-const { config: siteConfig, tags: allTags } = allPosts;
+const siteConfig = allPosts.config ||{};
+const allTags = allPosts.tags || [];
 const posts = allPosts.posts  || [];
 
 export function getStaticPaths() {
