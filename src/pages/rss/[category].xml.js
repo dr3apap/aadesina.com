@@ -1,10 +1,10 @@
-import { getAllPostData } from '../../constants/queries';
+import { getRssData } from '../../constants/queries';
 import { genRssMarkup } from './_html-generator';
 
-const allPosts = await getAllPostData();
-const siteConfig = allPosts.config ||{};
-const allTags = allPosts.tags || [];
-const posts = allPosts.posts  || [];
+const rssData = await getRssData();
+const siteConfig = rssData?.Config ||{};
+const allTags = rssData?.tags || [];
+const posts = rssData?.posts  || [];
 
 export function getStaticPaths() {
   const tagPaths = allTags.map((tag) => {

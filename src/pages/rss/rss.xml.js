@@ -1,8 +1,10 @@
-import { getAllPostData } from '../../constants/queries.ts'
+import { getRssData } from '../../constants/queries.ts'
 import { genRssMarkup } from './_html-generator.js'
 
-const { posts, config: siteConfig, tags: allTags } = await getAllPostData();
-
+const rssData = await getRssData();
+const siteConfig = rssData.config || {}
+const allTags = rssData.tags || []
+const posts = rssData.posts || []
 
 const metadata = {
   url: siteConfig?.rss?.url || 'https://aadesina.com/',
