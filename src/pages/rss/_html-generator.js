@@ -32,15 +32,16 @@ const genHtml = (children) => {
 }
 
 export const generatePosts = (posts, metadata) =>
-  posts
-    .map((post) => {
-      if (post.excludeFromRss) return null
-      let tags = post.tags ? [...post?.tags.filter((t) => t !== null)] : []
-      return `
+  (posts.length > 0 &&
+    posts
+      .map((post) => {
+        if (post.excludeFromRss) return null
+        let tags = post.tags ? [...post?.tags.filter((t) => t !== null)] : []
+        return `
       <item>
         <title>${post.title}</title>
         <link>${post.url}</link>
-        <author>${metadata.email} (${post.author.name})</author>
+        <author>${metadata.email} (${post.author})</author>
         ${
           post.body
             ? `<description><![CDATA[${genHtml(post.body)}]]></description>`
@@ -49,10 +50,10 @@ export const generatePosts = (posts, metadata) =>
         <pubDate>${new Date(post.publishedAt).toUTCString()}</pubDate>
         <guid isPermaLink="true">${post.url}</guid>
         <source url="${metadata.url}rss/${
-        metadata.tag ? `${metadata.tag}` : 'rss'
-      }.xml">Adebola Adesina${
-        metadata.tag ? ` ${metadata.tag}` : ''
-      } RSS feed</source>
+          metadata.tag ? `${metadata.tag}` : 'rss'
+        }.xml">Adebola Adesina${
+          metadata.tag ? ` ${metadata.tag}` : ''
+        } RSS feed</source>
         ${
           post.category !== undefined
             ? `<category>${category.title}</category>`
@@ -65,8 +66,9 @@ export const generatePosts = (posts, metadata) =>
         }
       </item>
     `
-    })
-    .join('')
+      })
+      .join('')) ||
+  ''
 
 export const genRssMarkup = (
   posts,
@@ -94,12 +96,10 @@ export const genRssMarkup = (
       <docs>https://www.rssboard.org/rss-specification</docs>
       <pubDate>${new Date().toUTCString()}</pubDate>
       <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-      <managingEditor>${metadata.email} (${
-  metadata.author.name
-})</managingEditor>
-      <webMaster>${metadata.email} (${metadata.author.name})</webMaster>
+      <managingEditor>${metadata.email} (${metadata.author})</managingEditor>
+      <webMaster>${metadata.email} (${metadata.author})</webMaster>
       <image>
-        <url>${metadata.url}${metadata.author.avatar.slice(1)}</url>
+        <url>${metadata.url}${metadata.author?.avatar?.slice(1)}</url>
         <title>${metadata.title}</title>
         <link>${metadata.url}</link>
       </image>
