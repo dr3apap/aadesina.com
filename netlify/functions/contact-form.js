@@ -1,9 +1,12 @@
-import { SMTPClient } from 'https://deno.land/x/denomailer/mod.ts'
-export default async (request) => {
-  console.log(request.body)
+//import { SMTPClient } from 'https://deno.land/x/denomailer/mod.ts'
+exports.handler = async (request) => {
+  //console.log(`Json() ${request.json()}`)
+  const parsedBody = request.body
+  console.log(parsedBody)
   return {
-    status: 200,
-    body: 'WIP',
+    statusCode: 200,
+    heaeder: { 'content-type': 'application/json' },
+    body: JSON.stringify('WIP'),
   }
   //console.log(`Is this the nodemailer:${JSON.parse(request.body)}`)
   //const formData = await request.body
@@ -21,7 +24,8 @@ export default async (request) => {
   //const info = await transporter.send({
   //  from: formData.get(email), // sender address
   //  to: Deno.env.get('USER_EMAIL'), // list of receivers
-  //  subject: formData.get(purpose), // Subject line
+  //  subject: formData.g:w
+  //  et(purpose), // Subject line
   //  content: formData.get(fullname), // plain text body
   //  html: `<b>${FormData.get(message)}</b>`, // html body
   //})
@@ -40,3 +44,7 @@ export default async (request) => {
   //  })
   //}
 }
+
+//export const config = {
+//  path: '/contact-form',
+//}

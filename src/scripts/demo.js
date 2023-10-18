@@ -24,11 +24,11 @@
 
   // Events Handlers
   function closeAccordion() {
-      demosAccordion.forEach((detailEl) => {
-    if (detailEl.open) {
-      detailEl.removeAttribute('open')
-    }
-  });
+    demosAccordion.forEach((detailEl) => {
+      if (detailEl.open) {
+        detailEl.removeAttribute('open')
+      }
+    })
   }
 
   function carouselWithButton() {
@@ -69,10 +69,7 @@
     if (window.PointerEvent) {
       evt.target.setPointerCapture(evt.pointerId)
     }
-    //else {
-    //  document.addEventListener('mousemove', gestureMove, true)
-    //  document.addEventListener('mouseup', gestureEnd, true)
-    //}
+
     initialTouchPos = getGesturePointFromEvt(evt)
   }
 
@@ -81,12 +78,16 @@
     lastTouchPos = getGesturePointFromEvt(evt)
     if (rafPending) return
     rafPending = true
+    console.log(
+      `The current transition value is: ${window
+        .getComputedStyle(demoSlider)
+        .getPropertyValue('transform')} and Diff is:${diff}`
+    )
     window.requestAnimationFrame(nextState)
   }
 
   function addListeners() {
     if (window.PointerEvent) {
-      console.log(`Yeah there is pointer Event:${window.PointerEvent}`)
       // POinter Event is catch all (mouse, touch, stylus, ...) so we choose it
       // Add pointer event on all the element we want to listen for
       demosCard.forEach((el) => {
@@ -95,17 +96,14 @@
         el.addEventListener('pointerup', gestureEnd)
       })
     } else if (window.TouchEvent) {
-      console.log(`Yeah there is pointer Event:${window.TouchEvent}`)
       // Just do touch;
       demosCard.forEach((el) => {
         el.addEventListener('touchstart', gestureStart)
         el.addEventListener('touchmove', gestureMove)
         el.addEventListener('touchend', gestureEnd)
       })
-    } else {
-      carouselWithButton()
     }
-
+    carouselWithButton()
     demosAccordion.forEach((accordionCtl) => {
       accordionCtl.addEventListener('click', closeAccordion)
     })
@@ -114,12 +112,10 @@
   function gestureEnd(evt) {
     evt.preventDefault()
     if (evt.touches && evt.touches.length > 0) return
-    rafPending = false
-    diff = 0
-    initialTouchPos = null
-
     if (window.PointerEvent) {
       evt.target.releasePointerCapture(evt.pointerId)
+      initialTouchPos = null
+      rafPending = false
     }
   }
 
@@ -139,42 +135,46 @@
   }
 
   function dispatchAction() {
-    // diff of last tocuch and initial touch equal to current
-    // state
-    diff = lastTouchPos.x - initialTouchPos.x
+    diff = initialTouchPos.x - lastTouchPos.x
     if (diff < 0) {
       return {
         action: actions.left,
-        diff,
       }
     }
     if (diff > 0) {
       return {
         action: actions.right,
-        diff,
       }
     }
   }
 
   function nextState() {
     if (!rafPending) return
-    const { diff, action } = dispatchAction()
+    var transformStyle
+    const { action } = dispatchAction()
     switch (action) {
       case 'LEFT_SIDE':
-        if (Math.abs(currentState + diff) > sliderWidth - defaultWidth) return
+        diff = initialTouchPos.x - lastTouchPos.x
+        if (Math.abs(currentState + diff) >= sliderWidth - defaultWidth) return
         currentState += diff
-        demoSlider.style.transform = `translate(${currentState}px)`
+        transformStyle = `translateX(${currentState}px)`
+        demoSlider.style.webkitTransform = transformStyle
+        demoSlider.style.MozTransform = transformStyle
+        demoSlider.style.msTransform = transformStyle
+        demoSlider.style.transform = transformStyle
         rafPending = false
-        return
       case 'RIGHT_SIDE':
-        if (currentState + diff >= 0) return
+        diff = initialTouchPos.x - lastTouchPos.x
+        if (currentState + diff > 0) return
         currentState += diff
-        demoSlider.style.transform = `translate(${currentState}px)`
+        transformStyle = `translateX(${currentState}px)`
+        demoSlider.style.webkitTransform = transformStyle
+        demoSlider.style.MozTransform = transformStyle
+        demoSlider.style.msTransform = transformStyle
+        demoSlider.style.transform = transformStyle
         rafPending = false
-        return
       default:
         rafPending = false
-        return
     }
   }
 
