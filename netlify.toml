@@ -11,7 +11,7 @@
   path = "/*/theme-toggle"
 
 [functions] 
-  included_files = ["/functions]
+  included_files = ["/functions"]
 
 [[headers]]
   for = "/*"
