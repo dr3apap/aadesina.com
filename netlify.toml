@@ -11,7 +11,10 @@
   path = "/*/theme-toggle"
 
 [functions] 
-  included_files = ["/functions"]
+  included_files = ["netlify/functions"]
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
 
 [[headers]]
   for = "/*"
