@@ -1,18 +1,26 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-  "baseUrl": ".",
-  "paths": {
-      "~/*": ["./src/*"]
+    "extends": "astro/tsconfigs/strict",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "~/*": [
+                "./src/*"
+            ]
+        },
+        "strictNullChecks": true,
+        "noImplicitAny": false,
+        "noEmitOnError": true,
+        "jsx": "preserve",
+        "importsNotUsedAsValues": "remove"
     },
-  "strictNullChecks":true,
-  "noImplicitAny":false,
-  "noEmitOnError":true,
-  "jsx":"preserve",
-    "importsNotUsedAsValues": "remove"
-  },
-  "include": ["**/*", ".eslintrc.cjs"],
-  "exclude": ["node_modules", "dist", ".netlify", "public"]
+    "include": [
+        "**/*",
+        ".eslintrc.cjs"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        ".netlify",
+        "public"
+    ]
 }
-
-
