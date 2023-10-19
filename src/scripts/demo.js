@@ -81,7 +81,7 @@
     console.log(
       `The current transition value is: ${window
         .getComputedStyle(demoSlider)
-        .getPropertyValue('transform')} and Diff is:${diff}`
+        .getPropertyValue('transform')} and currentState is:${currentState}`
     )
     window.requestAnimationFrame(nextState)
   }
@@ -135,7 +135,7 @@
   }
 
   function dispatchAction() {
-    diff = initialTouchPos.x - lastTouchPos.x
+    diff = lastTouchPos.x - initialTouchPos.x
     if (diff < 0) {
       return {
         action: actions.left,
@@ -146,6 +146,7 @@
         action: actions.right,
       }
     }
+    return { action: '' }
   }
 
   function nextState() {
@@ -154,17 +155,17 @@
     const { action } = dispatchAction()
     switch (action) {
       case 'LEFT_SIDE':
-        diff = initialTouchPos.x - lastTouchPos.x
+        diff = lastTouchPos.x - initialTouchPos.x
         if (Math.abs(currentState + diff) >= sliderWidth - defaultWidth) return
         currentState += diff
-        transformStyle = `translateX(${currentState}px)`
+        transformStyle = `translateX(-${currentState}px)`
         demoSlider.style.webkitTransform = transformStyle
         demoSlider.style.MozTransform = transformStyle
         demoSlider.style.msTransform = transformStyle
         demoSlider.style.transform = transformStyle
         rafPending = false
       case 'RIGHT_SIDE':
-        diff = initialTouchPos.x - lastTouchPos.x
+        diff = lastTouchPos.x - initialTouchPos.x
         if (currentState + diff > 0) return
         currentState += diff
         transformStyle = `translateX(${currentState}px)`
