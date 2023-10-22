@@ -5,7 +5,6 @@ function processContactData() {
   console.log(url)
   async function handleContact(formData) {
     const res = await fetch('/.netlify/functions/contact-form', formData)
-    //const res = await fetch(url, formData)
     console.log(res)
     const feedBack = document.createElement('p')
     if (res.status == '200' || res.status == '201') {
