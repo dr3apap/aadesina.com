@@ -8,17 +8,19 @@ function processContactData() {
     console.log(res)
     const feedBack = document.createElement('p')
     if (res.status == '200' || res.status == '201') {
-      feedBack.style = 'text-text-fluid--2 text-text-1 bg-surface-2'
+      feedBack.style =
+        'text-text-fluid--2 text-text-1 bg-green-700 rounded-sm mb-2'
       feedBack.textContent =
         'Thank you for contacing me. Looking forward to working with you!'
-      contactFormCta.insertAdjacentElement('afterend', feedBack)
+      contactFormCta.insertAdjacentElement('beforebegin', feedBack)
       contactForm.reset()
     } else {
-      feedBack.style = 'text-text-fluid--2 text-text-1 bg-surface-2'
+      feedBack.style =
+        'text-text-fluid--2 text-text-1 bg-red-800 rounded-sm mb-2'
       feedBack.textContent =
         'Sorry something went wrong, please submit the form again'
 
-      contactFormCta.insertAdjacentElement('afterend', feedBack)
+      contactFormCta.insertAdjacentElement('beforebegin', feedBack)
     }
   }
 
