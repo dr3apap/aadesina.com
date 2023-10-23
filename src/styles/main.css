@@ -538,6 +538,16 @@
     @apply grid bg-surface-1-accent gap-y-4 drop-shadow-md mb-4 relative items-start;
 
   }
+
+  .contact-feedback-success {
+      margin-bottom:2px;
+      @apply text-fluid--2 text-green-50 bg-green-700 rounded mb-2 p-2;
+  }
+
+  .contact-feedback-error {
+      margin-bottom:2px;
+      @apply text-fluid--2 text-red-50 bg-red-700 rounded mb-2 p-2;
+  }
  .comment-heading:before{
   width:33.3%;
   height: 100px;

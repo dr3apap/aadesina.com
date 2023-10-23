@@ -9,7 +9,7 @@ function Contact() {
                 >
                     Full Name
                     <input
-                        className="appearance-none w-full h-20 pl-4 border border-solid border-brand"
+                        className="appearance-none w-full h-20 pl-4 border border-solid border-brand rounded"
                         type="text"
                         name="fullname"
                         id="full-name"
@@ -22,7 +22,7 @@ function Contact() {
                 >
                     Email
                     <input
-                        className="w-full h-20 pl-4 border border-solid border-brand"
+                        className="w-full h-20 pl-4 border border-solid border-brand rounded"
                         type="text"
                         name="email"
                         id="contact-email"
@@ -35,7 +35,7 @@ function Contact() {
                 >
                     Company
                     <input
-                        className="w-full h-20 pl-4 border border-solid border-brand"
+                        className="w-full h-20 pl-4 border border-solid border-brand rounded"
                         type="text"
                         name="company"
                         id="contact-company"
@@ -49,7 +49,7 @@ function Contact() {
                     htmlFor="full-time"
                 >
                     <input
-                        className="mr-4 htmlForm-input border border-solid border-brand-text1"
+                        className="mr-4 htmlForm-input border border-solid border-brand-text1 rounded"
                         type="checkbox"
                         name="fulltime"
                         id="full-time"
@@ -61,7 +61,7 @@ function Contact() {
                     htmlFor="part-time"
                 >
                     <input
-                        className="mr-4 htmlForm-input border border-solid border-brand-text1"
+                        className="mr-4 htmlForm-input border border-solid border-brand-text1 rounded"
                         type="checkbox"
                         name="parttime"
                         id="part-time"
@@ -73,7 +73,7 @@ function Contact() {
                     htmlFor="contact-contract"
                 >
                     <input
-                        className="mr-4 htmlForm-input border border-solid border-brand-text1"
+                        className="mr-4 htmlForm-input border border-solid border-brand-text1 rounded"
                         type="checkbox"
                         name="contract"
                         id="contact-contract"
@@ -85,7 +85,7 @@ function Contact() {
                     htmlFor="contact-other"
                 >
                     <input
-                        className="mr-4 htmlForm-input border border-solid border-brand-text1"
+                        className="mr-4 htmlForm-input border border-solid border-brand-text1 rounded"
                         type="checkbox"
                         name="other"
                         id="contact-other"
@@ -98,7 +98,7 @@ function Contact() {
                 >
                     Message{' '}
                     <textarea
-                        className="w-full border border-solid border-brand p-3"
+                        className="w-full border border-solid border-brand p-3 rounded"
                         name="message"
                         id="contact-message"
                         cols="30"
