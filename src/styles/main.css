@@ -317,11 +317,11 @@
   }
 
   .bar {
-    width: 2.5rem;
-    height: .35rem;
+    width: 30px;
+    height: 6px;
     position: absolute;
-    top: 1.4rem;
-    right: 0;
+    top: 50%;
+    transform:translateY(-50%);
     line-height: 0;
     background-color: hsl(0, 0%, 80%);
     border-radius: 1px;
@@ -333,9 +333,8 @@
     content: "";
     position: absolute;
     display: block;
-    width: 2.5rem;
-    left: 0;
-    border: .2rem solid hsl(0, 0%, 80%);
+    width: 100%;
+    border: 3px solid hsl(0, 0%, 80%);
     border-radius: 1px;
     transition: transform 0.5s;
   }
@@ -343,15 +342,14 @@
 
   .bar::before {
     transform-origin: left top;
-    top: 3px;
-    transform: rotate(0deg) translate(0, -.8rem);
+    top: 2px;
+    transform: rotate(0deg) translate(0, -.6rem);
   }
 
   .bar::after {
     transform-origin: right top;
-    bottom: 3px;
-    transform: rotate(0deg) translate(0, .8rem);
-
+    bottom: 2px;
+    transform: rotate(0deg) translate(0, .6rem);
   }
 
   [aria-expanded="true"] {
@@ -359,13 +357,13 @@
   }
 
   .bar[aria-expanded="true"]::before {
-    transform: translate(.4rem, -.8rem) rotate(45deg);
+    transform: translate(.4rem, -1rem) rotate(45deg);
     border-radius: .7rem;
 
   }
 
   .bar[aria-expanded="true"]::after {
-    transform: translate(-.6rem, -.5rem) rotate(-45deg);
+    transform: translate(-.4rem, -.8rem) rotate(-45deg);
     border-radius: .7rem;
   }
 
