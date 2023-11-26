@@ -3,7 +3,7 @@ const ThemeToggle = () => {
     return <form className="justify-self-end place-items-center" id="theme-toggle" action="theme-toggle">
         <button aria-controls="theme-toggle" className="theme-toggle w-11 h-11 relative hover:bg-surface-3 rounded-md">
             <span aria-describedby="theme-toggle__icon" className="theme-toggle__icon absolute inset-0 w-full h-full grid place-items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-6 aspect-square">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 aspect-square">
                     <g className="theme-toggle__monitor">
                         {/** Monitor */}
                         <path fill="none" stroke="currentColor" strokeWidth="2" fillRule="evenodd"
