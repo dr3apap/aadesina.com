@@ -320,8 +320,8 @@
     width: 30px;
     height: 6px;
     position: absolute;
-    top: 50%;
-    transform:translateY(-50%);
+    /*top: 50%;*/
+   /* transform:translateY(-50%);*/
     line-height: 0;
     background-color: hsl(0, 0%, 80%);
     border-radius: 1px;
@@ -356,14 +356,17 @@
     background-color: transparent;
   }
 
+
   .bar[aria-expanded="true"]::before {
-    transform: translate(.4rem, -1rem) rotate(45deg);
+      transform:translate(0, -.8rem) rotate(45deg);
+    /*transform: translate(.4rem, -1rem) rotate(45deg);*/
     border-radius: .7rem;
 
   }
 
   .bar[aria-expanded="true"]::after {
-    transform: translate(-.4rem, -.8rem) rotate(-45deg);
+      transform:translate(-.8rem, -.6rem) rotate(-45deg);
+   /* transform: translate(-.4rem, -.8rem) rotate(-45deg);*/
     border-radius: .7rem;
   }
 

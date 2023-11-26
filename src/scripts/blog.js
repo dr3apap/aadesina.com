@@ -15,5 +15,5 @@ const heroQuote  = {...(await (await fetch(`https://api.api-ninjas.com/v1/quotes
     const today = date.getDate();
     const month = date.getMonth()+1;
     const todayDate = `${year}-${month}-${today}`;
-    const heroImageSrc = (await (await fetch(`https://api.nasa.gov/planetary/apod?api_key=${import.meta.env.NASA_API_KEY}&start_date=${todayDate}&end_date=${todayDate}`)).json())[0].url;
-export default {...heroQuote, heroImageSrc};
+    const { url:heroImageSrc, title:heroImageAlt } = (await (await fetch(`https://api.nasa.gov/planetary/apod?api_key=${import.meta.env.NASA_API_KEY}&start_date=${todayDate}&end_date=${todayDate}`)).json())[0]
+export default {...heroQuote, heroImageSrc, heroImageAlt };
