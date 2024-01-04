@@ -1,53 +1,39 @@
+import LandingPage from '../components/landing-page/landing-page.jsx'
+import Contact from '../components/contact/contact-form.jsx'
+import Blog from '../components/blog/blog.jsx'
 
-
-const ROUTES = {
-    home:{
-        link:'/home',
-        tabLabel:'Feed',
-        render:true,
-        enabled:true,
-        renderer:"",
-    },
-    about:{
-        link:'/about',
-        tabLabel:'About',
-        render:true,
-        enabled:true,
-        renderer:"",
-    },
-    demos:{
-        link:'/Demos',
-        tabLabel:'Demos',
-        render:true,
-        enabled:true,
-        renderer:"",
-    },
-    contact:{
-        link:'/Contact',
-        tabLabel:'Contact',
-        render:true,
-        enabled:true,
-        renderer:"",
-    },
-    blog:{
-        link:'/Sharing',
-        tabLabel:'About',
-        render:true,
-        enabled:true,
-        renderer:"",
-    }
-
-
-
+export const ROUTES = {
+  home: {
+    link: '/',
+    tabLabel: 'Home',
+    render: true,
+    enabled: true,
+    renderer: LandingPage,
+  },
+  contact: {
+    link: '/contact',
+    tabLabel: 'Contact',
+    render: true,
+    enabled: true,
+    renderer: Contact,
+  },
+  blog: {
+    link: '/blog',
+    tabLabel: 'Blog',
+    render: true,
+    enabled: true,
+    renderer: Blog,
+  },
 }
 
-export const getRoutes = route => {
-    const activeRoute = Object.keys(ROUTES).reduce((acc, cur) => {
-       acc.push({
-            ...ROUTES[cur],
-            active:(!route && cur === ROUTES.home.link.replace(/\//, "")) || cur.includes(route)
-       });
-       return acc;
-    },[]);
-    return activeRoute;
+const getRoutes = (route) => {
+  const activeRoute = Object.keys(ROUTES).reduce((acc, cur) => {
+    acc.push({
+      ...ROUTES[cur],
+      active: (!route && cur === 'home') || cur.includes(route),
+    })
+    return acc
+  }, [])
+  return activeRoute
 }
+export default getRoutes
