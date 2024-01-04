@@ -2,22 +2,24 @@ import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
 import defaultComponents from './default-components'
-import demos from '../demo/demos';
-import featureDemo from '../feature-demo/feature-demo';
-import about from '../about/about';
-import footer from '../footer/footer';
+import demos from './demos-components';
+import featureDemo from './feature-components';
+import blog from './blog-components'
+import about from './about-components';
+import footer from './footer-components';
+import hero from './hero-components';
 import links from './links-components';
 import article from './article-components';
 import remarkToc from './remarkToc';
-import rss from './rss-components'
-import comment from '../post-comment/post-comment'
+import rss from './rss-components';
+import comment from './comment-components';
 
 const remarkPlugins = [[remarkGfm, { singleTilde: false }]]
 const rehypePlugins = [rehypeRaw]
 const elementToDisallowed = ['script'];
 
 
-const PostContentBlock = ({ type, children }) => {
+const ContentBlock = ({ type, children }) => {
     let components = { ...defaultComponents }
     switch (type) {
         case "about":
@@ -36,6 +38,11 @@ const PostContentBlock = ({ type, children }) => {
                 ...defaultComponents, ...featureDemo
             }
             break;
+        case "hero":
+            components = {
+                ...defaultComponents, ...hero
+            }
+            break; k
         case "footer":
             components = {
                 ...defaultComponents, ...footer
@@ -62,6 +69,15 @@ const PostContentBlock = ({ type, children }) => {
                 ...defaultComponents, ...comment
             }
             break;
+        case "blog":
+            components = {
+                ...defaultComponents, ...blog
+            }
+            break;
+        default:
+            components = {
+                ...defaultComponents
+            }
     }
     return (<Markdown
         remarkPlugins={
@@ -70,8 +86,7 @@ const PostContentBlock = ({ type, children }) => {
         rehypePlugins={rehypePlugins}
         components={components}
         disallowedElements={type == 'comment' ? elementToDisallowed : []}
-    >
-        {children}
-    </Markdown>)
+        children={typeof children == 'string' ? children : children.props.value.toString()}
+    />)
 }
-export default PostContentBlock
+export default ContentBlock
