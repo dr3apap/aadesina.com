@@ -1,7 +1,7 @@
 function processContactData() {
   const contactForm = document.querySelector('#contact')
   const contactFormCta = document.querySelector('.contact--cta')
-  const url = contactForm.action
+  //const url = contactForm.action
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault()
     const contactData = new FormData(e.target)
