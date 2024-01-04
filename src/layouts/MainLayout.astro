@@ -1,0 +1,67 @@
+---
+import Layout from './Layout.astro'
+//import PageScripts from './PageScripts.astro'
+import  getAllPageData from '../utils/getPageData.js'
+import { getRoutes, ROUTES  } from '../constants/routes.js';
+import LayoutHeader from '../components/pages-header/pages-header.jsx'
+import pagesHeaderImg from '../scripts/headerImg.js' 
+
+const pageData = await getAllPageData()
+const {hero, about, character:avatar, demo:{demos, sectionIntro}} = pageData.config
+const {
+        // Page meta data for open graph
+        title,
+        ogTitle,
+        description,
+        ogGradient,
+         page:{
+             // Banner and character for each page
+             banner,
+             character,
+             // Current route
+             route,
+             demosData,
+             heroData,
+             aboutData,
+
+         },
+    } = Astro.props
+const contentProps = {
+route,
+posts:pageData.posts,
+demosData:demosData || {sectionIntro, demos},
+feature:pageData.feature,
+heroData:heroData  || hero,
+aboutData:aboutData || about,
+postCategories:pageData.postCategories,
+demos:pageData.demos ,
+tags:pageData.tags,
+content:pageData.content,
+}
+
+---
+
+
+<Layout
+  title={title}
+  description={description}
+  ogTitle={title}
+  ogGradient='3'
+
+>
+<LayoutHeader {...pagesHeaderImg}/> 
+<main class="max-w-screen-la px-8 mx-auto">
+{Object.keys(ROUTES).map(ROUTE => {
+const routeObj = ROUTES[ROUTE]
+if (!routeObj.render || (!Object.keys(ROUTES).includes(route.slice(1)) && route != '/')) return null;
+const PageComponent = routeObj.renderer
+return (
+        <section data-tab-panel="true" id={routeObj.link} class={route.startsWith(routeObj.link)?'block':'hidden'}>
+        {PageComponent && <PageComponent {...contentProps}/>}
+        </section>
+      )})}
+
+</main>
+
+
+
