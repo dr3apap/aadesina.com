@@ -1,13 +1,10 @@
 import React from 'react';
 import DemoCard from '../demo-card/demo-card';
-function Demos({ data }) {
+import ContentBlock from '../../components/content-block/content-block'
+function Demos({ sectionIntro, demos }) {
     return (<section id="demos" tabIndex="-1" className="mt-20 p-0">
         <div className="demos-header mb-8">
-            <h2 className="text-fluid-2 mb-4 p-0">Adebola's Demos</h2>
-            <p>
-                Learning is effective when it's combined with doing and havning fun.
-            </p>
-            <p>I created some demos and systems.</p>
+            <ContentBlock type='demo' children={sectionIntro} />
         </div>
 
         {/* Carousel */}
@@ -20,7 +17,8 @@ function Demos({ data }) {
 
                 <div className="demos-slider inline-flex items-start gap-x-5 touch-none transition duration-150">
                     {/* Demos card */}
-                    {data.map((demo) => (<DemoCard key={demo.title} {...demo} />
+                    {demos.map((demo) => (<DemoCard key={demo
+                        ._id}  {...demo} />
                     ))}
 
                 </div>{/* carousel slider*/}
