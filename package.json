@@ -32,6 +32,7 @@
     "rehype-raw": "^6.1.1",
     "remark-gfm": "^3.0.1",
     "sanitize-html": "^2.8.1",
+    "sanity": "file:../../../../../latest",
     "storybook": "^7.5.1",
     "tailwindcss": "^3.3.3",
     "unist-util-visit": "^4.1.1"
