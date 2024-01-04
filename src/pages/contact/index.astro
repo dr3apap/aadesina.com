@@ -1,11 +1,20 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import ContactForm from "../../components/contact/contact-form.jsx";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../config";
+import MainLayout from "../../layouts/MainLayout.astro"
+import { ROUTES } from '../../constants/routes'
+const page = {
+route:ROUTES.contact.link,
+}
+let title = 'Adebola"s Contact form'
+let description = 'Contact Adebola for any related tech work or tech gist'
 ---
-<Layout title={SITE_TITLE} description={SITE_DESCRIPTION} landingPage={false} contact={true}>
-      <ContactForm/>
-</Layout>
+<MainLayout 
+title={title} 
+description={description} 
+ogTitle={title}
+ogGradient='7'
+page={page}
+/>
+
 <script>
- import '../../scripts/contact-form.js';
+import "../../scripts/contact-form.js"
 </script>
