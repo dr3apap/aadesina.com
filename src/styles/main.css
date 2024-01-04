@@ -535,7 +535,9 @@
   }
 
   .demos-slider--card {
-    width:13rem;
+    flex-basis:13rem;
+    flex-grow:1;
+
     @apply grid bg-surface-1-accent gap-y-4 drop-shadow-md mb-4 relative items-start;
 
   }
