@@ -1,79 +1,21 @@
 ---
-import Hero from "../components/hero/hero";
-import Layout from '../layouts/Layout.astro'
-import About from '../components/about/about'
-import Demos from "../components/demo/demos";
-import FeatureDemo from "../components/feature-demo/feature-demo";
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
-const demosData = {
-  data:[
-    {
-        title:"Game Hub",
-        description:"A nice collections of online web games that can be play for fun and leizure. Play with online friends save your progress and chat live with other gamer and socialize",
-        link:"#",
-        skills:["css.svg", "react.svg", "tailwind.svg", "node.svg", "html.svg", "ts.svg", "javascript.svg"
-        ],
-        imageSrc:"game.jpg",
-  },
-   {
-        title:"Calendar",
-        description:"A program for days of the week, months of the year and personal memos that can be use to mark and memonize a particular event for a specific time, it also have journal, event and event reminder",
-        link:"",
-        skills:["css.svg", "react.svg", "tailwind.svg", "node.svg", "html.svg", "ts.svg","javascript.svg"
-        ],
-        imageSrc:"calendar.jpg",
-  },
-   {
-        title:"Uptime Check",
-        description:"This program allow dev-op/administrator or anyone with web asset web site or Api to track the status of the server, get notififcations for up; down and timeout state of the server ...", 
-        link:"#",
-        skills:["css.svg", "react.svg", "tailwind.svg", "node.svg", "html.svg", "ts.svg","javascript.svg"
-        ],
-        imageSrc:"programming.jpg",
-  },
-  {
-        title:"3D Animation",
-        description:"Graphic display and manipulation is one of the intrigue things about the Web and most computer applications. Knowing the concept and ideas about it is more appealing",
-        link:"#",
-        skills:["css.svg", "react.svg", "tailwind.svg", "node.svg", "html.svg", "ts.svg", "javascript.svg"
-        ],
-        imageSrc:"3d.jpg",
-  }
-],
-
-feature:{
-      title:"Bug Tracker",
-      description:"A ticket/issues tracker for program describing the specific error(s) or issue(s) in details and allow developer or dev-op to respond to such error(s) or issue(s) while allowing updates and response to the ticket barrier",
-        link:"#",
-        skills:["css.svg", "react.svg", "tailwind.svg", "node.svg", "html.svg", "ts.svg","javascript.svg"
-        ],
-        imageSrc:"bug-tracker.png",
+import MainLayout from '../layouts/MainLayout.astro'
+import { siteMetaData } from '../config'
+import { ROUTES } from '../constants/routes.js'
+const { mainPage, mainPageDes } = siteMetaData
+const page = {
+    route:ROUTES.home.link,
 }
-};
-const { data } = demosData;
-const { feature } = demosData;
 ---
 
+<MainLayout
+  title={mainPage}
+  description={mainPageDes}
+  ogTitle={mainPage}
+  ogGradient='1'
+  page={page}
+/>
 
-<Layout
-  title={SITE_TITLE}
-  description={SITE_DESCRIPTION}
-  ogTitle={SITE_TITLE}
-  landingPage={true}
->
-<Hero/>
-<!-- <div class="p-8 mx-auto my-0 max-w-screen-md">
-  <main class="grid grid-flow-row gap-44"> -->
-    <About />
-    <FeatureDemo {...feature}/>
-    <Demos {data}/>
-  <!-- </main> -->
-  <p class="mt-12">
-  Like what you read or see so far and have an idea or ideas, business or
-  businesses that you want to turn into reality or elevated? do not hesitate
-  to contact me. I'm open to working with individuals, organization and
-  groups. <a href="/contact" class="text-brand font-bold decoration-4 decoration-brand">Contact<a>
-</p>
-<!-- </div> -->
-</Layout>
-<script> import "../scripts/demo.js" </script>
+<script>
+    import "../scripts/demo.js"
+</script>
