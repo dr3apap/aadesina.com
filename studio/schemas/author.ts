@@ -1,6 +1,6 @@
 import {defineField, defineType} from 'sanity'
 
-  export default defineType({
+export default defineType({
   name: 'author',
   title: 'Author',
   type: 'document',
@@ -12,7 +12,6 @@ import {defineField, defineType} from 'sanity'
       name: 'title',
       title: 'Title',
       type: 'string',
-      //validation: Rule => Rule.required(),
     }),
     defineField({
       name: 'name',
@@ -49,7 +48,7 @@ import {defineField, defineType} from 'sanity'
     defineField({
       name: 'bio',
       title: 'Bio',
-      type: 'markdown'
+      type: 'markdown',
     }),
   ],
   preview: {
@@ -58,3 +57,4 @@ import {defineField, defineType} from 'sanity'
     },
   },
 })
+

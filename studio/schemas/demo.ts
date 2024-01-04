@@ -1,67 +1,72 @@
-import {defineType, defineField} from 'sanity';
+import {defineType, defineField} from 'sanity'
 
 export default defineType({
-    name:'demo',
-    title:'Demo',
-    type:'document',
-    initialValue:{
-        feature:false,
+  name: 'demo',
+  title: 'Demo',
+  type: 'document',
+  fields: [
+    defineField({
+      name: 'demoTitle',
+      title: 'DemoTitle',
+      type: 'string',
+    }),
+
+    defineField({
+      name: 'demoCard',
+      title: 'DemoCard',
+      description: 'Demos"s Card content',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'image',
+          title: 'Image',
+          type: 'string',
+        }),
+        defineField({
+          name: 'imageAlt',
+          title: 'ImageAlt',
+          type: 'string',
+        }),
+        defineField({
+          name: 'skills',
+          title: 'Skills',
+          description: 'Skill used for demo',
+          type: 'array',
+          of: [{type: 'string'}],
+        }),
+
+        defineField({
+          name: 'link',
+          title: 'Link',
+          description: 'Link to demo',
+          type: 'string',
+        }),
+        defineField({
+          name: 'description',
+          title: 'Description',
+          description: 'Demo"s description',
+          type: 'markdown',
+        }),
+      ],
+    }),
+    defineField({
+      name: 'feature',
+      title: 'Featrue',
+      type: 'boolean',
+    }),
+  ],
+  initialValue: {
+    feature: false,
+  },
+
+  preview: {
+    select: {
+      title: 'demoTitle',
+      link: 'link',
     },
-    fields:[
-        defineField({
-            name:'title',
-            title:"Demo's name",
-            type:'string',
-        }),
-        defineField({
-            name:'image',
-            title:'Image',
-            type:'string',
-        }),
-        defineField({
-            name:'description',
-            title:'Description',
-            type:'string',
-        }),
-        defineField({
-            name:'skills',
-            title:'Skills',
-            description:'Skills use for demo',
-            type:'array',
-           of: [{ type:'string'}],
-          
-        }),
 
-        defineField({
-            name:'links',
-            title:'Links',
-            type:'array',
-            of:[
-                {
-                    type:'object',
-                    fields:[
-                        defineField({
-                            name:'label',
-                            title:'Label',
-                            type:'string',
-                        }),
-
-                        defineField({
-                            name:'url',
-                            title:'URL',
-                            type:'url',
-                        }),
-                    ]
-                }
-            ]
-        }),
-    ],
-    preview:{
-        select:{
-            title:'title',
-            skills:'skills',
-            media:'mainImage'
-
-        }
-    }
+    prepare({link, title}) {
+      return {title, subtitle: link && `link to ${title}`}
+    },
+  },
 })
