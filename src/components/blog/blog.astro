@@ -1,0 +1,34 @@
+---
+import BlogHeader from '../../components/blog-header/blog-header';
+import Layout from '../Layout.astro'
+import BlogHeading from '../../components/blog-heading/blog-heading';
+import BlogLink from '../../components/post-link/post-link';
+import Categories from '../../components/blog-categories/blog-categories';
+import PostFilter from '../../components/post-filter/post-filter.jsx';
+const {  posts } = Astro.props
+---
+'aadesina.com'.toUpperCase()
+<Fragment>
+	<BlogHeading/>
+  <article class="grid grid-cols-1 gap-y-8">
+        <Categories client:load posts={posts} />
+    <PostFilter client:load/>
+<div class="">
+     <h3 class="text-fluid-2  text-text-2-accent mb-2 uppercase tracking-wide">Latest Posts</h3>
+     <p>Here is where you will find what I'm currently exploring or just experienced.</p>
+     </div>
+{posts?.length > 0 && (<ul id="posts" class="">
+      {
+        posts.map((post: Post) => (
+          <BlogLink
+            key={post?._id}
+            category={post?.category}
+            pubDate={post?.publishedAt}
+            title={post?.title}
+            url={`/posts/${post?.slug.current}`}
+          />
+        ))
+      }
+    </ul>) || <h3 class="text-fluid-1 text-text-2">Coming soon please stay tune!!</h3>}
+  </article>
+</Fragment>
