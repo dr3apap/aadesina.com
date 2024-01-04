@@ -1,35 +1,35 @@
 ---
-import type { Post }  from "../blog/index.astro";
-import Layout from "../../layouts/Layout.astro";
-import { getAllPostData } from "../../constants/queries";
-import PostLayout from "../../components/post-layout/post-layout";
-import blogHeroData from "../../scripts/blog.js";
+import PostLayout from "../../components/post-layout/post-layout"
+import Layout from "../../layouts/Layout.astro"
+import { getAllPostData } from '../../constants/queries'
+import blogHeroData from "../../scripts/headerImg.js"
 
 export async function getStaticPaths(){
-    const posts:Post[] = await getAllPostData();
-    return posts?.map(({slug, ...props }) => {
-        return {
-            params:{post:slug.current},
-            props:{...props, slug},
-
-        };
-    });
+    const posts = await getAllPostData() 
+    return posts.map(({slug, ...props}) => {
+            return { params:{post:slug.current},
+                     props:{...props, slug},
+                   }
+         })
 }
-const post  = Astro.params || {};
-const  title =  Astro.props?.tiltle || "Posts Coming Soon";
-description = Astro.props.description || "Sorry No post yet!";
-const shareLink = `https://www.twitter.com/intent/tweet?text=${encodeURIComponent(`"${title}" via @Dr3_147\n`)}https://aadesina.netlify.app/posts/${post}/`;
+
+const { title, ...props} = Astro.props
+const { post } = Astro.params;
+const { heroData }  = blogHeroData;
+
+const description = post.description || "Sorry No post yet!";
+const shareLink = `https://www.twitter.com/intent/tweet?text=${encodeURIComponent(`"${title}" via @Dr3_147\n`)}https://aadesina.com/posts/${post.current}/`;
+
 
 ---
 
 <Layout title={title}
 description={description}
-landingPage={false}
-ogGradient={Astro.props?.og?.ogGradient}
-ogHue={Astro.props?.og?.ogHue}
-ogTitle={Astro.props?.og?.ogTitle}
+ogGradient={props?.og?.ogGradient}
+ogHue={props?.og?.ogHue}
+ogTitle={props?.og?.ogTitle}
 >   
-<PostLayout sharelink={shareLink} heroImageSrc={blogHeroData.heroImageSrc}  {...Astro.props}/>
+<PostLayout sharelink={shareLink} heroData={heroData}  {...Astro.props}/>
 </Layout>
 <script>
     import '../../scripts/copy-cats.js';
