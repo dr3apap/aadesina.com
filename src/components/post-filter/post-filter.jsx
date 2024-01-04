@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import PostLink from '../post-link/post-link'
+import { PostLink } from '../../components/blog/blog.jsx'
 import getFilteredPosts from './post-filter.js'
 
 function PostFilter() {
@@ -17,6 +17,7 @@ function PostFilter() {
         async function fetchFilteredPosts() {
             const posts = await getFilteredPosts(filterInput);
             posts && setFilteredPosts(posts);
+            console.log('Inside use effect: ', posts)
         }
         fetchFilteredPosts();
     }, [filterInput]);
@@ -43,15 +44,10 @@ function PostFilter() {
                 </svg>
             </form>
             <ul className="grid gap-y-3">
-                {filteredPosts && (filteredPosts.length > 0 && (filteredPosts.map((post) => (
-                    <PostLink
-                        key={post._id}
-                        pubDate={post.publishedAt}
-                        title={post.title}
-                        url={`/posts/${post.slug.current}`}
-                        category={post.category}
-                    />
-                ))) || filterInput.length > 0 && <p className="text-fluid--2 text-brand">Sorry, your search did not return any result please check back later for post(s) tag <span className="italic text-text-2">{filterInput}.</span></p>) ||
+                {filteredPosts && (filteredPosts.length > 0 && (<PostLink
+                    {...{ selection: filteredPosts, title: 'Post by Filter' }}
+                />
+                ) || filterInput.length > 0 && <p className="text-fluid--2 text-brand">Sorry, your search did not return any result please check back later for post(s) tag <span className="italic text-text-2">{filterInput}.</span></p>) ||
                     filterInput.length > 0 && <p className="text-fluid--2 text-red-800">Sorry, your search did not match any valid tag, kindly refine your search.</p>}
             </ul>
         </div>
