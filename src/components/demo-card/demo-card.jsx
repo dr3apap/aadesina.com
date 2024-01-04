@@ -1,16 +1,17 @@
 import React from 'react'
+import ContentBlock from '../../components/content-block/content-block'
 
-function DemoCard({ imageSrc, description, title, skills, link }) {
+function DemoCard({ demoCard: { image: imageSrc, imageAlt, description, title, skills, link }, demoTitle }) {
     return (
         <div className="demos-slider--card relative">
             <div className="">
                 <img
                     src={`/asset/demos/${imageSrc}`}
-                    alt={`Image of ${imageSrc.replace(/\.jpg|png|svg/, '')}`}
+                    alt={`Image of ${imageAlt ? imageAlt : imageSrc.replace(/\.jpg|png|svg/, '')}`}
                     className="w-full aspect-square"
                 />
             </div>
-            <h3 className="text-fluid-1 px-4 text-text-2-accent tracking-wide">{title}</h3>
+            <h3 className="text-fluid-1 px-4 text-text-2-accent tracking-wide">{demoTitle}</h3>
             <details className="demo--accordion px-1 bg-surface-1">
                 {/*accordion */}
                 <summary
@@ -37,8 +38,8 @@ function DemoCard({ imageSrc, description, title, skills, link }) {
                         <h3 className="text-fluid-2 la:text-fluid-1 mb-2 text-text-2-accent tracking-wide">
                             Description
                         </h3>
-
-                        <p className="text-fluid--1">{description}</p>
+                        {/*<p className="text-fluid--1">{description}</p>*/}
+                        <ContentBlock type="demo" children={description} />
                     </div>
                     <div className="p-1">
                         <h3 className="text-fluid-1 p-0 my-2 text-text-2-accent tracking-wide">Skills</h3>
@@ -47,11 +48,8 @@ function DemoCard({ imageSrc, description, title, skills, link }) {
                                 <span className="w-8 h-8 grid place-items-center rounded-full bg-surface-3 hover:bg-surface-2">
                                     <img
                                         key={index}
-                                        src={`/asset/skills/${skillIcon}`}
-                                        alt={`image of ${skillIcon.replace(
-                                            /\.svg/,
-                                            ''
-                                        )}`}
+                                        src={`/asset/skills/${skillIcon}.svg`}
+                                        alt={<span className="sr-only"> `Icon of ${skillIcon}`</span>}
                                     />
                                 </span>
                             ))}{' '}
@@ -72,15 +70,15 @@ function DemoCard({ imageSrc, description, title, skills, link }) {
                         </svg>
                     </span>
                 </div>
-            </details>{' '}
+            </details > {' '}
             {/* accordion end */}
             <a
                 href={link}
                 className="block p-4 text-text-accent-2 underline underline-offset-2 decoration-brand decoration-2 cursor-pointer"
             >
-                {title}
+                {`Try-${demoTitle.trim()}`}
             </a>
-        </div>
+        </div >
     )
     {
         /* demos card end */
