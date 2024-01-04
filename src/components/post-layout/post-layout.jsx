@@ -3,11 +3,11 @@ import BlogComments from '../post-comments/post-comments'
 import BlogCommentForm from '../post-comment-form/comment-form'
 import PostContentBlock from '../content-block/content-block.jsx'
 
-function PostLayout({ sharelink, heroImageSrc, ...props }) {
+function PostLayout({ heroData, sharelink, ...props }) {
     return (
         <>
             <PostHeader
-                heroImageSrc={heroImageSrc}
+                heroData={heroData}
                 sharelink={sharelink}
                 {...props}
             />
@@ -33,13 +33,13 @@ function PostLayout({ sharelink, heroImageSrc, ...props }) {
                                 </svg>
                             </span>
                             <PostContentBlock type="footer">
-                                {props.siteConfig?.footer}
+                                {props.siteConfig?.posts?.footer}
                             </PostContentBlock>
                         </aside>
                     )}
 
                     <form
-                        className="border-2 border-dotted border-accent p-2"
+                        className="border-2 border-dotted border-accent p-2 flex"
                         id="subscription"
                         action=""
                         method="POST"
@@ -50,23 +50,18 @@ function PostLayout({ sharelink, heroImageSrc, ...props }) {
                                 type="text"
                                 name="subscribe"
                                 id="subscribe"
-                                className="p-2 border border-solid m-0 w-[70%] sm:w-[65%] rounded-md text-fluid--2"
+                                className="p-2 border border-solid m-0 w-[70%] rounded-md text-fluid--2"
                                 placeholder="Subscribe no spam!"
                             />
-                            <input
-                                type="submit"
-                                name="subscription"
-                                value="Subscribe"
-                                className="p-2 bg-accent border border-solid -ml-3 text-brand w-[30%] sm:w-[35%] rounded-full rounded-tl-none rounded-bl-none text-fluid--2"
-                            />
                         </label>
+                        <button className="w-[30%] text-fluid--2 p-2 rounded-full rounded-tl-none rounded-bl-none bg-accen" type="submit">Subscribe</button>
                     </form>
                     <h3 className="grid grid-cols-[1fr_auto_1fr] gap-4 items-center mt-8 font-bold text-fluid-1 before:block before:h-4 before:bg-gradient-to-r before:from-accent before:to-brand  after:block after:h-4 after:bg-gradient-to-l after:from-accent after:to-brand">
                         Reader Comments
                     </h3>
                     <div className="comments flex flex-col border-2 border-solid p-4 gap-y-6 w-full">
                         {props.comments?.length > 0 &&
-                            props.comments?.map((comment) => (
+                            props.comments.map((comment) => (
                                 <BlogComments key={comment.id} comment={comment} />
                             ))}
                         <BlogCommentForm />
