@@ -50,7 +50,7 @@ content:pageData.content,
 
 >
 <LayoutHeader {...pagesHeaderImg}/> 
-<main class="max-w-screen-la px-8 mx-auto">
+<main class="max-w-screen-la px-4 mx-auto">
 {Object.keys(ROUTES).map(ROUTE => {
 const routeObj = ROUTES[ROUTE]
 if (!routeObj.render || (!Object.keys(ROUTES).includes(route.slice(1)) && route != '/')) return null;
