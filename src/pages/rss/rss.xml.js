@@ -5,13 +5,14 @@ const rssData = await getRssData();
 const siteConfig = rssData.config || {}
 const allTags = rssData.tags || []
 const posts = rssData.posts || []
+const allCategory = rssData.category || []
 
 const metadata = {
   url: siteConfig?.rss?.url || 'https://aadesina.com/',
   title: siteConfig?.rss?.title || 'Adebola Adesina',
   subtitle: siteConfig?.rss?.subtitle || 'Posts from Adebola',
   description:
-    siteConfig?.rss?.description || 'The RSS feed for posts from Adebola Adesina',
+  siteConfig?.rss?.description || 'The RSS feed for posts from Adebola Adesina',
   author: siteConfig?.character?.name || 'Adebola Adesina',
   email: 'rss@aadesina.com',
 }

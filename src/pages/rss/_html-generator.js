@@ -36,12 +36,12 @@ export const generatePosts = (posts, metadata) =>
     posts
       .map((post) => {
         if (post.excludeFromRss) return null
-        let tags = post.tags ? [...post?.tags.filter((t) => t !== null)] : []
+        let tags = post?.tags ? [...post.tags.filter((t) => t !== null)] : []
         return `
       <item>
         <title>${post.title}</title>
         <link>${post.url}</link>
-        <author>${metadata.email} (${post.author})</author>
+        <author>${metadata.email} (${post.author.name})</author>
         ${
           post.body
             ? `<description><![CDATA[${genHtml(post.body)}]]></description>`
@@ -50,18 +50,18 @@ export const generatePosts = (posts, metadata) =>
         <pubDate>${new Date(post.publishedAt).toUTCString()}</pubDate>
         <guid isPermaLink="true">${post.url}</guid>
         <source url="${metadata.url}rss/${
-          metadata.tag ? `${metadata.tag}` : 'rss'
+          metadata.category ? `${metadata.category}` : 'rss'
         }.xml">Adebola Adesina${
-          metadata.tag ? ` ${metadata.tag}` : ''
+          metadata.category ? ` ${metadata.category}` : ''
         } RSS feed</source>
         ${
-          post.category !== undefined
-            ? `<category>${category.title}</category>`
+          post.category !== null
+            ? `<category>${post.category.name}</category>`
             : ''
         }
         ${
           tags && tags.length > 0
-            ? tags.map((tag) => `<catergory>${tag}</catergory>`)
+            ? tags.map((tag) => `<catergory>${tag.title}</catergory>`)
             : ''
         }
       </item>
@@ -88,7 +88,7 @@ export const genRssMarkup = (
       <title>${metadata.title}</title>
       <link>${metadata.url}</link>
       <atom:link href="${metadata.url}rss/${
-  metadata.tag ? metadata.tag : 'rss'
+  metadata.category ? metadata.category : 'rss'
 }.xml" rel="self" type="application/rss+xml" />
       <description>${metadata.description}</description>
       <language>en-us</language>
@@ -96,8 +96,10 @@ export const genRssMarkup = (
       <docs>https://www.rssboard.org/rss-specification</docs>
       <pubDate>${new Date().toUTCString()}</pubDate>
       <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-      <managingEditor>${metadata.email} (${metadata.author})</managingEditor>
-      <webMaster>${metadata.email} (${metadata.author})</webMaster>
+      <managingEditor>${metadata.email} (${
+  metadata.author.name
+})</managingEditor>
+      <webMaster>${metadata.email} (${metadata.author.name})</webMaster>
       <image>
         <url>${metadata.url}${metadata.author?.avatar?.slice(1)}</url>
         <title>${metadata.title}</title>
