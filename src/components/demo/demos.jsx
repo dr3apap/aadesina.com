@@ -15,7 +15,7 @@ function Demos({ sectionIntro, demos }) {
 
                 {/* Demos cards wrapper */}
 
-                <div className="demos-slider inline-flex items-start gap-x-5 touch-none transition duration-150">
+                <div className="demos-slider inline-flex items-start gap-x-2 touch-none transition duration-150 ">
                     {/* Demos card */}
                     {demos.map((demo) => (<DemoCard key={demo
                         ._id}  {...demo} />

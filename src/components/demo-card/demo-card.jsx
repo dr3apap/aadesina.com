@@ -3,7 +3,7 @@ import ContentBlock from '../../components/content-block/content-block'
 
 function DemoCard({ demoCard: { image: imageSrc, imageAlt, description, title, skills, link }, demoTitle }) {
     return (
-        <div className="demos-slider--card relative">
+        <div className="demos-slider--card relative shrink-0">
             <div className="">
                 <img
                     src={`/asset/demos/${imageSrc}`}
@@ -38,7 +38,6 @@ function DemoCard({ demoCard: { image: imageSrc, imageAlt, description, title, s
                         <h3 className="text-fluid-2 la:text-fluid-1 mb-2 text-text-2-accent tracking-wide">
                             Description
                         </h3>
-                        {/*<p className="text-fluid--1">{description}</p>*/}
                         <ContentBlock type="demo" children={description} />
                     </div>
                     <div className="p-1">
