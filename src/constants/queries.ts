@@ -45,6 +45,7 @@ export const SITE_CONFIG = `
     hero,
     rss{...},
     character->{
+        ...,
       "avatar": image,
     },
     demo{..., demos[]->{...}},
@@ -56,7 +57,7 @@ export const ALL_POSTS = `
 
 export const ALL_POST_DATA: Query = `
 *[_type =="post"]{
-  title, slug, body, publishedAt, category->{title},
+  title, slug, body, publishedAt, category->{name},
   tags[]->{title},
  "numOfComment":count(comments[]), 
  comments[]->{"commentBody":body, publishedAt, "id":_id, 
@@ -69,9 +70,7 @@ export const RSS_POSTS: Query = `
   *[_type == "post"]{
     ...,
     category->{name},
-    posts[]->{
-      tags[]->{...}
-    },
+    tags[]->{title},
     author->{
       "avatar": image,
       ...
@@ -79,11 +78,15 @@ export const RSS_POSTS: Query = `
   } | order(publishedAt desc)
 `
 export const ALL_TAGS = `
-  *[_type == "tag"] | order(title)
+  *[_type == "tag"] | order(title){
+      ...
+  }
 `
 
 export const ALL_CATEGORY = `
-*[_type == "category"] | order(name)
+*[_type == "category"] | order(name){
+    ...
+}
 `
 
 export const RSS_FEED: Query = `
