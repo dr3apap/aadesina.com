@@ -6,7 +6,7 @@ function Footer({ items }) {
                 {' '}
                 {/* Footer items wrapper*/}
                 <ul className="font-bold flex gap-x-2 self-start">
-                    {items.filter((item) => item.tabLabel != "Contact").map(({ active, link, tabLabel }) => { return <li className="text-center hover:bg-surface-3" key={tabLabel}><a data-tab-current={active} className={"font-bold grid place-items-center w-full h-full text-text-2-accent block hover:no-underline focus-visible:outline-0 focus-visible:bg-surface-2"} href={tabLabel == 'Demos' || tabLabel == 'About' ? `/#${tabLabel.toLowerCase()}` : tabLabel == 'Home' ? '/' : `/${tabLabel.toLowerCase()}`}><span className={`${active ? "border-b-brand text-text-1" : ""}decoration-4 decoration-brand p-2 px-4 border-y-4 border-transparent`}>{tabLabel}</span></a></li> })}</ul>
+                    {items.filter((item) => item.tabLabel != "Contact").map(({ active, link, tabLabel }) => { return <li className="font-bold text-center hover:bg-surface-3" key={tabLabel}><a data-tab-current={active} className={"font-bold grid place-items-center w-full h-full text-text-2-accent block hover:no-underline focus-visible:outline-0 focus-visible:bg-surface-2"} href={tabLabel == 'Demos' || tabLabel == 'About' ? `/#${tabLabel.toLowerCase()}` : tabLabel == 'Home' ? '/' : `/${tabLabel.toLowerCase()}`}><span className={`${active ? "border-b-brand text-text-1" : ""}decoration-4 decoration-brand p-2 px-4 border-y-4 border-transparent`}>{tabLabel}</span></a></li> })}</ul>
 
                 <div className="flex gap-x-4 flex-wrap justify-center">
                     <a

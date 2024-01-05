@@ -12,9 +12,9 @@ const Nav = ({ items }) => {
                     <span className="nav-toggle-tabLabel sr-only">Menu Control</span>
                 </div>
             </div>
-            <ul id="nav-toggle" aria-expanded="false" role-tabLabel="nav-list" className="col-[1_/-1] flex gap-2 max-w-screen-la md:col-[2_/3] mx-auto lg:w-[768px] lg:translate-x-[2.9rem]">
+            <ul id="nav-toggle" aria-expanded="false" role-tabLabel="nav-list" className="col-[1_/-1] flex md:col-[2_/3] mx-auto lg:w-[768px] lg:translate-x-[2.9rem]">
 
-                {items.map(({ active, link, tabLabel }) => { return <li className="text-center" key={tabLabel}><a data-tab-current={active} className={"font-bold grid place-items-center w-full h-full text-text-2-accent block hover:no-underline focus-visible:outline-0 focus-visible:bg-surface-2"} href={tabLabel == 'Demos' || tabLabel == 'About' ? `/#${tabLabel.toLowerCase()}` : tabLabel == 'Home' ? '/' : `/${tabLabel.toLowerCase()}`}><span className={`${active ? "border-b-brand text-text-1" : ""}decoration-4 decoration-brand p-2 px-4 border-y-4 border-transparent`}>{tabLabel}</span></a></li> })}</ul>
+                {items.map(({ active, link, tabLabel }) => { return <li className="text-center hover:bg-surface-3 text-fluid--1`" key={tabLabel}><a data-tab-current={active} className={"font-bold grid place-items-center w-full h-full text-text-2-accent block hover:no-underline focus-visible:outline-0 focus-visible:bg-surface-2"} href={tabLabel == 'Demos' || tabLabel == 'About' ? `/#${tabLabel.toLowerCase()}` : tabLabel == 'Home' ? '/' : `/${tabLabel.toLowerCase()}`}><span className={`${active ? "border-b-brand text-text-1" : ""}decoration-4 decoration-brand p-2 px-4 border-y-4 border-transparent`}>{tabLabel}</span></a></li> })}</ul>
 
         </nav>
         <ThemeToggle />
