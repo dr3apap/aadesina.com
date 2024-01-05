@@ -56,7 +56,7 @@ export const ALL_POSTS = `
 
 export const ALL_POST_DATA: Query = `
 *[_type =="post"]{
-  title, slug, body, publishedAt, category->{name},
+  title, slug, body, publishedAt, category->{title},
   tags[]->{title},
  "numOfComment":count(comments[]), 
  comments[]->{"commentBody":body, publishedAt, "id":_id, 
@@ -68,6 +68,7 @@ export const ALL_POST_DATA: Query = `
 export const RSS_POSTS: Query = `
   *[_type == "post"]{
     ...,
+    category->{name},
     posts[]->{
       tags[]->{...}
     },
@@ -81,11 +82,16 @@ export const ALL_TAGS = `
   *[_type == "tag"] | order(title)
 `
 
+export const ALL_CATEGORY = `
+*[_type == "category"] | order(name)
+`
+
 export const RSS_FEED: Query = `
   {
     "posts": ${RSS_POSTS},
-    "tags": ${ALL_TAGS},
+    "category": ${ALL_CATEGORY},
     "config": ${SITE_CONFIG},
+    "tags":${ALL_TAGS},
   }
  `
 
