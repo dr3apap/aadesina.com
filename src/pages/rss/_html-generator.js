@@ -97,9 +97,9 @@ export const genRssMarkup = (
       <pubDate>${new Date().toUTCString()}</pubDate>
       <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
       <managingEditor>${metadata.email} (${
-  metadata.author.name
+  metadata.author?.name
 })</managingEditor>
-      <webMaster>${metadata.email} (${metadata.author.name})</webMaster>
+      <webMaster>${metadata.email} (${metadata.author?.name})</webMaster>
       <image>
         <url>${metadata.url}${metadata.author?.avatar?.slice(1)}</url>
         <title>${metadata.title}</title>
