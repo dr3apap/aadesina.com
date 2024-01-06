@@ -7,10 +7,7 @@ const allTags = rssData?.tags || [];
 let posts = rssData?.posts  || [];
 const allCategory = rssData?.category || [];
 export function getStaticPaths() {
-  // const tagPaths = allTags.length > 0? allTags.map((tag) => {
-  //     return {tag:tag.title}
-  // }):[]
-  const categoryPaths = allCategory.length  > 0? allCategory.map((category, i) => {
+const categoryPaths = allCategory.length  > 0? allCategory.map((category) => {
           return { params: { category: category.name.toLowerCase() },  }
   }):[]
   return categoryPaths
@@ -28,8 +25,8 @@ export const get = ({ params, request }) => {
   }
    posts = posts.length > 0? posts.filter(post => {
     for(const postTag of allTags) {
-    return postTag.name && post.tags && post.tags.length > 0 && post.tags.find(tag => {
-      return tag !== null && tag.name.toLowerCase() === postTag.toLowerCase()
+    return postTag.title && post.tags && post.tags.length > 0 && post.tags.find(tag => {
+      return tag.title !== null && tag.title.toLowerCase() === postTag.title.toLowerCase()
     })}
   }).map((post) => ({
     ...post,

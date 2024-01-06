@@ -14,9 +14,8 @@ const metadata = {
   description:siteConfig?.rss?.description || 'The RSS feed for posts from Adebola Adesina',
   author: siteConfig?.character || '',
   email: 'rss@aadesina.com',
-  catergory:categoryName,
+  category:categoryName,
 }
-
 
 const allPosts = posts.length > 0? posts.map((post) => ({
   ...post,
