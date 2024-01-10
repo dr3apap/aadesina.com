@@ -28,7 +28,7 @@ export default defineType({
       'systemDesign',
     ].map((postCategory) => {
       return defineField({
-        name: postCategory,
+        name: `${postCategory.charAt(0).toUpperCase()}${postCategory.slice(1)}`,
         title: `${postCategory.charAt(0).toUpperCase()}${postCategory.slice(1)}`,
         description: `List of post in ${postCategory} category`,
         type: 'object',
