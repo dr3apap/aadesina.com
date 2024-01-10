@@ -36,7 +36,7 @@ export function PostLink({ title, ...posts }) {
 }
 
 
-const postsByCategory = ["frontEnd", "backEnd", "iot", "operatingSystem", "gameDesign", "systemDesign", "tools"]
+const postsByCategory = ["FrontEnd", "BackEnd", "Iot", "OperatingSystem", "GameDesign", "SystemDesign", "Tools"]
 
 export default function Blog({ postCategories, ...props }) {
     const posts = postsByCategory.filter((category) => !!postCategories.data[category]
