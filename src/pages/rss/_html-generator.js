@@ -31,13 +31,14 @@ const genHtml = (children) => {
   })
 }
 
-export const generatePosts = (posts, metadata) =>
-  (posts.length > 0 &&
-    posts
-      .map((post) => {
-        if (post.excludeFromRss) return null
-        let tags = post?.tags ? [...post.tags.filter((t) => t !== null)] : []
-        return `
+export const generatePosts = (posts, metadata) => {
+  return (
+    (posts.length > 0 &&
+      posts
+        .map((post) => {
+          if (post.excludeFromRss) return null
+          let tags = post?.tags ? [...post.tags.filter((t) => t !== null)] : []
+          return `
       <item>
         <title>${post.title}</title>
         <link>${post.url}</link>
@@ -50,10 +51,10 @@ export const generatePosts = (posts, metadata) =>
         <pubDate>${new Date(post.publishedAt).toUTCString()}</pubDate>
         <guid isPermaLink="true">${post.url}</guid>
         <source url="${metadata.url}rss/${
-          metadata.category ? `${metadata.category}` : 'rss'
-        }.xml">Adebola Adesina${
-          metadata.category ? ` ${metadata.category}` : ''
-        } RSS feed</source>
+            metadata.category ? `${metadata.category}` : 'rss'
+          }.xml">Adebola Adesina${
+            metadata.category ? ` ${metadata.category}` : ''
+          } RSS feed</source>
         ${
           post.category !== null
             ? `<category>${post.category.name}</category>`
@@ -66,9 +67,11 @@ export const generatePosts = (posts, metadata) =>
         }
       </item>
     `
-      })
-      .join('')) ||
-  ''
+        })
+        .join('')) ||
+    ''
+  )
+}
 
 export const genRssMarkup = (
   posts,
@@ -97,11 +100,11 @@ export const genRssMarkup = (
       <pubDate>${new Date().toUTCString()}</pubDate>
       <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
       <managingEditor>${metadata.email} (${
-  metadata.author?.name
+  metadata.author.name
 })</managingEditor>
       <webMaster>${metadata.email} (${metadata.author?.name})</webMaster>
       <image>
-        <url>${metadata.url}${metadata.author?.avatar?.slice(1)}</url>
+        <url>${metadata.url}${metadata.author?.avatar.slice(1)}</url>
         <title>${metadata.title}</title>
         <link>${metadata.url}</link>
       </image>
