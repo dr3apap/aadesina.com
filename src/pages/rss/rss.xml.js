@@ -12,24 +12,24 @@ const metadata = {
   title: siteConfig?.rss?.title || 'Adebola Adesina',
   subtitle:siteConfig?.rss?.subtitle || 'Posts from Adebola',
   description:siteConfig?.rss?.description || 'The RSS feed for posts from Adebola Adesina',
-  author: siteConfig?.character || '',
+  author: siteConfig?.character || {},
   email: 'rss@aadesina.com',
   category:categoryName,
 }
 
-const allPosts = posts.length > 0? posts.map((post) => ({
+const allPosts = posts.length > 0? posts.map((post) => (
+    {
   ...post,
   url: `${metadata.url}posts/${post.slug.current}`,
-})):[]
-const sortedPosts = allPosts.length > 0?[...allPosts].sort((a, b) => {
+}
+)).sort((a, b) => {
   const dateA = new Date(a.publishedAt)
   const dateB = new Date(b.publishedAt)
   return dateB - dateA
 }):[]
-
 export const get = () =>
   new Promise((resolve, reject) => {
     resolve({
-      body: genRssMarkup(sortedPosts, metadata),
+      body: genRssMarkup(allPosts, metadata),
     })
   })
