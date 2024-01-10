@@ -19,14 +19,14 @@ export const POST_BY_CATEGORY: Query = `
 *[_type == "blogContent"]{
 "blogHeading":heading,
 "blogIntro":intro,
-frontEnd{..., selection[]->{...}},
-iot{..., selection[]->{...}},
-operatingSystem{..., selection[]->{...}},
-backEnd{selection[]->{...}},
-tools{..., selection[]->{...}},
-gameDesign{..., selection[]->{...}},
-systemDesign{..., selection[]->{...}},
-networking{..., selection[]->{...}},
+FrontEnd{..., selection[]->{...,tags[]->{title}, author->{image,name,verified}, category->{name}}},
+Iot{..., selection[]->{...,tags[]->{title}, author->{image,name,verified}, category->{name}}},
+OperatingSystem{..., selection[]->{...,tags[]->{title}, author->{image,name,verified}, category->{name}}},
+BackEnd{..., selection[]->{tags[]->{title}, author->{image,name,verified}, category->{name}}},
+Tools{..., selection[]->{...,tags[]->{title}, author->{image,name,verified}, category->{name}}},
+GameDesign{..., selection[]->{...,tags[]->{title}, author->{image,name,verified}, category->{name}}},
+SystemDesign{..., selection[]->{...,tags[]->{title}, author->{image,name,verified}, category->{name}}},
+Networking{..., selection[]->{...,tags[]->{title}, author->{image,name,verified}, category->{name}}},
 }`
 
 export const FILTER_BY_TAG: Query = `*[_type == 'post' && tag in tags[].title]{
@@ -47,6 +47,7 @@ export const SITE_CONFIG = `
     character->{
         ...,
       "avatar": image,
+      name
     },
     demo{..., demos[]->{...}},
   }
@@ -73,6 +74,7 @@ export const RSS_POSTS: Query = `
     tags[]->{title},
     author->{
       "avatar": image,
+      name,
       ...
     }
   } | order(publishedAt desc)
@@ -85,6 +87,7 @@ export const ALL_TAGS = `
 
 export const ALL_CATEGORY = `
 *[_type == "category"] | order(name){
+    name,
     ...
 }
 `
