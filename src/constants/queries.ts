@@ -171,6 +171,10 @@ export const getPostByCategory = async () => {
   return getData(POST_BY_CATEGORY, '')
 }
 
+export const getAllCategory = async () => {
+  return getData(ALL_CATEGORY, '')
+}
+
 export const getDemoFeature = async () => {
   return getData(FEATURE, '')
 }
