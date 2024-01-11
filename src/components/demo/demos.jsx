@@ -1,12 +1,13 @@
 import React from 'react';
 import DemoCard from '../demo-card/demo-card';
 import ContentBlock from '../../components/content-block/content-block'
-function Demos({ sectionIntro, demos }) {
-    return (<section id="demos" tabIndex="-1" className="mt-20 p-0">
-        <div className="demos-header mb-8">
+import Feature from '../../components/feature-demo/feature-demo'
+function Demos({ sectionIntro, demos, feature }) {
+    return (<section id="demos" tabIndex="-1" className="mt-20 p-0 space-y-8">
+        <div>
             <ContentBlock type='demo' children={sectionIntro} />
         </div>
-
+        <Feature {...feature[0]} />
         {/* Carousel */}
         <div className="demos-wrapper relative">
             <div

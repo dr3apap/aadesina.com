@@ -45,7 +45,7 @@ function featureDemo({ demoCard: { image: imageSrc, imageAlt, skills, descriptio
                     Featured
                 </span>
             </div>
-        </section>
+        </div>
     )
 }
 export default featureDemo
