@@ -29,7 +29,7 @@ const {
 const contentProps = {
 route,
 posts:pageData.posts,
-demosData:demosData || {sectionIntro, demos},
+demosData:demosData || demo,
 feature:pageData.feature,
 heroData:heroData  || hero,
 aboutData:aboutData || about,
@@ -50,7 +50,7 @@ content:pageData.content,
 
 >
 <LayoutHeader {...pagesHeaderImg}/> 
-<main class="max-w-screen-la px-4 mx-auto">
+<main class="w-content max-w-full mx-auto flex flex-col gap-8 pt-4">
 {Object.keys(ROUTES).map(ROUTE => {
 const routeObj = ROUTES[ROUTE]
 if (!routeObj.render || (!Object.keys(ROUTES).includes(route.slice(1)) && route != '/')) return null;
