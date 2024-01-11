@@ -153,7 +153,6 @@
     line-height: var(--step-2);
     box-sizing: border-box;
   }
-  
   body {
     min-height: 100vh;
     overflow-x: hidden;
@@ -253,10 +252,6 @@
     font-size: var(--step--1);
   }
 
-  section {
-    padding-top: 4%;
-  }
-
   img {
     max-width: 100%;
     height: auto;
@@ -290,7 +285,7 @@
     text-underline-offset:2px;
   }
    a:hover {
-    text-decoration-line: underline;
+    text-decoration-line:underline;
   }
 
   ul ::marker {
