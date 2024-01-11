@@ -538,7 +538,7 @@
     flex-basis:45%;
     /*flex-grow:1;*/
 
-    @apply grid bg-surface-1-accent gap-y-4 drop-shadow-md mb-4 relative items-start;
+    @apply grid bg-accent-surface-1 gap-y-4 drop-shadow-md mb-4 relative items-start;
 
   }
 

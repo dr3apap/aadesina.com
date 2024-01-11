@@ -42,7 +42,31 @@ export default function Blog({ postCategories, ...props }) {
     const posts = postsByCategory.filter((category) => !!postCategories.data[category]
     )
     const mapPost = posts.map((category) => postCategories.data[category])
-    return <div className="max-w-full">
+    return <div className="px-4">
+        <form
+            className="border-2 border-dotted border-accent grid justify-center gap-y-4 mb-4 p-2 text-center"
+            id="subscription"
+            action=""
+            method="POST"
+        >
+            <p>
+                Keep up to date with events like new posts and my latest adventures!
+            </p>
+            <div className="flex">
+                <input
+                    type="text"
+                    name="emailAdress"
+                    id="emailAdress"
+                    className="p-2 px-4 flex-grow rounded-l-full"
+                    placeholder="Email Address"
+                    aria-label="Email Address"
+                />
+                <button className="font-bold rounded-r-full bg-accent hover:no-underline focus:border-brand focus-visible:border-brand hover:border-brand border-4 text-fluid--1 text-white border-transparent outline-transparent flex gap-x-1 px-3 py-1 " type="submit">Subscribe!</button>
+            </div>
+            <p className="text-fluid--2 text-center text-text-2">No spam! Unsubscribe antyime</p>
+
+        </form>
+
         <ContentBlock type='blog' children={postCategories.data.blogHeading} />
         <ContentBlock type='blog' children={postCategories.data.blogIntro} />
         <div className="w-full flex justify-end">

@@ -38,24 +38,6 @@ function PostLayout({ heroData, sharelink, ...props }) {
                         </aside>
                     )}
 
-                    <form
-                        className="border-2 border-dotted border-accent p-2 flex"
-                        id="subscription"
-                        action=""
-                        method="POST"
-                    >
-                        <label className="block text-fluid-0" htmlFor="subscribe">
-                            Don't want to miss a thing?
-                            <input
-                                type="text"
-                                name="subscribe"
-                                id="subscribe"
-                                className="p-2 border border-solid m-0 w-[70%] rounded-md text-fluid--2"
-                                placeholder="Subscribe no spam!"
-                            />
-                        </label>
-                        <button className="w-[30%] text-fluid--2 p-2 rounded-full rounded-tl-none rounded-bl-none bg-accen" type="submit">Subscribe</button>
-                    </form>
                     <h3 className="grid grid-cols-[1fr_auto_1fr] gap-4 items-center mt-8 font-bold text-fluid-1 before:block before:h-4 before:bg-gradient-to-r before:from-accent before:to-brand  after:block after:h-4 after:bg-gradient-to-l after:from-accent after:to-brand">
                         Reader Comments
                     </h3>

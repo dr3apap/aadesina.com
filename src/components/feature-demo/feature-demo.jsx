@@ -2,20 +2,20 @@ import React from 'react'
 import BlockContent from '../../components/content-block/content-block'
 function featureDemo({ demoCard: { image: imageSrc, imageAlt, skills, description }, demoTitle }) {
     return (
-        <section
+        <div
             id="featured"
-            className="mt-20 overflow-hidden relative flex flex-col shadow-lg sm:flex-row"
+            className="overflow-hidden relative flex flex-col shadow-lg sm:flex-row"
         >
             {/* Feature wrapper */}
             <div className="bg-surface-1 px-4 sm:w-[60%] rounded-sm">
-                <h3 className="text-fluid-1 text-text-2-accent font-bold mt-4 tracking-wide">
+                <h3 className="text-fluid-1 text-accent-text-2 font-bold mt-4 tracking-wide">
                     {demoTitle}
                 </h3>
                 <BlockContent type='feature' children={description} />
                 {/* Skills */}
                 <div className="flex justify-between mt-4 sm:mt-8 pb-3">
                     <div className="">
-                        <h3 className="text-fluid-1 text-text-2-accent font-bold p-0 mb-2 tracking-wide">
+                        <h3 className="text-fluid-1 text-accent-text-2 font-bold p-0 mb-2 tracking-wide">
                             Skills
                         </h3>
                         <div className="flex gap-1 flex-wrap">
@@ -30,7 +30,7 @@ function featureDemo({ demoCard: { image: imageSrc, imageAlt, skills, descriptio
                             ))}{' '}
                         </div>
                     </div>
-                    <button className="self-end bg-brand p-2 px-4 rounded-full text-text-1 text-fluid-1 sm:text-fluid-0 border-2 border-solid border-[goldenrod] hover:bg-surface-1-accent">
+                    <button className="self-end bg-brand p-2 px-4 rounded-full text-text-1 text-fluid-1 sm:text-fluid-0 border-2 border-solid border-[goldenrod] hover:bg-accent-surface-1">
                         Try{' '}{demoTitle}
                     </button>
                 </div>

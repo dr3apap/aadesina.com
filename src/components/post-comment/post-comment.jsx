@@ -33,7 +33,7 @@ function PostComment({ comment, reply }) {
                     </div>
                 </div>
                 <div
-                    className="grid grid-rows-[1fr_auto] gap-2 bg-surface-1-accent rounded-md mt-2 p-4 drop-shadow-md" 
+                    className="grid grid-rows-[1fr_auto] gap-2 bg-accent-surface-1 rounded-md mt-2 p-4 drop-shadow-md"
                 >
                     <PostContentBlock
                         type="comment"

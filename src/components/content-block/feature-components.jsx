@@ -8,8 +8,8 @@ const featureComponents = {
         return <p {...props} className={`text-text-1 mt-2`}></p>
     },
 
-    h3({ node, ...props }) {
-        return <h3 className="text-fluid-1 text-text-2-accent font-bold mt-4 tracking-wide">
+    h3({ node, children, ...props }) {
+        return <h3 className="text-fluid-1 text-text-2-accent font-bold mt-4 tracking-wide">{children}
         </h3>
     },
     img({ node, ...props }) {

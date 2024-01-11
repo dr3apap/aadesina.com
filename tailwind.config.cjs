@@ -32,11 +32,13 @@ module.exports = {
         'surface-4': 'var(--surface4)',
         'brand-stroke': 'var(--stroke)',
         'surface-alpha': 'var(--surface-alpha)',
-        accent: 'var(--brand-accent-hsl)',
-        'text-1-accent': 'var(--text1-accent)',
-        'text-2-accent': 'var(--text2-accent)',
-        'surface-1-accent': 'var(--surface1-accent)',
-        'surface-2-accent': 'var(--surface2-accent)',
+        accent: {
+          DEFAULT: 'var(--brand-accent-hsl)',
+          'text-1': 'var(--text1-accent)',
+          'text-2': 'var(--text2-accent)',
+          'surface-1': 'var(--surface1-accent)',
+          'surface-2': 'var(--surface2-accent)',
+        },
       },
 
       screens: {
@@ -66,4 +68,3 @@ module.exports = {
     }),
   ],
 }
-

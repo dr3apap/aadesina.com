@@ -11,7 +11,7 @@ function DemoCard({ demoCard: { image: imageSrc, imageAlt, description, title, s
                     className="w-full aspect-square"
                 />
             </div>
-            <h3 className="text-fluid-1 px-4 text-text-2-accent tracking-wide">{demoTitle}</h3>
+            <h3 className="text-fluid-1 px-4 text-accent-text-2 tracking-wide">{demoTitle}</h3>
             <details className="demo--accordion px-1 bg-surface-1">
                 {/*accordion */}
                 <summary
@@ -35,13 +35,13 @@ function DemoCard({ demoCard: { image: imageSrc, imageAlt, description, title, s
                 <div className="p-2 absolute top-0 bottom-0 left-0 right-0 bg-surface-2">
                     <div className="px-1 relative bg-surface-alpha">
                         {/*accordion description */}
-                        <h3 className="text-fluid-2 la:text-fluid-1 mb-2 text-text-2-accent tracking-wide">
+                        <h3 className="text-fluid-2 la:text-fluid-1 mb-2 text-accent-text-2 tracking-wide">
                             Description
                         </h3>
                         <ContentBlock type="demo" children={description} />
                     </div>
                     <div className="p-1">
-                        <h3 className="text-fluid-1 p-0 my-2 text-text-2-accent tracking-wide">Skills</h3>
+                        <h3 className="text-fluid-1 p-0 my-2 text-accent-text-2 tracking-wide">Skills</h3>
                         <div className="flex gap-1 flex-wrap">
                             {skills.map((skillIcon, index) => (
                                 <span className="w-8 h-8 grid place-items-center rounded-full bg-surface-3 hover:bg-surface-2">
@@ -73,7 +73,7 @@ function DemoCard({ demoCard: { image: imageSrc, imageAlt, description, title, s
             {/* accordion end */}
             <a
                 href={link}
-                className="block p-4 text-text-accent-2 underline underline-offset-2 decoration-brand decoration-2 cursor-pointer"
+                className="block p-4 text-accent-text-2 underline underline-offset-2 decoration-brand decoration-2 cursor-pointer"
             >
                 {`Try-${demoTitle.trim()}`}
             </a>
