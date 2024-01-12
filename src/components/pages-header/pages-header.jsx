@@ -1,7 +1,7 @@
 import React from 'react';
 function BlogHeader({ bannerDemo, bannerAlt, heroData: { heroImageSrc, heroImageAlt, character } }) {
     return (
-        <header className="max-w-screen-la sm:px-4 mx-auto">
+        <header className="w-content max-w-full mt-8 mx-auto">
             <div className="w-full aspect-[3/1] bg-surface-4">
                 {/* Gets funky here... If there's a demo, do that. Else do an image */}
                 {heroImageSrc && (
