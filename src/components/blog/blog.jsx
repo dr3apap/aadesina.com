@@ -61,7 +61,7 @@ export default function Blog({ postCategories, ...props }) {
                     placeholder="Email Address"
                     aria-label="Email Address"
                 />
-                <button className="font-bold rounded-r-full bg-accent hover:no-underline focus:border-brand focus-visible:border-brand hover:border-brand border-4 text-fluid--1 text-white border-transparent outline-transparent flex gap-x-1 px-3 py-1 " type="submit">Subscribe!</button>
+                <button className="font-bold rounded-r-full bg-accent hover:no-underline focus:border-brand focus-visible:border-brand hover:border-brand border-4 text-fluid--1 text-white border-transparent outline-transparent flex gap-x-1 place-items-center px-3 py-1" type="submit">Subscribe!</button>
             </div>
             <p className="text-fluid--2 text-center text-text-2">No spam! Unsubscribe antyime</p>
 
