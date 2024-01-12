@@ -44,7 +44,7 @@ export default function Blog({ postCategories, ...props }) {
     const mapPost = posts.map((category) => postCategories.data[category])
     return <div className="px-4">
         <form
-            className="border-2 border-dotted border-accent grid justify-center gap-y-4 mb-4 p-2 text-center"
+            className="grid justify-center gap-y-4 mb-4 py-4 px-2 text-center"
             id="subscription"
             action=""
             method="POST"
