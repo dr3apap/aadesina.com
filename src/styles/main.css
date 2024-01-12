@@ -185,7 +185,7 @@
 
   }
 
-  body div:first-of-type {
+  body nav:first-of-type {
     backdrop-filter: blur(8px);
   }
 
@@ -582,4 +582,8 @@
     transform-box: fill-box;
   }
 
+  .visual-t {
+      @apply border-2 border-green-700;
+
+}
 }
