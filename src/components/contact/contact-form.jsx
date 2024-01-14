@@ -1,14 +1,14 @@
 import React from 'react'
 
 export default function Contact() {
-    return (<form id="contact" action="contact-form" className="mt-32 px-4" style={{ '--index': -1 }} data-current="false">
+    return (<form id="contact" action="contact-form" className="grid gap-y-8 px-4 " style={{ '--index': -1 }} data-current="false">
         <label
-            className="block mb-20 pb-4  text-fluid-0 text-accent-text-1"
+            className="block  text-fluid-0 text-accent-text-1"
             htmlFor="full-name"
         >
             Full Name
             <input
-                className="appearance-none w-full h-20 pl-4 border border-solid border-brand rounded"
+                className="appearance-none w-full p-2 pl-4 border border-solid border-brand rounded"
 
                 type="text"
                 name="fullname"
@@ -17,12 +17,12 @@ export default function Contact() {
             />
         </label>
         <label
-            className="block mb-24 pb-4  text-fluid-0 text-accent-text-1"
+            className="block  text-fluid-0 text-accent-text-1"
             htmlFor="contact-email"
         >
             Email
             <input
-                className="w-full h-20 pl-4 border border-solid border-brand rounded"
+                className="w-full p-2 pl-4 border border-solid border-brand rounded"
                 type="text"
                 name="email"
                 id="contact-email"
@@ -30,22 +30,22 @@ export default function Contact() {
             />
         </label>
         <label
-            className="block mb-24 pb-4 text-fluid-0 text-accent-text-1"
+            className="block  text-fluid-0 text-accent-text-1"
             htmlFor="contact-company"
         >
             Company
             <input
-                className="w-full h-20 pl-4 border border-solid border-brand rounded"
+                className="w-full p-2 pl-4 border border-solid border-brand rounded"
                 type="text"
                 name="company"
                 id="contact-company"
             />
         </label>
-        <p className="mb-8 text-fluid-1 pb-4">
-            Please Choose What your Inquiry is About
+        <p className="text-fluid-1 ">
+            Please choose what your inquiry is about
         </p>
         <label
-            className="block mb-24 pb-4 text-fluid-0 text-accent-text-1"
+            className="block  text-fluid-0 text-accent-text-1"
             htmlFor="full-time"
         >
             <input
@@ -57,7 +57,7 @@ export default function Contact() {
             Full time employment
         </label>
         <label
-            className="block mb-24 pb-4  text-fluid-0 text-accent-text-1"
+            className="block  text-fluid-0 text-accent-text-1"
             htmlFor="part-time"
         >
             <input
@@ -69,7 +69,7 @@ export default function Contact() {
             Part time employtment
         </label>
         <label
-            className="block mb-24 pb-4  text-fluid-0 text-accent-text-1"
+            className="block  text-fluid-0 text-accent-text-1"
             htmlFor="contact-contract"
         >
             <input
@@ -81,7 +81,7 @@ export default function Contact() {
             Contract
         </label>
         <label
-            className="block mb-24 pb-4  text-fluid-0 text-accent-text-1"
+            className="block  text-fluid-0 text-accent-text-1"
             htmlFor="contact-other"
         >
             <input
@@ -93,15 +93,15 @@ export default function Contact() {
             Other
         </label>
         <label
-            className="block mb-24 pb-4 text-fluid-0 text-accent-text-1"
+            className="block  text-fluid-0 text-accent-text-1"
             htmlFor="contact-message"
         >
             Message{' '}
             <textarea
-                className="w-full border border-solid border-brand p-3 rounded"
+                className="w-full border border-solid border-brand p-2 rounded"
                 name="message"
                 id="contact-message"
-                cols="30"
+                cols="20"
                 rows="10"
             ></textarea>
         </label>
