@@ -1,8 +1,9 @@
 ;(function (document) {
   const commentResponseCtl = document.querySelectorAll('.comment--ctl')
   const commentForm = document.querySelector('#comments--form-wrapper')
-  const comments = document.querySelector('.comments')
+  const commentsWrapper = document.querySelector('.comments')
   const cancelReplyCtl = document.querySelector('.comments--cancel')
+  const commentsParentNode = commentsWrapper.querySelector('ul')
 
   function handleReply() {
     let click = false
@@ -14,16 +15,15 @@
           click = !click
           cancelReplyCtl.classList.remove('hidden')
         }
-        const removedCommentForm = comments.removeChild(commentForm)
+        const removedCommentForm = commentsWrapper.removeChild(commentForm)
         e.currentTarget
           .closest('.comments--comment')
           .insertAdjacentElement('afterend', removedCommentForm)
         cancelReplyCtl.addEventListener('click', (e) => {
-          const canceledCommentForm =
-            e.currentTarget.parentElement.parentElement.removeChild(
-              removedCommentForm
-            )
-          comments.appendChild(canceledCommentForm)
+          let canceledCommentForm
+          canceledCommentForm =
+            commentsParentNode.removeChild(removedCommentForm)
+          commentsWrapper.appendChild(canceledCommentForm)
           e.currentTarget.classList.add('hidden')
           click = click ? !click : click
         })
@@ -33,4 +33,3 @@
 
   document.addEventListener('DOMContentLoaded', handleReply)
 })(document)
-
