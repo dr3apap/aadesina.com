@@ -15,22 +15,22 @@ function PostComment({ comment, reply }) {
                             }
                             alt={`Avatar of ${!reply ? comment.commenter.name : comment.replier.name}`}
                         />
-                    </div>
 
-                    <div className="">
-                        <h2 className="font-bold text-fluid--1 m-0 mb-[-5px] p-0">
-                            {!reply ? comment.commenter.name : comment.replier.name}
-                        </h2>
-                        <span className="text-fluid--2">
-                            <time dateTime={comment.publishedAt}>
-                                {new Date(comment.publishedAt).toLocaleDateString('en-US', {
-                                    year: 'numeric',
-                                    month: 'short',
-                                    day: 'numeric',
-                                })}
-                            </time>
-                        </span>
-                    </div>
+                    </picture>
+                </a>
+
+                <div className="comments__comment__commenter grid grid-cols-[auto_1fr] gap-x-4">
+                    <h2 className="font-bold text-fluid--1 m-0 mb-[-5px] p-0">
+                        {!reply ? comment.commenter.name : comment.replier.name}
+                    </h2>
+                    <span>•</span>
+                    <time className="text-fluid--2" dateTime={comment.publishedAt}>
+                        {new Date(comment.publishedAt).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                        })}
+                    </time>
                 </div>
                 <div
                     className="grid grid-rows-[1fr_auto] gap-2 bg-accent-surface-1 rounded-md mt-2 p-4 drop-shadow-md"
