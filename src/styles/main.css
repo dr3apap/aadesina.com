@@ -12,7 +12,7 @@
     /*Color Pallete*/
 
     /** Brand hue and Component Decomposition*/
-    --brand: #eb5a00;
+    --brand: #E85D04;
     --brand-hsl: hsl(23 100% 50%);
     --brand-hue: 23;
     --brand-saturation: 100%;
@@ -64,7 +64,7 @@
     --surface1-accent-light: hsl(var(--brand-accent-hue) 25% 90%);
     --surface2-accent-light: hsl(var(--brand-accent-hue) 20% 99%);
     --surface3-accent-light: hsl(var(--brand-accent-hue) 20% 92%);
-    --surface4-accent-light: hsl(var(--brand-accent-hue) 20% 85%);
+    --surface4-accent-light: hsl(var(--brand-accent-hue) 14% 89%);
     --surface-shadow-accent: var(--brand-accent-hue) 10% 20;
     --shadow-strength-accent: 0.02;
 
@@ -73,8 +73,9 @@
     --text2-accent-dark: hsl(var(--brand-accent-hue) 10% 65%);
 
     /* Accent dark surface scheme*/
-    --surface1-accent-dark: hsl(var(--brand-accent-hue) 10% 10%);
+    --surface1-accent-dark: hsl(var(--brand-accent-hue) 15% 10%);
     --surface2-accent-dark: hsl(var(--brand-accent-hue) 10% 15%);
+    --surface3-accent-dark: hsl(var(--brand-accent-hue) 5% 20%);
 
     /* End Color Pallee*/
 
@@ -111,6 +112,7 @@
     --text1-accent: var(--text1-accent-light);
     --surface1-accent: var(--surface1-accent-light);
     --surface2-accent: var(--surface2-accent-light);
+    --surface3-accent:var(--surface3-accent-light);
     --surface1: var(--surface1-light);
     --surface2: var(--surface2-light);
     --surface3: var(--surface3-light);
@@ -130,14 +132,15 @@
     --text2-accent: var(--text2-accent-dark);
     --text1-accent: var(--text1-accent-dark);
     /* Accent surface scheme*/
-    --surface1-accent: var(--surface1-accent-dark);
-    --surface2-accent: var(--surface2-accent-dark);
+    /*--surface1-accent: var(--surface1-accent-dark);
+    --surface2-accent: var(--surface2-accent-dark);*/
     --surface1: var(--surface2-dark);
     --surface2: var(--surface2-dark);
     --surface3: var(--surface3-dark);
     --surface4: var(--surface4-dark);
     --surface1-accent: var(--surface1-accent-dark);
     --surface2-accent: var(--surface2-accent-dark);
+    --surface3-accent: var(--surface3-accent-dark);
     --surface-alpha: hsl(var(--surface1-dark) 14% 10% / 65%);
     --surface-shadow: var(--surface-shadow-dark);
     --shadow-strength: var(--shadow-strength-dark);
@@ -155,7 +158,6 @@
   }
   body {
     min-height: 100vh;
-    overflow-x: hidden;
   }
 
   hr {
@@ -173,6 +175,7 @@
       /* Accent surface scheme*/
       --surface1-accent: var(--surface1-accent-dark);
       --surface2-accent: var(--surface2-accent-dark);
+      --surface3-accent:var(--surface3-accent-dark);
       --surface1: var(--surface1-dark);
       --surface2: var(--surface2-dark);
       --surface3: var(--surface3-dark);
@@ -516,7 +519,7 @@
     }
   }
 
-  .demos-slider--ctl {
+  .demos-carousel--slider__cta {
     width: 2.5rem;
     height: 2.5rem;
     top: 50%;
@@ -529,11 +532,20 @@
     color: var(--brand);
   }
 
-  .demos-slider--card {
-    flex-basis:45%;
-    /*flex-grow:1;*/
 
-    @apply grid bg-accent-surface-1 gap-y-4 drop-shadow-md mb-4 relative items-start;
+
+  .demos-carousel--slider{
+      display:flex;
+      border:2px solid green;
+      transition:transform 0.5s;
+  }
+
+
+    .demos-carousel--slider__card {
+    flex-basis:65%;
+    flex-grow:1;
+
+    @apply grid gap-y-4 drop-shadow-md shrink-0 pr-4 relative;
 
   }
 

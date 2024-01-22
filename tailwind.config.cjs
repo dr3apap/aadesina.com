@@ -38,6 +38,7 @@ module.exports = {
           'text-2': 'var(--text2-accent)',
           'surface-1': 'var(--surface1-accent)',
           'surface-2': 'var(--surface2-accent)',
+          'surface-3': 'var(--surface3-accent)',
         },
       },
 
