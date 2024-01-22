@@ -1,13 +1,16 @@
 import React from 'react'
-function Footer({ items }) {
+function Footer({ items, currentPage, post }) {
     return (
         <footer className="mv-0 mx-auto max-w-screen-md py-8 text-text-2">
             <div className="text-fluid--2 grid place-items-center gap-y-2">
                 {' '}
                 {/* Footer items wrapper*/}
-                <ul className="flex gap-x-2 self-start">
-                    {items.filter((item) => item.tabLabel != "Contact").map(({ active, link, tabLabel }) => { return <li className="font-bold text-center hover:bg-surface-3" key={tabLabel}><a data-tab-current={active} className={"font-bold grid place-items-center w-full h-full text-accent-text-2 block hover:no-underline focus-visible:outline-0 focus-visible:bg-accent-surface-2"} href={tabLabel == 'Demos' || tabLabel == 'About' ? `/#${tabLabel.toLowerCase()}` : tabLabel == 'Home' ? '/' : `/${tabLabel.toLowerCase()}`}><span className={`${active ? "border-b-brand text-text-1" : ""}decoration-4 decoration-brand p-2 px-4 border-y-4 border-transparent`}>{tabLabel}</span></a></li> })}</ul>
-
+                {!post && (<ul className="flex gap-x-2 self-start">
+                    {items.reduce((acc, { active, link, tabLabel }) => {
+                        tabLabel == 'Home' ? acc.push(...['Home', 'About', 'Demos'].map((item) =>
+                            <li className="text-left hover:bg-surface-3 flex-grow" key={item}><a data-tab-current={item == 'Home' && active} className={"font-bold grid place-items-center w-full h-full text-accent-text-2 hover:no-underline focus-visible:outline-0 focus-visible:bg-surface-2"} href={item == 'Home' ? '/' : `/#${item.toLowerCase()}`}><span className={`${active && item == 'Home' ? "border-b-brand text-text-1" : ""}decoration-4 decoration-brand p-2 px-2 border-y-4 border-transparent`}>{item}</span></a></li>)) : acc.push(<li className={`text-left hover:bg-surface-3 flex-grow ${currentPage == 'Home' && tabLabel == 'Contact' && 'hidden'}`} key={tabLabel}><a data-tab-current={active} className={"font-bold grid place-items-center w-full h-full text-accent-text-2 hover:no-underline focus-visible:outline-0 focus-visible:bg-surface-2"} href={`/${tabLabel.toLowerCase()}`}><span className={`${active ? "border-b-brand text-text-1" : ""}decoration - 4 decoration- brand p-2 px-2 border-y-4 border-transparent`}>{tabLabel}</span></a></li>)
+                        return acc
+                    }, [])}</ul>)}
                 <div className="flex gap-x-4 flex-wrap justify-center">
                     <a
                         className="text-text-2 w-10 h-10 grid place-items-center rounded-md hover:bg-surface-3"
