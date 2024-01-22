@@ -15,10 +15,10 @@
   let currentState = diff
 
   // Elements listening for Events;
-  const demosCtl = document.querySelectorAll('.demos-slider--ctl')
-  const demoSlider = document.querySelector('.demos-slider')
-  const demosCard = document.querySelectorAll('.demos-slider--card')
-  const demosWrapper = document.querySelector('.demos-wrapper')
+  const demosCtl = document.querySelectorAll('.demos-carousel--slider__cta')
+  const demoSlider = document.querySelector('.demos-carousel--slider')
+  const demosCard = document.querySelectorAll('.demos-carousel--slider__card')
+  const demosWrapper = document.querySelector('.demos-carousel')
   const demosAccordionCtl = document.querySelectorAll('.demo--accordion__ctl')
   const demosAccordion = document.querySelectorAll('.demo--accordion')
 
@@ -31,79 +31,109 @@
     })
   }
 
+  // Sliding button for tablet/desktop
   function carouselWithButton() {
     const steps = Math.round(sliderWidth / defaultWidth)
     let currentState = 0
-    demosCtl[1].addEventListener('click', () => {
-      currentState += 1
-      addCtl(0)
-      demoSlider.style.transform = `translateX(-${
-        ((sliderWidth - defaultWidth) / steps) * currentState
-      }px)`
-      if (currentState == steps) {
-        demosCtl[1].classList.add('hidden')
-        return
-      }
-    })
-    demosCtl[0].addEventListener('click', () => {
-      currentState -= 1
-      demoSlider.style.transform = `translateX(-${
-        ((sliderWidth - defaultWidth) / steps) * currentState
-      }px)`
-      addCtl(1)
-      if (currentState < 1) {
-        demosCtl[0].classList.add('hidden')
-      }
-    })
+    addCtl('left', 'add')
+    addCtl('right', 'hide')
+    demosCtl.forEach((demo) => {
+      demo.addEventListener('click', (e) => {
+        if (steps > currentState && currentState == 0) {
+          currentState += 1
+          demoSlider.style.transform = `translateX(-${
+            ((sliderWidth - defaultWidth) / steps) * currentState
+          }px)`
+          addCtl('right', 'add')
+          if (currentState == steps) addCtl('left', 'hide')
+          return
+        }
+        //addCtl(0)
 
-    function addCtl(indx) {
-      if (demosCtl[indx].classList.contains('hidden')) {
-        demosCtl[indx].classList.remove('hidden')
+        if (currentState == steps && currentState > 0) {
+          currentState -= 1
+          demoSlider.style.transform = `translateX(${
+            ((sliderWidth - defaultWidth) / steps) * currentState
+          }px)`
+          addCtl('left', 'add')
+          if (currentState == 0) addCtl('right', 'hide')
+          return
+        }
+      })
+    })
+  }
+  function addCtl(ctlPosition, action) {
+    if (ctlPosition == 'right') {
+      if (action == 'hide') {
+        demosCtl[1].classList.add('hidden')
+      } else {
+        demosCtl[1].classList.remove('hidden')
+      }
+    }
+    if (ctlPosition == 'left') {
+      if (action == 'hide') {
+        demosCtl[0].classList.add('hidden')
+      } else {
+        demosCtl[0].classList.remove('hidden')
       }
     }
   }
 
   function gestureStart(evt) {
-    evt.preventDefault()
-    if (evt.touches && evt.touches.length > 1) return // more than one touhes let touch move handle that
-    if (window.PointerEvent) {
-      evt.target.setPointerCapture(evt.pointerId)
-    }
+    //evt.preventDefault()
+    //if (evt.touches && evt.touches.length > 1) return // more than one touhes let touch move handle that
+
+    //parseInt(
+    //.split(',')[4]
+    //.trim()
+    //)
+    // console.log(
+    //   `The current transition value is: ${window
+    //     .getComputedStyle(demoSlider)
+    //     .getPropertyValue('transform')} and currentState is:${currentState}`
+    // )
+
+    currentState =
+      window.getComputedStyle(demoSlider).getPropertyValue('transform') !=
+      'none'
+        ? window
+            .getComputedStyle(demoSlider)
+            .getPropertyValue('transform')
+            .split(',')[4]
+            .trim()
+        : 0
+
+    //if (window.PointerEvent) {
+    //  evt.target.setPointerCapture(evt.pointerId)
+    //}
 
     initialTouchPos = getGesturePointFromEvt(evt)
+    rafPending = !rafPending
   }
 
   function gestureMove(evt) {
-    if (!initialTouchPos) return
+    if (!initialTouchPos && !rafPending) return
     lastTouchPos = getGesturePointFromEvt(evt)
-    if (rafPending) return
-    rafPending = true
-    console.log(
-      `The current transition value is: ${window
-        .getComputedStyle(demoSlider)
-        .getPropertyValue('transform')} and currentState is:${currentState}`
-    )
-    window.requestAnimationFrame(nextState)
+    nextState()
   }
 
   function addListeners() {
     if (window.PointerEvent) {
       // POinter Event is catch all (mouse, touch, stylus, ...) so we choose it
       // Add pointer event on all the element we want to listen for
-      demosCard.forEach((el) => {
-        el.addEventListener('pointerdown', gestureStart)
-        el.addEventListener('pointermove', gestureMove)
-        el.addEventListener('pointerup', gestureEnd)
-      })
+      //demosCard.forEach((el) => {
+      demoSlider.addEventListener('pointerdown', gestureStart)
+      demoSlider.addEventListener('pointermove', gestureMove)
+      demoSlider.addEventListener('pointerup', gestureEnd)
+      //})
     } else if (window.TouchEvent) {
       // Just do touch;
-      demosCard.forEach((el) => {
-        el.addEventListener('touchstart', gestureStart)
-        el.addEventListener('touchmove', gestureMove)
-        el.addEventListener('touchend', gestureEnd)
-      })
+      //demosCard.forEach((el) => {
+      demoSlider.addEventListener('touchstart', gestureStart)
+      demoSlider.addEventListener('touchmove', gestureMove)
+      demoSlider.addEventListener('touchend', gestureEnd)
+      // })
     }
-    carouselWithButton()
     demosAccordion.forEach((accordionCtl) => {
       accordionCtl.addEventListener('click', closeAccordion)
     })
@@ -117,71 +147,73 @@
       initialTouchPos = null
       rafPending = false
     }
+
+    initialTouchPos = null
+    rafPending = false
   }
 
   function getGesturePointFromEvt(evt) {
     if (evt.touches) {
       const { touches } = evt.targetTouches
       return {
-        x: touches[0].clientX,
-        y: touches[0].clientY,
+        x: touches[0].pageX,
+        y: touches[0].pageY,
       }
     } else {
       return {
-        x: evt.clientX,
-        y: evt.clientY,
+        x: evt.pageX,
+        y: evt.pageY,
       }
     }
   }
 
   function dispatchAction() {
     diff = lastTouchPos.x - initialTouchPos.x
+    console.log('Diff: ', diff)
     if (diff < 0) {
       return {
         action: actions.left,
+        diff,
       }
     }
     if (diff > 0) {
       return {
         action: actions.right,
+        diff,
       }
     }
     return { action: '' }
   }
-
   function nextState() {
-    if (!rafPending) return
     var transformStyle
-    const { action } = dispatchAction()
+    const { action, diff } = dispatchAction()
+    currentState != 0 && (currentState = parseInt(currentState))
+    console.log('Inside nextState:', currentState + diff, sliderWidth)
     switch (action) {
       case 'LEFT_SIDE':
-        diff = lastTouchPos.x - initialTouchPos.x
-        if (Math.abs(currentState + diff) >= sliderWidth - defaultWidth) return
-        currentState += diff
-        transformStyle = `translateX(-${currentState}px)`
-        demoSlider.style.webkitTransform = transformStyle
-        demoSlider.style.MozTransform = transformStyle
-        demoSlider.style.msTransform = transformStyle
-        demoSlider.style.transform = transformStyle
-        rafPending = false
-      case 'RIGHT_SIDE':
-        diff = lastTouchPos.x - initialTouchPos.x
-        if (currentState + diff > 0) return
-        currentState += diff
+        if (Math.abs((currentState += diff)) >= sliderWidth - defaultWidth)
+          return
+        //currentState += diff
         transformStyle = `translateX(${currentState}px)`
         demoSlider.style.webkitTransform = transformStyle
         demoSlider.style.MozTransform = transformStyle
         demoSlider.style.msTransform = transformStyle
         demoSlider.style.transform = transformStyle
-        rafPending = false
-      default:
-        rafPending = false
+      case 'RIGHT_SIDE':
+        if ((currentState += diff) >= 0) return
+        //currentState += diff
+        transformStyle = `translateX(${currentState}px)`
+        demoSlider.style.webkitTransform = transformStyle
+        demoSlider.style.MozTransform = transformStyle
+        demoSlider.style.msTransform = transformStyle
+        demoSlider.style.transform = transformStyle
     }
   }
 
   function init() {
     defaultWidth = demosWrapper.clientWidth
-    sliderWidth = demoSlider.clientWidth
+    sliderWidth = demosCard.length * demosCard[0].clientWidth
+    if (sliderWidth > defaultWidth) carouselWithButton()
     addListeners()
   }
 

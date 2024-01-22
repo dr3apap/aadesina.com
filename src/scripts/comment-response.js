@@ -3,7 +3,7 @@
   const commentForm = document.querySelector('#comments--form-wrapper')
   const commentsWrapper = document.querySelector('.comments')
   const cancelReplyCtl = document.querySelector('.comments--cancel')
-  const commentsParentNode = commentsWrapper.querySelector('ul')
+  const commentsParentNode = commentsWrapper.querySelector('ul > ul')
 
   function handleReply() {
     let click = false
