@@ -6,8 +6,8 @@ function PostComment({ comment, reply }) {
             <li className={`comments--comment ${comment.mainComment ? 'ml-14' : ''
                 }`}
             >
-                <div className="comments__comment__commenter grid grid-cols-[auto_1fr] gap-x-4">
-                    <div className="">
+                <a className="w-11">
+                    <picture>
                         <img
                             className="w-11 h-11 rounded-full text-text-1 text-fluid--2"
                             src={
