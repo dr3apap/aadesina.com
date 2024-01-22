@@ -11,30 +11,24 @@ export interface BaseHeadProps {
 	ogHue:string;
 	description:string;
 	title:string;
+
 }
 
-const { ogTitle, ogGradient, ogHue, landingPage, contact} = Astro.props;
+const { ogTitle, ogGradient, ogHue, post } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
 let params = ``;
 if(ogGradient) params+=`&gradient=${ogGradient}`;
 if(ogHue) params+=`&hue=${ogHue}`;
 
 let ogImageSrc = `https://aadesina.netlify.app/og?title=${encodeURIComponent(ogTitle)}${params}`
-
 const title = `${Astro.props.title || "Hey! I'm Adebola Adesina"} - aadesina.com`;
 const description = Astro.props.description || "A passionate developer making awesome things";
 const openGraphTitle = ogTitle || Astro.props.title || "A post from Adebola";
 
 // For local testing of the edge function
-//  const ogImageSrc = `http://localhost:8888/og`
+//  const ogImageSrc = 
 
-const landingPageLinks = [
-{link:'/Demos', tabLabel:'Demos', active:false,}, 
-{link:'/About', tabLabel:'About', active:false,},
-
-]
-const navItems = [...getRoutes('home'), ...landingPageLinks]
+const navItems = getRoutes('home')
 ---
 <!DOCTYPE html>
 <html lang="en-us" data-theme="system">
