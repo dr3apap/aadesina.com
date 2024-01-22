@@ -59,7 +59,7 @@ export const ALL_POSTS = `
 export const ALL_POST_DATA: Query = `
 *[_type =="post"]{
   title, slug, body, publishedAt, category->{name},
-  tags[]->{title},
+  tags[]->{title}, og{...},
  "numOfComment":count(comments[]), 
  comments[]->{"commentBody":body, publishedAt, "id":_id, 
  commenter->{"commenterAvatar":image, name}, 
