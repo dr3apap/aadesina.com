@@ -1,8 +1,8 @@
 
 import React from 'react'
 import slugify from 'slugify'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import nightOwl from 'react-syntax-highlighter/dist/cjs/styles/prism/night-owl'
+import SyntaxHighlighter from 'react-syntax-highlighter'
+//import nightOwl from 'react-syntax-highlighter/dist/cjs/styles/{hlsj|prism}/night-owl'
 
 const headingBold = ({ node, ...props }) => {
     return React.createElement(node.tagName, {
@@ -244,7 +244,6 @@ const defaultComponents = {
         return !inline && match ? (
             <SyntaxHighlighter
                 children={String(children).replace(/\n$/, '')}
-                style={nightOwl}
                 language={match[1]}
                 useInlineStyles={false}
                 PreTag={({ children }) => <>{children}</>}
