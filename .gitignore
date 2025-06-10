@@ -19,3 +19,4 @@ read.js
 .DS_Store
 # Local Netlify folder
 .netlify
+.astro
